@@ -5,7 +5,7 @@
         width: 300px;
         height: 450px;
         background-color: #000;
-        border-radius: 2em;
+        border-radius: 1.5em;
         box-shadow: rgba(0, 0, 0, 0.677) 5px 5px 10px 5px;
 
         &:hover {
@@ -22,19 +22,27 @@
     }
 
     &__info {
-        padding: 0.3em 1em;
+        padding: 0.3em 1em 2em;
         position: absolute;
-        top: 370px;
+        top: calc(100% - 5rem);
         right: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(204, 204, 204, 0.873);
+
         transition: all 0.3s ease-out;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
 
         &--container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            overflow: hidden;
+            min-width: 0;
         }
     }
 
@@ -42,6 +50,13 @@
         margin: 0;
         font-size: 1.6rem;
         color: #bf254b;
+        min-height: 0;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__price {
@@ -50,7 +65,15 @@
     }
 
     &__desc {
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+        line-height: 2.3rem;
+        text-align: justify;
+        min-height: 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__control {
