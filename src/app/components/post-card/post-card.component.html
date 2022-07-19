@@ -1,1 +1,14 @@
-<p>post-card works!</p>
+<div class="card__container">
+    <img class="card__img" [src]="poster" />
+    <div class="card__info">
+        <div class="card__info--container">
+            <p class="card__title">{{ title }}</p>
+            <p class="card__price">${{ price }}</p>
+            <p class="card__desc">{{ description }}</p>
+        </div>
+        <div class="card__control">
+            <button class="btn"></button>
+            <button class="btn"></button>
+        </div>
+    </div>
+</div>
