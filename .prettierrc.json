@@ -9,26 +9,19 @@
     "endOfLine": "auto",
     "overrides": [
         {
-            "files": [
-                "*.html"
-            ],
+            "files": ["*.html"],
             "options": {
                 "parser": "html"
             }
         },
         {
-            "files": [
-                "*.component.html"
-            ],
+            "files": ["*.component.html"],
             "options": {
                 "parser": "angular"
             }
         },
         {
-            "files": [
-                "*.css",
-                "*.scss"
-            ],
+            "files": ["*.css", "*.scss"],
             "options": {
                 "singleQuote": false
             }

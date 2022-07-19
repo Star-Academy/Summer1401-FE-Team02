@@ -6,7 +6,7 @@ import {Component, Input} from '@angular/core';
     styleUrls: ['./post-card.component.scss'],
 })
 export class PostCardComponent {
-    @Input() public poster: string = 'assets/minecraft.jpg';
+    @Input() public poster: string = 'assets/images/minecraft.jpg';
     @Input() public title: string = 'ماینکرفت';
     @Input() public price: number = 90000;
     @Input() public description: string =
