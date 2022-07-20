@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {games} from 'docs/app/models/Games';
-import {Game} from 'docs/app/interfaces/Game.interface';
+import {games} from 'src/app/models/Games';
+import {Game} from 'src/app/interfaces/Game.interface';
 
 @Component({
     selector: 'app-landing-page',
