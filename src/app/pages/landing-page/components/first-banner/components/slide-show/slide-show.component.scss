@@ -1,21 +1,25 @@
 .slideshow {
   position: relative;
-  height: inherit;
+  height: 500px;
   ol {
     overflow: hidden;
+    margin: 0;
+    padding: 0;
 
     display: flex;
+    flex-direction: row;
     li {
-      width: 80%;
-      height: inherit;
+      width: 100%;
+      height: 500px;
       flex: 0 0 100%;
       justify-content: center;
+      list-style: none;
       transform: translateX(calc(var(--active-index) * 100%));
 
       transition: transform 0.8s ease-in-out;
 
       img {
-        width: 80%;
+        width: 100%;
         height: inherit;
         object-fit: cover;
         border-radius: 1.5em;
@@ -44,10 +48,10 @@
     font-weight: bold;
     text-shadow: -1px 1px #322c2c;
     -webkit-text-stroke: 0.1px #322c2c;
-    text-justify:inter-word;
+    text-justify: inter-word;
   }
 
-  .free-play-btn{
+  .free-play-btn {
     height: 7vh;
   }
 
@@ -56,5 +60,4 @@
       opacity: 1;
     }
   }
-
 }
