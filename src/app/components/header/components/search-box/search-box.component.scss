@@ -4,17 +4,17 @@
     justify-content: flex-start;
     gap: 0.5em;
 
-    border-radius: 7px;
+    border-radius: 0.5em;
     padding: 0.1em 0.5em;
-    background-color: #464646;
+    background-color:  	hsl(0, 0%, 27%);
 
     &__input {
         outline: none;
         border: none;
         font-size: 1.1em;
         background: none;
-        color: #fff;
+        color: white;
         width: 40vw;
-        min-width: 270px;
+        min-width: 16.875em;
     }
 }

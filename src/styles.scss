@@ -1,4 +1,4 @@
-$main-theme: #bf254b;
+$main-theme: hsl(345, 68%, 45%);
 *,
 *::after,
 *::before {
@@ -12,8 +12,8 @@ $main-theme: #bf254b;
 body {
     margin: 0;
     font-family: Vazirmatn, sans-serif;
-    background-color: #322c2c;
-    color: #fff;
+    background-color: hsl(0, 6%, 18%);
+    color: white;
 }
 
 input {
@@ -22,13 +22,16 @@ input {
 
 .btn {
     font-size: 1.5rem;
-    padding: 5px 10px;
+    padding: 0.5em;
+    vertical-align: middle;
+    line-height: 1.5;
     outline: none;
-    border: 2px solid $main-theme;
-    border-radius: 5px;
+    border: 0.1em solid $main-theme;
+    border-radius: 0.5em;
     background: rgb(231, 231, 231);
     color: $main-theme;
     cursor: pointer;
+    text-align: center;
 
     &:hover {
         background-color: $main-theme;
