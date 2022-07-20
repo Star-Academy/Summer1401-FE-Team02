@@ -1,5 +1,5 @@
 .header {
-    background-color: black;
+    background-color: hsl(0, 0%, 0%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,7 +37,7 @@
             a {
                 font-size: 2rem;
                 text-decoration: none;
-                color: white;
+                color: hsl(0, 0%, 100%);
                 transition: color 0.2s ease-in-out;
                 &:hover {
                     color: var(--main-theme);
