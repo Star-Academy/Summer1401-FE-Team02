@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    background-color: #000;
+    background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,10 +38,10 @@
             a {
                 font-size: 1.2em;
                 text-decoration: none;
-                color: #fff;
+                color: white;
                 transition: color 0.2s ease-in-out;
                 &:hover {
-                    color: #bf254b;
+                    color: hsl(345, 68%, 45%);
                 }
             }
         }
@@ -52,7 +52,7 @@
         transition: color 0.2s ease-in-out;
 
         &:hover {
-            color: #bf254b;
+            color:  hsl(345, 68%, 45%);
         }
     }
 }

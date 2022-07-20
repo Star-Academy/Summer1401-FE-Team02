@@ -3,7 +3,7 @@ $spacing: 4rem;
 .home {
   &__main {
     width: 100%;
-    padding: 2em 1.5em;
+    padding: 2em 3em;
   }
 
   &__section {
@@ -15,12 +15,16 @@ $spacing: 4rem;
         position: absolute;
         width: 8em;
         height: 0.2em;
-        background-color: #bf254b;
+        background-color: hsl(345, 68%, 45%);
         top: 100%;
         right: 0;
       }
     }
   }
+}
+
+.larger{
+  font-size: xx-large;
 }
 .content-wrapper {
   display: flex;
