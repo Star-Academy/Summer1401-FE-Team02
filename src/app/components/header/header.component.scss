@@ -1,12 +1,11 @@
-$red-theme: hsl(345, 68%, 45%);
 .header {
     width: 100%;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.5em 2em;
-    font-size: 1.1em;
+    padding: 1em 3em;
+    font-size: 1.7rem;
 
     &__nav {
         width: 100%;
@@ -30,30 +29,30 @@ $red-theme: hsl(345, 68%, 45%);
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
-            gap: 1.5em;
+            gap: 1.5rem;
 
             li {
                 list-style-type: none;
             }
 
             a {
-                font-size: 1.2em;
+                font-size: 2rem;
                 text-decoration: none;
                 color: white;
                 transition: color 0.2s ease-in-out;
                 &:hover {
-                    color: $red-theme;
+                    color: var(--main-theme);
                 }
             }
         }
     }
 
     &__cart {
-        font-size: 1.2em;
+        font-size: 2rem;
         transition: color 0.2s ease-in-out;
 
         &:hover {
-            color: $red-theme;
+            color: var(--main-theme);
         }
     }
 }

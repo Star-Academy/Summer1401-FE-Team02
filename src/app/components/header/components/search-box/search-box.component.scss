@@ -2,11 +2,11 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 0.5em;
+    gap: 1rem;
 
     border-radius: 0.5em;
-    padding: 0.1em 0.5em;
-    background-color:  	hsl(0, 0%, 27%);
+    padding: 0.5rem 1rem;
+    background-color: hsl(0, 0%, 27%);
 
     &__input {
         outline: none;
@@ -15,6 +15,6 @@
         background: none;
         color: white;
         width: 40vw;
-        min-width: 16.875em;
+        min-width: 20rem;
     }
 }
