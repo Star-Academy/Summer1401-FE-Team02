@@ -6,11 +6,11 @@
         <li *ngFor="let banner of banners; index as index" [class.active]="index === activeIndex">
             <img [src]="banner['Image-address']" [alt]=banner.alt/>
             <div class="overlay">
-                <div>
+                <div class="banner-description">
                     {{banner.description}}
                 </div>
-                <button>
-                    free-play
+                <button class="btn btn--fill free-play-btn">
+                    امروز رایگان بازی کنید!
                 </button>
             </div>
         </li>

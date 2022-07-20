@@ -28,7 +28,7 @@ $spacing: 4rem;
   align-items: center;
   justify-content: flex-start;
   gap: $spacing;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   overflow: auto;
 
   padding: 1em 1.5em;

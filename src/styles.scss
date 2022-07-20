@@ -1,9 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
 $main-theme: #bf254b;
 *,
 *::after,
 *::before {
     box-sizing: border-box;
+}
+
+*{
+    font-family: Vazirmatn, sans-serif;
 }
 
 body {
@@ -14,7 +17,7 @@ body {
 }
 
 input {
-    font-family: "vazirmatn", monospace, serif;
+    font-family: Vazirmatn, monospace, serif;
 }
 
 .btn {
