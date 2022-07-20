@@ -5,6 +5,4 @@ import {Component} from '@angular/core';
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent {
-    public gitLink: string = 'https://github.com/Star-Academy/Summer1401-FE-Team02';
-}
+export class FooterComponent {}
