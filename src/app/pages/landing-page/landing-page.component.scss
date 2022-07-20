@@ -3,6 +3,23 @@ $spacing: 4rem;
 .home {
   &__main {
     width: 100%;
+    padding: 2em 1.5em;
+  }
+
+  &__section {
+    width: 100%;
+    &--header {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 8em;
+        height: 0.2em;
+        background-color: #bf254b;
+        top: 100%;
+        right: 0;
+      }
+    }
   }
 }
 .content-wrapper {
