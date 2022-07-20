@@ -1,3 +1,4 @@
+$red-theme: hsl(345, 68%, 45%);
 .header {
     width: 100%;
     background-color: black;
@@ -41,7 +42,7 @@
                 color: white;
                 transition: color 0.2s ease-in-out;
                 &:hover {
-                    color: hsl(345, 68%, 45%);
+                    color: $red-theme;
                 }
             }
         }
@@ -52,7 +53,7 @@
         transition: color 0.2s ease-in-out;
 
         &:hover {
-            color:  hsl(345, 68%, 45%);
+            color: $red-theme;
         }
     }
 }
