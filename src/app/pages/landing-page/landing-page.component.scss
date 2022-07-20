@@ -1,5 +1,10 @@
 $spacing: 4rem;
 
+.home {
+  &__main {
+    width: 100%;
+  }
+}
 .content-wrapper {
   display: flex;
   flex-direction: row;
