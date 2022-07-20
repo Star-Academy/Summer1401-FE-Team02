@@ -7,8 +7,14 @@ $main-theme: #bf254b;
 }
 
 body {
+    margin: 0;
     font-family: Vazirmatn, sans-serif;
     background-color: #322c2c;
+    color: #fff;
+}
+
+input {
+    font-family: "vazirmatn", monospace, serif;
 }
 
 .btn {
