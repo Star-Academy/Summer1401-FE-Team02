@@ -6,10 +6,12 @@ import {PostCardComponent} from "../../components/post-card/post-card.component"
 import {HeaderModule} from "../../components/header/header.module";
 import {FooterModule} from "../../components/footer/footer.module";
 import { FirstBannerComponent } from './components/first-banner/first-banner.component';
+import { SlideShowComponent } from './components/first-banner/components/slide-show/slide-show.component';
+import { BannerGameTileComponent } from './components/first-banner/components/banner-game-tile/banner-game-tile.component';
 
 @NgModule({
     declarations: [
-        LandingPageComponent, PostCardComponent, FirstBannerComponent
+        LandingPageComponent, PostCardComponent, FirstBannerComponent, SlideShowComponent, BannerGameTileComponent
     ],
     imports: [CommonModule, RouterModule, HeaderModule, FooterModule],
 })
