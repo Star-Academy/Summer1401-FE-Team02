@@ -1,18 +1,14 @@
 <app-header></app-header>
+
 <main class="home__main">
     <section class="home__section">
         <h2 class="home__section--header larger">بازی به شرط بازی!</h2>
         <app-first-banner></app-first-banner>
         <h2 class="home__section--header">پرفروش‌ترین‌ها</h2>
         <div class="content-wrapper">
-            <app-post-card
-                *ngFor="let game of games"
-                [title]="game.title"
-                [description]="game.description"
-                [price]="game.price"
-                [poster]="game.poster"
-            ></app-post-card>
+            <app-post-card *ngFor="let game of games" [game]="game"></app-post-card>
         </div>
     </section>
 </main>
+
 <app-footer></app-footer>

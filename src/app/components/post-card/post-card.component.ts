@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Game} from 'src/app/interfaces/Game.interface';
 
 @Component({
     selector: 'app-post-card',
@@ -6,10 +7,5 @@ import {Component, Input} from '@angular/core';
     styleUrls: ['./post-card.component.scss'],
 })
 export class PostCardComponent {
-    @Input() public poster: string = 'assets/images/posters/minecraft.jpg';
-    @Input() public title: string = 'minecraft';
-    @Input() public price: number = 90000;
-    @Input() public description: string =
-        'در دنیای ماینکرفت با هیولاها مبارزه کنید و مسیر خود را در دنیای الهام گرفته شده از بازی کلاسیک dungeon crawlers به سوی موفقیت بیابید.';
-    @Input() public link: string = '#';
+    @Input() public game!: Game;
 }

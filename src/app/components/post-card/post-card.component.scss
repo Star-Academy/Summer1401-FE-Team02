@@ -1,17 +1,15 @@
 .card {
-    &__container {
-        position: relative;
-        overflow: hidden;
-        width: 17.5em;
-        height: 25em;
-        background-color: black;
-        border-radius: 1em;
-        box-shadow: rgba(0, 0, 0, 0.677) 0.3125em 0.3125em 0.625em 0.3125em;
+    position: relative;
+    overflow: hidden;
+    width: 17.5em;
+    height: 25em;
+    background-color: black;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.677) 0.3125em 0.3125em 0.625em 0.3125em;
 
-        &:hover {
-            .card__info {
-                top: 0;
-            }
+    &:hover {
+        .card__info {
+            top: 0;
         }
     }
 
