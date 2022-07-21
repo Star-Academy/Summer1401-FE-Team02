@@ -1,15 +1,15 @@
 .card {
     position: relative;
     overflow: hidden;
-    width: 17.5em;
-    height: 25em;
-    background-color: black;
-    border-radius: 1em;
-    box-shadow: rgba(0, 0, 0, 0.677) 0.3125em 0.3125em 0.625em 0.3125em;
+    width: 30rem;
+    height: 40rem;
+    background-color: hsl(0, 0%, 0%);
+    border-radius: 10px;
+    box-shadow: hsla(0, 0%, 0%, 0.677) 0 0 10px 5px;
 
     &:hover {
         .card__info {
-            top: 0;
+            transform: translateY(-80%);
         }
     }
 
@@ -22,13 +22,12 @@
     &__info {
         padding: 0.3em 1em 1em;
         position: absolute;
-        top: calc(100% - 5rem);
-        right: 0;
+        inset-block-start: 80%;
         width: 100%;
         height: 100%;
-        background-color: rgba(204, 204, 204, 0.873);
+        background-color: hsla(0, 0%, 80%, 0.873);
 
-        transition: all 0.3s ease-out;
+        transition: transform 0.3s ease-out;
 
         display: flex;
         flex-direction: column;
@@ -39,6 +38,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            justify-content: flex-start;
             overflow: hidden;
             min-width: 0;
         }
@@ -46,9 +46,10 @@
 
     &__title {
         direction: ltr;
+        align-self: flex-end;
         margin: 0;
-        font-size: 1.6rem;
-        color: hsl(345, 68%, 45%);
+        font-size: 2.5rem;
+        color: var(--main-theme);
         min-height: 0;
         display: -webkit-box;
         overflow: hidden;
@@ -59,13 +60,13 @@
 
     &__price {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 2.3rem;
         color: black;
     }
 
     &__desc {
-        font-size: 1.3rem;
-        line-height: 2.3rem;
+        font-size: 2.3rem;
+        line-height: 3.5rem;
         text-align: justify;
         min-height: 0;
         display: -webkit-box;
