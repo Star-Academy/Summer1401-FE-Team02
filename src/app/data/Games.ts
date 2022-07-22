@@ -1,6 +1,6 @@
 import {Game} from '../interfaces/Game.interface';
 
-export const games: Game[] = [
+export const GAMES: Game[] = [
     {
         title: "Wonder boy: The dragon's trap",
         description:
