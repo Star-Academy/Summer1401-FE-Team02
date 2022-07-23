@@ -1,5 +1,3 @@
-$spacing: 4rem;
-
 .home {
   &__main {
     width: 100%;
@@ -8,14 +6,16 @@ $spacing: 4rem;
 
   &__section {
     width: 100%;
-    &--header {
+    &--title {
       position: relative;
+      font-size: 3rem;
       &::after {
         content: "";
         position: absolute;
         width: 8em;
-        height: 0.2em;
-        background-color: hsl(345, 68%, 45%);
+        height: 0.7rem;
+        border-radius: 2px;
+        background-color: var(--main-theme);
         top: 100%;
         right: 0;
       }
@@ -23,15 +23,15 @@ $spacing: 4rem;
   }
 }
 
-.larger{
-  font-size: xx-large;
+.larger {
+  font-size: 4rem;
 }
 .content-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  gap: $spacing;
+  gap: 4rem;
   flex-wrap: nowrap;
   overflow: auto;
 

@@ -13,44 +13,43 @@ html {
 }
 
 * {
-    font-family: Vazirmatn, sans-serif;
+    font-family: Vazirmatn, monospace, sans-serif;
 }
 
 body {
     margin: 0;
-    font-family: Vazirmatn, sans-serif;
     background-color: hsl(0, 6%, 18%);
-    color: white;
-}
-
-input {
-    font-family: Vazirmatn, monospace, serif;
+    color: hsl(0, 0%, 100%);
 }
 
 .btn {
-    font-size: 1.5rem;
-    padding: 0.5em;
+    font-size: 2.5rem;
+    padding: 1rem 1.3rem;
     vertical-align: middle;
     line-height: 1.5;
     outline: none;
-    border: 0.1em solid --main-theme;
+    border: 0.2rem solid var(--main-theme);
     border-radius: 0.5em;
-    background: rgb(231, 231, 231);
+    background: hsl(0, 0%, 91%);
     color: var(--main-theme);
     cursor: pointer;
     text-align: center;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     &:hover {
         background-color: var(--main-theme);
-        color: rgb(231, 231, 231);
+        color: hsl(0, 0%, 91%);
     }
 
     &--fill {
         background-color: var(--main-theme);
-        color: rgb(231, 231, 231);
+        color: hsl(0, 0%, 91%);
 
         &:hover {
-            background: rgb(231, 231, 231);
+            background: hsl(0, 0%, 91%);
             color: var(--main-theme);
         }
     }
