@@ -5,10 +5,17 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
-        "buid:prod": "ng build --base-href=/Game-Up",
+        "build:prod": "ng build --base-href=/game-Up",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "lint": "ng lint"
+        "lint": "ng lint",
+        "eslint:check": "ng lint",
+        "eslint:fix": "ng lint --fix",
+        "stylelint:check": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+        "prettier:check": "prettier . --check",
+        "prettier:fix": "prettier . --write",
+        "test:ci": "ng test --browsers=ChromeHeadless --watch=false"
     },
     "private": true,
     "dependencies": {

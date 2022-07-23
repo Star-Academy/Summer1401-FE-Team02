@@ -3,6 +3,37 @@ on:
     push:
 
 jobs:
+    test:
+        name: Test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - name: Setup Node
+              uses: actions/setup-node@v1
+              with:
+                  node-version: '16.x'
+
+            - name: Install Dependencies
+              run: npm ci
+
+            - name: ESLint
+              run: npm run eslint:check
+
+            - name: Stylelint
+              if: success()
+              run: npm run stylelint:check
+
+            - name: Prettier
+              if: success()
+              run: npm run prettier:check
+
+            - name: Angular
+              if: success()
+              run: npm run test:ci
+
+jobs:
     build:
         name: Build
         runs-on: ubuntu-latest
@@ -23,7 +54,7 @@ jobs:
 
             - name: upload Build
               if: success()
-              uses: action/upload-artifact@v1
+              uses: actions/upload-artifact@v1
               with:
                   name: deploy_dist
                   path: dist
@@ -45,4 +76,5 @@ jobs:
               uses: JamesIves/github-pages-deploy-action@releases/v3
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  FOLDER: deploy_dist/Summer1401-FE-TEAM02
+                  BRANCH: gh-pages
+                  FOLDER: deploy_dist/game-up
