@@ -28,40 +28,65 @@
         &--list {
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: flex-end;
             justify-content: flex-start;
-            gap: 1.5rem;
+            gap: 0.5rem;
 
             margin: 0;
             padding: 0;
 
             li {
+                position: relative;
+
                 list-style-type: none;
+
+                padding: 0 1rem 0.5rem;
+
+                &::after {
+                    content: "";
+
+                    background-color: var(--main-theme);
+
+                    position: absolute;
+                    inset-block-end: 0;
+                    inset-inline-start: 0;
+
+                    width: 100%;
+                    height: 0;
+
+                    transition: height 0.1s ease-in;
+                }
+
+                &:hover {
+                    &::after {
+                        height: 0.25rem;
+                    }
+                }
             }
 
             a {
                 color: hsl(0deg 0% 100%);
 
-                font-size: 2rem;
+                font-size: 2.25rem;
 
                 text-decoration: none;
 
                 transition: color 0.2s ease-in-out;
-
-                &:hover {
-                    color: var(--main-theme);
-                }
             }
         }
-    }
 
-    &__cart {
-        font-size: 2rem;
+        &--left {
+            a {
+                opacity: 0.8;
 
-        transition: color 0.2s ease-in-out;
+                font-size: 2.25rem;
 
-        &:hover {
-            color: var(--main-theme);
+                transition: opacity 0.2s ease-in-out;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
