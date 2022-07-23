@@ -33,7 +33,6 @@ jobs:
               if: success()
               run: npm run test:ci
 
-jobs:
     build:
         name: Build
         runs-on: ubuntu-latest
