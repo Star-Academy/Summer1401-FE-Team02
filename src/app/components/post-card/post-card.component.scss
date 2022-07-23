@@ -1,11 +1,14 @@
 .card {
+    background-color: hsl(0deg 0% 0%);
+    box-shadow: hsl(0deg 0% 0% / 67.7%) 0 0 10px 5px;
+
     position: relative;
     overflow: hidden;
+
     width: 30rem;
     height: 40rem;
-    background-color: hsl(0, 0%, 0%);
+
     border-radius: 10px;
-    box-shadow: hsla(0, 0%, 0%, 0.677) 0 0 10px 5px;
 
     &:hover {
         .card__info {
@@ -14,67 +17,87 @@
     }
 
     &__img {
-        object-fit: cover;
         width: 100%;
         height: auto;
+        object-fit: cover;
     }
 
     &__info {
-        padding: 0.3em 1em 1em;
+        background-color: hsl(0deg 0% 80% / 87.3%);
+
         position: absolute;
         inset-block-start: 80%;
-        width: 100%;
-        height: 100%;
-        background-color: hsla(0, 0%, 80%, 0.873);
-
-        transition: transform 0.3s ease-out;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
 
+        width: 100%;
+        height: 100%;
+
+        padding: 0.3em 1em 1em;
+
+        transition: transform 0.3s ease-out;
+
         &--container {
+            overflow: hidden;
+
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             justify-content: flex-start;
-            overflow: hidden;
+
             min-width: 0;
         }
     }
 
     &__title {
-        direction: ltr;
         align-self: flex-end;
-        margin: 0;
-        font-size: 2.5rem;
+
         color: var(--main-theme);
-        min-height: 0;
-        display: -webkit-box;
+
+        direction: ltr;
+
         overflow: hidden;
+
+        display: box;
+
+        min-height: 0;
+
+        margin: 0;
+
+        font-size: 2.5rem;
+
+        text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
-        text-overflow: ellipsis;
     }
 
     &__price {
-        margin: 0;
-        font-size: 2.3rem;
         color: black;
+
+        margin: 0;
+
+        font-size: 2.3rem;
     }
 
     &__desc {
-        font-size: 2.3rem;
-        line-height: 3.5rem;
-        text-align: justify;
+        color: black;
+
+        overflow: hidden;
+
+        display: box;
+
         min-height: 0;
-        display: -webkit-box;
+
+        font-size: 2.3rem;
+
+        text-align: justify;
+        text-overflow: ellipsis;
+        line-height: 3.5rem;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 6;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: black;
     }
 
     &__control {

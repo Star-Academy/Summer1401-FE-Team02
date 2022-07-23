@@ -1,18 +1,21 @@
 .footer {
-    color: hsl(0, 0%, 64%);
-    background-color: hsl(0, 0%, 0%);
-    padding: 10px 15px 5px;
+    background-color: hsl(0deg 0% 0%);
+    color: hsl(0deg 0% 64%);
 
-    font-size: 4rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
 
+    padding: 10px 15px 5px;
+
+    font-size: 4rem;
+
     &__social {
-        text-decoration: none;
-        color: hsl(0, 0%, 100%);
+        color: hsl(0deg 0% 100%);
         opacity: 0.5;
+
+        text-decoration: none;
 
         &:hover {
             opacity: 1;
