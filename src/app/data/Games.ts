@@ -4,7 +4,7 @@ export const GAMES: Game[] = [
     {
         title: "Wonder boy: The dragon's trap",
         description:
-            'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که می‌تواند طلسم شما را باطل کند.',
+            'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که میتواند طلسم شما را باطل کند.',
         price: 10_000,
         poster: 'https://cdn1.epicgames.com/spt-assets/e488839155be4d05bb14f6e05129daef/download-wonder-boy-the-dragons-trap-offer-e0awf.jpg?h=854&resize=1&w=360',
     },
@@ -45,7 +45,7 @@ export const GAMES: Game[] = [
     {
         title: "Wonder boy: The dragon's trap",
         description:
-            'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که می‌تواند طلسم شما را باطل کند.',
+            'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که میتواند طلسم شما را باطل کند.',
         price: 10_000,
         poster: 'https://cdn1.epicgames.com/spt-assets/e488839155be4d05bb14f6e05129daef/download-wonder-boy-the-dragons-trap-offer-e0awf.jpg?h=854&resize=1&w=360',
     },
