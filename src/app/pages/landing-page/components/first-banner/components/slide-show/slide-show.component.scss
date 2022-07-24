@@ -47,22 +47,21 @@
   }
 
   .banner-description {
-    color: hsl(0deg 0% 93%);
-
     width: 30rem;
 
     font-size: 2rem;
     font-weight: bold;
+    line-height: 160%;
 
     text-justify: inter-word;
     text-shadow: -0.07rem 0.07rem hsl(0deg 6% 18%);
     -webkit-text-stroke: 0.007rem hsl(0deg 6% 18%);
 
     &__text {
-      padding: 0.5rem;
+      color: hsl(0deg 0% 96%);
+      padding-inline-end: 0.5rem;
+      padding-inline-start: 0.5rem;
       background-color: rgba(0, 0, 0, 0.3);
-      box-shadow: 0 0 3rem 3rem rgba(0, 0, 0, 0.3);
-      border-radius: 1rem;
     }
   }
 
