@@ -1,4 +1,4 @@
-<div dir="rtl">
+<div dir="rtl" style="font-family: Vazirmatn RD UI FD NL;">
 
 # مشارکت در پروژه
 جهت مشارکت در پروژه ابتدا پروژه را کلون کنید.

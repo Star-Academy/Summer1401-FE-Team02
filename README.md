@@ -1,4 +1,4 @@
-<div dir="rtl">
+<div dir="rtl" style="font-family: Vazirmatn RD UI FD NL;">
 
 # فروشگاه آنلاین بازی Game-Up
 به فروشگاه آنلاین بازی Game-Up خوش آمدید.
@@ -36,7 +36,11 @@
 - صفحه اصلی شامل بنر جشنواره و پرفروش‌ترین بازی‌ها
 
 
-## license
+## مشارکت در پروژه
+جهت مشارکت در توسعه این پروژه متن‌باز به
+[CONTRIBUTING.md](CONTRIBUTING.md)
+مراجعه کنید.
+## لایسنس
 این پروژه به صورت متن‌باز و با 
  [MIT license](https://opensource.org/licenses/MIT)
   در دسترس عموم قرار دارد.
