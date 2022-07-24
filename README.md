@@ -1,27 +1,49 @@
-# Summer1401-FE-TEAM02
+<div dir="rtl">
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.17.
+# فروشگاه آنلاین بازی Game-Up
+به فروشگاه آنلاین بازی Game-Up خوش آمدید.
 
-## Development server
+این وبسایت در دوره تابستان ۱۴۰۱ 
+[کداستار](https://github.com/Star-Academy/) 
+با استفاده از 
+[Angular](https://angular.io/)
+طراحی و توسعه داده شده است.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## اجرای پروژه به صورت local
+از دستور 
 
-## Code scaffolding
+``git clone https://github.com/Star-Academy/Summer1401-FE-Team02``
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+برای کلون کردن پروژه استفاده کنید.
 
-## Build
+جهت نصب بسته‌های مورد نیاز از دستور
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+``npm i``
 
-## Running unit tests
+استفاده کنید.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+سپس جهت اجرای پروژه به صورت local، از دستور
 
-## Running end-to-end tests
+``ng serve``
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+استفاده کنید.
 
-## Further help
+اکنون پروژه در 
+[این صفحه](http://localhost:4200/)
+در دسترس شماست.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## قابلیت‌های فروشگاه
+- صفحه اصلی شامل بنر جشنواره و پرفروش‌ترین بازی‌ها
+
+
+## license
+این پروژه به صورت متن‌باز و با 
+ [MIT license](https://opensource.org/licenses/MIT)
+  در دسترس عموم قرار دارد.
+
+## توسعه‌دهندگان
+[نگار نوبختی](https://github.com/Negarnbkhti42)
+
+[مریم‌سادات رضوی](https://github.com/msrazavi)
+
+</div>
