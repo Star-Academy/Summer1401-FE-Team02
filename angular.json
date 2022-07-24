@@ -110,6 +110,7 @@
     },
     "defaultProject": "game-up",
     "cli": {
+      "analytics": false,
         "defaultCollection": "@angular-eslint/schematics"
     }
 }
