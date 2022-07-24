@@ -82,5 +82,5 @@ export const GAMES: Game[] = [
             'در این بازی معمایی و ماجراجویانه، نقش مالی مورچه و مایو شب‌پره را بازی کنید و پازل‌های بازی را حل کنید. ',
         price: 13000,
         poster: 'https://cdn1.epicgames.com/spt-assets/877ee56178af4432a4565f163b60aef7/download-mari-and-bayu--the-road-home-offer-1r5s7.jpg?h=480&resize=1&w=360',
-    }
+    },
 ];

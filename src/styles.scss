@@ -1,7 +1,7 @@
 :root {
-    --main-theme: hsl(178, 49%, 29%);
-    --dark-ground: hsl(190, 9%, 14%);
-    --light-ground: hsl(0, 0%, 96%);
+    --main-theme: hsl(178deg 49% 29%);
+    --dark-ground: hsl(190deg 9% 14%);
+    --light-ground: hsl(0deg 0% 96%);
 }
 
 html {
@@ -25,7 +25,7 @@ button {
 
 body {
     background-color: var(--light-ground);
-    color: hsl(0, 0%, 0%);
+    color: hsl(0deg 0% 0%);
 }
 
 .btn {

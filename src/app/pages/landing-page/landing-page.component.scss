@@ -1,12 +1,12 @@
 .home {
   &__main {
-    width: 100%;
-
-    padding: 2em 3em;
-
     display: flex;
     flex-direction: column;
     gap: 10rem;
+
+    width: 100%;
+
+    padding: 2em 3em;
   }
 
   &__section {
@@ -14,9 +14,10 @@
 
     &--title {
       position: relative;
-      font-size: 3rem;
 
       margin-bottom: 3rem;
+
+      font-size: 3rem;
 
       &::after {
         content: "";
