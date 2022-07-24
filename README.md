@@ -1,20 +1,20 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
-</style> 
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
  
 <div dir="rtl" style="font-family: 'Vazirmatn', sans-serif;">
 
 # فروشگاه آنلاین بازی Game-Up
+
 به فروشگاه آنلاین بازی Game-Up خوش آمدید.
 
-این وبسایت در دوره تابستان ۱۴۰۱ 
-[کداستار](https://github.com/Star-Academy/) 
-با استفاده از 
+این وبسایت در دوره تابستان ۱۴۰۱
+[کداستار](https://github.com/Star-Academy/)
+با استفاده از
 [Angular](https://angular.io/)
 طراحی و توسعه داده شده است.
 
 ## اجرای پروژه به صورت local
-از دستور 
+
+از دستور
 
 ``git clone https://github.com/Star-Academy/Summer1401-FE-Team02``
 
@@ -32,24 +32,28 @@
 
 استفاده کنید.
 
-اکنون پروژه در 
+اکنون پروژه در
 [این صفحه](http://localhost:4200/)
 در دسترس شماست.
 
 ## قابلیت‌های فروشگاه
+
 - صفحه اصلی شامل بنر جشنواره و پرفروش‌ترین بازی‌ها
 
-
 ## مشارکت در پروژه
+
 جهت مشارکت در توسعه این پروژه متن‌باز به
 [CONTRIBUTING.md](CONTRIBUTING.md)
 مراجعه کنید.
+
 ## لایسنس
-این پروژه به صورت متن‌باز و با 
+
+این پروژه به صورت متن‌باز و با
  [MIT license](https://opensource.org/licenses/MIT)
   در دسترس عموم قرار دارد.
 
 ## توسعه‌دهندگان
+
 [نگار نوبختی](https://github.com/Negarnbkhti42)
 
 [مریم‌سادات رضوی](https://github.com/msrazavi)
