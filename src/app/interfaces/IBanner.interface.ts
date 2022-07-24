@@ -1,5 +1,5 @@
 export interface Ibanner {
-    'Image-address': string;
+    imageAddress: string;
     description: string;
     alt: string;
 }
