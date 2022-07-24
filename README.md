@@ -2,6 +2,7 @@
  
 <div dir="rtl" style="font-family: 'Vazirmatn', sans-serif;">
 
+![Game-Up](src/assets/logos/logo-light.png)
 # فروشگاه آنلاین بازی Game-Up
 
 به فروشگاه آنلاین بازی Game-Up خوش آمدید.
