@@ -3,6 +3,10 @@
     width: 100%;
 
     padding: 2em 3em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
   }
 
   &__section {
@@ -10,8 +14,9 @@
 
     &--title {
       position: relative;
-
       font-size: 3rem;
+
+      margin-bottom: 3rem;
 
       &::after {
         content: "";
