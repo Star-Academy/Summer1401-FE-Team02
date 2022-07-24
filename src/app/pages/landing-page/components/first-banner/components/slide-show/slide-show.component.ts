@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy} from '@angular/core';
 import {Ibanner} from 'src/app/interfaces/IBanner.interface';
 import {BANNERS} from 'src/app/data/Banners';
 
@@ -7,7 +7,7 @@ import {BANNERS} from 'src/app/data/Banners';
     templateUrl: './slide-show.component.html',
     styleUrls: ['./slide-show.component.scss'],
 })
-export class SlideShowComponent {
+export class SlideShowComponent implements AfterViewInit, OnDestroy {
     private readonly INTERVAL_DELAY: number = 3000;
     public activeIndex: number = 0;
 
