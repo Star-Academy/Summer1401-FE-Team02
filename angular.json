@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "game-up": {
+        "Summer1401-FE-Team02": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -20,7 +20,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/game-up",
+                        "outputPath": "dist/Summer1401-FE-Team02",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -55,10 +55,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "game-up:build:production"
+                            "browserTarget": "Summer1401-FE-Team02:build:production"
                         },
                         "development": {
-                            "browserTarget": "game-up:build:development"
+                            "browserTarget": "Summer1401-FE-Team02:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -66,7 +66,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "game-up:build"
+                        "browserTarget": "Summer1401-FE-Team02:build"
                     }
                 },
                 "test": {
@@ -94,7 +94,7 @@
             }
         }
     },
-    "defaultProject": "game-up",
+    "defaultProject": "Summer1401-FE-Team02",
     "cli": {
         "analytics": false,
         "defaultCollection": "@angular-eslint/schematics"
