@@ -1,0 +1,68 @@
+:root {
+    --main-theme: hsl(178deg 49% 29%);
+    --dark-ground: hsl(190deg 9% 14%);
+    --light-ground: hsl(0deg 0% 96%);
+}
+
+html {
+    font-family: Vazirmatn, monospace, sans-serif;
+    font-size: 62.5%;
+}
+
+input,
+button {
+    font-family: Vazirmatn, monospace, sans-serif;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--light-ground);
+    color: hsl(0deg 0% 0%);
+}
+
+.btn {
+    background: hsl(0deg 0% 91%);
+    color: var(--main-theme);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem 1.3rem;
+
+    border: 0.2rem solid var(--main-theme);
+    border-radius: 0.5em;
+
+    outline: none;
+
+    font-size: 2.5rem;
+
+    text-align: center;
+    line-height: 1.5;
+    vertical-align: middle;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--main-theme);
+        color: hsl(0deg 0% 91%);
+    }
+
+    &--fill {
+        background-color: var(--main-theme);
+        color: hsl(0deg 0% 91%);
+
+        &:hover {
+            background: hsl(0deg 0% 91%);
+            color: var(--main-theme);
+        }
+    }
+}

@@ -1,0 +1,55 @@
+.home {
+    &__main {
+        display: flex;
+        flex-direction: column;
+        gap: 10rem;
+
+        width: 100%;
+
+        padding: 2rem 3rem;
+    }
+
+    &__section {
+        width: 100%;
+
+        &--title {
+            position: relative;
+
+            margin-block-end: 3rem;
+
+            font-size: 3rem;
+
+            &::after {
+                content: "";
+
+                background-color: var(--main-theme);
+
+                position: absolute;
+                inset-block-start: 100%;
+                inset-inline-start: 0;
+
+                width: 8em;
+                height: 0.7rem;
+
+                border-radius: 1rem;
+            }
+        }
+    }
+}
+
+.larger {
+    font-size: 4rem;
+}
+
+.content-wrapper {
+    overflow: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4rem;
+
+    padding: 1em 1.5em;
+}

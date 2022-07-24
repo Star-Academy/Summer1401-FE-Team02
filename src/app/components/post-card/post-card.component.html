@@ -1,0 +1,14 @@
+<div class="card">
+    <img class="card__img" [src]="game.poster" [alt]="game.title" />
+    <div class="card__info">
+        <div class="card__info--container">
+            <p class="card__title">{{ game.title }}</p>
+            <p class="card__price">{{ game.price }} ریال</p>
+            <p class="card__desc">{{ game.description }}</p>
+        </div>
+        <div class="card__control">
+            <button class="btn btn--fill"><i class="fa-solid fa-basket-shopping"></i></button>
+            <button class="btn"><i class="fa-solid fa-heart-circle-plus"></i></button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+.searchbox {
+    background-color: var(--light-ground);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    padding: 0.5rem 1rem;
+
+    border-radius: 0.5em;
+
+    &__input {
+        background: none;
+
+        min-width: 20rem;
+        width: 40vw;
+
+        border: none;
+
+        outline: none;
+
+        font-size: 1.1em;
+    }
+}

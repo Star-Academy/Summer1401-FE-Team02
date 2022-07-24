@@ -1,0 +1,15 @@
+<div class="slideshow" [style.--active-index]="activeIndex">
+    <ol>
+        <li *ngFor="let banner of banners; index as index" [class.active]="index === activeIndex">
+            <img [src]="banner.imageAddress" />
+            <div class="overlay">
+                <div class="banner-description">
+                    <mark class="banner-description__text">
+                        {{ banner.description }}
+                    </mark>
+                </div>
+                <button class="btn btn--fill free-play-btn">امروز رایگان بازی کنید!</button>
+            </div>
+        </li>
+    </ol>
+</div>
