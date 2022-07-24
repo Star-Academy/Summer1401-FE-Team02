@@ -9,10 +9,9 @@ import {BANNERS} from 'src/app/data/Banners';
 })
 export class SlideShowComponent implements AfterViewInit, OnDestroy {
     private readonly INTERVAL_DELAY: number = 3000;
-    public activeIndex: number = 0;
-
     private interval: number | null = null;
 
+    public activeIndex: number = 0;
     public banners: Ibanner[] = BANNERS;
 
     public ngAfterViewInit(): void {
