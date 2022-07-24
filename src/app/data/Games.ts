@@ -2,7 +2,7 @@ import {Game} from '../interfaces/Game.interface';
 
 export const GAMES: Game[] = [
     {
-        title: "Wonder boy: The dragon's trap",
+        title: "Wonder Boy: The Dragon's Trap",
         description:
             'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که میتواند طلسم شما را باطل کند.',
         price: 10_000,
@@ -43,7 +43,7 @@ export const GAMES: Game[] = [
         poster: 'https://cdn1.epicgames.com/spt-assets/877ee56178af4432a4565f163b60aef7/download-mari-and-bayu--the-road-home-offer-1r5s7.jpg?h=480&resize=1&w=360',
     },
     {
-        title: "Wonder boy: The dragon's trap",
+        title: "Wonder Boy: The Dragon's Trap",
         description:
             'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که میتواند طلسم شما را باطل کند.',
         price: 10_000,
