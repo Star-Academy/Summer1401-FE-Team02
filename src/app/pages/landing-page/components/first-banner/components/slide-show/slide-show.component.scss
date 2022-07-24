@@ -1,7 +1,6 @@
 .slideshow {
     position: relative;
 
-    // height: 70vh;
     ol {
         overflow: hidden;
 
@@ -55,7 +54,6 @@
         text-justify: inter-word;
         text-shadow: -0.07rem 0.07rem hsl(0deg 6% 18%);
         line-height: 160%;
-        -webkit-text-stroke: 0.007rem hsl(0deg 6% 18%);
 
         &__text {
             background-color: rgb(0 0 0 / 30%);
