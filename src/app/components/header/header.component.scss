@@ -42,6 +42,8 @@
 
                 padding: 0 1rem 0.5rem;
 
+                font-size: 2.25rem;
+
                 &::after {
                     content: "";
 
@@ -67,11 +69,7 @@
             a {
                 color: hsl(0deg 0% 100%);
 
-                font-size: 2.25rem;
-
                 text-decoration: none;
-
-                transition: color 0.2s ease-in-out;
             }
         }
 
