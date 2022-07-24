@@ -51,17 +51,18 @@
 
     font-size: 2rem;
     font-weight: bold;
-    line-height: 160%;
 
     text-justify: inter-word;
     text-shadow: -0.07rem 0.07rem hsl(0deg 6% 18%);
+    line-height: 160%;
     -webkit-text-stroke: 0.007rem hsl(0deg 6% 18%);
 
     &__text {
+      background-color: rgb(0 0 0 / 30%);
       color: hsl(0deg 0% 96%);
-      padding-inline-end: 0.5rem;
+
       padding-inline-start: 0.5rem;
-      background-color: rgba(0, 0, 0, 0.3);
+      padding-inline-end: 0.5rem;
     }
   }
 
