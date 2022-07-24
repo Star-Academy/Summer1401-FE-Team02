@@ -1,6 +1,4 @@
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
-</style> 
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
  
 <div dir="rtl" style="font-family: 'Vazirmatn', sans-serif;">
 
