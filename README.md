@@ -6,11 +6,12 @@
 
 به فروشگاه آنلاین بازی Game-Up خوش آمدید.
 
-این وبسایت در دوره تابستان ۱۴۰۱
-[کداستار](https://github.com/Star-Academy/)
+این وبسایت
 با استفاده از
 [Angular](https://angular.io/)
 طراحی و توسعه داده شده است.
+
+می‌توانید از طریق [این لینک](https://star-academy.github.io/Summer1401-FE-Team02) وارد آن شوید
 
 ## اجرای پروژه به صورت local
 
