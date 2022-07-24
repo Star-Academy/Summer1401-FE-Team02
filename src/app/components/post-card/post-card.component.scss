@@ -1,5 +1,5 @@
 .card {
-    box-shadow: hsl(0deg 0% 0% / 45%) 0 0.5rem 1rem 0.25rem;
+    box-shadow: hsl(0deg 0% 0% / 45%) 0 0.3rem 0.7rem 0.2rem;
 
     position: relative;
     overflow: hidden;
@@ -7,7 +7,7 @@
     width: 30rem;
     height: 40rem;
 
-    border-radius: 2rem;
+    border-radius: 1rem;
 
     &:hover {
         .card {
