@@ -1,4 +1,9 @@
-<div dir="rtl" style="font-family: Vazirmatn RD UI FD NL;">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+</style> 
+
+
+<div dir="rtl" style="font-family: 'Vazirmatn', sans-serif;">
 
 # مشارکت در پروژه
 جهت مشارکت در پروژه ابتدا پروژه را کلون کنید.
