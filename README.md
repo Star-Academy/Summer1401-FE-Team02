@@ -3,6 +3,7 @@
 <div dir="rtl" style="font-family: 'Vazirmatn', sans-serif;">
 
 ![Game-Up](src/assets/logos/logo-light.png)
+
 # فروشگاه آنلاین بازی Game-Up
 
 به فروشگاه آنلاین بازی Game-Up خوش آمدید.
@@ -17,19 +18,19 @@
 
 از دستور
 
-``git clone https://github.com/Star-Academy/Summer1401-FE-Team02``
+`git clone https://github.com/Star-Academy/Summer1401-FE-Team02`
 
 برای کلون کردن پروژه استفاده کنید.
 
 جهت نصب بسته‌های مورد نیاز از دستور
 
-``npm i``
+`npm i`
 
 استفاده کنید.
 
 سپس جهت اجرای پروژه به صورت local، از دستور
 
-``ng serve``
+`ng serve`
 
 استفاده کنید.
 
@@ -39,7 +40,7 @@
 
 ## قابلیت‌های فروشگاه
 
-- صفحه اصلی شامل بنر جشنواره و پرفروش‌ترین بازی‌ها
+-   صفحه اصلی شامل بنر جشنواره و پرفروش‌ترین بازی‌ها
 
 ## مشارکت در پروژه
 
@@ -50,8 +51,8 @@
 ## لایسنس
 
 این پروژه به صورت متن‌باز و با
- [MIT license](https://opensource.org/licenses/MIT)
-  در دسترس عموم قرار دارد.
+[MIT license](https://opensource.org/licenses/MIT)
+در دسترس عموم قرار دارد.
 
 ## توسعه‌دهندگان
 
