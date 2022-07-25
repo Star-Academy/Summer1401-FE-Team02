@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LandingPageModule} from './pages/landing-page/landing-page.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
-import {LoginComponent} from './pages/login/login.component';
 import {LoginModule} from './pages/login/login.module';
 
 @NgModule({

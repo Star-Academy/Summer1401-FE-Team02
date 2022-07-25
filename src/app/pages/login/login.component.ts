@@ -5,4 +5,8 @@ import {Component} from '@angular/core';
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {}
+export class LoginComponent {
+    public print(input: string): void {
+        console.log(input);
+    }
+}
