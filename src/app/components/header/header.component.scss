@@ -41,8 +41,6 @@
 
                 padding: 0 1rem 0.5rem;
 
-                font-size: 2.25rem;
-
                 &::after {
                     content: "";
 
@@ -78,8 +76,6 @@
                 color: hsl(0deg 0% 100%);
                 opacity: 0.8;
 
-                font-size: 2.25rem;
-
                 transition: opacity 0.2s ease-in-out;
 
                 &:hover {
@@ -92,7 +88,7 @@
     &__logo {
         opacity: 0.8;
 
-        width: 20rem;
+        width: 15rem;
 
         transition: opacity 0.2s ease-out;
 
