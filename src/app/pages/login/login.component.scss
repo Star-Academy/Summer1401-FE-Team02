@@ -1,0 +1,30 @@
+.login {
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__section {
+        width: 50vw;
+        min-width: 20rem;
+
+        padding: 1rem 2rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        gap: 3rem;
+    }
+}

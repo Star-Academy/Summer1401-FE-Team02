@@ -1,7 +1,12 @@
 <app-header></app-header>
 
-<main>
-    <app-text-field value="Negar" (valueChange)="print($event)"></app-text-field>
+<main class="login__main">
+    <section class="login__section">
+        <form class="login__form">
+            <app-text-field value="" placeholder="نام کاربری" (valueChange)="print($event)"></app-text-field>
+            <app-text-field value="" placeholder="رمز عبور" (valueChange)="print($event)"></app-text-field>
+        </form>
+    </section>
 </main>
 
 <app-footer></app-footer>

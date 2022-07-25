@@ -1,1 +1,7 @@
-<input [(ngModel)]="value" (ngModelChange)="dispatchChange($event)" />
+<input
+    class="textfield__input"
+    [placeholder]="placeholder"
+    [type]="type"
+    [(ngModel)]="value"
+    (ngModelChange)="dispatchChange($event)"
+/>
