@@ -2,7 +2,13 @@
     <section class="login__section">
         <form class="login__form">
             <app-text-field value="" placeholder="نام کاربری" (valueChange)="print($event)"></app-text-field>
-            <app-text-field value="" type="email" placeholder="ایمیل" (valueChange)="print($event)"></app-text-field>
+            <app-text-field
+                *ngIf="!isLogin"
+                value=""
+                type="email"
+                placeholder="ایمیل"
+                (valueChange)="print($event)"
+            ></app-text-field>
             <app-text-field
                 value=""
                 type="password"
