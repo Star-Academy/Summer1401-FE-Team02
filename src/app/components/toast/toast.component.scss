@@ -1,0 +1,32 @@
+.toast {
+    &__container {
+        background-color: var(--warning-red);
+
+        color: var(--light-ground);
+
+        position: absolute;
+
+        inset-block-start: 3rem;
+        inset-inline-start: 3rem;
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 3rem;
+
+        padding: 1rem;
+
+        border-radius: 0.5rem;
+
+        font-size: 1.5rem;
+    }
+
+    &__button {
+        all: unset;
+
+        font-size: 1.5rem;
+
+        cursor: pointer;
+    }
+}

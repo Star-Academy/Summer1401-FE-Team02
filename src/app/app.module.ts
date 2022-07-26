@@ -6,9 +6,10 @@ import {AppComponent} from './app.component';
 import {LandingPageModule} from './pages/landing-page/landing-page.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
 import {AuthModule} from './pages/auth/auth.module';
+import {ToastComponent} from './components/toast/toast.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, ToastComponent],
     imports: [BrowserModule, AppRoutingModule, LandingPageModule, AuthModule, NgxPopperjsModule],
     providers: [],
     bootstrap: [AppComponent],
