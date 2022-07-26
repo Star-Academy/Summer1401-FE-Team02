@@ -1,20 +1,34 @@
 <main class="login__main">
     <section class="login__section">
-        <form class="login__form">
-            <app-text-field value="" placeholder="نام کاربری" (valueChange)="print($event)"></app-text-field>
-            <app-text-field
+        <form #userForm="ngForm" class="login__form">
+            <input
+                class="login__input"
+                name="username"
+                placeholder="نام کاربری"
+                type="text"
+                [(ngModel)]="user.username"
+                required
+            />
+            <input
                 *ngIf="!isLogin"
-                value=""
-                type="email"
+                class="login__input"
+                name="email"
                 placeholder="ایمیل"
-                (valueChange)="print($event)"
-            ></app-text-field>
-            <app-text-field
-                value=""
-                type="password"
+                type="email"
+                [(ngModel)]="user.email"
+                required
+            />
+            <input
+                class="login__input"
+                name="password"
                 placeholder="رمز عبور"
-                (valueChange)="print($event)"
-            ></app-text-field>
+                type="password"
+                minlength="6"
+                [(ngModel)]="user.password"
+                required
+            />
+
+            <button class="btn btn--fill" type="submit" [disabled]="!userForm.valid">ثبت</button>
         </form>
     </section>
 </main>

@@ -51,6 +51,10 @@ body {
 
     cursor: pointer;
 
+    &:disabled {
+        cursor: not-allowed;
+    }
+
     &:hover {
         background-color: var(--main-theme);
         color: hsl(0deg 0% 91%);
