@@ -32,7 +32,5 @@ export class AuthComponent implements OnInit {
         let response = await (this.isLogin
             ? this.authService.login(partialUser)
             : this.authService.register(this.user));
-
-        this.router.navigateByUrl('/');
     }
 }
