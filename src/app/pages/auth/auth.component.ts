@@ -1,6 +1,7 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {User} from 'src/app/interfaces/User.interface';
+import {AuthService} from 'src/app/services/auth.service';
 
 @Component({
     selector: 'app-auth',
@@ -14,13 +15,13 @@ export class AuthComponent implements OnInit {
         password: '',
         email: '',
     };
-    public constructor(private route: ActivatedRoute) {}
+    public constructor(private route: ActivatedRoute, private authService: AuthService) {}
 
     public ngOnInit(): void {
         this.isLogin = this.route.routeConfig?.path?.startsWith('login');
     }
 
-    public dispatchChange(input: string, name: string): void {
-        console.log(input, name);
+    public async submitForm(): Promise<void> {
+        let response = await (this.isLogin ? this.authService.login(this.user) : this.authService.register(this.user));
     }
 }
