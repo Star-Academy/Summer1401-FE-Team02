@@ -1,4 +1,4 @@
-<div *ngIf="isVisible" class="toast__container" [style.backgroundColor]="color">
+<div [@visibility]="isVisible ? 'visible' : 'invisible'" class="toast__container" [style.backgroundColor]="color">
     <p class="toast__message">{{ message }}</p>
     <button class="toast__button" (click)="remove()" type="button"><i class="fa-solid fa-xmark"></i></button>
 </div>

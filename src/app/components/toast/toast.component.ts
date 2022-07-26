@@ -1,5 +1,5 @@
-import {state, style, trigger} from '@angular/animations';
-import {Component, OnInit} from '@angular/core';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Component, OnInit, HostBinding} from '@angular/core';
 import {ToastService} from 'src/app/services/toast.service';
 
 @Component({
@@ -12,7 +12,7 @@ import {ToastService} from 'src/app/services/toast.service';
                 'visible',
                 style({
                     opacity: 1,
-                    display: 'block',
+                    display: 'inline',
                 })
             ),
             state(
@@ -22,6 +22,8 @@ import {ToastService} from 'src/app/services/toast.service';
                     display: 'none',
                 })
             ),
+            transition('visible => invisible', [animate('0.3s')]),
+            transition('invisible => visible', [animate('0.3s')]),
         ]),
     ],
 })
