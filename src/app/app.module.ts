@@ -5,7 +5,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LandingPageModule} from './pages/landing-page/landing-page.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
-import {LoginModule} from './pages/login/login.module';
+import {AuthModule} from './pages/auth/auth.module';
 import {FooterModule} from './components/footer/footer.module';
 import {HeaderModule} from './components/header/header.module';
 
@@ -15,7 +15,7 @@ import {HeaderModule} from './components/header/header.module';
         BrowserModule,
         AppRoutingModule,
         LandingPageModule,
-        LoginModule,
+        AuthModule,
         NgxPopperjsModule,
         FooterModule,
         HeaderModule,
