@@ -1,6 +1,6 @@
 <main class="login__main">
     <section class="login__section">
-        <form #userForm="ngForm" class="login__form">
+        <form #userForm="ngForm" (submit)="submitForm()" class="login__form">
             <input
                 class="login__input"
                 name="username"

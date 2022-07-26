@@ -9,7 +9,7 @@ import {TokenObject} from '../interfaces/TokenObject.interface';
 })
 export class AuthService {
     public constructor(private apiService: ApiService) {}
-    public async login(user: User): Promise<boolean> {
+    public async login(user: Partial<User>): Promise<boolean> {
         let data = await this.apiService.post<TokenObject>(USER_LOGIN, user);
 
         if (data?.token) {
