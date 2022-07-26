@@ -9,6 +9,6 @@ import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [LoginComponent, TextFieldComponent],
-    imports: [CommonModule, RouterModule, FooterModule, HeaderModule, FormsModule],
+    imports: [CommonModule, RouterModule, FormsModule],
 })
 export class LoginModule {}

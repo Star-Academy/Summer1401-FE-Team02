@@ -6,10 +6,20 @@ import {AppComponent} from './app.component';
 import {LandingPageModule} from './pages/landing-page/landing-page.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
 import {LoginModule} from './pages/login/login.module';
+import {FooterModule} from './components/footer/footer.module';
+import {HeaderModule} from './components/header/header.module';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [BrowserModule, AppRoutingModule, LandingPageModule, LoginModule, NgxPopperjsModule],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        LandingPageModule,
+        LoginModule,
+        NgxPopperjsModule,
+        FooterModule,
+        HeaderModule,
+    ],
     providers: [],
     bootstrap: [AppComponent],
 })

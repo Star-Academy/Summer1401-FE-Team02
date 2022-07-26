@@ -17,6 +17,6 @@ import {BannerGameTileComponent} from './components/first-banner/components/bann
         SlideShowComponent,
         BannerGameTileComponent,
     ],
-    imports: [CommonModule, RouterModule, HeaderModule, FooterModule],
+    imports: [CommonModule, RouterModule],
 })
 export class LandingPageModule {}
