@@ -40,7 +40,6 @@ export class ToastComponent implements OnInit {
 
     public show(message: string, color: string): void {
         this.interval && clearInterval(this.interval);
-        this.interval = null;
 
         this.message = message;
         this.color = color;
