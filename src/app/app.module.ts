@@ -21,7 +21,6 @@ import {ProfileModule} from './pages/profile/profile/profile.module';
         BrowserAnimationsModule,
         ProfileModule,
     ],
-    providers: [],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
