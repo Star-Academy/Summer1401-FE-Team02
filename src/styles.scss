@@ -16,6 +16,7 @@ html {
 input,
 button {
     font-family: Vazirmatn, monospace, sans-serif;
+    outline: none;
 }
 
 *,
@@ -44,8 +45,6 @@ body {
 
     border: 0.2rem solid var(--main-theme);
     border-radius: 0.5em;
-
-    outline: none;
 
     font-size: 2rem;
 
