@@ -18,5 +18,6 @@ import {FooterModule} from '../../components/footer/footer.module';
         BannerGameTileComponent,
     ],
     imports: [CommonModule, RouterModule, HeaderModule, FooterModule],
+    exports: [FirstBannerComponent],
 })
 export class LandingPageModule {}
