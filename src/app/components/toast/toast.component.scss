@@ -1,9 +1,5 @@
 .toast {
-    --background: var(--warning-red);
-
     &__container {
-        background-color: var(--background);
-
         color: var(--light-ground);
 
         position: absolute;
@@ -25,6 +21,13 @@
         border-radius: 0.5rem;
 
         font-size: 1.5rem;
+
+        &.warning {
+            background-color: var(--warning-red);
+        }
+        &.info {
+            background-color: var(--info-green);
+        }
     }
 
     &__button {

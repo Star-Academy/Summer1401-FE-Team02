@@ -32,7 +32,7 @@ export class ToastComponent implements OnInit {
 
     public isVisible: boolean = false;
     public message: string = '';
-    public color: string = '';
+    public type: string = '';
 
     public constructor(private service: ToastService) {}
 
@@ -40,11 +40,11 @@ export class ToastComponent implements OnInit {
         this.service.setComponent(this);
     }
 
-    public show(message: string, color: string): void {
+    public show(message: string, type: string): void {
         this.interval && clearInterval(this.interval);
 
         this.message = message;
-        this.color = color;
+        this.type = type;
 
         this.isVisible = true;
         this.interval = setInterval(() => {

@@ -1,4 +1,4 @@
 export enum ToastType {
-    WARNING = 'red',
-    INFO = 'green',
+    WARNING = 'warning',
+    INFO = 'info',
 }

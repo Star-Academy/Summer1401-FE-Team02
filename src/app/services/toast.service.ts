@@ -11,7 +11,7 @@ export class ToastService {
         this.toast = toast;
     }
 
-    public show(message: string, color: string): void {
-        this.toast?.show(message, color);
+    public show(message: string, type: string): void {
+        this.toast?.show(message, type);
     }
 }
