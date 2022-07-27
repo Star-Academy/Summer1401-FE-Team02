@@ -7,8 +7,6 @@
     align-items: stretch;
     justify-content: flex-end;
 
-    margin-top: auto;
-
     padding: 0.5rem 2rem 1rem;
 
     font-size: 4rem;
@@ -16,6 +14,8 @@
     &__social {
         display: flex;
         flex-direction: row-reverse;
+
+        font-size: 3rem;
         align-items: center;
 
         a {
