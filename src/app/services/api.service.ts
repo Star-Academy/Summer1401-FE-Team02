@@ -19,7 +19,7 @@ export class ApiService {
         let response = await fetch(url, {...POST_INIT, body: JSON.stringify(body), ...init});
         let data = await response.json();
 
-        if (response.status === 200) {
+        if (response.ok) {
             return data as T;
         }
 
@@ -36,7 +36,7 @@ export class ApiService {
         let response = await fetch(url, {...GET_INIT, ...init});
         let data = await response.json();
 
-        if (response.status === 200) {
+        if (response.ok) {
             return data as T;
         }
 
