@@ -10,8 +10,8 @@ import {AuthService} from '../../../services/auth.service';
 export class ProfileComponent {
     public constructor(private authService: AuthService, private router: Router) {}
 
-    public logout(): void {
-        this.authService.logout();
-        this.router.navigateByUrl('/');
+    public async logout(): Promise<void> {
+        await this.authService.logout();
+        await this.router.navigateByUrl('/');
     }
 }

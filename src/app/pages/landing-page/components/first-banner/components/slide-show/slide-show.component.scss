@@ -14,8 +14,6 @@
 
             block-size: 40rem;
 
-            inline-size: 100%;
-
             transform: translateX(calc(var(--active-index) * 100%));
 
             transition: transform 0.8s ease-in-out;
