@@ -4,13 +4,13 @@
         flex-direction: column;
         gap: 10rem;
 
-        width: 100%;
+        inline-size: 100%;
 
         padding: 2rem 3rem;
     }
 
     &__section {
-        width: 100%;
+        inline-size: 100%;
 
         &--title {
             position: relative;
@@ -28,8 +28,8 @@
                 inset-block-start: 100%;
                 inset-inline-start: 0;
 
-                width: 8em;
-                height: 0.7rem;
+                inline-size: 8em;
+                block-size: 0.7rem;
 
                 border-radius: 1rem;
             }
