@@ -7,6 +7,7 @@ import {LandingPageModule} from './pages/landing-page/landing-page.module';
 import {NgxPopperjsModule} from 'ngx-popperjs';
 import {AuthModule} from './pages/auth/auth.module';
 import {ToastComponent} from './components/toast/toast.component';
+import {ProfileModule} from './pages/profile/profile/profile.module';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -18,6 +19,7 @@ import {ToastComponent} from './components/toast/toast.component';
         NgxPopperjsModule,
         BrowserModule,
         BrowserAnimationsModule,
+        ProfileModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -37,4 +37,9 @@ export class AuthService {
         const data = await this.apiService.post<IdObject>(USER_AUTHENTICATE, {token});
         return !!data;
     }
+
+    public logout(): void {
+        localStorage.removeItem('token');
+        location.reload();
+    }
 }
