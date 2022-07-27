@@ -24,12 +24,14 @@ export class ToastComponent implements OnInit {
 
         this.message = message;
         this.type = type;
-
         this.isVisible = true;
+
+        const TIME_OUT = 3_000;
+
         this.interval = setInterval(() => {
             this.isVisible = false;
             this.interval = null;
-        }, 3000);
+        }, TIME_OUT);
     }
 
     public remove(): void {

@@ -49,6 +49,7 @@
                 required
                 [(ngModel)]="user.password"
             />
+
             <div class="auth__form--buttons">
                 <button class="btn btn--fill auth__button" type="submit" [disabled]="!userForm.valid">
                     {{ isLogin ? 'ورود' : 'ثبت نام' }}

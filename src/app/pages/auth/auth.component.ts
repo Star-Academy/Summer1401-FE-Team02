@@ -25,18 +25,16 @@ export class AuthComponent implements OnInit {
     }
 
     public async submitForm(): Promise<void> {
-        let partialUser: Partial<User> = {
+        const partialUser: Partial<User> = {
             username: this.user.username,
             password: this.user.password,
         };
 
-        let response = await (this.isLogin
+        const response = await (this.isLogin
             ? this.authService.login(partialUser)
-            : this.authService.register(this.user));
+            : this.authService.signup(this.user));
 
-        if (response) {
-            await this.router.navigateByUrl('/');
-        }
+        if (response) await this.router.navigateByUrl('/');
     }
 
     public async cancel(): Promise<void> {

@@ -21,7 +21,7 @@ export class AuthService {
         return !!data;
     }
 
-    public async register(user: User): Promise<boolean> {
+    public async signup(user: User): Promise<boolean> {
         const data = await this.apiService.post<TokenObject>(USER_SIGNUP, user, {}, true);
 
         if (data?.token) {
