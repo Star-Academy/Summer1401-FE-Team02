@@ -1,43 +1,47 @@
-<main class="login__main">
-    <section class="login__section">
-        <form #userForm="ngForm" class="login__form" (submit)="submitForm()">
+<main class="auth__main">
+    <section class="auth__section">
+        <form #userForm="ngForm" class="auth__form" (submit)="submitForm()">
             <input
                 *ngIf="!isLogin"
-                class="login__input"
+                class="auth__input"
                 name="username"
                 placeholder="نام"
                 type="text"
                 required
                 [(ngModel)]="user.firstName"
             />
+
             <input
                 *ngIf="!isLogin"
-                class="login__input"
+                class="auth__input"
                 name="username"
                 placeholder="نام خانوادگی"
                 type="text"
                 required
                 [(ngModel)]="user.lastName"
             />
+
             <input
-                class="login__input"
+                class="auth__input"
                 name="username"
                 placeholder="نام کاربری"
                 type="text"
                 required
                 [(ngModel)]="user.username"
             />
+
             <input
                 *ngIf="!isLogin"
-                class="login__input"
+                class="auth__input"
                 name="email"
                 placeholder="ایمیل"
                 type="email"
                 required
                 [(ngModel)]="user.email"
             />
+
             <input
-                class="login__input"
+                class="auth__input"
                 name="password"
                 placeholder="رمز عبور"
                 type="password"
@@ -46,10 +50,12 @@
                 [(ngModel)]="user.password"
             />
 
-            <button class="btn btn--fill login__button" type="submit" [disabled]="!userForm.valid">
-                {{ isLogin ? 'ورود' : 'ثبت نام' }}
-            </button>
-            <button class="btn login__button" (click)="cancel()">لغو</button>
+            <span class="auth__buttons">
+                <button class="btn btn--fill auth__button" type="submit" [disabled]="!userForm.valid">
+                    {{ isLogin ? 'ورود' : 'ثبت نام' }}
+                </button>
+                <button class="btn auth__button" (click)="cancel()">لغو</button>
+            </span>
         </form>
     </section>
 </main>
