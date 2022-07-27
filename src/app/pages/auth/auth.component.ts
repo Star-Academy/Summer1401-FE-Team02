@@ -17,6 +17,7 @@ export class AuthComponent implements OnInit {
         firstName: '',
         lastName: '',
     };
+
     public constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService) {}
 
     public ngOnInit(): void {
@@ -32,5 +33,9 @@ export class AuthComponent implements OnInit {
         let response = await (this.isLogin
             ? this.authService.login(partialUser)
             : this.authService.register(this.user));
+
+        if (response) {
+            await this.router.navigateByUrl('/');
+        }
     }
 }
