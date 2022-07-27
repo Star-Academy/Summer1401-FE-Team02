@@ -8,6 +8,8 @@
     --info-green: rgb(44 174 26);
 
     --shadow-gray: hsl(0deg 0% 0% / 45%);
+
+    --shadow-slight: var(--shadow-gray) 0 0.3rem 0.7rem 0.2rem;
 }
 
 html {
