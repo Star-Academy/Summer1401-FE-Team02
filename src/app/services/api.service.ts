@@ -10,7 +10,12 @@ import {ToastType} from './ToastType.enum';
 export class ApiService {
     public constructor(private toastService: ToastService) {}
 
-    public async post<T>(url: string, body: any = '', init: Partial<RequestInit> = {}): Promise<T | null> {
+    public async post<T>(
+        url: string,
+        body: any = '',
+        init: Partial<RequestInit> = {},
+        toastOnError: boolean = false
+    ): Promise<T | null> {
         let response = await fetch(url, {...POST_INIT, body: JSON.stringify(body), ...init});
         let data = await response.json();
 
@@ -18,12 +23,16 @@ export class ApiService {
             return data as T;
         }
 
-        this.toastService.show((data as Error).message, ToastType.WARNING);
+        toastOnError && this.toastService.show((data as Error).message, ToastType.WARNING);
 
         return null;
     }
 
-    public async get<T>(url: string, init: Partial<RequestInit> = {}): Promise<T | null> {
+    public async get<T>(
+        url: string,
+        init: Partial<RequestInit> = {},
+        toastOnError: boolean = false
+    ): Promise<T | null> {
         let response = await fetch(url, {...GET_INIT, ...init});
         let data = await response.json();
 
@@ -31,7 +40,8 @@ export class ApiService {
             return data as T;
         }
 
-        this.toastService.show((data as Error).message, ToastType.WARNING);
+        toastOnError && this.toastService.show((data as Error).message, ToastType.WARNING);
+
         return null;
     }
 }
