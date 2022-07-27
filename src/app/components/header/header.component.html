@@ -12,17 +12,17 @@
             <app-search-box></app-search-box>
         </div>
         <div class="header__nav header__nav--left">
-            <a routerLink="#" title="cart"><i class="fa-solid fa-basket-shopping"></i></a>
+            <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-basket-shopping"></i></a>
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
-                <a routerLink="/profile" title="profile"><i class="fa-solid fa-user"></i></a>
+                <a routerLink="/profile" title="حساب کاربری"><i class="fa-solid fa-user"></i></a>
             </ng-container>
             <ng-template #notLoggedInTemplate>
                 <ul class="header__nav--list">
                     <li class="header__nav--link-hover">
-                        <a routerLink="/login" title="login">ورود</a>
+                        <a routerLink="/login" title="ورود">ورود</a>
                     </li>
                     <li class="header__nav--link-hover">
-                        <a routerLink="/signup" title="signup">ثبت نام</a>
+                        <a routerLink="/signup" title="ثبت نام">ثبت نام</a>
                     </li>
                 </ul>
             </ng-template>
