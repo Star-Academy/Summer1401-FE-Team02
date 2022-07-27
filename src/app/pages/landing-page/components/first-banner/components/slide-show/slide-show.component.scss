@@ -12,16 +12,18 @@
 
             list-style: none;
 
-            inline-size: 100%;
             block-size: 40rem;
+
+            inline-size: 100%;
 
             transform: translateX(calc(var(--active-index) * 100%));
 
             transition: transform 0.8s ease-in-out;
 
             img {
-                inline-size: 100%;
                 block-size: inherit;
+                inline-size: 100%;
+
                 object-fit: cover;
 
                 border-radius: 1.5rem;

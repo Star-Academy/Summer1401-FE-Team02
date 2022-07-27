@@ -4,8 +4,9 @@
     position: relative;
     overflow: hidden;
 
-    width: 25rem;
     block-size: 35rem;
+
+    inline-size: 25rem;
 
     border-radius: 1rem;
 
@@ -18,8 +19,8 @@
     }
 
     &__img {
-        width: 100%;
         block-size: auto;
+        inline-size: 100%;
         object-fit: cover;
     }
 
@@ -34,8 +35,9 @@
         align-items: flex-start;
         justify-content: space-between;
 
-        width: 100%;
         block-size: 100%;
+
+        inline-size: 100%;
 
         padding: 0.3em 1em 1em;
 
@@ -49,7 +51,7 @@
             align-items: flex-start;
             justify-content: flex-start;
 
-            width: 100%;
+            inline-size: 100%;
         }
     }
 
@@ -62,7 +64,7 @@
 
         overflow: hidden;
 
-        width: 100%;
+        inline-size: 100%;
 
         font-size: 2rem;
         font-weight: 500;

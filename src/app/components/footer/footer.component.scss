@@ -16,9 +16,9 @@
     &__social {
         display: flex;
         flex-direction: row-reverse;
+        align-items: center;
 
         font-size: 3rem;
-        align-items: center;
 
         a {
             color: hsl(0deg 0% 100%);
