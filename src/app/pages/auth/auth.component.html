@@ -1,6 +1,6 @@
 <main class="login__main">
     <section class="login__section">
-        <form #userForm="ngForm" (submit)="submitForm()" class="login__form">
+        <form #userForm="ngForm" class="login__form" (submit)="submitForm()">
             <input
                 *ngIf="!isLogin"
                 class="login__input"
