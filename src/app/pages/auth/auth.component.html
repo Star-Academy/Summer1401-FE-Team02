@@ -2,6 +2,24 @@
     <section class="login__section">
         <form #userForm="ngForm" (submit)="submitForm()" class="login__form">
             <input
+                *ngIf="!isLogin"
+                class="login__input"
+                name="username"
+                placeholder="نام"
+                type="text"
+                [(ngModel)]="user.username"
+                required
+            />
+            <input
+                *ngIf="!isLogin"
+                class="login__input"
+                name="username"
+                placeholder="نام خانوادگی"
+                type="text"
+                [(ngModel)]="user.username"
+                required
+            />
+            <input
                 class="login__input"
                 name="username"
                 placeholder="نام کاربری"
@@ -23,7 +41,7 @@
                 name="password"
                 placeholder="رمز عبور"
                 type="password"
-                minlength="6"
+                [attr.minlength]="isLogin ? null : 6"
                 [(ngModel)]="user.password"
                 required
             />
