@@ -5,7 +5,7 @@
         align-items: center;
         justify-content: center;
 
-        min-height: 100vh;
+        min-block-size: 100vh;
     }
 
     &__section {
@@ -15,8 +15,10 @@
         align-items: center;
         justify-content: center;
 
-        min-width: 27rem;
-        width: 40vw;
+        min-inline-size: 27rem;
+        inline-size: 40vw;
+
+        
 
         padding: 3rem;
 
@@ -26,15 +28,15 @@
     &__input {
         background: none;
 
-        width: 100%;
+        inline-size: 100%;
 
         border: none;
-        border-bottom: 0.25rem solid var(--main-theme);
+        border-block-end: 0.25rem solid var(--main-theme);
 
         font-size: 1.7rem;
 
         &:invalid {
-            border-bottom: 0.25rem solid var(--warning-red);
+            border-block-end: 0.25rem solid var(--warning-red);
         }
     }
 
@@ -46,10 +48,10 @@
 
         gap: 5rem;
 
-        width: 100%;
+        inline-size: 100%;
     }
 
     &__submit {
-        width: 100%;
+        inline-size: 100%;
     }
 }

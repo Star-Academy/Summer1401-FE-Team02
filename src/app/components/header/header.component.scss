@@ -16,13 +16,13 @@
         justify-content: space-between;
         gap: 3rem;
 
-        width: 100%;
+        inline-size: 100%;
 
         &--left,
         &--right {
             justify-content: flex-start;
 
-            width: auto;
+            inline-size: auto;
         }
 
         &--link_hover {
@@ -42,8 +42,9 @@
                 inset-block-end: 0;
                 inset-inline-start: 0;
 
-                width: 100%;
-                height: 0.5rem;
+                block-size: 0.5rem;
+
+                inline-size: 100%;
 
                 transition: opacity 100ms ease-in;
             }
@@ -88,7 +89,7 @@
     &__logo {
         opacity: 0.8;
 
-        width: 15rem;
+        inline-size: 15rem;
 
         transition: opacity 200ms ease-out;
 

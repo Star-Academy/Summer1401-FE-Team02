@@ -5,8 +5,9 @@
   justify-content: space-between;
   gap: 2rem;
 
-  min-height: 100vh;
-  height: 100vh;
+  block-size: 100vh;
+
+  min-block-size: 100vh;
 }
 
 .profile {
