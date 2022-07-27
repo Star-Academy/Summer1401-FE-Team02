@@ -12,7 +12,7 @@ export class AuthService {
     public constructor(private apiService: ApiService) {}
 
     public async login(user: Partial<User>): Promise<boolean> {
-        let data = await this.apiService.post<TokenObject>(USER_LOGIN, user, {}, true);
+        const data = await this.apiService.post<TokenObject>(USER_LOGIN, user, {}, true);
 
         if (data?.token) {
             localStorage.setItem('token', data?.token);
@@ -22,7 +22,7 @@ export class AuthService {
     }
 
     public async register(user: User): Promise<boolean> {
-        let data = await this.apiService.post<TokenObject>(USER_SIGNUP, user, {}, true);
+        const data = await this.apiService.post<TokenObject>(USER_SIGNUP, user, {}, true);
 
         if (data?.token) {
             localStorage.setItem('token', data?.token);
