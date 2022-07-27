@@ -5,9 +5,10 @@
     --light-component: hsl(0deg 0% 91%);
 
     --warning-red: hsl(0deg 63% 46%);
-    --info-green: rgb(44 174 26);
+    --info-green: hsl(113deg 74% 39%);
 
-    --shadow-gray: rgb(51 51 51 / 45%);
+    --shadow-gray: hsl(0deg 0% 20% / 45%);
+    --solid-black: hsl(0deg 0% 0%);
 
     --shadow-slight: var(--shadow-gray) 0 0 0.5rem 0.1rem;
 }
@@ -35,7 +36,7 @@ button {
 
 body {
     background-color: var(--light-ground);
-    color: hsl(0deg 0% 0%);
+    color: var(--solid-black);
 }
 
 .btn {

@@ -75,13 +75,13 @@
     }
 
     &__price {
-        color: hsl(0deg 0% 0%);
+        color: var(--solid-black);
 
         font-size: 1.7rem;
     }
 
     &__desc {
-        color: hsl(0deg 0% 0%);
+        color: var(--solid-black);
 
         overflow: hidden;
 
