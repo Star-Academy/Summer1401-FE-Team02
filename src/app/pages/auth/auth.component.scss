@@ -34,7 +34,7 @@
         font-size: 1.7rem;
 
         &:invalid {
-            border-block-end: var(--warning-red);
+            border-block-end-color: var(--warning-red);
         }
     }
 

@@ -10,10 +10,3 @@ export const POST_INIT = {
         'Content-type': 'application/json',
     },
 };
-
-export const GET_INIT = {
-    method: 'get',
-    headers: {
-        'Content-type': 'application/json',
-    },
-};
