@@ -38,4 +38,8 @@ export class AuthComponent implements OnInit {
             await this.router.navigateByUrl('/');
         }
     }
+
+    public async cancel(): Promise<void> {
+        await this.router.navigateByUrl('/');
+    }
 }

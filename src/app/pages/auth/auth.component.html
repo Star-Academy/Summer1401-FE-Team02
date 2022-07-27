@@ -46,7 +46,10 @@
                 required
             />
 
-            <button class="btn btn--fill login__submit" type="submit" [disabled]="!userForm.valid">ثبت</button>
+            <button class="btn btn--fill login__button" type="submit" [disabled]="!userForm.valid">
+                {{ isLogin ? 'ورود' : 'ثبت نام' }}
+            </button>
+            <button class="btn login__button" (click)="cancel()">لغو</button>
         </form>
     </section>
 </main>
