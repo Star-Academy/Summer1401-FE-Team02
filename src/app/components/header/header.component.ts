@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 
 @Component({
@@ -6,14 +6,12 @@ import {AuthService} from '../../services/auth.service';
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
     public isLoggedIn = false;
 
-    public constructor(private authService: AuthService) {
-        this.initializeVariables().then();
-    }
+    public constructor(private authService: AuthService) {}
 
-    private async initializeVariables(): Promise<void> {
+    public async ngOnInit(): Promise<void> {
         this.isLoggedIn = await this.authService.isLoggedIn();
     }
 }
