@@ -8,7 +8,6 @@
                 placeholder="نام"
                 type="text"
                 [(ngModel)]="user.firstName"
-                required
             />
             <input
                 *ngIf="!isLogin"
@@ -17,7 +16,6 @@
                 placeholder="نام خانوادگی"
                 type="text"
                 [(ngModel)]="user.lastName"
-                required
             />
             <input
                 class="login__input"
