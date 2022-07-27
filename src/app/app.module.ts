@@ -8,6 +8,7 @@ import {NgxPopperjsModule} from 'ngx-popperjs';
 import {AuthModule} from './pages/auth/auth.module';
 import {ToastComponent} from './components/toast/toast.component';
 import {ProfileModule} from './pages/profile/profile/profile.module';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -22,5 +23,6 @@ import {ProfileModule} from './pages/profile/profile/profile.module';
         ProfileModule,
     ],
     bootstrap: [AppComponent],
+    providers: [AuthGuard],
 })
 export class AppModule {}
