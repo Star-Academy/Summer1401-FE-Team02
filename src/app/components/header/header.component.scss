@@ -45,7 +45,7 @@
                 width: 100%;
                 height: 0.5rem;
 
-                transition: opacity 0.1s ease-in;
+                transition: opacity 100ms ease-in;
             }
 
             &:hover {
@@ -76,7 +76,7 @@
                 color: hsl(0deg 0% 100%);
                 opacity: 0.8;
 
-                transition: opacity 0.2s ease-in-out;
+                transition: opacity 200ms ease-in-out;
 
                 &:hover {
                     opacity: 1;
@@ -90,7 +90,7 @@
 
         width: 15rem;
 
-        transition: opacity 0.2s ease-out;
+        transition: opacity 200ms ease-out;
 
         &:hover {
             opacity: 1;
