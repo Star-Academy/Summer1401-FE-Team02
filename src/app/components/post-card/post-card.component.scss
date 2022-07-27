@@ -1,25 +1,26 @@
 .card {
-    box-shadow: hsl(0deg 0% 0% / 45%) 0 0.3rem 0.7rem 0.2rem;
+    box-shadow: var(--shadow-slight);
 
     position: relative;
     overflow: hidden;
 
-    width: 30rem;
-    height: 40rem;
+    block-size: 35rem;
+
+    inline-size: 25rem;
 
     border-radius: 1rem;
 
     &:hover {
         .card {
             &__info {
-                transform: translateY(-80%);
+                transform: translateY(-82%);
             }
         }
     }
 
     &__img {
-        width: 100%;
-        height: auto;
+        block-size: auto;
+        inline-size: 100%;
         object-fit: cover;
     }
 
@@ -27,15 +28,14 @@
         background-color: hsl(192deg 12% 92% / 91.8%);
 
         position: absolute;
-        inset-block-start: 80%;
+        inset-block-start: 82%;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: space-between;
 
-        width: 100%;
-        height: 100%;
+        block-size: 100%;
 
         padding: 0.3em 1em 1em;
 
@@ -49,7 +49,7 @@
             align-items: flex-start;
             justify-content: flex-start;
 
-            width: 100%;
+            inline-size: 100%;
         }
     }
 
@@ -62,9 +62,9 @@
 
         overflow: hidden;
 
-        width: 100%;
+        inline-size: 100%;
 
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 500;
 
         text-overflow: ellipsis;
@@ -73,21 +73,21 @@
     }
 
     &__price {
-        color: hsl(0deg 0% 0%);
+        color: var(--solid-black);
 
-        font-size: 2.3rem;
+        font-size: 1.7rem;
     }
 
     &__desc {
-        color: hsl(0deg 0% 0%);
+        color: var(--solid-black);
 
         overflow: hidden;
 
-        min-height: 0;
+        min-block-size: 0;
 
         padding-block-start: 2rem;
 
-        font-size: 2.3rem;
+        font-size: 1.8rem;
 
         text-align: justify;
     }

@@ -2,6 +2,15 @@
     --main-theme: hsl(178deg 49% 29%);
     --dark-ground: hsl(190deg 9% 14%);
     --light-ground: hsl(0deg 0% 96%);
+    --light-component: hsl(0deg 0% 91%);
+
+    --warning-red: hsl(0deg 63% 46%);
+    --info-green: hsl(113deg 74% 39%);
+
+    --shadow-gray: hsl(0deg 0% 20% / 45%);
+    --solid-black: hsl(0deg 0% 0%);
+
+    --shadow-slight: var(--shadow-gray) 0 0 0.5rem 0.1rem;
 }
 
 html {
@@ -11,6 +20,8 @@ html {
 
 input,
 button {
+    outline: none;
+
     font-family: Vazirmatn, monospace, sans-serif;
 }
 
@@ -25,25 +36,23 @@ button {
 
 body {
     background-color: var(--light-ground);
-    color: hsl(0deg 0% 0%);
+    color: var(--solid-black);
 }
 
 .btn {
-    background: hsl(0deg 0% 91%);
+    background: var(--light-component);
     color: var(--main-theme);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 1rem 1.3rem;
+    padding: 0.8rem 1rem;
 
     border: 0.2rem solid var(--main-theme);
     border-radius: 0.5em;
 
-    outline: none;
-
-    font-size: 2.5rem;
+    font-size: 2rem;
 
     text-align: center;
     line-height: 1.5;
@@ -51,14 +60,18 @@ body {
 
     cursor: pointer;
 
+    &:disabled {
+        cursor: not-allowed;
+    }
+
     &:hover {
         background-color: var(--main-theme);
-        color: hsl(0deg 0% 91%);
+        color: var(--light-component);
     }
 
     &--fill {
         background-color: var(--main-theme);
-        color: hsl(0deg 0% 91%);
+        color: var(--light-component);
 
         &:hover {
             background: hsl(0deg 0% 91%);

@@ -1,0 +1,4 @@
+<div *ngIf="isVisible" class="toast__container" [class]="type">
+    <p class="toast__message">{{ message }}</p>
+    <button class="toast__button" type="button" (click)="remove()"><i class="fa-solid fa-xmark"></i></button>
+</div>

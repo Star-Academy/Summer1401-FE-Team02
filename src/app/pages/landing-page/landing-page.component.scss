@@ -4,20 +4,20 @@
         flex-direction: column;
         gap: 10rem;
 
-        width: 100%;
+        inline-size: 100%;
 
         padding: 2rem 3rem;
     }
 
     &__section {
-        width: 100%;
+        inline-size: 100%;
 
         &--title {
             position: relative;
 
             margin-block-end: 3rem;
 
-            font-size: 3rem;
+            font-size: 2.5rem;
 
             &::after {
                 content: "";
@@ -28,8 +28,9 @@
                 inset-block-start: 100%;
                 inset-inline-start: 0;
 
-                width: 8em;
-                height: 0.7rem;
+                block-size: 0.7rem;
+
+                inline-size: 8em;
 
                 border-radius: 1rem;
             }
@@ -38,7 +39,7 @@
 }
 
 .larger {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .content-wrapper {
