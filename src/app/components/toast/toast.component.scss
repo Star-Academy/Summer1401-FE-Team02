@@ -32,7 +32,11 @@
     }
 
     &__button {
-        all: unset;
+        border: none;
+        outline: none;
+        background: none;
+
+        color: var(--light-component);
 
         font-size: 1.5rem;
 

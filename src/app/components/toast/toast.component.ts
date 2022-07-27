@@ -1,31 +1,10 @@
-import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Component, OnInit, HostBinding} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ToastService} from 'src/app/services/toast.service';
 
 @Component({
     selector: 'app-toast',
     templateUrl: './toast.component.html',
     styleUrls: ['./toast.component.scss'],
-    animations: [
-        trigger('visibility', [
-            state(
-                'visible',
-                style({
-                    opacity: 1,
-                    display: 'inline',
-                })
-            ),
-            state(
-                'invisible',
-                style({
-                    opacity: 0,
-                    display: 'none',
-                })
-            ),
-            transition('visible => invisible', [animate('0.3s')]),
-            transition('invisible => visible', [animate('0.3s')]),
-        ]),
-    ],
 })
 export class ToastComponent implements OnInit {
     private interval: number | null = null;
