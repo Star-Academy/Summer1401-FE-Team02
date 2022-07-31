@@ -28,13 +28,15 @@
 
         inline-size: 100%;
 
-        border: none;
-        border-block-end: 0.25rem solid var(--main-theme);
+        border: 0.2rem solid var(--main-theme);
+        border-radius: 0.5rem;
 
         font-size: 1.7rem;
 
+        padding: 0.5rem 1rem;
+
         &:invalid {
-            border-block-end-color: var(--warning-red);
+            border-block-color: var(--warning-red);
         }
     }
 
@@ -47,6 +49,17 @@
         gap: 5rem;
 
         inline-size: 100%;
+
+        & > *:first-child {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: flex-start;
+
+            gap: 2rem;
+
+            inline-size: 100%;
+        }
 
         &--buttons {
             display: flex;

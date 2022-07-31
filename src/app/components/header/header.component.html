@@ -12,8 +12,8 @@
             <app-search-box></app-search-box>
         </div>
         <div class="header__nav header__nav--left">
-            <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-basket-shopping"></i></a>
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
+                <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-basket-shopping"></i></a>
                 <a routerLink="/profile" title="حساب کاربری"><i class="fa-solid fa-user"></i></a>
             </ng-container>
             <ng-template #notLoggedInTemplate>

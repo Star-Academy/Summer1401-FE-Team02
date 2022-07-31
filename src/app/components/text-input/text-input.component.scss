@@ -1,0 +1,16 @@
+.input {
+    &__input {
+        background: none;
+
+        inline-size: 100%;
+
+        border: none;
+        border-block-end: 0.25rem solid var(--main-theme);
+
+        font-size: 1.7rem;
+
+        &:invalid {
+            border-block-end-color: var(--warning-red);
+        }
+    }
+}
