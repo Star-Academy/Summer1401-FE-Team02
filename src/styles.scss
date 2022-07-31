@@ -40,7 +40,7 @@ body {
 }
 
 .btn {
-    background: var(--light-component);
+    background-color: var(--light-component);
     color: var(--main-theme);
 
     display: flex;
@@ -74,7 +74,7 @@ body {
         color: var(--light-component);
 
         &:hover {
-            background: hsl(0deg 0% 91%);
+            background-color: hsl(0deg 0% 91%);
             color: var(--main-theme);
         }
     }

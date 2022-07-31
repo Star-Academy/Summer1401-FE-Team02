@@ -4,12 +4,21 @@
             <img [src]="banner.imageAddress" />
             <div class="overlay">
                 <div class="banner-description">
-                    <mark class="banner-description__text">
+                    <p class="banner-description__text">
                         {{ banner.description }}
-                    </mark>
+                    </p>
                 </div>
-                <button class="btn btn--fill free-play-btn">امروز رایگان بازی کنید!</button>
+                <button class="btn">امروز رایگان بازی کنید!</button>
+            </div>
+            <div class="controls">
+                <div class="control-buttons">
+                    <button (click)="changeActiveIndex(activeIndex - 1)"><i class="far fa-angle-right"></i></button>
+                    <button (click)="changeActiveIndex(activeIndex + 1)"><i class="far fa-angle-left"></i></button>
+                </div>
             </div>
         </li>
     </ol>
+    <div class="bullets">
+        <i *ngFor="let _ of banners; index as index" [class.active]="index === activeIndex"></i>
+    </div>
 </div>
