@@ -1,4 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 import {SignupFormComponent} from './signup-form.component';
 
@@ -9,6 +10,7 @@ describe('SignupFormComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [SignupFormComponent],
+            imports: [RouterTestingModule],
         }).compileComponents();
     });
 
