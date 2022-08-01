@@ -72,7 +72,7 @@ describe('AuthService', () => {
         const response = await service.login({username: '', password: ''});
         expect(response).toBeFalse();
 
-        testCache('', false, null);
+        testCache('', null, null);
     });
 
     it('should login - success', async () => {
