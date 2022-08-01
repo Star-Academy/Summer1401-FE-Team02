@@ -2,7 +2,6 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PostCardComponent} from './post-card.component';
 import {Game} from '../../interfaces/Game.interface';
-import {query} from '@angular/animations';
 
 describe('PostCardComponent', () => {
     let component: PostCardComponent;
