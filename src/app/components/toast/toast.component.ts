@@ -13,10 +13,18 @@ export class ToastComponent implements OnInit {
     public message: string = '';
     public type: string = '';
 
+    private TIME_OUT = 4_000;
+
     public constructor(private service: ToastService) {}
 
     public ngOnInit(): void {
         this.service.setComponent(this);
+    }
+
+    private hide(): void {
+        this.isVisible = false;
+        this.message = '';
+        this.interval = null;
     }
 
     public show(message: string, type: string): void {
@@ -26,17 +34,11 @@ export class ToastComponent implements OnInit {
         this.type = type;
         this.isVisible = true;
 
-        const TIME_OUT = 3_000;
-
-        this.interval = setInterval(() => {
-            this.isVisible = false;
-            this.interval = null;
-        }, TIME_OUT);
+        this.interval = setInterval(this.hide, this.TIME_OUT);
     }
 
     public remove(): void {
         this.interval && clearInterval(this.interval);
-        this.interval = null;
-        this.isVisible = false;
+        this.hide();
     }
 }
