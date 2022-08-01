@@ -54,10 +54,11 @@
         justify-content: space-between;
         gap: 2rem;
 
+        block-size: 100%;
+
         inline-size: 100%;
 
         padding: 2rem;
-
 
         .banner-description {
             display: flex;
@@ -88,16 +89,22 @@
                 -webkit-box-orient: vertical;
             }
 
-            &__title{
+            &__title {
                 color: var(--dark-ground);
                 opacity: 0.8;
 
                 padding: 1rem;
             }
         }
+
+        .free-play{
+            z-index: 999;
+        }
     }
 
-    .controls {
+    .control-buttons {
+        opacity: 0.8;
+
         position: absolute;
 
         inset-block-end: 0;
@@ -110,42 +117,30 @@
         justify-content: space-between;
         gap: 2rem;
 
-        block-size: inherit;
+        block-size: 100%;
 
         inline-size: 100%;
 
         padding: 2rem;
 
-        .control-buttons {
-            opacity: 0.8;
+        transition: opacity 0.1s ease-in-out;
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        button {
+            background-color: hsl(0deg 0 72/10%);
 
-            inline-size: inherit;
+            justify-content: center;
 
-            transition: opacity 0.1s ease-in-out;
+            block-size: 5rem;
 
-            button {
-                background-color: hsl(0deg 0 72/10%);
+            inline-size: 2rem;
 
-                justify-content: center;
+            border: 1rem;
+            border-color: var(--dark-ground);
 
-                block-size: 5rem;
+            border-radius: 999rem;
 
-                inline-size: 2rem;
-
-
-
-                border: 1rem;
-                border-color: var(--dark-ground);
-
-                border-radius: 999rem;
-
-                &:hover {
-                    background-color: hsl(0deg 0 72/40%);
-                }
+            &:hover {
+                background-color: hsl(0deg 0 72/40%);
             }
         }
     }
@@ -167,7 +162,7 @@
 
             display: block;
 
-            block-size: 0.3rem;
+            block-size: 0.5rem;
 
             inline-size: 20%;
 
@@ -179,7 +174,7 @@
                 background-color: var(--main-theme);
                 opacity: 0.8;
 
-                block-size: 0.35rem;
+                block-size: 0.6rem;
             }
         }
     }
