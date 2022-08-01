@@ -2,7 +2,6 @@
     --main-theme: hsl(178deg 49% 29%);
     --dark-ground: hsl(190deg 9% 14%);
     --light-ground: hsl(0deg 0% 96%);
-    --light-component: hsl(0deg 0% 91%);
 
     --warning-red: hsl(0deg 63% 46%);
     --info-green: hsl(113deg 74% 39%);
@@ -40,7 +39,7 @@ body {
 }
 
 .btn {
-    background-color: var(--light-component);
+    background-color: var(--light-ground);
     color: var(--main-theme);
 
     display: flex;
@@ -66,15 +65,15 @@ body {
 
     &:hover {
         background-color: var(--main-theme);
-        color: var(--light-component);
+        color: var(--light-ground);
     }
 
     &--fill {
         background-color: var(--main-theme);
-        color: var(--light-component);
+        color: var(--light-ground);
 
         &:hover {
-            background-color: hsl(0deg 0% 91%);
+            background-color: var(--light-ground);
             color: var(--main-theme);
         }
     }

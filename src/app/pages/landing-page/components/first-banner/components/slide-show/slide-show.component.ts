@@ -8,7 +8,7 @@ import {BANNERS} from 'src/app/data/Banners';
     styleUrls: ['./slide-show.component.scss'],
 })
 export class SlideShowComponent implements AfterViewInit, OnDestroy {
-    private readonly INTERVAL_DELAY: number = 40000;
+    private readonly INTERVAL_DELAY: number = 6_000;
     private interval: number | null = null;
 
     public activeIndex: number = 0;
