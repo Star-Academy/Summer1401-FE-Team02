@@ -9,9 +9,9 @@ import {IdObject} from '../interfaces/id-object';
     providedIn: 'root',
 })
 export class AuthService {
-    private cachedIsLoggedIn: boolean | null = null;
-    private cachedUserId: number | null = null;
-    private cachedUser: User | null = null;
+    public cachedIsLoggedIn: boolean | null = null;
+    public cachedUserId: number | null = null;
+    public cachedUser: User | null = null;
 
     public constructor(private apiService: ApiService) {}
 
