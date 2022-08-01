@@ -43,7 +43,8 @@ export class AuthService {
         const token = localStorage.getItem('token') || '';
 
         const data = await this.apiService.post<IdObject>(USER_AUTHENTICATE, {token});
-        return !!data;
+        await this.saveCache(this.token, !!data, data?.id ?? null);
+        return !!this.cachedIsLoggedIn;
     }
 
     public async isLoggedIn(): Promise<boolean> {
