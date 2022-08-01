@@ -1,10 +1,10 @@
 import {USER_AUTHENTICATE, USER_LOGIN} from '../utils/api.utils';
-import {User} from '../interfaces/User.interface';
+import {LoginUserData} from '../interfaces/LoginUserData.interface';
 
 export const VALID_TOKEN: string =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImlhdCI6MTY1ODg4Mjc3Mn0._eFaFDUrI4JL5NS-d6f0J0dTgTyu51oc6AyoS7qHn0U';
 
-export const VALID_USER_LOGIN_DATA: Partial<User> = {
+export const VALID_USER_LOGIN_DATA: LoginUserData = {
     username: 'BijanProgrammer',
     password: '1234',
 };

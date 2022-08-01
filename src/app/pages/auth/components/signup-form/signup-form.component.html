@@ -1,10 +1,33 @@
 <h1>ثبت نام</h1>
-<input class="auth__input" name="username" placeholder="نام" type="text" [(ngModel)]="user.firstName" />
 
-<input class="auth__input" name="username" placeholder="نام خانوادگی" type="text" [(ngModel)]="user.lastName" />
+<form (submit)="submitForm()">
+    <section>
+        <label>نام</label>
+        <input name="firstname" type="text" [(ngModel)]="user.firstName" />
+    </section>
 
-<input class="auth__input" name="username" placeholder="نام کاربری" type="text" [(ngModel)]="user.username" />
+    <section>
+        <label>نام خانوادگی</label>
+        <input name="firstname" type="text" [(ngModel)]="user.lastName" />
+    </section>
 
-<input class="auth__input" name="email" placeholder="ایمیل" type="email" [(ngModel)]="user.email" />
+    <section>
+        <label>نام کاربری</label>
+        <input name="firstname" type="text" [(ngModel)]="user.username" />
+    </section>
 
-<input class="auth__input" name="password" placeholder="رمز عبور" type="password" [(ngModel)]="user.password" />
+    <section>
+        <label>ایمیل</label>
+        <input name="firstname" type="email" [(ngModel)]="user.email" />
+    </section>
+
+    <section>
+        <label>رمز عبور</label>
+        <input name="firstname" type="password" [(ngModel)]="user.password" />
+    </section>
+
+    <div class="buttons">
+        <button class="btn btn--fill" type="submit">ثبت نام</button>
+        <button class="btn" (click)="cancel()">لغو</button>
+    </div>
+</form>

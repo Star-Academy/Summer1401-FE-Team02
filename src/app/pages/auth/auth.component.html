@@ -1,18 +1,10 @@
 <main class="auth__main">
     <section class="auth__section">
-        <form #userForm="ngForm" class="auth__form" (submit)="submitForm()">
-            <ng-container *ngIf="isLogin; else signupForm">
-                <app-login-form></app-login-form>
-            </ng-container>
-            <ng-template #signupForm>
-                <app-signup-form></app-signup-form>
-            </ng-template>
-            <div class="auth__form--buttons">
-                <button class="btn btn--fill auth__button" type="submit" [disabled]="!userForm.valid">
-                    {{ isLogin ? 'ورود' : 'ثبت نام' }}
-                </button>
-                <button class="btn auth__button" (click)="cancel()">لغو</button>
-            </div>
-        </form>
+        <ng-container *ngIf="isLogin; else signupForm">
+            <app-login-form></app-login-form>
+        </ng-container>
+        <ng-template #signupForm>
+            <app-signup-form></app-signup-form>
+        </ng-template>
     </section>
 </main>

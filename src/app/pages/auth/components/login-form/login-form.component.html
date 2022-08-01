@@ -1,4 +1,18 @@
 <h1>ورود</h1>
 
-<input class="auth__input" name="username" placeholder="نام کاربری" type="text" [(ngModel)]="user.username" />
-<input class="auth__input" name="password" placeholder="رمز عبور" type="password" [(ngModel)]="user.password" />
+<form (submit)="submitForm()">
+    <section>
+        <label>نام کاربری</label>
+        <input name="username" type="text" [(ngModel)]="user.username" />
+    </section>
+
+    <section>
+        <label>رمز عبور</label>
+        <input name="password" type="password" [(ngModel)]="user.password" />
+    </section>
+
+    <div class="buttons">
+        <button class="btn btn--fill" type="submit">ورود</button>
+        <button class="btn" (click)="cancel()">لغو</button>
+    </div>
+</form>

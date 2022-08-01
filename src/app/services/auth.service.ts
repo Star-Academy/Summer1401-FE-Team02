@@ -4,6 +4,7 @@ import {ApiService} from './api.service';
 import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP} from '../utils/api.utils';
 import {TokenObject} from '../interfaces/TokenObject.interface';
 import {IdObject} from '../interfaces/IdObject';
+import {LoginUserData} from '../interfaces/LoginUserData.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -19,7 +20,7 @@ export class AuthService {
         return localStorage.getItem('token') || '';
     }
 
-    public async login(user: Partial<User>): Promise<boolean> {
+    public async login(user: LoginUserData): Promise<boolean> {
         const data = await this.apiService.post<TokenObject>(USER_LOGIN, user, {}, true);
 
         if (data?.token) {
