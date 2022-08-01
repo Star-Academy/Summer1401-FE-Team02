@@ -28,12 +28,12 @@
 
         inline-size: 100%;
 
+        padding: 0.5rem 1rem;
+
         border: 0.2rem solid var(--main-theme);
         border-radius: 0.5rem;
 
         font-size: 1.7rem;
-
-        padding: 0.5rem 1rem;
 
         &:invalid {
             border-block-color: var(--warning-red);

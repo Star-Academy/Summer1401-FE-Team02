@@ -36,6 +36,7 @@
         justify-content: space-between;
 
         block-size: 100%;
+        inline-size: 100%;
 
         padding: 0.3em 1em 1em;
 
@@ -83,6 +84,8 @@
 
         overflow: hidden;
 
+        display: -webkit-box;
+
         min-block-size: 0;
 
         padding-block-start: 2rem;
@@ -90,6 +93,12 @@
         font-size: 1.8rem;
 
         text-align: justify;
+
+        text-overflow: ellipsis;
+
+        word-wrap: normal;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
     }
 
     &__control {
