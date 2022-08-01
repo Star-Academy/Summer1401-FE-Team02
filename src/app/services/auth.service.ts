@@ -3,7 +3,7 @@ import {User} from '../interfaces/User.interface';
 import {ApiService} from './api.service';
 import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP} from '../utils/api.utils';
 import {TokenObject} from '../interfaces/TokenObject.interface';
-import {IdObject} from '../interfaces/id-object';
+import {IdObject} from '../interfaces/IdObject';
 
 @Injectable({
     providedIn: 'root',
