@@ -3,8 +3,9 @@
 }
 
 h1 {
-    font-size: 3rem;
     padding-block-end: 2rem;
+
+    font-size: 3rem;
 }
 
 form {
@@ -58,12 +59,15 @@ form {
 
         padding-block-start: 2rem;
     }
+
     button {
-        font-size: 1.5rem;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 2rem;
+
         inline-size: 100%;
+
+        font-size: 1.5rem;
     }
 }
