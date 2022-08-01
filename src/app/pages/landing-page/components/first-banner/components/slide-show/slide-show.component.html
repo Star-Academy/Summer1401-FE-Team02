@@ -12,8 +12,12 @@
                     </p>
                 </div>
                 <div class="control-buttons">
-                    <button (click)="changeActiveIndex(activeIndex - 1)"><i class="far fa-angle-right"></i></button>
-                    <button (click)="changeActiveIndex(activeIndex + 1)"><i class="far fa-angle-left"></i></button>
+                    <button id="prevButton" (click)="changeActiveIndex(activeIndex - 1)">
+                        <i class="far fa-angle-right"></i>
+                    </button>
+                    <button id="nextButton" (click)="changeActiveIndex(activeIndex + 1)">
+                        <i class="far fa-angle-left"></i>
+                    </button>
                 </div>
                 <button class="btn free-play">امروز رایگان بازی کنید!</button>
             </div>

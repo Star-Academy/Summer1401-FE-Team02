@@ -9,7 +9,7 @@ import {BANNERS} from 'src/app/data/Banners';
 })
 export class SlideShowComponent implements AfterViewInit, OnDestroy {
     private readonly INTERVAL_DELAY: number = 6_000;
-    private interval: number | null = null;
+    public interval: number | null = null;
 
     public activeIndex: number = 0;
     public banners: Ibanner[] = BANNERS;

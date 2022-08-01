@@ -34,6 +34,8 @@ describe('ToastComponent', () => {
         let click = new Event('click');
         host.querySelector('.toast__button')?.dispatchEvent(click);
 
+        fixture.detectChanges();
+
         const toast = host.querySelector('.toast__container');
         expect(toast).toBeFalsy();
 
