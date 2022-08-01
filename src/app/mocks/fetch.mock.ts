@@ -1,10 +1,10 @@
 import {USER_AUTHENTICATE, USER_LOGIN} from '../utils/api.utils';
-import {UserLoginData} from '../models/api/user-login-data.model';
+import {User} from '../interfaces/User.interface';
 
 export const VALID_TOKEN: string =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImlhdCI6MTY1ODg4Mjc3Mn0._eFaFDUrI4JL5NS-d6f0J0dTgTyu51oc6AyoS7qHn0U';
 
-export const VALID_USER_LOGIN_DATA: UserLoginData = {
+export const VALID_USER_LOGIN_DATA: Partial<User> = {
     username: 'BijanProgrammer',
     password: '1234',
 };
@@ -47,9 +47,9 @@ export class FetchMock {
         } else if (init && init.body && init.method === 'post') {
             const body = JSON.parse(init.body as any);
 
-            if (url === API_USER_AUTH && body.token === VALID_TOKEN) return FetchMock.tokenObjectResponse;
+            if (url === USER_AUTHENTICATE && body.token === VALID_TOKEN) return FetchMock.tokenObjectResponse;
 
-            if (url === API_USER_LOGIN && FetchMock.isEqual(body, VALID_USER_LOGIN_DATA))
+            if (url === USER_LOGIN && FetchMock.isEqual(body, VALID_USER_LOGIN_DATA))
                 return FetchMock.tokenObjectResponse;
         }
 
