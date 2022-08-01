@@ -35,7 +35,9 @@ export class ToastComponent implements OnInit {
         this.type = type || ToastType.WARNING;
         this.isVisible = true;
 
-        this.interval = setInterval(this.hide, this.TIME_OUT);
+        this.interval = setInterval(() => {
+            this.hide();
+        }, this.TIME_OUT);
     }
 
     public remove(): void {
