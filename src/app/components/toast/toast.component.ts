@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastService} from 'src/app/services/toast.service';
+import {ToastType} from 'src/app/services/ToastType.enum';
 
 @Component({
     selector: 'app-toast',
@@ -11,7 +12,7 @@ export class ToastComponent implements OnInit {
 
     public isVisible: boolean = false;
     public message: string = '';
-    public type: string = '';
+    public type: string = ToastType.WARNING;
 
     private TIME_OUT = 4_000;
 
@@ -27,11 +28,11 @@ export class ToastComponent implements OnInit {
         this.interval = null;
     }
 
-    public show(message: string, type: string): void {
+    public show(message: string, type: string | null = null): void {
         this.interval && clearInterval(this.interval);
 
         this.message = message;
-        this.type = type;
+        this.type = type || ToastType.WARNING;
         this.isVisible = true;
 
         this.interval = setInterval(this.hide, this.TIME_OUT);
