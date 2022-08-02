@@ -4,7 +4,7 @@
             <ul class="header__nav--list">
                 <li>
                     <a routerLink="/" title="GameUp" class="logo-container">
-                        <img class="header__logo" src="assets/logos/logo-dark-removebg.svg" />
+                        <img class="header__logo" alt="Game-Up" src="assets/logos/logo-dark-removebg.svg" />
                     </a>
                 </li>
                 <li class="header__nav--link-hover"><a routerLink="#">آرشیو</a></li>
@@ -19,10 +19,10 @@
             <ng-template #notLoggedInTemplate>
                 <ul class="header__nav--list">
                     <li class="header__nav--link-hover">
-                        <a routerLink="/login">ورود</a>
+                        <a routerLink="/login" #login_link>ورود</a>
                     </li>
                     <li class="header__nav--link-hover">
-                        <a routerLink="/signup">ثبت نام</a>
+                        <a routerLink="/signup" #signup_link>ثبت نام</a>
                     </li>
                 </ul>
             </ng-template>
