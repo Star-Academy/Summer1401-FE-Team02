@@ -17,7 +17,7 @@ export class LoginFormComponent {
     public constructor(private authService: AuthService, private router: Router) {}
 
     public async submitForm(): Promise<void> {
-        let response = await this.authService.login(this.user);
+        const response = await this.authService.login(this.user);
         response && this.router.navigateByUrl('/');
     }
 

@@ -20,7 +20,7 @@ export class SignupFormComponent {
     public constructor(public authService: AuthService, public router: Router) {}
 
     public async submitForm(): Promise<void> {
-        let response = await this.authService.signup(this.user);
+        const response = await this.authService.signup(this.user);
         response && this.router.navigateByUrl('/');
     }
 

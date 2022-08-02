@@ -44,8 +44,8 @@ describe('ToastComponent', () => {
     });
 
     it('should show - info', () => {
-        let message: string = 'message';
-        let type: string = ToastType.INFO;
+        const message: string = 'message';
+        const type: string = ToastType.INFO;
         component.show(message, type);
         testProperties(message, type);
     });

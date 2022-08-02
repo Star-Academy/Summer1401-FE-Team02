@@ -29,16 +29,16 @@ describe('LoginFormComponent', () => {
     });
 
     it('should render form', () => {
-        let usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
-        let passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
+        const usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
+        const passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
 
         expect(usernameField).toBeTruthy();
         expect(passwordField).toBeTruthy();
     });
 
     it('should change input', () => {
-        let username = 'user1';
-        let password = 'pass1';
+        const username = 'user1';
+        const password = 'pass1';
 
         component.user = {
             username,
@@ -48,8 +48,8 @@ describe('LoginFormComponent', () => {
         fixture.detectChanges();
 
         fixture.whenStable().then(() => {
-            let usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
-            let passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
+            const usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
+            const passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
 
             expect(usernameField.value).toEqual(username);
             expect(passwordField.value).toEqual(password);

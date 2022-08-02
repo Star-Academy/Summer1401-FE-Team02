@@ -30,7 +30,6 @@ export class ToastComponent implements OnInit {
 
     public show(message: string, type: string | null = null): void {
         this.interval && clearInterval(this.interval);
-
         this.message = message;
         this.type = type || ToastType.WARNING;
         this.isVisible = true;
