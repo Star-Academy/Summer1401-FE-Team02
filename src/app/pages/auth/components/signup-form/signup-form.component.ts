@@ -21,7 +21,7 @@ export class SignupFormComponent {
 
     public async submitForm(): Promise<void> {
         const response = await this.authService.signup(this.user);
-        response && this.router.navigateByUrl('/');
+        response && (await this.router.navigateByUrl('/'));
     }
 
     public async cancel(): Promise<void> {

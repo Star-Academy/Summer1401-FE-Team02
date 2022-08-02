@@ -18,7 +18,7 @@ export class LoginFormComponent {
 
     public async submitForm(): Promise<void> {
         const response = await this.authService.login(this.user);
-        response && this.router.navigateByUrl('/');
+        response && (await this.router.navigateByUrl('/'));
     }
 
     public async cancel(): Promise<void> {
