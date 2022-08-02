@@ -17,6 +17,9 @@
     --solid-black: hsl(0deg 0% 0%);
 
     --shadow-slight: var(--shadow-gray) 0 0 0.5rem 0.1rem;
+
+    --border-radius-minimum: 0.3rem;
+    --border-radius-norm: 1rem;
 }
 
 html {
@@ -56,7 +59,7 @@ body {
     padding: 0.8rem 1rem;
 
     border: 0.2rem solid var(--main-theme);
-    border-radius: 1rem;
+    border-radius: var(--border-radius-norm);
 
     font-size: 2rem;
 

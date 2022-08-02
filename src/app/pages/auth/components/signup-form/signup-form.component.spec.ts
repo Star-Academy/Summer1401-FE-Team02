@@ -28,14 +28,14 @@ describe('SignupFormComponent', () => {
     });
 
     it('should render form', () => {
-        const firstnameField = host.querySelector('[name="firstname"]') as HTMLInputElement;
-        const lastnameField = host.querySelector('[name="lastname"]') as HTMLInputElement;
+        const firstNameField = host.querySelector('[name="firstname"]') as HTMLInputElement;
+        const lastNameField = host.querySelector('[name="lastname"]') as HTMLInputElement;
         const usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
         const emailField = host.querySelector('[name="email"]') as HTMLInputElement;
         const passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
 
-        expect(firstnameField).toBeTruthy();
-        expect(lastnameField).toBeTruthy();
+        expect(firstNameField).toBeTruthy();
+        expect(lastNameField).toBeTruthy();
         expect(usernameField).toBeTruthy();
         expect(emailField).toBeTruthy();
         expect(passwordField).toBeTruthy();
@@ -59,14 +59,14 @@ describe('SignupFormComponent', () => {
         fixture.detectChanges();
 
         fixture.whenStable().then(() => {
-            const firstnameField = host.querySelector('[name="firstname"]') as HTMLInputElement;
-            const lastnameField = host.querySelector('[name="lastname"]') as HTMLInputElement;
+            const firstNameField = host.querySelector('[name="firstname"]') as HTMLInputElement;
+            const lastNameField = host.querySelector('[name="lastname"]') as HTMLInputElement;
             const usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
             const emailField = host.querySelector('[name="email"]') as HTMLInputElement;
             const passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
 
-            expect(firstnameField.value).toEqual(firstName);
-            expect(lastnameField.value).toEqual(lastName);
+            expect(firstNameField.value).toEqual(firstName);
+            expect(lastNameField.value).toEqual(lastName);
             expect(usernameField.value).toEqual(username);
             expect(emailField.value).toEqual(email);
             expect(passwordField.value).toEqual(password);

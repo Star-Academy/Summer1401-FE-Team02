@@ -7,7 +7,7 @@
         display: flex;
         flex-direction: row;
 
-        border-radius: 1rem;
+        border-radius: var(--border-radius-norm);
 
         li {
             flex: 0 0 100%;
@@ -166,7 +166,7 @@
 
             inline-size: 20%;
 
-            border-radius: 1rem;
+            border-radius: var(--border-radius-norm);
 
             font-size: 0.6rem;
 
