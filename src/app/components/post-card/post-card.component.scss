@@ -10,7 +10,7 @@
 
     inline-size: 25rem;
 
-    border-radius: 1rem;
+    border-radius: var(--border-radius-norm);
 
     &:hover {
         .card {
