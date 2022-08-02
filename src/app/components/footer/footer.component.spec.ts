@@ -25,7 +25,7 @@ describe('FooterComponent', () => {
     });
 
     it('should show copyright', () => {
-        const copyright_text = host.querySelector('.footer__copyright')!.textContent;
-        expect(copyright_text).toEqual('تمامی حقوق مادی و معنوی این سایت متعلق به Game-Up می‌باشد.');
+        const copyrightText = host.querySelector('.footer__copyright')!.textContent;
+        expect(copyrightText).toEqual('تمامی حقوق مادی و معنوی این سایت متعلق به Game-Up می‌باشد.');
     });
 });
