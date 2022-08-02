@@ -27,27 +27,27 @@ describe('AuthGuard', () => {
         spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(true));
         routeMock.routeConfig.path = 'profile';
 
-        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(true);
+        expect(await guard.canActivate(routeMock, routeStateMock)).toBeTrue();
     });
 
     it('should activate with not logged in and login', async () => {
         spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(false));
         routeMock.routeConfig.path = 'login';
 
-        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(true);
+        expect(await guard.canActivate(routeMock, routeStateMock)).toBeTrue();
     });
 
     it('should not activate with logged in and signup', async () => {
         spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(true));
         routeMock.routeConfig.path = 'signup';
 
-        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(false);
+        expect(await guard.canActivate(routeMock, routeStateMock)).toBeFalse();
     });
 
     it('should not activate with not logged in and profile', async () => {
         spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(false));
         routeMock.routeConfig.path = 'profile';
 
-        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(false);
+        expect(await guard.canActivate(routeMock, routeStateMock)).toBeFalse();
     });
 });
