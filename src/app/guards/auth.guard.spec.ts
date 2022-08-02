@@ -48,9 +48,9 @@ describe('AuthGuard', () => {
     });
 
     const checkRouteActivation = async (url: string, loggedIn: boolean, expectedResult: boolean): Promise<void> => {
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(expectedResult));
+        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(loggedIn));
         routeMock.routeConfig.path = url;
 
-        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(loggedIn);
+        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(expectedResult);
     };
 });
