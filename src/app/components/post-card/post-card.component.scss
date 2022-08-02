@@ -1,4 +1,6 @@
 .card {
+    --info-offset: 82%;
+
     box-shadow: var(--shadow-slight);
 
     position: relative;
@@ -13,7 +15,7 @@
     &:hover {
         .card {
             &__info {
-                transform: translateY(-82%);
+                transform: translateY(calc(-1 * var(--info-offset)));
             }
         }
     }
@@ -28,7 +30,7 @@
         background-color: hsl(192deg 12% 92% / 91.8%);
 
         position: absolute;
-        inset-block-start: 82%;
+        inset-block-start: var(--info-offset);
 
         display: flex;
         flex-direction: column;
@@ -88,11 +90,9 @@
 
         min-block-size: 0;
 
-        padding-block-start: 2rem;
+        padding-block-start: 3rem;
 
-        font-size: 1.8rem;
-
-        text-align: justify;
+        font-size: 1.7rem;
 
         text-overflow: ellipsis;
 
