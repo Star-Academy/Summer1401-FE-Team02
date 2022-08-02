@@ -53,13 +53,13 @@ describe('ToastComponent', () => {
     const testProperties = (message: string, type: string | null): void => {
         fixture.detectChanges();
 
-        testtoast(message, type);
-        testtoastMessage(message);
-        testtoastButton();
-        testtoastButtonIcon();
+        testToast(message, type);
+        testToastMessage(message);
+        testToastButton();
+        testToastButtonIcon();
     };
 
-    const testtoast = (message: string, type: string | null): void => {
+    const testToast = (message: string, type: string | null): void => {
         const toast = host.querySelector('.toast__container');
 
         expect(toast).toBeTruthy();
@@ -69,19 +69,19 @@ describe('ToastComponent', () => {
         else expect(component.isVisible).toBeFalse();
     };
 
-    const testtoastMessage = (message: string): void => {
+    const testToastMessage = (message: string): void => {
         const message_box = host.querySelector('.toast__container .toast__message');
 
         expect(message_box).toBeTruthy();
         if (!!message_box) expect(message_box?.textContent).toContain(message);
     };
 
-    const testtoastButton = (): void => {
+    const testToastButton = (): void => {
         const button = host.querySelector('.toast__container .toast__button');
         expect(button).toBeTruthy();
     };
 
-    const testtoastButtonIcon = (): void => {
+    const testToastButtonIcon = (): void => {
         const icon = host.querySelector('.toast__container button i');
 
         expect(icon).toBeTruthy();
