@@ -40,13 +40,18 @@ form {
 
         padding: 0.5rem 1rem;
 
-        border: 0.2rem solid var(--main-theme);
+        border: 0.2rem solid var(--main-theme-transparent);
+
         border-radius: 0.5rem;
 
         font-size: 1.5rem;
 
         &:invalid {
             border-block-color: var(--warning-red);
+        }
+
+        &:focus {
+            border-color: var(--main-theme);
         }
     }
 
@@ -70,4 +75,10 @@ form {
 
         font-size: 1.5rem;
     }
+}
+
+.form__footer {
+    padding-block-start: 3rem;
+
+    font-size: 1.5rem;
 }
