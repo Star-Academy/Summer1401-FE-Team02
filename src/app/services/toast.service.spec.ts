@@ -16,7 +16,7 @@ describe('SnackbarService', () => {
         expect(service).toBeTruthy();
     });
 
-    it('tests show', () => {
+    it('should show', () => {
         service.setComponent(toastComponentSpy);
         service.show('this is a message');
         expect(toastComponentSpy.show.calls.count()).toBe(1);
