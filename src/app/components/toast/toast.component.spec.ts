@@ -25,13 +25,13 @@ describe('ToastComponent', () => {
     });
 
     it('should show - default', () => {
-        let message: string = 'message';
+        const message: string = 'message';
         component.show(message);
         testProperties(message, null);
     });
 
     it('should hide', () => {
-        let click = new Event('click');
+        const click = new Event('click');
         host.querySelector('.toast__button')?.dispatchEvent(click);
 
         fixture.detectChanges();
