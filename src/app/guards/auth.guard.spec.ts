@@ -23,31 +23,34 @@ describe('AuthGuard', () => {
         authService = injector.get(AuthService);
     });
 
-    it('should activate with logged in and profile', async () => {
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(true));
-        routeMock.routeConfig.path = 'profile';
-
-        expect(await guard.canActivate(routeMock, routeStateMock)).toBeTrue();
+    it('should not activate - logged in - login route', () => {
+        checkRouteActivation('login', true, false);
     });
 
-    it('should activate with not logged in and login', async () => {
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(false));
-        routeMock.routeConfig.path = 'login';
-
-        expect(await guard.canActivate(routeMock, routeStateMock)).toBeTrue();
+    it('should not activate - logged in - signup route', () => {
+        checkRouteActivation('signup', true, false);
     });
 
-    it('should not activate with logged in and signup', async () => {
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(true));
-        routeMock.routeConfig.path = 'signup';
-
-        expect(await guard.canActivate(routeMock, routeStateMock)).toBeFalse();
+    it('should not activate - not logged in - profile route', () => {
+        checkRouteActivation('profile', false, false);
     });
 
-    it('should not activate with not logged in and profile', async () => {
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(false));
-        routeMock.routeConfig.path = 'profile';
-
-        expect(await guard.canActivate(routeMock, routeStateMock)).toBeFalse();
+    it('should activate - not logged in - login route', () => {
+        checkRouteActivation('login', false, true);
     });
+
+    it('should activate - not logged in - signup route', () => {
+        checkRouteActivation('signup', false, true);
+    });
+
+    it('should activate - logged in - profile route', () => {
+        checkRouteActivation('profile', true, true);
+    });
+
+    const checkRouteActivation = async (url: string, loggedIn: boolean, expectedResult: boolean): Promise<void> => {
+        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(expectedResult));
+        routeMock.routeConfig.path = url;
+
+        expect(await guard.canActivate(routeMock, routeStateMock)).toEqual(loggedIn);
+    };
 });
