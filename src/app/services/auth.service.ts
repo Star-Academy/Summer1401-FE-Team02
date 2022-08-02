@@ -24,7 +24,7 @@ export class AuthService {
         const data = await this.apiService.post<TokenObject>(USER_LOGIN, user, {}, true);
 
         if (data?.token) {
-            this.saveCache(data?.token, true, data?.id);
+            this.saveCache(data.token, true, data.id);
         }
 
         return !!data;
@@ -34,7 +34,7 @@ export class AuthService {
         const data = await this.apiService.post<TokenObject>(USER_SIGNUP, user, {}, true);
 
         if (data?.token) {
-            this.saveCache(data?.token, true, data?.id);
+            this.saveCache(data.token, true, data.id);
         }
 
         return !!data;
