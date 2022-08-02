@@ -77,8 +77,10 @@ form {
     }
 }
 
-.form__footer {
-    padding-block-start: 3rem;
+.form {
+    &__footer {
+        padding-block-start: 3rem;
 
-    font-size: 1.5rem;
+        font-size: 1.5rem;
+    }
 }
