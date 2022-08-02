@@ -1,7 +1,12 @@
 :root {
+    --color-white-100: hsl(0deg 0% 100%);
+    --color-white-96: hsl(0deg 0% 96%);
+    --color-white-64: hsl(0deg 0% 64%);
+
+    --color-white-transparent: hsl(192deg 12% 92% / 91.8%);
+
     --main-theme: hsl(178deg 49% 29%);
     --dark-ground: hsl(190deg 9% 14%);
-    --light-ground: hsl(0deg 0% 96%);
 
     --warning-red: hsl(0deg 63% 46%);
     --info-green: hsl(113deg 74% 39%);
@@ -34,12 +39,12 @@ button {
 }
 
 body {
-    background-color: var(--light-ground);
+    background-color: var(--color-white-96);
     color: var(--solid-black);
 }
 
 .btn {
-    background-color: var(--light-ground);
+    background-color: var(--color-white-96);
     color: var(--main-theme);
 
     display: flex;
@@ -65,15 +70,15 @@ body {
 
     &:hover {
         background-color: var(--main-theme);
-        color: var(--light-ground);
+        color: var(--color-white-96);
     }
 
     &--fill {
         background-color: var(--main-theme);
-        color: var(--light-ground);
+        color: var(--color-white-96);
 
         &:hover {
-            background-color: var(--light-ground);
+            background-color: var(--color-white-96);
             color: var(--main-theme);
         }
     }

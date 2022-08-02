@@ -27,7 +27,7 @@
     }
 
     &__info {
-        background-color: hsl(192deg 12% 92% / 91.8%);
+        background-color: var(--color-white-transparent);
 
         position: absolute;
         inset-block-start: var(--info-offset);
