@@ -34,6 +34,7 @@ describe('AuthComponent', () => {
 
         fixture.whenStable().then(() => {
             expect(component.isLogin).toBeTrue();
+            expect(host.querySelector('app-login-form')).toBeTruthy();
         });
     });
 
@@ -42,7 +43,8 @@ describe('AuthComponent', () => {
         fixture.detectChanges();
 
         fixture.whenStable().then(() => {
-            expect(component.isLogin).toBeTrue();
+            expect(component.isLogin).toBeFalse();
+            expect(host.querySelector('app-signup-form')).toBeTruthy();
         });
     });
 });
