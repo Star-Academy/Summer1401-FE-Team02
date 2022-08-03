@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class AuthComponent implements OnInit {
     public isLogin: boolean | undefined = true;
 
-    public constructor(private router: Router, private route: ActivatedRoute) {}
+    public constructor(private route: ActivatedRoute) {}
 
     public ngOnInit(): void {
         this.isLogin = this.route.routeConfig?.path?.startsWith('login');
