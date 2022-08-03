@@ -26,7 +26,9 @@ describe('ToastComponent', () => {
 
     it('should show - default', () => {
         const message: string = 'message';
-        component.show(message);
+        component.show(message, ToastType.WARNING);
+        fixture.detectChanges();
+
         testProperties(message, null);
     });
 
@@ -46,7 +48,7 @@ describe('ToastComponent', () => {
 
     it('should show - info', () => {
         const message: string = 'message';
-        const type: string = ToastType.INFO;
+        const type: ToastType = ToastType.INFO;
         component.show(message, type);
         testProperties(message, type);
     });
@@ -83,7 +85,7 @@ describe('ToastComponent', () => {
     };
 
     const testToastButtonIcon = (): void => {
-        const icon = host.querySelector('.toast__containe i');
+        const icon = host.querySelector('.toast__container i');
 
         expect(icon).toBeTruthy();
         expect(icon?.className).toEqual('fa-solid fa-xmark');
