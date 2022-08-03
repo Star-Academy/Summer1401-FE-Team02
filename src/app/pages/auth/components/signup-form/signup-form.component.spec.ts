@@ -3,11 +3,20 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 import {SignupFormComponent} from './signup-form.component';
 import {FormsModule} from '@angular/forms';
+import {User} from 'src/app/interfaces/User.interface';
 
 describe('SignupFormComponent', () => {
     let component: SignupFormComponent;
     let fixture: ComponentFixture<SignupFormComponent>;
     let host: HTMLElement;
+
+    const queries: User = {
+        firstName: '[name="firstname"]',
+        lastName: '[name="lastname"]',
+        username: '[name="username"]',
+        email: '[name="email"]',
+        password: '[name="password"]',
+    };
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -28,48 +37,32 @@ describe('SignupFormComponent', () => {
     });
 
     it('should render form', () => {
-        const firstNameField = host.querySelector('[name="firstname"]') as HTMLInputElement;
-        const lastNameField = host.querySelector('[name="lastname"]') as HTMLInputElement;
-        const usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
-        const emailField = host.querySelector('[name="email"]') as HTMLInputElement;
-        const passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
-
-        expect(firstNameField).toBeTruthy();
-        expect(lastNameField).toBeTruthy();
-        expect(usernameField).toBeTruthy();
-        expect(emailField).toBeTruthy();
-        expect(passwordField).toBeTruthy();
+        Object.values(queries).forEach((query) => {
+            const queryField = host.querySelector(query) as HTMLInputElement;
+            expect(queryField).toBeTruthy();
+        });
     });
 
     it('should change input', () => {
-        const firstName = 'name1';
-        const lastName = 'family1';
-        const username = 'user1';
-        const email = 'email1';
-        const password = 'pass1';
+        const fields: User = {
+            firstName: 'name1',
+            lastName: 'family1',
+            username: 'user1',
+            email: 'email1',
+            password: 'pass1',
+        };
 
         component.user = {
-            firstName,
-            lastName,
-            username,
-            email,
-            password,
+            ...fields,
         };
 
         fixture.detectChanges();
 
         fixture.whenStable().then(() => {
-            const firstNameField = host.querySelector('[name="firstname"]') as HTMLInputElement;
-            const lastNameField = host.querySelector('[name="lastname"]') as HTMLInputElement;
-            const usernameField = host.querySelector('[name="username"]') as HTMLInputElement;
-            const emailField = host.querySelector('[name="email"]') as HTMLInputElement;
-            const passwordField = host.querySelector('[name="password"]') as HTMLInputElement;
-
-            expect(firstNameField.value).toEqual(firstName);
-            expect(lastNameField.value).toEqual(lastName);
-            expect(usernameField.value).toEqual(username);
-            expect(emailField.value).toEqual(email);
-            expect(passwordField.value).toEqual(password);
+            (Object.keys(queries) as Array<keyof User>).forEach((key) => {
+                const queryField = host.querySelector(queries[key]) as HTMLInputElement;
+                expect(queryField.value).toEqual(fields[key]);
+            });
         });
     });
 });
