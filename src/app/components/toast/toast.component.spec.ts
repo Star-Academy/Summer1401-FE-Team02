@@ -83,7 +83,7 @@ describe('ToastComponent', () => {
     };
 
     const testToastButtonIcon = (): void => {
-        const icon = host.querySelector('.toast__container button i');
+        const icon = host.querySelector('.toast__containe i');
 
         expect(icon).toBeTruthy();
         expect(icon?.className).toEqual('fa-solid fa-xmark');
