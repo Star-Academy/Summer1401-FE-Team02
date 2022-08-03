@@ -32,11 +32,12 @@ describe('ToastComponent', () => {
 
     it('should hide', () => {
         const click = new Event('click');
+        const toast = host.querySelector('.toast__container');
+
         host.querySelector('.toast__button')?.dispatchEvent(click);
 
         fixture.detectChanges();
 
-        const toast = host.querySelector('.toast__container');
         expect(toast).toBeFalsy();
 
         expect(component.isVisible).toBeFalse();
