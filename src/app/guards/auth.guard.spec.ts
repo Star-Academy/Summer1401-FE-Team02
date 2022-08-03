@@ -6,7 +6,6 @@ import {Router} from '@angular/router';
 
 describe('AuthGuard', () => {
     let guard: AuthGuard;
-    let injector: TestBed;
     let authService: AuthService;
     let routeMock: any = {routeConfig: {path: ''}};
     let routeStateMock: any = {snapshot: {}, url: ''};
@@ -18,9 +17,8 @@ describe('AuthGuard', () => {
             imports: [HttpClientTestingModule],
         });
         guard = TestBed.inject(AuthGuard);
-        injector = getTestBed();
 
-        authService = injector.get(AuthService);
+        authService = TestBed.inject(AuthService);
     });
 
     it('should not activate - logged in - login route', () => {

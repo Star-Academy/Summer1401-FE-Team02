@@ -2,27 +2,31 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {HeaderComponent} from './header.component';
 import {AuthService} from '../../services/auth.service';
-import {SearchBoxComponent} from './components/search-box/search-box.component';
 
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
     let fixture: ComponentFixture<HeaderComponent>;
     let host: HTMLElement;
     let authService: AuthService;
-    let injector: TestBed;
+    let isLoggedIn: boolean;
+    let getLogSpy;
 
     beforeEach(async () => {
+        isLoggedIn = false;
+
+        const authServiceStub = jasmine.createSpyObj('AuthService', ['isLoggedIn']);
+        getLogSpy = authServiceStub.isLoggedIn.and.returnValue(isLoggedIn);
+
         await TestBed.configureTestingModule({
             declarations: [HeaderComponent],
-            imports: [SearchBoxComponent],
+            providers: [{provide: AuthService, useValue: authServiceStub}],
         }).compileComponents();
-        authService = injector.get(AuthService);
     });
 
     beforeEach(() => {
         fixture = TestBed.createComponent(HeaderComponent);
         component = fixture.componentInstance;
-        fixture.detectChanges();
+        authService = TestBed.inject(AuthService);
         host = fixture.nativeElement as HTMLElement;
     });
 
@@ -30,19 +34,28 @@ describe('HeaderComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should show profile when logged in', () => {
-        const login_link = host.querySelector('#login_link');
-        const signup_link = host.querySelector('#signup_link');
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(true));
-        expect(login_link).toBeTruthy();
-        expect(signup_link).toBeTruthy();
+    it('should show auth - not logged in', () => {
+        fixture.detectChanges();
+        const loginLink = host.querySelector('#login-link');
+        const signupLink = host.querySelector('#signup-link');
+
+        fixture.whenStable().then(() => {
+            expect(loginLink).toBeTruthy();
+            expect(signupLink).toBeTruthy();
+        });
     });
 
-    it('should show profile when logged in', () => {
-        const login_link = host.querySelector('#login_link');
-        const signup_link = host.querySelector('#signup_link');
-        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(false));
-        expect(login_link).toBeFalsy();
-        expect(signup_link).toBeFalsy();
+    it('should show profile - logged in', () => {
+        isLoggedIn = true;
+
+        fixture.detectChanges();
+        const profile = host.querySelector('.fa-user');
+        const cart = host.querySelector('.fa-basket-shopping');
+
+        fixture.whenStable().then(() => {
+            expect(component.isLoggedIn).toBeTrue();
+            expect(profile).toBeTruthy();
+            expect(cart).toBeTruthy();
+        });
     });
 });
