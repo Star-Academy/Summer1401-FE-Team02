@@ -26,24 +26,24 @@ describe('PostCardComponent', () => {
     });
 
     it('should render game data', () => {
-        const tested_game: Game = {
+        const testedGame: Game = {
             title: 'FlatOut',
             description: 'یک مسابقه ماشین سواری پرهیجان با گرافیک شگفت‌انگیر و دستانی نوآوورانه',
             price: 25_000,
             poster: 'https://cdn1.epicgames.com/spt-assets/c5ec8913ad38441b82a36c603be63e3a/download-flatout-offer-ogxv1.png?h=854&resize=1&w=360',
         };
 
-        component.game = tested_game;
+        component.game = testedGame;
         fixture.detectChanges();
 
-        const title_container = host.querySelector('.card__title')!;
-        const price_container = host.querySelector('.card__price')!;
-        const desc_container = host.querySelector('.card__desc')!;
-        const image_container = host.querySelector('.card__img')!.getAttribute('src');
+        const titleContainer = host.querySelector('.card__title')!;
+        const priceContainer = host.querySelector('.card__price')!;
+        const descContainer = host.querySelector('.card__desc')!;
+        const imageContainer = host.querySelector('.card__img')!.getAttribute('src');
 
-        expect(title_container.textContent).toEqual(tested_game.title);
-        expect(price_container.textContent!.split(' ')[0]).toEqual(tested_game.price.toLocaleString());
-        expect(desc_container.textContent).toEqual(tested_game.description);
-        expect(image_container).toEqual(tested_game.poster);
+        expect(titleContainer.textContent).toEqual(testedGame.title);
+        expect(priceContainer.textContent!.split(' ')[0]).toEqual(testedGame.price.toLocaleString());
+        expect(descContainer.textContent).toEqual(testedGame.description);
+        expect(imageContainer).toEqual(testedGame.poster);
     });
 });
