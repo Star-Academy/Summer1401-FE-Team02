@@ -14,7 +14,7 @@
         <div class="header__nav header__nav--left">
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
                 <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-basket-shopping"></i></a>
-                <a routerLink="/profile" title="حساب کاربری"><i class="fa-solid fa-user"></i></a>
+                <app-profile-popper></app-profile-popper>
             </ng-container>
             <ng-template #notLoggedInTemplate>
                 <ul class="header__nav--list">
