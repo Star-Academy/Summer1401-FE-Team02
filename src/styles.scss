@@ -14,6 +14,7 @@
     --info-green: hsl(113deg 74% 39%);
 
     --shadow-gray: hsl(0deg 0% 20% / 45%);
+    --color-gray-20: hsl(0deg 0% 20% / 20%);
     --solid-black: hsl(0deg 0% 0%);
 
     --shadow-slight: var(--shadow-gray) 0 0 0.5rem 0.1rem;
@@ -30,7 +31,7 @@ html {
 input,
 button {
     outline: none;
-
+    border: none;
     font-family: Vazirmatn, monospace, sans-serif;
 }
 
@@ -46,6 +47,33 @@ button {
 body {
     background-color: var(--color-white-96);
     color: var(--solid-black);
+
+    popper-content {
+        /* stylelint-disable selector-class-pattern */
+        .ngxp__container {
+            background-color: var(--color-white-100);
+            color: var(--solid-black);
+            box-shadow: var(--shadow-slight);
+            z-index: 1;
+
+            padding: 0;
+
+            border: 0;
+
+            > .ngxp__arrow {
+                &::before {
+                    background-color: var(--color-body-background);
+                }
+            }
+        }
+
+        &.no-arrow {
+            .ngxp__container > .ngxp__arrow {
+                display: none;
+            }
+        }
+        /* stylelint-enable selector-class-pattern */
+    }
 }
 
 .btn {
