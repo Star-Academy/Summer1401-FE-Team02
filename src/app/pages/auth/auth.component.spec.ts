@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 
@@ -28,7 +28,7 @@ describe('AuthComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should be login', () => {
+    it('should be login', waitForAsync(() => {
         RouteMock.routeConfig.path = 'login';
         fixture.detectChanges();
 
@@ -36,9 +36,9 @@ describe('AuthComponent', () => {
             expect(component.isLogin).toBeTrue();
             expect(host.querySelector('app-login-form')).toBeTruthy();
         });
-    });
+    }));
 
-    it('should not be login', () => {
+    it('should not be login', waitForAsync(() => {
         RouteMock.routeConfig.path = 'signup';
         fixture.detectChanges();
 
@@ -46,5 +46,5 @@ describe('AuthComponent', () => {
             expect(component.isLogin).toBeFalse();
             expect(host.querySelector('app-signup-form')).toBeTruthy();
         });
-    });
+    }));
 });

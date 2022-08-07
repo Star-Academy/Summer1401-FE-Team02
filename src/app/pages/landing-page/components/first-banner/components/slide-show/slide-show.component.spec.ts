@@ -32,14 +32,14 @@ describe('SlideShowComponent', () => {
     });
 
     it('should increase active index', () => {
-        const nextButton = host.querySelector('#nextButton');
+        const nextButton = host.querySelector('[data-test-id="nextButton"]');
         nextButton?.dispatchEvent(new Event('click'));
         fixture.detectChanges();
         expect(component.activeIndex).toEqual(1);
     });
 
     it('should decrease active index', () => {
-        const prevButton = host.querySelector('#prevButton');
+        const prevButton = host.querySelector('[data-test-id="prevButton"]');
         prevButton?.dispatchEvent(new Event('click'));
         fixture.detectChanges();
         expect(component.activeIndex).toEqual(component.banners.length - 1);

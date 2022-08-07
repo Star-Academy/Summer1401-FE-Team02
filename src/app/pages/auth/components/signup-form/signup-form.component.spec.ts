@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 
 import {SignupFormComponent} from './signup-form.component';
@@ -43,7 +43,7 @@ describe('SignupFormComponent', () => {
         });
     });
 
-    it('should change input', () => {
+    it('should change input', waitForAsync(() => {
         const fields: User = {
             firstName: 'name1',
             lastName: 'family1',
@@ -64,5 +64,5 @@ describe('SignupFormComponent', () => {
                 expect(queryField.value).toEqual(fields[key]);
             });
         });
-    });
+    }));
 });

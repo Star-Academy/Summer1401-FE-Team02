@@ -1,4 +1,4 @@
-import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 import {FormsModule} from '@angular/forms';
 import {By} from '@angular/platform-browser';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -36,7 +36,7 @@ describe('LoginFormComponent', () => {
         expect(passwordField).toBeTruthy();
     });
 
-    it('should change input', () => {
+    it('should change input', waitForAsync(() => {
         const username = 'user1';
         const password = 'pass1';
 
@@ -54,5 +54,5 @@ describe('LoginFormComponent', () => {
             expect(usernameField.value).toEqual(username);
             expect(passwordField.value).toEqual(password);
         });
-    });
+    }));
 });
