@@ -71,4 +71,8 @@ export class AuthService {
 
         if (this.cachedUserId) this.cachedUser = await this.fetchUserInfo();
     }
+
+    public async saveChanges(user: User): Promise<boolean> {
+        return false;
+    }
 }

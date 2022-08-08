@@ -9,12 +9,100 @@
 }
 
 .profile {
-    &__main {
-        flex-grow: 1;
+    &__banner {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
 
+        block-size: 40vh;
+        padding: 5rem;
+
+        &--avatar {
+            inline-size: 30vh;
+            block-size: 30vh;
+            font-size: 17rem;
+            text-align: center;
+            background-color: var(--color-gray-20);
+            border-radius: 999rem;
+        }
+
+        &--basic-info {
+        }
+
+        &--liked {
+            display: flex;
+            justify-content: space-evenly;
+            justify-items: center;
+
+            .liked-games {
+                display: flex;
+                flex-direction: column;
+
+                > * {
+                    display: block;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    &__body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10rem;
+        justify-content: center;
+
+
+        &--title {
+            position: relative;
+
+            margin-block-end: 3rem;
+
+            font-size: 2.5rem;
+
+            &::after {
+                content: "";
+
+                background-color: var(--main-theme);
+
+                position: absolute;
+                inset-block-start: 100%;
+                inset-inline-start: 0;
+
+                block-size: 0.7rem;
+
+                inline-size: 60%;
+
+                border-radius: var(--border-radius-norm);
+            }
+        }
+
+        &--form {
+            box-shadow: var(--shadow-slight);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            min-inline-size: 27rem;
+            inline-size: 80vw;
+
+            padding: 3rem;
+
+            border-radius: 2rem;
+        }
     }
+}
+
+.larger {
+    font-size: larger;
+}
+
+.smaller {
+    font-size: smaller;
+}
+
+.ltr{
+    direction: ltr;
 }
