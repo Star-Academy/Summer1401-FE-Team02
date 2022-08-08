@@ -24,13 +24,13 @@ export class ProfileComponent {
 
     public constructor(public authService: AuthService, public router: Router) {}
 
-    public async saveChanges(): Promise<void> {
-        const response = await this.authService.saveChanges(this.user);
-        response && (await this.router.navigateByUrl('/'));
-    }
-
     public async cancel(): Promise<void> {
         await this.router.navigateByUrl('/');
+    }
+
+    public async submitChanges(): Promise<void> {
+        const response = await this.authService.updateUser(this.user);
+        response && (await this.router.navigateByUrl('/profile'));
     }
 
     public async logout(): Promise<void> {

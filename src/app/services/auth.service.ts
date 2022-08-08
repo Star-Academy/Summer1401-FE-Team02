@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {User} from '../interfaces/User.interface';
 import {ApiService} from './api.service';
-import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP} from '../utils/api.utils';
+import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP, USER_UPDATE} from '../utils/api.utils';
 import {TokenObject} from '../interfaces/TokenObject.interface';
 import {IdObject} from '../interfaces/IdObject';
 import {LoginUserData} from '../interfaces/LoginUserData.interface';
@@ -40,6 +40,16 @@ export class AuthService {
         return !!data;
     }
 
+    public async updateUser(user: User): Promise<boolean> {
+        const data = await this.apiService.post<TokenObject>(USER_UPDATE, user, {}, true);
+
+        if (data?.token) {
+            this.saveCache(data.token, true, data.id);
+        }
+
+        return !!data;
+    }
+
     public async auth(): Promise<boolean> {
         const token = localStorage.getItem('token') || '';
 
@@ -70,9 +80,5 @@ export class AuthService {
         this.cachedUserId = userId;
 
         if (this.cachedUserId) this.cachedUser = await this.fetchUserInfo();
-    }
-
-    public async saveChanges(user: User): Promise<boolean> {
-        return false;
     }
 }

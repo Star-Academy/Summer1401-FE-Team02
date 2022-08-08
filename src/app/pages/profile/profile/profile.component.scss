@@ -41,14 +41,33 @@
             text-align: center;
 
             #add-image-button{
+                background-color: var(--dark-gray);
+                color: var(--color-white-64);
+
                 position: absolute;
                 inset-block-end: 1rem;
                 inset-inline-start: 1rem;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 block-size: 4rem;
                 inline-size: 4rem;
 
                 border-radius: 50%;
+
+                font-size: 3rem;
+
+                :hover{
+                    background-color: var(--darker-gray);
+
+                    border-radius: 50%;
+                }
+            }
+
+            #add-image-input{
+                display: none;
             }
         }
 
@@ -126,6 +145,8 @@
             min-inline-size: 40rem;
             inline-size: 50%;
             max-inline-size: 100%;
+
+            margin-block-end: 2rem;
 
             padding: 3rem;
 

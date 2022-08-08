@@ -3,13 +3,22 @@
     <div class="profile__banner">
         <div class="profile__banner--avatar">
             <div class="profile-default-image"><i class="fa-solid fa-user-large"></i></div>
-            <button id="add-image-button" title="تغییر تصویر کاربر">
+            <label id="add-image-button" for="add-image-input">
                 <i class="fa-solid fa-plus-large"></i>
-            </button>
+                <input
+                    name="image"
+                    value=""
+                    type="file"
+                    alt="انتخاب تصویر جدید"
+                    id="add-image-input"
+                    title="تغییر تصویر کاربر"
+                    accept="image/*"
+                />
+            </label>
         </div>
         <div class="profile__banner--basic-info">
             <div class="larger">{{ user.firstName }} {{ user.lastName }}</div>
-            <div class="smaller ltr">@{{user.username}}</div>
+            <div class="smaller ltr">@{{ user.username }}</div>
         </div>
         <div class="profile__banner--liked">
             <div class="liked-games">
@@ -23,7 +32,7 @@
         </div>
     </div>
     <div class="profile__body">
-        <form class="profile__body--form" (submit)="saveChanges()">
+        <form class="profile__body--form" (submit)="submitChanges()">
             <h3 class="profile__body--title">ویرایش حساب کاربری</h3>
             <div class="inputs-together">
                 <section>
@@ -40,8 +49,8 @@
                 <section>
                     <label>جنسیت</label>
                     <select name="gender" [(ngModel)]="user.gender">
-                        <option value="male">مرد</option>
-                        <option value="female">زن</option>
+                        <option value="false">مرد</option>
+                        <option value="true">زن</option>
                     </select>
                 </section>
 
