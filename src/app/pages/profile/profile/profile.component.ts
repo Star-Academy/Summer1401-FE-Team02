@@ -12,14 +12,14 @@ import {IDatepickerTheme} from 'ng-persian-datepicker';
 })
 export class ProfileComponent {
     public user: User = {
-        username: '',
+        username: this.authService.cachedUser?.username!,
         password: '',
-        email: '',
-        firstName: '',
-        lastName: '',
-        phoneNumber: '',
-        birthDate: '',
-        gender: true,
+        email: this.authService.cachedUser?.email!,
+        firstName: this.authService.cachedUser?.firstName!,
+        lastName: this.authService.cachedUser?.lastName!,
+        phoneNumber: this.authService.cachedUser?.phoneNumber!,
+        birthDate: this.authService.cachedUser?.birthDate!,
+        gender: this.authService.cachedUser?.gender!,
     };
 
     public constructor(public authService: AuthService, public router: Router) {}
