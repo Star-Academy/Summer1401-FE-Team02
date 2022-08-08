@@ -28,6 +28,8 @@
         "@angular/platform-browser-dynamic": "~12.2.0",
         "@angular/router": "~12.2.0",
         "@popperjs/core": "^2.11.5",
+        "jalali-ts": "^2.0.4",
+        "ng-persian-datepicker": "^6.1.1",
         "ngx-popperjs": "^12.2.1",
         "rxjs": "~6.6.0",
         "tslib": "^2.3.0",

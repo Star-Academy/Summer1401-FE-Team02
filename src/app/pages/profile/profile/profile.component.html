@@ -7,7 +7,6 @@
         <div class="profile__banner--basic-info">
             <div class="larger">محمد محمدی</div>
             <div class="smaller ltr">@mohammadi1380</div>
-            <button class="btn btn--fill" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i></button>
         </div>
         <div class="profile__banner--liked">
             <div class="liked-games">
@@ -26,19 +25,18 @@
             <div class="inputs-together">
                 <section>
                     <label>نام</label>
-                    <input name="username" type="text" [(ngModel)]="user.firstName" />
+                    <input name="firstname" type="text" [(ngModel)]="user.firstName" />
                 </section>
 
                 <section>
                     <label>نام خانوادگی</label>
-                    <input name="password" type="text" [(ngModel)]="user.lastName" />
+                    <input name="lastname" type="text" [(ngModel)]="user.lastName" />
                 </section>
             </div>
             <div class="inputs-together">
                 <section>
                     <label>جنسیت</label>
                     <select name="gender" [(ngModel)]="user.gender">
-                        <option value="none" selected>نامشخص</option>
                         <option value="male">مرد</option>
                         <option value="female">زن</option>
                     </select>
@@ -46,44 +44,51 @@
 
                 <section>
                     <label>تاریخ تولد</label>
-                    <input name="password" type="date" [(ngModel)]="user.birthDate" />
+                    <ng-persian-datepicker [dateInitValue]="false" [uiTheme]="customTheme">
+                        <input name="birthdate" type="text" [formControl]="dateValue" [(ngModel)]="user.birthDate" />
+                    </ng-persian-datepicker>
                 </section>
             </div>
             <section>
                 <label>ایمیل</label>
-                <input name="password" type="email" [(ngModel)]="user.email" />
+                <input name="email" type="email" [(ngModel)]="user.email" />
             </section>
 
             <section>
                 <label>نام کاربری</label>
-                <input name="password" type="text" [(ngModel)]="user.username" />
+                <input name="username" type="text" [(ngModel)]="user.username" />
             </section>
 
             <section>
                 <label>شماره همراه</label>
-                <input name="password" type="tel" [(ngModel)]="user.phoneNumber" />
+                <input name="phoneNumber" type="tel" [(ngModel)]="user.phoneNumber" />
             </section>
 
             <h3 class="profile__body--title">تغییر رمز عبور</h3>
 
             <section>
                 <label>رمز کنونی</label>
-                <input name="password" type="password" />
+                <input name="oldPassword" type="password" />
             </section>
 
             <section>
                 <label>رمز جدید</label>
-                <input name="password" type="password" />
+                <input name="newPassword" type="password" />
             </section>
 
             <section>
                 <label>تکرار رمز جدید</label>
-                <input name="password" type="password" />
+                <input name="repeatedNewPassword" type="password" />
             </section>
 
             <div class="buttons">
                 <button class="btn btn--fill" type="submit">ذخیره تغییرات</button>
-                <button class="btn" (click)="cancel()">لغو</button>
+                <div class="buttons-together">
+                    <button class="btn" (click)="cancel()">لغو</button>
+                    <button class="btn" title="خروج از حساب" (click)="logout()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
             </div>
         </form>
     </div>

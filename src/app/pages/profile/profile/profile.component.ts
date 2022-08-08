@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../../services/auth.service';
 import {User} from '../../../interfaces/User.interface';
+import {FormControl} from '@angular/forms';
+import {IDatepickerTheme} from 'ng-persian-datepicker';
 
 @Component({
     selector: 'app-profile',
@@ -35,4 +37,12 @@ export class ProfileComponent {
         await this.authService.logout();
         await this.router.navigateByUrl('/');
     }
+    public dateValue = new FormControl();
+
+    public customTheme: Partial<IDatepickerTheme> = {
+        background: 'var(--color-white-transparent)',
+        hoverBackground: 'var(--main-theme-transparent)',
+        disabledBackground: 'var(--color-gray-20)',
+        selectedBackground: 'var(--main-theme)',
+    };
 }

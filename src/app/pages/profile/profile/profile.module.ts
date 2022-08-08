@@ -5,9 +5,19 @@ import {RouterModule} from '@angular/router';
 import {HeaderModule} from '../../../components/header/header.module';
 import {FooterModule} from '../../../components/footer/footer.module';
 import {FormsModule} from '@angular/forms';
+import {NgPersianDatepickerModule} from 'ng-persian-datepicker';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [ProfileComponent],
-    imports: [CommonModule, RouterModule, HeaderModule, FooterModule, FormsModule],
+    imports: [
+        CommonModule,
+        NgPersianDatepickerModule,
+        ReactiveFormsModule,
+        RouterModule,
+        HeaderModule,
+        FooterModule,
+        FormsModule,
+    ],
 })
 export class ProfileModule {}

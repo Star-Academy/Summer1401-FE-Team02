@@ -35,7 +35,6 @@ form {
 
     input,
     select {
-
         background: transparent;
 
         inline-size: 100%;
@@ -60,8 +59,9 @@ form {
     >*.inputs-together {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
+        justify-content: space-between;
+
         >*{
             inline-size: 50%;
         }
@@ -75,6 +75,17 @@ form {
         inline-size: 100%;
 
         padding-block-start: 2rem;
+
+        >*.buttons-together{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+
+            >*{
+                block-size: 4.5rem;
+            }
+        }
     }
 
     button {
