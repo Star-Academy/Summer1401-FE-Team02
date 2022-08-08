@@ -9,7 +9,6 @@
         "declaration-empty-line-before": null,
         "no-descending-specificity": null,
         "no-empty-source": null,
-        "value-no-vendor-prefix": null,
         "order/order": ["custom-properties", "declarations", "rules"],
         "order/properties-order": [
             {
