@@ -8,18 +8,10 @@ describe('HeaderComponent', () => {
     let fixture: ComponentFixture<HeaderComponent>;
     let host: HTMLElement;
     let authService: AuthService;
-    let isLoggedIn: boolean;
-    let isLoggedInSpy: boolean;
 
     beforeEach(async () => {
-        isLoggedIn = false;
-
-        const authServiceStub = jasmine.createSpyObj('AuthService', ['isLoggedIn']);
-        isLoggedInSpy = authServiceStub.isLoggedIn.and.returnValue(isLoggedIn);
-
         await TestBed.configureTestingModule({
             declarations: [HeaderComponent],
-            providers: [{provide: AuthService, useValue: authServiceStub}],
         }).compileComponents();
     });
 
@@ -35,6 +27,7 @@ describe('HeaderComponent', () => {
     });
 
     it('should show auth - not logged in', waitForAsync(() => {
+        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(false));
         fixture.detectChanges();
         const loginLink = host.querySelector('[data-test-id="login-link"]');
         const signupLink = host.querySelector('[data-test-id="signup-link"]');
@@ -46,10 +39,10 @@ describe('HeaderComponent', () => {
     }));
 
     it('should show profile - logged in', waitForAsync(() => {
-        isLoggedIn = true;
+        spyOn(authService, 'isLoggedIn').and.returnValue(Promise.resolve(true));
         fixture.detectChanges();
         const profile = host.querySelector('.fa-user');
-        const cart = host.querySelector('.fa-basket-shopping');
+        const cart = host.querySelector('fa-basket-shopping');
 
         fixture.whenStable().then(() => {
             expect(component.isLoggedIn).toBeTrue();
