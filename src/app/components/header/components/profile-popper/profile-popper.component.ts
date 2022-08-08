@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {NgxPopperjsPlacements} from 'ngx-popperjs';
+import {AuthService} from 'src/app/services/auth.service';
 
 @Component({
     selector: 'app-profile-popper',
@@ -8,4 +9,11 @@ import {NgxPopperjsPlacements} from 'ngx-popperjs';
 })
 export class ProfilePopperComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
+
+    public constructor(private authService: AuthService) {}
+
+    public logout(): void {
+        this.authService.logout();
+        window.location.reload();
+    }
 }

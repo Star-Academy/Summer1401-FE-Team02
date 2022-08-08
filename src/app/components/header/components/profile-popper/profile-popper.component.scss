@@ -35,6 +35,26 @@
 
             display: flex;
 
+            position: relative;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                position: absolute;
+                inline-size: 100%;
+                block-size: 100%;
+                inset-block-start: 0;
+                inset-inline-start: 0;
+
+                background-color: var(--color-gray-20);
+                opacity: 0;
+                transition: opacity 0.2s ease-out;
+            }
+
+            &:hover::before {
+                opacity: 1;
+            }
+
             &.warn {
                 background-color: var(--warning-red);
                 color: var(--color-white-100);
