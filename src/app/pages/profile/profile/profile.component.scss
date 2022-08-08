@@ -1,29 +1,50 @@
-:host {
+.profile {
     display: flex;
     flex-direction: column;
-
-    justify-content: space-between;
     gap: 2rem;
 
-    min-block-size: 100vh;
-}
-
-.profile {
     &__banner {
+        background: rgb(20 57 56);
+        background: linear-gradient(
+            45deg,
+            rgb(20 57 56 / 100%) 0%,
+            rgb(38 110 108 / 100%) 35%,
+            rgb(179 229 227 / 100%) 100%
+        );
+
         display: flex;
         align-items: end;
-        justify-content: space-between;
+        justify-items: center;
 
-        block-size: 40vh;
+        block-size: 50vh;
+
         padding: 5rem;
 
         &--avatar {
-            inline-size: 30vh;
-            block-size: 30vh;
-            font-size: 17rem;
-            text-align: center;
             background-color: var(--color-gray-20);
-            border-radius: 999rem;
+
+            block-size: 20vh;
+            inline-size: 20vh;
+
+            border-radius: 50%;
+
+            font-size: 10rem;
+
+            text-align: center;
+            display: flex;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-ground);
+
+            #add-image-button{
+                position: absolute;
+                inset-inline-start: 1rem;
+                inset-block-end: 1rem;
+                inline-size: 4rem;
+                block-size: 4rem;
+                border-radius: 50%;
+            }
         }
 
         &--basic-info {
@@ -31,16 +52,25 @@
 
         &--liked {
             display: flex;
-            justify-content: space-evenly;
-            justify-items: center;
+            gap: 3rem;
+
+            margin-inline-start: auto;
 
             .liked-games {
                 display: flex;
                 flex-direction: column;
 
+                font-size: x-large;
+
+                text-align: center;
+
                 > * {
                     display: block;
                     align-items: center;
+                }
+
+                > a {
+                    font-size: xxx-large;
                 }
             }
         }
@@ -51,7 +81,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
 
         &--title {
             position: relative;
@@ -85,8 +114,9 @@
             align-items: center;
             justify-content: center;
 
-            min-inline-size: 27rem;
-            inline-size: 80vw;
+            min-inline-size: 40rem;
+            inline-size: 50%;
+            max-inline-size: 100%;
 
             padding: 3rem;
 
@@ -96,13 +126,18 @@
 }
 
 .larger {
-    font-size: larger;
+    color: var(--dark-ground);
+
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 .smaller {
-    font-size: smaller;
+    color: var(--shadow-gray);
+
+    font-size: large;
 }
 
-.ltr{
+.ltr {
     direction: ltr;
 }

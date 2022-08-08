@@ -3,6 +3,9 @@
     <div class="profile__banner">
         <div class="profile__banner--avatar">
             <div class="profile-default-image"><i class="fa-solid fa-user-large"></i></div>
+            <button id="add-image-button" title="تغییر تصویر کاربر">
+                <i class="fa-solid fa-plus-large"></i>
+            </button>
         </div>
         <div class="profile__banner--basic-info">
             <div class="larger">محمد محمدی</div>
@@ -44,7 +47,7 @@
 
                 <section>
                     <label>تاریخ تولد</label>
-                    <ng-persian-datepicker [dateInitValue]="false" [uiTheme]="customTheme">
+                    <ng-persian-datepicker [dateInitValue]="false" [uiTheme]="customTheme" uiInitViewMode="year">
                         <input name="birthdate" type="text" [formControl]="dateValue" [(ngModel)]="user.birthDate" />
                     </ng-persian-datepicker>
                 </section>
