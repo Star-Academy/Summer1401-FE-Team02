@@ -4,10 +4,10 @@ import {FiltersComponent} from './components/filters/filters.component';
 import {ExpansionListComponent} from './components/expansion-list/expansion-list.component';
 import {FormsModule} from '@angular/forms';
 import {SearchBoxModule} from 'src/app/components/search-box/search-box.module';
-import { FilterPipe } from './pipes/filter.pipe';
+import {FilterPipeModule} from 'src/app/pipes/filter-pipe.module';
 
 @NgModule({
-    declarations: [FiltersComponent, ExpansionListComponent, FilterPipe],
-    imports: [CommonModule, FormsModule, SearchBoxModule],
+    declarations: [FiltersComponent, ExpansionListComponent],
+    imports: [CommonModule, FormsModule, SearchBoxModule, FilterPipeModule],
 })
 export class ArchiveModule {}
