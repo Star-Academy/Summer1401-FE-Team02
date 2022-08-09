@@ -1,11 +1,11 @@
-<div class="wrapper">
+<div class="expand__wrapper">
     <header (click)="isExpanded = !isExpanded">
         {{ title }}
 
         <i class="far fa-chevron-left" [class.expanded]="isExpanded"></i>
     </header>
 
-    <main *ngIf="isExpanded">
+    <div class="expand__container" *ngIf="isExpanded">
         <app-search-box [(value)]="searchPhrase"></app-search-box>
 
         <ul>
@@ -16,5 +16,5 @@
                 </label>
             </li>
         </ul>
-    </main>
+    </div>
 </div>
