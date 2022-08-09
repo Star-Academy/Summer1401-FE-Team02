@@ -1,0 +1,49 @@
+<div class="archive">
+    <aside>
+        <!-- <app-filters></app-filters> -->
+    </aside>
+
+    <main>
+        <header>
+            <div class="arhive__sorting">
+                <i class="far fa-arrow-down-wide-short"></i>
+
+                <div class="sorting__title">مرتب‌سازی:</div>
+
+                <ul>
+                    <li [class.active]="gameService.sort === Sort.TOP_SELLER">
+                        <button class="sorting__option" (click)="handleSortClick(Sort.TOP_SELLER)">پرفروش‌ترین</button>
+                    </li>
+                    <li [class.active]="gameService.sort === Sort.MOST_POPULAR">
+                        <button class="sorting__option" (click)="handleSortClick(Sort.MOST_POPULAR)">محبوب‌ترین</button>
+                    </li>
+                    <li [class.active]="gameService.sort === Sort.MOST_RELEVANT">
+                        <button class="sorting__option" (click)="handleSortClick(Sort.MOST_RELEVANT)">
+                            مرتبط‌ترین
+                        </button>
+                    </li>
+                    <li [class.active]="gameService.sort === Sort.NEWEST">
+                        <button class="sorting__option" (click)="handleSortClick(Sort.NEWEST)">جدیدترین</button>
+                    </li>
+                    <li [class.active]="gameService.sort === Sort.OLDEST">
+                        <button class="sorting__option" (click)="handleSortClick(Sort.OLDEST)">قدیمی‌ترین</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="archive__count">
+                {{ gameService.games.length }}
+                کالا
+            </div>
+        </header>
+
+        <!-- <app-games></app-games> -->
+    </main>
+
+    <footer>
+        <button class="primary" [disabled]="gameService.offset === 0" (click)="handlePreviousPageButtonClick()">
+            صفحه قبل
+        </button>
+        <button class="primary" (click)="handleNextPageButtonClick()">صفحه بعد</button>
+    </footer>
+</div>
