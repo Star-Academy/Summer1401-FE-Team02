@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, TestBed, fakeAsync} from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 
@@ -28,7 +28,7 @@ describe('AuthComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should be login', waitForAsync(() => {
+    it('should be login', fakeAsync(() => {
         RouteMock.routeConfig.path = 'login';
         fixture.detectChanges();
 
@@ -38,7 +38,7 @@ describe('AuthComponent', () => {
         });
     }));
 
-    it('should not be login', waitForAsync(() => {
+    it('should not be login', fakeAsync(() => {
         RouteMock.routeConfig.path = 'signup';
         fixture.detectChanges();
 
