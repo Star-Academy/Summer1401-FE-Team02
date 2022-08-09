@@ -60,8 +60,8 @@ describe('SignupFormComponent', () => {
 
         fixture.whenStable().then(() => {
             (Object.keys(queries) as Array<keyof User>).forEach((key) => {
-                const queryField = host.querySelector(queries[key]) as HTMLInputElement;
-                expect(queryField.value).toEqual(fields[key]);
+                const queryField = host.querySelector(queries[key] as string) as HTMLInputElement;
+                expect(queryField.value).toEqual(fields[key] as string);
             });
         });
     }));

@@ -56,13 +56,13 @@ form {
         }
     }
 
-    >*.inputs-together {
+    > *.inputs-together {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
 
-        >*{
+        > * {
             inline-size: 50%;
         }
     }
@@ -76,14 +76,14 @@ form {
 
         padding-block-start: 2rem;
 
-        >*.buttons-together{
+        > *.buttons-together {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
 
-            >*{
+            > * {
                 block-size: 4.5rem;
             }
         }

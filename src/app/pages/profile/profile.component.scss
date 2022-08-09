@@ -40,7 +40,7 @@
 
             text-align: center;
 
-            #add-image-button{
+            #add-image-button {
                 background-color: var(--dark-gray);
                 color: var(--color-white-64);
 
@@ -59,14 +59,14 @@
 
                 font-size: 3rem;
 
-                :hover{
+                :hover {
                     background-color: var(--darker-gray);
 
                     border-radius: 50%;
                 }
             }
 
-            #add-image-input{
+            #add-image-input {
                 display: none;
             }
         }

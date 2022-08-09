@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Game, GameCard} from 'src/app/interfaces/Game.interface';
+import {GameCard} from 'src/app/interfaces/Game.interface';
 
 @Component({
     selector: 'app-post-card',
