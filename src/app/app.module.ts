@@ -8,6 +8,7 @@ import {ToastComponent} from './components/toast/toast.component';
 import {ProfileModule} from './pages/profile/profile/profile.module';
 import {AuthGuard} from './guards/auth.guard';
 import {FormsModule} from '@angular/forms';
+import {ArchiveModule} from './pages/archive/archive.module';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -19,6 +20,7 @@ import {FormsModule} from '@angular/forms';
         BrowserModule,
         ProfileModule,
         FormsModule,
+        ArchiveModule,
     ],
     bootstrap: [AppComponent],
     providers: [AuthGuard],

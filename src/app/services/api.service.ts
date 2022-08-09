@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Error} from '../interfaces/Error.interface';
 import {POST_INIT} from '../utils/api.utils';
 import {ToastService} from './toast.service';
-import {ToastType} from './ToastType.enum';
+import {ToastType} from '../enums/ToastType.enum';
 
 @Injectable({
     providedIn: 'root',

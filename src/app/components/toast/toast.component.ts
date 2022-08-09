@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastService} from 'src/app/services/toast.service';
-import {ToastType} from 'src/app/services/ToastType.enum';
+import {ToastType} from 'src/app/enums/ToastType.enum';
 
 @Component({
     selector: 'app-toast',

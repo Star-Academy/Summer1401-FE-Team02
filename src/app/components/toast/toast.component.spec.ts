@@ -1,5 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ToastType} from 'src/app/services/ToastType.enum';
+import {ToastType} from 'src/app/enums/ToastType.enum';
 import {ToastComponent} from './toast.component';
 
 describe('ToastComponent', () => {

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ToastComponent} from '../components/toast/toast.component';
-import {ToastType} from './ToastType.enum';
+import {ToastType} from '../enums/ToastType.enum';
 
 @Injectable({
     providedIn: 'root',
