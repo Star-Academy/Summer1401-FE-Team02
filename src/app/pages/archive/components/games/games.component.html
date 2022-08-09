@@ -1,1 +1,1 @@
-<app-post-card *ngFor="let game of gameService.games"></app-post-card>
+<app-post-card *ngFor="let game of gameService.games" [game]="game | transformGame"></app-post-card>
