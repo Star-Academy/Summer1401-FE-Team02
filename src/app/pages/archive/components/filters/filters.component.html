@@ -1,0 +1,10 @@
+<div class="filters">
+    <div class="title">فیلترها</div>
+    <app-expansion-list title="پلتفرم" [items]="gameService.platforms"></app-expansion-list>
+    <app-expansion-list title="ژانر" [items]="gameService.genres"></app-expansion-list>
+    <!-- <app-switch title="فقط بازی‌های منتشرشده" [(value)]="gameService.onlyPublishedGames"></app-switch>
+    <app-number-input title="حداقل امتیاز" [(value)]="gameService.minimumRating"></app-number-input>
+    <app-number-input title="حداکثر امتیاز" [(value)]="gameService.maximumRating"></app-number-input> -->
+
+    <button class="primary" (click)="gameService.search()">اعمال فیلترها</button>
+</div>
