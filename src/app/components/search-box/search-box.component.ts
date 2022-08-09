@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
     selector: 'app-search-box',
@@ -6,5 +6,6 @@ import {Component, Input, Output, EventEmitter} from '@angular/core';
     styleUrls: ['./search-box.component.scss'],
 })
 export class SearchBoxComponent {
-    public value: string = '';
+    @Input() public value: string = '';
+    @Output() public valueChange = new EventEmitter<String>();
 }

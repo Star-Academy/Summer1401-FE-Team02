@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import { ExpansionListComponent } from './components/expansion-list/expansion-list.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+    declarations: [
+    ExpansionListComponent
+  ],
+    imports: [CommonModule],
 })
-export class ArchiveModule { }
+export class ArchiveModule {}
