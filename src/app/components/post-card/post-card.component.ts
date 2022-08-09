@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Game} from 'src/app/interfaces/Game.interface';
+import {Game, GameCard} from 'src/app/interfaces/Game.interface';
 
 @Component({
     selector: 'app-post-card',
@@ -7,5 +7,5 @@ import {Game} from 'src/app/interfaces/Game.interface';
     styleUrls: ['./post-card.component.scss'],
 })
 export class PostCardComponent {
-    @Input() public game: Game = {title: '', poster: '', price: 0, description: ''};
+    @Input() public game: GameCard = {name: '', cover: {id: '', width: 0, height: 0}, summary: ''};
 }

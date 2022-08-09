@@ -17,3 +17,9 @@ export interface GameImage {
     width: number;
     height: number;
 }
+
+export interface GameCard {
+    name: string;
+    summary?: string;
+    cover?: GameImage;
+}

@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {Game} from '../interfaces/Game.interface';
 import {GAME_GENRES, GAME_PLATFORMS, GAME_SEARCH} from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
+import {Game} from '../interfaces/Game.interface';
 import {Platform} from '../interfaces/Platform.interface';
 import {Genre} from '../interfaces/Genre.interface';
-import {ExpansionListItem} from '../pages/search/models/expansion-list-item.model';
+import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
 
 @Injectable({
