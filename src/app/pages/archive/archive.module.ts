@@ -8,9 +8,10 @@ import {FilterPipeModule} from 'src/app/pipes/filter-pipe.module';
 import {HeaderModule} from 'src/app/components/header/header.module';
 import {FooterModule} from 'src/app/components/footer/footer.module';
 import {ArchiveComponent} from './archive.component';
+import {SwitchComponent} from './components/switch/switch.component';
 
 @NgModule({
-    declarations: [ArchiveComponent, FiltersComponent, ExpansionListComponent],
+    declarations: [ArchiveComponent, FiltersComponent, ExpansionListComponent, SwitchComponent],
     imports: [CommonModule, FormsModule, SearchBoxModule, FilterPipeModule, HeaderModule, FooterModule],
 })
 export class ArchiveModule {}
