@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {AuthService} from '../../../services/auth.service';
-import {User} from '../../../interfaces/User.interface';
+import {AuthService} from '../../services/auth.service';
+import {User} from '../../interfaces/User.interface';
 import {FormControl} from '@angular/forms';
 import {IDatepickerTheme} from 'ng-persian-datepicker';
 
 @Component({
     selector: 'app-profile',
     templateUrl: './profile.component.html',
-    styleUrls: ['./profile.component.scss', '../../../styles/form.scss'],
+    styleUrls: ['./profile.component.scss', '../../styles/form.scss'],
 })
 export class ProfileComponent {
     public user: User = {
