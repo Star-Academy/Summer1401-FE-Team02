@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {GAMES} from 'src/app/data/Games';
-import {Game} from 'src/app/interfaces/Game.interface';
+import {GameCard} from 'src/app/interfaces/Game.interface';
 
 @Component({
     selector: 'app-landing-page',
@@ -8,5 +8,5 @@ import {Game} from 'src/app/interfaces/Game.interface';
     styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent {
-    public games: Game[] = GAMES;
+    public games: GameCard[] = GAMES;
 }
