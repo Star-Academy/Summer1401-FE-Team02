@@ -46,7 +46,13 @@
         <button class="primary" [disabled]="gameService.offset === 0" (click)="handlePreviousPageButtonClick()">
             صفحه قبل
         </button>
-        <button class="primary" (click)="handleNextPageButtonClick()">صفحه بعد</button>
+        <button
+            class="primary"
+            [disabled]="gameService.offset >= gameService.games.length / gameService.PAGE_SIZE"
+            (click)="handleNextPageButtonClick()"
+        >
+            صفحه بعد
+        </button>
     </footer>
 </div>
 

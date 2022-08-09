@@ -3,11 +3,11 @@
     flex-direction: row;
 
     aside {
-        flex-grow: 1;
+        inline-size: 30rem;
     }
 
     main {
-        flex-grow: 2;
+        flex-grow: 1;
     }
 
     &__sorting {

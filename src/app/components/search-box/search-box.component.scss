@@ -1,5 +1,5 @@
 .searchbox {
-    background-color: var(--color-white-96);
+    background-color: var(--color-gray-20);
 
     display: flex;
     align-items: center;
@@ -12,9 +12,6 @@
 
     &__input {
         background: none;
-
-        min-inline-size: 20rem;
-        inline-size: 40vw;
 
         border: none;
 
