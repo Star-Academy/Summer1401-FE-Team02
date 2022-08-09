@@ -9,9 +9,10 @@ import {HeaderModule} from 'src/app/components/header/header.module';
 import {FooterModule} from 'src/app/components/footer/footer.module';
 import {ArchiveComponent} from './archive.component';
 import {SwitchComponent} from './components/switch/switch.component';
+import { NumberInputComponent } from './components/number-input/number-input.component';
 
 @NgModule({
-    declarations: [ArchiveComponent, FiltersComponent, ExpansionListComponent, SwitchComponent],
+    declarations: [ArchiveComponent, FiltersComponent, ExpansionListComponent, SwitchComponent, NumberInputComponent],
     imports: [CommonModule, FormsModule, SearchBoxModule, FilterPipeModule, HeaderModule, FooterModule],
 })
 export class ArchiveModule {}
