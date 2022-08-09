@@ -1,4 +1,6 @@
 .card {
+    --info-offset: 82%;
+
     box-shadow: var(--shadow-slight);
 
     position: relative;
@@ -8,12 +10,12 @@
 
     inline-size: 25rem;
 
-    border-radius: 1rem;
+    border-radius: var(--border-radius-norm);
 
     &:hover {
         .card {
             &__info {
-                transform: translateY(-82%);
+                transform: translateY(calc(-1 * var(--info-offset)));
             }
         }
     }
@@ -25,10 +27,10 @@
     }
 
     &__info {
-        background-color: hsl(192deg 12% 92% / 91.8%);
+        background-color: var(--color-white-transparent);
 
         position: absolute;
-        inset-block-start: 82%;
+        inset-block-start: var(--info-offset);
 
         display: flex;
         flex-direction: column;
@@ -36,6 +38,7 @@
         justify-content: space-between;
 
         block-size: 100%;
+        inline-size: 100%;
 
         padding: 0.3em 1em 1em;
 
@@ -83,13 +86,19 @@
 
         overflow: hidden;
 
+        display: -webkit-box;
+
         min-block-size: 0;
 
-        padding-block-start: 2rem;
+        padding-block-start: 3rem;
 
-        font-size: 1.8rem;
+        font-size: 1.7rem;
 
-        text-align: justify;
+        text-overflow: ellipsis;
+
+        word-wrap: normal;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
     }
 
     &__control {

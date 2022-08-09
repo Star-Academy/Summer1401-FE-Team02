@@ -8,6 +8,7 @@ import {AuthModule} from './pages/auth/auth.module';
 import {ToastComponent} from './components/toast/toast.component';
 import {ProfileModule} from './pages/profile/profile/profile.module';
 import {AuthGuard} from './guards/auth.guard';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -19,6 +20,7 @@ import {AuthGuard} from './guards/auth.guard';
         NgxPopperjsModule,
         BrowserModule,
         ProfileModule,
+        FormsModule,
     ],
     bootstrap: [AppComponent],
     providers: [AuthGuard],

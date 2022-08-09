@@ -3,8 +3,8 @@
         <div class="header__nav header__nav--right">
             <ul class="header__nav--list">
                 <li>
-                    <a routerLink="/" title="GameUp">
-                        <img class="header__logo" src="assets/logos/logo-dark-removebg.svg" />
+                    <a routerLink="/" title="GameUp" class="logo-container">
+                        <img class="header__logo" alt="Game-Up" src="assets/logos/logo-dark-removebg.svg" />
                     </a>
                 </li>
                 <li class="header__nav--link-hover"><a routerLink="#">آرشیو</a></li>
@@ -12,17 +12,21 @@
             <app-search-box></app-search-box>
         </div>
         <div class="header__nav header__nav--left">
-            <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-basket-shopping"></i></a>
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
-                <a routerLink="/profile" title="حساب کاربری"><i class="fa-solid fa-user"></i></a>
+                <a routerLink="#" title="سبد خرید" data-test-id="cart-link"
+                    ><i class="fa-solid fa-basket-shopping"></i
+                ></a>
+                <a routerLink="/profile" title="حساب کاربری" data-test-id="profile-link"
+                    ><i class="fa-solid fa-user"></i
+                ></a>
             </ng-container>
             <ng-template #notLoggedInTemplate>
                 <ul class="header__nav--list">
                     <li class="header__nav--link-hover">
-                        <a routerLink="/login">ورود</a>
+                        <a routerLink="/login" data-test-id="login-link">ورود</a>
                     </li>
                     <li class="header__nav--link-hover">
-                        <a routerLink="/signup">ثبت نام</a>
+                        <a routerLink="/signup" data-test-id="signup-link">ثبت نام</a>
                     </li>
                 </ul>
             </ng-template>

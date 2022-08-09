@@ -1,6 +1,6 @@
 .toast {
     &__container {
-        color: var(--light-ground);
+        color: var(--color-white-96);
 
         position: absolute;
 
@@ -18,7 +18,7 @@
 
         padding: 1rem;
 
-        border-radius: 0.5rem;
+        border-radius: var(--border-radius-minimum);
 
         font-size: 1.5rem;
 

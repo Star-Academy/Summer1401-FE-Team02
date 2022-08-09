@@ -1,0 +1,22 @@
+<h1>ورود</h1>
+
+<form (submit)="submitForm()">
+    <section>
+        <label>نام کاربری</label>
+        <input name="username" type="text" [(ngModel)]="user.username" />
+    </section>
+
+    <section>
+        <label>رمز عبور</label>
+        <input name="password" type="password" [(ngModel)]="user.password" />
+    </section>
+
+    <div class="buttons">
+        <button class="btn btn--fill" type="submit">ورود</button>
+        <button class="btn" (click)="cancel()">لغو</button>
+    </div>
+</form>
+
+<div class="form__footer">
+    <p>حساب کاربری ندارید؟ <a routerLink="/signup">در اینجا ثبت نام کنید</a></p>
+</div>

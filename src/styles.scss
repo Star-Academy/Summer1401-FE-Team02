@@ -1,8 +1,14 @@
 :root {
+    --color-white-100: hsl(0deg 0% 100%);
+    --color-white-96: hsl(0deg 0% 96%);
+    --color-white-64: hsl(0deg 0% 64%);
+
+    --color-white-transparent: hsl(192deg 12% 92% / 91.8%);
+
     --main-theme: hsl(178deg 49% 29%);
+    --main-theme-transparent: hsl(178deg 49% 29% / 60%);
+
     --dark-ground: hsl(190deg 9% 14%);
-    --light-ground: hsl(0deg 0% 96%);
-    --light-component: hsl(0deg 0% 91%);
 
     --warning-red: hsl(0deg 63% 46%);
     --info-green: hsl(113deg 74% 39%);
@@ -11,6 +17,9 @@
     --solid-black: hsl(0deg 0% 0%);
 
     --shadow-slight: var(--shadow-gray) 0 0 0.5rem 0.1rem;
+
+    --border-radius-minimum: 0.3rem;
+    --border-radius-norm: 1rem;
 }
 
 html {
@@ -35,12 +44,12 @@ button {
 }
 
 body {
-    background-color: var(--light-ground);
+    background-color: var(--color-white-96);
     color: var(--solid-black);
 }
 
 .btn {
-    background: var(--light-component);
+    background-color: var(--color-white-96);
     color: var(--main-theme);
 
     display: flex;
@@ -50,7 +59,7 @@ body {
     padding: 0.8rem 1rem;
 
     border: 0.2rem solid var(--main-theme);
-    border-radius: 0.5em;
+    border-radius: var(--border-radius-norm);
 
     font-size: 2rem;
 
@@ -66,15 +75,15 @@ body {
 
     &:hover {
         background-color: var(--main-theme);
-        color: var(--light-component);
+        color: var(--color-white-96);
     }
 
     &--fill {
         background-color: var(--main-theme);
-        color: var(--light-component);
+        color: var(--color-white-96);
 
         &:hover {
-            background: hsl(0deg 0% 91%);
+            background-color: var(--color-white-96);
             color: var(--main-theme);
         }
     }

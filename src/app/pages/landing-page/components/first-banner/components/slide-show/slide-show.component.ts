@@ -8,8 +8,8 @@ import {BANNERS} from 'src/app/data/Banners';
     styleUrls: ['./slide-show.component.scss'],
 })
 export class SlideShowComponent implements AfterViewInit, OnDestroy {
-    private readonly INTERVAL_DELAY: number = 3000;
-    private interval: number | null = null;
+    private readonly INTERVAL_DELAY: number = 6_000;
+    public interval: number | null = null;
 
     public activeIndex: number = 0;
     public banners: Ibanner[] = BANNERS;
@@ -36,7 +36,7 @@ export class SlideShowComponent implements AfterViewInit, OnDestroy {
     private resetInterval(): void {
         if (this.interval !== null) clearInterval(this.interval);
 
-        this.interval = setInterval(() => {
+        this.interval = window.setInterval(() => {
             this.changeActiveIndex(this.activeIndex + 1);
         }, this.INTERVAL_DELAY);
     }

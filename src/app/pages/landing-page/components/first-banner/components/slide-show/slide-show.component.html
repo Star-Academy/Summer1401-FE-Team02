@@ -4,12 +4,26 @@
             <img [src]="banner.imageAddress" />
             <div class="overlay">
                 <div class="banner-description">
-                    <mark class="banner-description__text">
+                    <h2 class="banner-description__title">
+                        {{ banner.title }}
+                    </h2>
+                    <p class="banner-description__text">
                         {{ banner.description }}
-                    </mark>
+                    </p>
                 </div>
-                <button class="btn btn--fill free-play-btn">امروز رایگان بازی کنید!</button>
+                <div class="control-buttons">
+                    <button data-test-id="prevButton" (click)="changeActiveIndex(activeIndex - 1)">
+                        <i class="far fa-angle-right"></i>
+                    </button>
+                    <button data-test-id="nextButton" (click)="changeActiveIndex(activeIndex + 1)">
+                        <i class="far fa-angle-left"></i>
+                    </button>
+                </div>
+                <button class="btn free-play">امروز رایگان بازی کنید!</button>
             </div>
         </li>
     </ol>
+    <div class="bullets">
+        <i *ngFor="let _ of banners; index as index" [class.active]="index === activeIndex"></i>
+    </div>
 </div>

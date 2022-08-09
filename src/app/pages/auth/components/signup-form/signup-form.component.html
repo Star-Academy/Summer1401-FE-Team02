@@ -1,0 +1,37 @@
+<h1>ثبت نام</h1>
+
+<form (submit)="submitForm()">
+    <section>
+        <label>نام</label>
+        <input name="firstname" type="text" [(ngModel)]="user.firstName" />
+    </section>
+
+    <section>
+        <label>نام خانوادگی</label>
+        <input name="lastname" type="text" [(ngModel)]="user.lastName" />
+    </section>
+
+    <section>
+        <label>نام کاربری</label>
+        <input name="username" type="text" [(ngModel)]="user.username" />
+    </section>
+
+    <section>
+        <label>ایمیل</label>
+        <input name="email" type="email" [(ngModel)]="user.email" />
+    </section>
+
+    <section>
+        <label>رمز عبور</label>
+        <input name="password" type="password" [(ngModel)]="user.password" />
+    </section>
+
+    <div class="buttons">
+        <button class="btn btn--fill" type="submit">ثبت نام</button>
+        <button class="btn" (click)="cancel()">لغو</button>
+    </div>
+</form>
+
+<div class="form__footer">
+    <p>حساب کاربری دارید؟ <a routerLink="/login">وارد حساب خود شوید</a></p>
+</div>

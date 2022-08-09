@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
 
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
 
     font-size: 1.7rem;
 
@@ -66,15 +66,20 @@
             list-style-type: none;
 
             a {
-                color: hsl(0deg 0% 100%);
+                color: var(--color-white-100);
 
                 text-decoration: none;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
             }
         }
 
         &--left {
             a {
-                color: hsl(0deg 0% 100%);
+                color: var(--color-white-100);
                 opacity: 0.8;
 
                 transition: opacity 0.2s ease-in-out;

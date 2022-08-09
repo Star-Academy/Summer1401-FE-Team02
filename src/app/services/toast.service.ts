@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {ToastComponent} from '../components/toast/toast.component';
+import {ToastType} from './ToastType.enum';
 
 @Injectable({
     providedIn: 'root',
@@ -11,7 +12,7 @@ export class ToastService {
         this.toast = toast;
     }
 
-    public show(message: string, type: string): void {
+    public show(message: string, type: ToastType = ToastType.WARNING): void {
         this.toast?.show(message, type);
     }
 }

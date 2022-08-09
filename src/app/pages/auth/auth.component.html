@@ -1,61 +1,10 @@
 <main class="auth__main">
     <section class="auth__section">
-        <form #userForm="ngForm" class="auth__form" (submit)="submitForm()">
-            <input
-                *ngIf="!isLogin"
-                class="auth__input"
-                name="username"
-                placeholder="نام"
-                type="text"
-                required
-                [(ngModel)]="user.firstName"
-            />
-
-            <input
-                *ngIf="!isLogin"
-                class="auth__input"
-                name="username"
-                placeholder="نام خانوادگی"
-                type="text"
-                required
-                [(ngModel)]="user.lastName"
-            />
-
-            <input
-                class="auth__input"
-                name="username"
-                placeholder="نام کاربری"
-                type="text"
-                required
-                [(ngModel)]="user.username"
-            />
-
-            <input
-                *ngIf="!isLogin"
-                class="auth__input"
-                name="email"
-                placeholder="ایمیل"
-                type="email"
-                required
-                [(ngModel)]="user.email"
-            />
-
-            <input
-                class="auth__input"
-                name="password"
-                placeholder="رمز عبور"
-                type="password"
-                [attr.minlength]="isLogin ? null : 6"
-                required
-                [(ngModel)]="user.password"
-            />
-
-            <div class="auth__form--buttons">
-                <button class="btn btn--fill auth__button" type="submit" [disabled]="!userForm.valid">
-                    {{ isLogin ? 'ورود' : 'ثبت نام' }}
-                </button>
-                <button class="btn auth__button" (click)="cancel()">لغو</button>
-            </div>
-        </form>
+        <ng-container *ngIf="isLogin; else signupForm">
+            <app-login-form></app-login-form>
+        </ng-container>
+        <ng-template #signupForm>
+            <app-signup-form></app-signup-form>
+        </ng-template>
     </section>
 </main>
