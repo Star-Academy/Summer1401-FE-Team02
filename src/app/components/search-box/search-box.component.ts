@@ -7,5 +7,5 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class SearchBoxComponent {
     @Input() public value: string = '';
-    @Output() public valueChange = new EventEmitter<String>();
+    @Output() public valueChange = new EventEmitter<string>();
 }
