@@ -13,8 +13,12 @@
         </div>
         <div class="header__nav header__nav--left">
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
-                <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-basket-shopping"></i></a>
-                <a routerLink="/profile" title="حساب کاربری"><i class="fa-solid fa-user"></i></a>
+                <a routerLink="#" title="سبد خرید" data-test-id="cart-link"
+                    ><i class="fa-solid fa-basket-shopping"></i
+                ></a>
+                <a routerLink="/profile" title="حساب کاربری" data-test-id="profile-link"
+                    ><i class="fa-solid fa-user"></i
+                ></a>
             </ng-container>
             <ng-template #notLoggedInTemplate>
                 <ul class="header__nav--list">

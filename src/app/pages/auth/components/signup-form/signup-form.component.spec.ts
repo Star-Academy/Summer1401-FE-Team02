@@ -1,4 +1,4 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, TestBed, fakeAsync} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 
 import {SignupFormComponent} from './signup-form.component';
@@ -43,7 +43,7 @@ describe('SignupFormComponent', () => {
         });
     });
 
-    it('should change input', waitForAsync(() => {
+    it('should change input', fakeAsync(() => {
         const fields: User = {
             firstName: 'name1',
             lastName: 'family1',
