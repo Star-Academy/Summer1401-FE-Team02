@@ -1,7 +1,8 @@
 .archive {
-    min-height: 100vh;
     display: flex;
     flex-direction: row;
+
+    min-height: 100vh;
 
     aside {
         inline-size: 30rem;
@@ -14,6 +15,7 @@
         flex-direction: column;
         align-items: center;
         gap: 5rem;
+
         padding-inline: 1rem;
 
         header {
@@ -35,10 +37,13 @@
             gap: 2rem;
 
             li {
-                list-style-type: none;
-                cursor: pointer;
                 opacity: 0.6;
+
+                list-style-type: none;
+
                 transition: opacity 0.2s ease;
+
+                cursor: pointer;
 
                 &.active,
                 &:hover {
