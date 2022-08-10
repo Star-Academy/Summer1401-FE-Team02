@@ -2,70 +2,94 @@ import {GameCard} from '../interfaces/Game.interface';
 
 export const GAMES: GameCard[] = [
     {
+        id: 1,
+        rating: 8.7,
         name: "Wonder Boy: The Dragon's Trap",
         summary:
             'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که میتواند طلسم شما را باطل کند.',
         src: 'https://cdn1.epicgames.com/spt-assets/e488839155be4d05bb14f6e05129daef/download-wonder-boy-the-dragons-trap-offer-e0awf.jpg?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'FlatOut',
         summary: 'یک مسابقه ماشین سواری پرهیجان با گرافیک شگفت‌انگیر و دستانی نوآوورانه',
         src: 'https://cdn1.epicgames.com/spt-assets/c5ec8913ad38441b82a36c603be63e3a/download-flatout-offer-ogxv1.png?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Mari & Bayu',
         summary:
             'در این بازی معمایی و ماجراجویانه، نقش مالی مورچه و مایو شب‌پره را بازی کنید و پازل‌های بازی را حل کنید. ',
         src: 'https://cdn1.epicgames.com/spt-assets/877ee56178af4432a4565f163b60aef7/download-mari-and-bayu--the-road-home-offer-1r5s7.jpg?h=480&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Hazel',
         summary:
             'در دنیای ماینکرفت با هیولاها مبارزه کنید و مسیر خود را در دنیای الهام گرفته شده از بازی کلاسیک dungeon crawlers به سوی موفقیت بیابید.',
         src: 'https://cdn1.epicgames.com/spt-assets/576b927905694714b508b28b5d410243/download-hazel-sky-offer-1imj1.png?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Endling',
         summary:
             'در دنیای ماینکرفت با هیولاها مبارزه کنید و مسیر خود را در دنیای الهام گرفته شده از بازی کلاسیک dungeon crawlers به سوی موفقیت بیابید.',
         src: 'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_EndlingExtinctionisForever_HerobeatStudios_S2_1200x1600-490c5a4c4391f2cdd095b204910c90b1?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Mari & Bayu',
         summary:
             'در این بازی معمایی و ماجراجویانه، نقش مالی مورچه و مایو شب‌پره را بازی کنید و پازل‌های بازی را حل کنید. ',
         src: 'https://cdn1.epicgames.com/spt-assets/877ee56178af4432a4565f163b60aef7/download-mari-and-bayu--the-road-home-offer-1r5s7.jpg?h=480&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: "Wonder Boy: The Dragon's Trap",
         summary:
             'به دنبال درمانی برای طلسم خود، شما در یک ماجراجویی به دنبال ابزاری جادویی می‌گردید که میتواند طلسم شما را باطل کند.',
         src: 'https://cdn1.epicgames.com/spt-assets/e488839155be4d05bb14f6e05129daef/download-wonder-boy-the-dragons-trap-offer-e0awf.jpg?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'FlatOut',
         summary: 'یک مسابقه ماشین سواری پرهیجان با گرافیک شگفت‌انگیر و دستانی نوآوورانه',
         src: 'https://cdn1.epicgames.com/spt-assets/c5ec8913ad38441b82a36c603be63e3a/download-flatout-offer-ogxv1.png?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Mari & Bayu',
         summary:
             'در این بازی معمایی و ماجراجویانه، نقش مالی مورچه و مایو شب‌پره را بازی کنید و پازل‌های بازی را حل کنید. ',
         src: 'https://cdn1.epicgames.com/spt-assets/877ee56178af4432a4565f163b60aef7/download-mari-and-bayu--the-road-home-offer-1r5s7.jpg?h=480&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Hazel',
         summary:
             'در دنیای ماینکرفت با هیولاها مبارزه کنید و مسیر خود را در دنیای الهام گرفته شده از بازی کلاسیک dungeon crawlers به سوی موفقیت بیابید.',
         src: 'https://cdn1.epicgames.com/spt-assets/576b927905694714b508b28b5d410243/download-hazel-sky-offer-1imj1.png?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Endling',
         summary:
             'در دنیای ماینکرفت با هیولاها مبارزه کنید و مسیر خود را در دنیای الهام گرفته شده از بازی کلاسیک dungeon crawlers به سوی موفقیت بیابید.',
         src: 'https://cdn1.epicgames.com/salesEvent/salesEvent/EGS_EndlingExtinctionisForever_HerobeatStudios_S2_1200x1600-490c5a4c4391f2cdd095b204910c90b1?h=854&resize=1&w=360',
     },
     {
+        id: 1,
+        rating: 8.7,
         name: 'Mari & Bayu',
         summary:
             'در این بازی معمایی و ماجراجویانه، نقش مالی مورچه و مایو شب‌پره را بازی کنید و پازل‌های بازی را حل کنید. ',

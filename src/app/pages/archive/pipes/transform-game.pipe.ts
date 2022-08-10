@@ -7,8 +7,7 @@ import {Game, GameCard} from 'src/app/interfaces/Game.interface';
 export class TransformGamePipe implements PipeTransform {
     public transform(game: Game): GameCard {
         return {
-            name: game.name,
-            summary: game.summary,
+            ...game,
             src: game.cover && 'https://images.igdb.com/igdb/image/upload/t_cover_big/' + game.cover?.id + '.jpg',
         };
     }

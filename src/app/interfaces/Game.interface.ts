@@ -19,7 +19,9 @@ export interface GameImage {
 }
 
 export interface GameCard {
+    id: number;
     name: string;
     summary?: string;
+    rating: number | null;
     src?: string;
 }
