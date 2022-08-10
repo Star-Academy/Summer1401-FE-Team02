@@ -1,0 +1,9 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5rem;
+
+    li {
+        list-style-type: none;
+    }
+}

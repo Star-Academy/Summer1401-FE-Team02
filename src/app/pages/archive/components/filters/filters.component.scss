@@ -3,11 +3,13 @@
     flex-direction: column;
     gap: 1rem;
 
-    min-block-size: 100vh;
+    // min-block-size: 100vh;
+    position: sticky;
+    inset-block-start: 0;
 
     padding: 2rem;
 
-    border-inline-end: 0.1rem solid var(--color-gray-20);
+    // border-inline-end: 0.1rem solid var(--color-gray-20);
 
     border-radius: var(--border-radius-minimum);
 

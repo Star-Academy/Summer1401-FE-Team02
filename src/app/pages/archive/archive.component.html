@@ -40,20 +40,19 @@
         </header>
 
         <app-games></app-games>
+        <footer>
+            <button class="btn" [disabled]="gameService.offset === 0" (click)="handlePreviousPageButtonClick()">
+                صفحه قبل
+            </button>
+            <button
+                class="btn"
+                [disabled]="gameService.offset >= gameService.games.length / gameService.PAGE_SIZE"
+                (click)="handleNextPageButtonClick()"
+            >
+                صفحه بعد
+            </button>
+        </footer>
     </main>
-
-    <footer>
-        <button class="primary" [disabled]="gameService.offset === 0" (click)="handlePreviousPageButtonClick()">
-            صفحه قبل
-        </button>
-        <button
-            class="primary"
-            [disabled]="gameService.offset >= gameService.games.length / gameService.PAGE_SIZE"
-            (click)="handleNextPageButtonClick()"
-        >
-            صفحه بعد
-        </button>
-    </footer>
 </div>
 
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>

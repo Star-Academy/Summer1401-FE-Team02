@@ -48,6 +48,7 @@ export class GameService {
     }
 
     public async search(): Promise<void> {
+        this.games = [];
         const response = await this.apiService.post<{games: Game[]}>(GAME_SEARCH, {
             searchPhrase: this.searchPhrase,
             pageSize: this.PAGE_SIZE,
