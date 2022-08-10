@@ -12,7 +12,7 @@ import {SwitchComponent} from './components/switch/switch.component';
 import {NumberInputComponent} from './components/number-input/number-input.component';
 import {GamesComponent} from './components/games/games.component';
 import {PostCardModule} from 'src/app/components/post-card/post-card.module';
-import { TransformGamePipe } from './pipes/transform-game.pipe';
+import {TransformGamePipe} from './pipes/transform-game.pipe';
 
 @NgModule({
     declarations: [

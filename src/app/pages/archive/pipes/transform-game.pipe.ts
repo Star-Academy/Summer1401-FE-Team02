@@ -9,7 +9,7 @@ export class TransformGamePipe implements PipeTransform {
         return {
             name: game.name,
             summary: game.summary,
-            cover: game.cover,
+            src: game.cover && 'https://images.igdb.com/igdb/image/upload/t_cover_big/' + game.cover?.id + '.jpg',
         };
     }
 }

@@ -21,5 +21,5 @@ export interface GameImage {
 export interface GameCard {
     name: string;
     summary?: string;
-    cover?: GameImage;
+    src?: string;
 }

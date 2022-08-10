@@ -7,5 +7,5 @@ import {GameCard} from 'src/app/interfaces/Game.interface';
     styleUrls: ['./post-card.component.scss'],
 })
 export class PostCardComponent {
-    @Input() public game: GameCard = {name: '', cover: {id: '', width: 0, height: 0}, summary: ''};
+    @Input() public game: GameCard = {name: '', src: undefined, summary: ''};
 }
