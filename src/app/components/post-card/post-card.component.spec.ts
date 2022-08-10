@@ -27,13 +27,11 @@ describe('PostCardComponent', () => {
 
     it('should render game data', () => {
         const testedGame: GameCard = {
+            id: 0,
+            rating: null,
             name: 'FlatOut',
             summary: 'یک مسابقه ماشین سواری پرهیجان با گرافیک شگفت‌انگیر و دستانی نوآوورانه',
-            cover: {
-                id: 'https://cdn1.epicgames.com/spt-assets/c5ec8913ad38441b82a36c603be63e3a/download-flatout-offer-ogxv1.png?h=854&resize=1&w=360',
-                width: 360,
-                height: 854,
-            },
+            src: 'https://cdn1.epicgames.com/spt-assets/c5ec8913ad38441b82a36c603be63e3a/download-flatout-offer-ogxv1.png?h=854&resize=1&w=360',
         };
 
         component.game = testedGame;
@@ -45,6 +43,6 @@ describe('PostCardComponent', () => {
 
         expect(titleContainer.textContent).toEqual(testedGame.name);
         expect(descContainer.textContent).toEqual(testedGame.summary!);
-        expect(imageContainer).toEqual(testedGame.cover?.id!);
+        expect(imageContainer).toEqual(testedGame.src!);
     });
 });
