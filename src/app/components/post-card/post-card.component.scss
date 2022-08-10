@@ -84,6 +84,8 @@
     &__desc {
         color: var(--solid-black);
 
+        direction: ltr;
+
         overflow: hidden;
 
         display: -webkit-box;
