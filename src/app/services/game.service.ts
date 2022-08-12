@@ -65,8 +65,8 @@ export class GameService {
     public async navigate(): Promise<void> {
         this.offset = 0;
 
-        if (!this.router.routerState.snapshot.url.startsWith('/search')) {
-            await this.router.navigateByUrl('/search');
+        if (!this.router.routerState.snapshot.url.startsWith('/games')) {
+            await this.router.navigateByUrl('/games');
             return;
         }
 
@@ -96,7 +96,7 @@ export class GameService {
     private initializeObservers(): void {
         this.router.events.subscribe(async (value) => {
             if (value instanceof NavigationEnd) {
-                if (value.url.startsWith('/search')) await this.search();
+                if (value.url.startsWith('/games')) await this.search();
             }
         });
     }
