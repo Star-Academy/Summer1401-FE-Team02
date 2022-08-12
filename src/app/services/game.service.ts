@@ -58,8 +58,6 @@ export class GameService {
         });
 
         this.games = response && Array.isArray(response?.games) ? response.games : [];
-
-        console.log(this.games);
     }
 
     public async navigate(): Promise<void> {

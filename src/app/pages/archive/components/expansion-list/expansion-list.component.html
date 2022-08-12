@@ -11,7 +11,7 @@
         <ul>
             <li *ngFor="let item of items | filter: searchPhrase">
                 <label>
-                    <input type="checkbox" [ngModel]="item.isEnabled" (ngModelChange)="itemsChange.emit(items)" />
+                    <input type="checkbox" [ngModel]="item.isEnabled" (ngModelChange)="emitItems(item, $event)" />
                     {{ item.title }}
                 </label>
             </li>
