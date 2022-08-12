@@ -1,6 +1,4 @@
 .filters {
-    // min-block-size: 100vh;
-    position: sticky;
     inset-block-start: 0;
 
     display: flex;
@@ -8,8 +6,6 @@
     gap: 1rem;
 
     padding: 2rem;
-
-    // border-inline-end: 0.1rem solid var(--color-gray-20);
 
     border-radius: var(--border-radius-minimum);
 

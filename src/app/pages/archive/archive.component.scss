@@ -3,6 +3,7 @@
     flex-direction: row;
 
     min-height: 100vh;
+    margin-block: 3rem;
 
     aside {
         inline-size: 30rem;
@@ -20,6 +21,12 @@
 
         header {
             align-self: flex-start;
+        }
+
+        footer {
+            inline-size: 80%;
+            display: flex;
+            justify-content: space-between;
         }
     }
 
