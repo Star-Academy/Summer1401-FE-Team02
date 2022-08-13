@@ -31,8 +31,8 @@
             align-items: center;
             justify-content: center;
 
-            block-size: 20vh;
-            inline-size: 20vh;
+            block-size: 30vh;
+            inline-size: 30vh;
 
             border-radius: 50%;
 
@@ -41,32 +41,49 @@
             text-align: center;
 
             .profile-image {
-                inline-size: 20vh;
-                aspect-ratio: 1;
+                box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px, rgb(17 17 26 / 10%) 0 16px 56px;
+
+                block-size: 30vh;
+                inline-size: 30vh;
+
+                object-fit: cover;
 
                 border-radius: 50%;
+
+                font-size: 3rem;
+
+                line-height: 13vh;
             }
 
-            #add-image-button {
+            .image-button {
                 background-color: var(--dark-gray);
                 color: var(--color-white-64);
+                box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px, rgb(17 17 26 / 10%) 0 16px 56px;
 
                 position: absolute;
-                inset-block-end: 0.4rem;
-                inset-inline-start: 0.4rem;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                block-size: 3.5rem;
-                inline-size: 3.5rem;
+                block-size: 5rem;
+                inline-size: 5rem;
 
                 border-radius: 50%;
 
                 font-size: 3rem;
 
                 cursor: pointer;
+
+                &.add{
+                    inset-block-end: 0.3rem;
+                    inset-inline-start: 0.3rem;
+                }
+
+                &.remove{
+                    inset-block-end: 0.3rem;
+                    inset-inline-end: 0.3rem;
+                }
 
                 :hover {
                     background-color: var(--darker-gray);

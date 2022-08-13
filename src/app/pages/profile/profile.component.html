@@ -2,13 +2,18 @@
 <main class="profile">
     <div class="profile__banner">
         <div class="profile__banner--avatar">
-            <div class="profile-default-image">
-                <i class="fa-solid fa-user-large"></i>
-            </div>
+            <ng-container *ngIf="!hasImage">
+                <div class="profile-default-image">
+                    <i class="fa-solid fa-user-large"></i>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="hasImage && selectedFiles.length === 0">
+                <img [src]="initialUser.avatar" class="profile-image" alt="تصویر کاربر" />
+            </ng-container>
             <ng-container *ngFor="let item of selectedFiles">
                 <img [src]="item.base64" class="profile-image" alt="تصویر کاربر" />
             </ng-container>
-            <label id="add-image-button" for="add-image-input" title="تغییر تصویر کاربر">
+            <label class="image-button add" for="add-image-input" title="تغییر تصویر کاربر">
                 <i class="fa-solid fa-plus-large no-pointer-event"></i>
                 <input
                     #file
@@ -20,6 +25,7 @@
                     (change)="onFileSelected(file.files)"
                 />
             </label>
+            <button title="حذف تصویر کاربر" class="image-button remove" (click)="removeImage()"><i class="fa-solid fa-multiply no-pointer-event"></i></button>
         </div>
         <div class="profile__banner--basic-info">
             <div class="larger">{{ initialUser.firstName }} {{ initialUser.lastName }}</div>

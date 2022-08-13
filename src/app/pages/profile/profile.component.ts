@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../interfaces/User.interface';
@@ -6,10 +6,7 @@ import {FormControl} from '@angular/forms';
 import {IDatepickerTheme} from 'ng-persian-datepicker';
 import {ToastType} from '../../enums/ToastType.enum';
 import {ToastService} from '../../services/toast.service';
-import {TokenObject} from '../../interfaces/TokenObject.interface';
-import {USER_LOGIN} from '../../utils/api.utils';
-import getDocumentElement from '@popperjs/core/lib/dom-utils/getDocumentElement';
-import {AsyncSubject, Observable, ReplaySubject} from 'rxjs';
+import {AsyncSubject, Observable} from 'rxjs';
 
 export interface SelectedFiles {
     name: string;
@@ -21,7 +18,7 @@ export interface SelectedFiles {
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.scss', '../../styles/form.scss'],
 })
-export class ProfileComponent {
+export class ProfileComponent implements AfterViewInit {
     public initialUser: Partial<User> = {
         username: this.authService.cachedUser?.username!,
         email: this.authService.cachedUser?.email!,
@@ -30,6 +27,7 @@ export class ProfileComponent {
         phone: this.authService.cachedUser?.phone,
         dateOfBirth: this.authService.cachedUser?.dateOfBirth,
         gender: this.authService.cachedUser?.gender,
+        avatar: this.authService.cachedUser?.avatar,
     };
     public changingUser: Partial<User> = {
         token: this.authService.token,
@@ -40,9 +38,16 @@ export class ProfileComponent {
         phone: this.authService.cachedUser?.phone,
         dateOfBirth: this.authService.cachedUser?.dateOfBirth,
         gender: this.authService.cachedUser?.gender,
+        avatar: this.authService.cachedUser?.avatar,
     };
 
     public constructor(public authService: AuthService, public router: Router, public toastService: ToastService) {}
+
+    public ngAfterViewInit(): void {
+        this.hasImage = !!(this.initialUser.avatar != '' && this.initialUser.avatar);
+        console.log(this.hasImage);
+        console.log(this.initialUser.avatar);
+    }
 
     public async cancel(): Promise<void> {
         await this.router.navigateByUrl('/');
@@ -50,7 +55,10 @@ export class ProfileComponent {
 
     public async submitChanges(): Promise<void> {
         if (this.changingUser.gender === null) delete this.changingUser.gender;
-        if (!(await this.authService.login({username: this.initialUser.username!, password: this.oldPassword!}))) {
+        if (
+            this.oldPassword &&
+            !(await this.authService.login({username: this.initialUser.username!, password: this.oldPassword!}))
+        ) {
             this.toastService.show('رمز عبور کنونی اشتباه است.', ToastType.WARNING);
             return;
         }
@@ -60,6 +68,7 @@ export class ProfileComponent {
         }
         this.changingUser.password = this.newPassword;
         const response = await this.authService.updateUser(this.changingUser);
+
         response && this.toastService.show('ویرایش اطلاعات کاربر با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
     }
@@ -101,6 +110,7 @@ export class ProfileComponent {
                     if (files?.length === i + 1) {
                         result.complete();
                         this.hasImage = true;
+                        this.changingUser.avatar = selectedFiles[0].base64;
                     }
                 };
             });
@@ -113,10 +123,15 @@ export class ProfileComponent {
     }
 
     public onFileSelected(files: FileList | null): void {
-        // this.selectedFiles = []; // clear
+        this.selectedFiles = [];
         this.toFilesBase64(files!, this.selectedFiles).subscribe((res: SelectedFiles[]) => {
             this.selectedFiles = res;
         });
-        document.querySelector('.profile-default-image')?.setAttribute('hidden', 'true');
+    }
+
+    public removeImage(): void {
+        this.hasImage = false;
+        this.changingUser.avatar = '';
+        this.selectedFiles = [];
     }
 }
