@@ -2,6 +2,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {PostCardComponent} from './post-card.component';
 import {Game, GameCard} from '../../interfaces/Game.interface';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('PostCardComponent', () => {
     let component: PostCardComponent;
@@ -11,6 +12,7 @@ describe('PostCardComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [PostCardComponent],
+            imports: [RouterTestingModule],
         }).compileComponents();
     });
 
@@ -30,7 +32,7 @@ describe('PostCardComponent', () => {
             id: 0,
             rating: null,
             name: 'FlatOut',
-            summary: 'یک مسابقه ماشین سواری پرهیجان با گرافیک شگفت‌انگیر و دستانی نوآوورانه',
+            summary: 'یک مسابقه ماشین سواری پرهیجان با گرافیک شگفت‌انگیر و دستانی نوآورانه',
             src: 'https://cdn1.epicgames.com/spt-assets/c5ec8913ad38441b82a36c603be63e3a/download-flatout-offer-ogxv1.png?h=854&resize=1&w=360',
         };
 

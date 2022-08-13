@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {ArchiveModule} from './pages/archive/archive.module';
 import {GameModule} from './pages/game/game.module';
 import {BookmarkModule} from './pages/bookmark/bookmark.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -25,6 +26,8 @@ import {BookmarkModule} from './pages/bookmark/bookmark.module';
         ArchiveModule,
         GameModule,
         BookmarkModule,
+        RouterModule,
+        RouterModule.forRoot([]),
     ],
     bootstrap: [AppComponent],
     providers: [AuthGuard],
