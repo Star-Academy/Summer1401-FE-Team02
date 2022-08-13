@@ -25,11 +25,28 @@ export class GameComponent implements OnInit {
         summary: '',
     };
 
+    public gameRate: number = 0;
+    public genres: string[] = [];
+    public platforms: string[] = [];
+
     public async ngOnInit(): Promise<void> {
         const id = this.route.snapshot.params.id;
         const game = await this.gameService.getGame(id);
         if (game) {
+            // console.log(JSON.parse(game.genres[0]));
+            console.log();
             this.data = game;
+            if (game.rating) this.gameRate = game.rating / 20;
+            if (game.genres) {
+                for (let i = 0; i < game.genres.length; i++) {
+                    this.genres.push(JSON.parse(JSON.stringify(game.genres[i])).name);
+                }
+            }
+            if (game.platforms) {
+                for (let i = 0; i < game.platforms.length; i++) {
+                    this.platforms.push(JSON.parse(JSON.stringify(game.platforms[i])).name);
+                }
+            }
         }
     }
 }

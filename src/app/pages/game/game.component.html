@@ -1,42 +1,124 @@
-<main class="game__wrapper">
-    <section class="game__head">
-        <div class="game__cover">
-            <img [src]="data.cover?.id | imageSource" />
+<main class="game">
+    <section class="game__overview column">
+        <div class="title-container">
+            <h2>{{ data.name }}</h2>
         </div>
-        <div class="game__init">
-            <h1>{{ data.name }}</h1>
-            <p>{{ data.summary }}</p>
-            <div class="game__rating">
-                <span class="rate__score">{{ data.rating }}</span>
-                <span class="rate__count">{{ data.ratingCount }}</span>
-            </div>
-            <div class="game__buttons">
-                <button
-                    *ngIf="gameService.isInFavorites(data.id); else unfavorited"
-                    class="btn btn--fill warning"
-                    (click)="gameService.removeFromFavorites(data.id)"
-                >
-                    <i class="fa-solid fa-heart"></i>حذف از علاقه‌مندی‌ها
-                </button>
-                <ng-template #unfavorited>
-                    <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
-                        <i class="fa-solid fa-heart"></i>افزودن به علاقه‌مندی‌ها
-                    </button>
-                </ng-template>
+        <div class="rating-container row">
+            <span class="rating-star-container row">
+                <ng-container *ngIf="gameRate < 0.5">
+                    <i class="fas fa-star-sharp gray-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 0.5 && gameRate < 1">
+                    <i class="fas fa-star-sharp-half gold-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 1">
+                    <i class="fas fa-star-sharp gold-star"></i>
+                </ng-container>
 
-                <button
-                    *ngIf="gameService.isInWishlist(data.id); else unwishlisted"
-                    class="btn warning"
-                    (click)="gameService.removeFromWishlist(data.id)"
-                >
-                    <i class="fa-solid fa-bookmark"></i>حذف از لیست آرزو‌ها
-                </button>
-                <ng-template #unwishlisted>
-                    <button class="btn" (click)="gameService.addToWishlist(data.id)">
-                        <i class="fa-solid fa-bookmark"></i>افزودن به لیست آرزو‌ها
-                    </button>
-                </ng-template>
+                <ng-container *ngIf="gameRate < 1.5">
+                    <i class="fas fa-star-sharp gray-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 1.5 && gameRate < 2">
+                    <i class="fas fa-star-sharp-half gold-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 2">
+                    <i class="fas fa-star-sharp gold-star"></i>
+                </ng-container>
+
+                <ng-container *ngIf="gameRate < 2.5">
+                    <i class="fas fa-star-sharp gray-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 2.5 && gameRate < 3">
+                    <i class="fas fa-star-sharp-half gold-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 3">
+                    <i class="fas fa-star-sharp gold-star"></i>
+                </ng-container>
+
+                <ng-container *ngIf="gameRate < 3.5">
+                    <i class="fas fa-star-sharp gray-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 3.5 && gameRate < 4">
+                    <i class="fas fa-star-sharp-half gold-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 4">
+                    <i class="fas fa-star-sharp gold-star"></i>
+                </ng-container>
+
+                <ng-container *ngIf="gameRate < 4.5">
+                    <i class="fas fa-star-sharp gray-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 4.5 && gameRate < 5">
+                    <i class="fas fa-star-sharp-half gold-star"></i>
+                </ng-container>
+                <ng-container *ngIf="gameRate >= 5">
+                    <i class="fas fa-star-sharp gold-star"></i>
+                </ng-container>
+            </span>
+            <span class="rating-score-container">
+                {{ gameRate }}
+                از
+                {{ data.ratingCount }}
+                نظر
+            </span>
+        </div>
+        <div class="screenshot-container column">
+            <img class="large-screenshot" src="favicon.ico" alt="تصویری از بازی" />
+            <div class="thumbnail-container row">
+                <ng-container *ngFor="let screenshot of data.screenshots">
+                    <img [src]="screenshot?.id | imageSource" alt="تصویری از بازی" />
+                </ng-container>
             </div>
+        </div>
+        <div class="storyline-container">
+            <p>{{ data.storyline }}</p>
+        </div>
+        <div class="summary-container">
+            <p>{{ data.summary }}</p>
+        </div>
+    </section>
+    <section class="game__detail column">
+        <div class="cover-container">
+            <img [src]="data.cover?.id | imageSource" alt="پوستر بازی" />
+        </div>
+        <div class="buttons-container row">
+            <button
+                *ngIf="gameService.isInFavorites(data.id); else unfavorited"
+                class="btn btn--fill warning"
+                (click)="gameService.removeFromFavorites(data.id)"
+            >
+                <i class="fa-solid fa-heart"></i>حذف از علاقه‌مندی‌ها
+            </button>
+            <ng-template #unfavorited>
+                <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
+                    <i class="fa-solid fa-heart"></i>افزودن به علاقه‌مندی‌ها
+                </button>
+            </ng-template>
+
+            <button
+                *ngIf="gameService.isInWishlist(data.id); else unwishlisted"
+                class="btn warning"
+                (click)="gameService.removeFromWishlist(data.id)"
+            >
+                <i class="fa-solid fa-bookmark"></i>حذف از لیست آرزو‌ها
+            </button>
+            <ng-template #unwishlisted>
+                <button class="btn" (click)="gameService.addToWishlist(data.id)">
+                    <i class="fa-solid fa-bookmark"></i>افزودن به لیست آرزو‌ها
+                </button>
+            </ng-template>
+        </div>
+        <div class="genres-container row">
+            <h3>ژانرها</h3>
+            <ng-container *ngFor="let genre of genres">
+                <i>{{ genre }}, </i>
+            </ng-container>
+        </div>
+        <div class="platforms-container row">
+            <h3>پلتفرم‌ها</h3>
+            <ng-container *ngFor="let platform of platforms">
+                <i>{{ platform }}, </i>
+            </ng-container>
         </div>
     </section>
 </main>
