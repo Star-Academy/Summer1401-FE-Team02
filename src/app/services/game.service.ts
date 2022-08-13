@@ -10,9 +10,11 @@ import {
     GAME_SEARCH,
     WISHLIST_ADD,
     FAVORITES_ADD,
+    WISHLIST_ALL,
+    FAVORITES_ALL,
 } from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
-import {Game, GameJson} from '../interfaces/Game.interface';
+import {Game, GameCard} from '../interfaces/Game.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
 import {FilterData} from '../interfaces/FilterData.interface';
@@ -25,6 +27,8 @@ export class GameService {
     public readonly PAGE_SIZE: number = 20;
 
     public games: Game[] = [];
+    public wishlist: Game[] = [];
+    public favorites: Game[] = [];
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
     public gameModes: ExpansionListItem[] = [];
@@ -83,7 +87,7 @@ export class GameService {
     }
 
     public async getGame(id: number): Promise<Game | null> {
-        const game = await this.apiService.get<GameJson>(GAME_ONE + id, {}, true);
+        const game = await this.apiService.get<{game: Game}>(GAME_ONE + id, {}, true);
         if (game) {
             const data = game.game;
             return {
@@ -104,33 +108,37 @@ export class GameService {
     }
 
     public async addToWishlist(id: number): Promise<void> {
-        if (await this.authService.isLoggedIn()) {
-            const response = await this.apiService.post(
-                WISHLIST_ADD,
-                {
-                    token: localStorage.getItem('token'),
-                    gameId: id,
-                },
-                {},
-                true
-            );
-            console.log(response);
-        }
+        const response = await this.apiService.post(
+            WISHLIST_ADD,
+            {
+                token: localStorage.getItem('token'),
+                gameId: id,
+            },
+            {},
+            true
+        );
+        this.getWishlist();
+    }
+
+    public isInWishlist(id: number): boolean {
+        return !!this.wishlist.find((game) => game.id === id);
+    }
+
+    public isInFavorites(id: number): boolean {
+        return !!this.favorites.find((game) => game.id === id);
     }
 
     public async addToFavorites(id: number): Promise<void> {
-        if (await this.authService.isLoggedIn()) {
-            const response = await this.apiService.post(
-                FAVORITES_ADD,
-                {
-                    token: localStorage.getItem('token'),
-                    gameId: id,
-                },
-                {},
-                true
-            );
-            console.log(response);
-        }
+        const response = await this.apiService.post(
+            FAVORITES_ADD,
+            {
+                token: localStorage.getItem('token'),
+                gameId: id,
+            },
+            {},
+            true
+        );
+        this.getFavorites();
     }
 
     private generateFilters(): Filters {
@@ -169,5 +177,31 @@ export class GameService {
                 if (value.url.startsWith('/games')) await this.search();
             }
         });
+    }
+
+    private async getWishlist(): Promise<void> {
+        const response = await this.apiService.post<{games: Game[]}>(
+            WISHLIST_ALL,
+            {
+                token: localStorage.getItem('token'),
+            },
+            {},
+            true
+        );
+
+        this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
+    }
+
+    private async getFavorites(): Promise<void> {
+        const response = await this.apiService.post<{games: Game[]}>(
+            FAVORITES_ALL,
+            {
+                token: localStorage.getItem('token'),
+            },
+            {},
+            true
+        );
+
+        this.favorites = response && Array.isArray(response?.games) ? response.games : [];
     }
 }
