@@ -34,7 +34,6 @@
 
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         justify-content: space-between;
 
         block-size: 100%;
@@ -49,15 +48,15 @@
 
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
             justify-content: flex-start;
+            align-items: flex-end;
 
             inline-size: 100%;
         }
     }
 
     &__title {
-        align-self: flex-end;
+        text-decoration: none;
 
         color: var(--main-theme);
 
@@ -73,28 +72,24 @@
         text-overflow: ellipsis;
 
         white-space: nowrap;
-    }
 
-    &__price {
-        color: var(--solid-black);
-
-        font-size: 1.7rem;
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
     &__desc {
         color: var(--solid-black);
 
-        direction: ltr;
-
         overflow: hidden;
-
-        display: -webkit-box;
-
-        min-block-size: 0;
 
         padding-block-start: 3rem;
 
         font-size: 1.7rem;
+
+        display: -webkit-box;
+
+        min-block-size: 0;
 
         text-overflow: ellipsis;
 

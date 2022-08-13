@@ -32,6 +32,18 @@
 
         p {
             font-size: 1.5rem;
+
+            overflow: hidden;
+
+            display: -webkit-box;
+
+            min-block-size: 0;
+
+            text-overflow: ellipsis;
+
+            word-wrap: normal;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
         }
     }
 

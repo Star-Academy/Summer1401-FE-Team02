@@ -27,7 +27,7 @@ export class GameComponent implements OnInit {
 
     public async ngOnInit(): Promise<void> {
         const id = this.route.snapshot.params.id;
-        const game = await this.gameService.getGame(25076);
+        const game = await this.gameService.getGame(id);
         if (game) {
             this.data = game;
         }

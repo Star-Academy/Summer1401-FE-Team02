@@ -2,12 +2,16 @@
     <img class="card__img" [src]="game.src" [alt]="game.name" />
     <div class="card__info">
         <div class="card__info--container">
-            <p class="card__title">{{ game.name }}</p>
+            <a routerLink="{{ '/game/' + game.id }}" class="card__title">{{ game.name }} </a>
             <p class="card__desc">{{ game.summary }}</p>
         </div>
         <div class="card__control">
-            <button class="btn btn--fill"><i class="fa-solid fa-basket-shopping"></i></button>
-            <button class="btn"><i class="fa-solid fa-heart-circle-plus"></i></button>
+            <button class="btn btn--fill" (click)="gameService.addToWishlist(game.id)">
+                <i class="fa-solid fa-basket-shopping"></i>
+            </button>
+            <button class="btn" (click)="gameService.addToFavorites(game.id)">
+                <i class="fa-solid fa-heart-circle-plus"></i>
+            </button>
         </div>
     </div>
 </div>
