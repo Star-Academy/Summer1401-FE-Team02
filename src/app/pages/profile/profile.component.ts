@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../interfaces/User.interface';
 import {FormControl} from '@angular/forms';
 import {IDatepickerTheme} from 'ng-persian-datepicker';
-import {Error} from '../../interfaces/Error.interface';
 import {ToastType} from '../../enums/ToastType.enum';
 import {ToastService} from '../../services/toast.service';
+import {TokenObject} from '../../interfaces/TokenObject.interface';
+import {USER_LOGIN} from '../../utils/api.utils';
 
 @Component({
     selector: 'app-profile',
@@ -16,7 +17,6 @@ import {ToastService} from '../../services/toast.service';
 export class ProfileComponent {
     public initialUser: Partial<User> = {
         username: this.authService.cachedUser?.username!,
-        password: this.authService.cachedUser?.password!,
         email: this.authService.cachedUser?.email!,
         firstName: this.authService.cachedUser?.firstName!,
         lastName: this.authService.cachedUser?.lastName!,
@@ -43,6 +43,15 @@ export class ProfileComponent {
 
     public async submitChanges(): Promise<void> {
         if (this.changingUser.gender === null) delete this.changingUser.gender;
+        if (!(await this.authService.login({username: this.initialUser.username!, password: this.oldPassword!}))) {
+            this.toastService.show('رمز عبور کنونی اشتباه است.', ToastType.WARNING);
+            return;
+        }
+        if (this.newPassword != this.repeatedPassword) {
+            this.toastService.show('رمز عبور تکرار شده صحیح نمی‌باشد.', ToastType.WARNING);
+            return;
+        }
+        this.changingUser.password = this.newPassword;
         const response = await this.authService.updateUser(this.changingUser);
         response && this.toastService.show('ویرایش اطلاعات کاربر با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
@@ -64,4 +73,8 @@ export class ProfileComponent {
     public getDateOfBirth(): string {
         return this.changingUser.dateOfBirth!;
     }
+
+    @Input() public oldPassword?: string;
+    @Input() public newPassword?: string;
+    @Input() public repeatedPassword?: string;
 }
