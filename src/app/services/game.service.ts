@@ -12,6 +12,8 @@ import {
     FAVORITES_ADD,
     WISHLIST_ALL,
     FAVORITES_ALL,
+    FAVORITES_REMOVE,
+    WISHLIST_REMOVE,
 } from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
 import {Game, GameCard} from '../interfaces/Game.interface';
@@ -122,6 +124,19 @@ export class GameService {
         await this.getWishlist();
     }
 
+    public async removeFromWishlist(id: number): Promise<void> {
+        const response = await this.apiService.post(
+            WISHLIST_REMOVE,
+            {
+                token: localStorage.getItem('token'),
+                gameId: id,
+            },
+            {},
+            true
+        );
+        await this.getWishlist();
+    }
+
     public isInWishlist(id: number): boolean {
         return !!this.wishlist.find((game) => game.id === id);
     }
@@ -129,6 +144,19 @@ export class GameService {
     public async addToFavorites(id: number): Promise<void> {
         const response = await this.apiService.post(
             FAVORITES_ADD,
+            {
+                token: localStorage.getItem('token'),
+                gameId: id,
+            },
+            {},
+            true
+        );
+        await this.getFavorites();
+    }
+
+    public async removeFromFavorites(id: number): Promise<void> {
+        const response = await this.apiService.post(
+            FAVORITES_REMOVE,
             {
                 token: localStorage.getItem('token'),
                 gameId: id,

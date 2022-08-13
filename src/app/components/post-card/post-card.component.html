@@ -6,12 +6,31 @@
             <p class="card__desc">{{ game.summary }}</p>
         </div>
         <div class="card__control">
-            <button class="btn btn--fill" (click)="gameService.addToWishlist(game.id)">
-                <i class="fa-solid fa-basket-shopping"></i>
+            <button
+                *ngIf="gameService.isInFavorites(game.id); else unfavorited"
+                class="btn btn--fill warning"
+                (click)="gameService.removeFromFavorites(game.id)"
+            >
+                <i class="fa-solid fa-heart"></i>
             </button>
-            <button class="btn" (click)="gameService.addToFavorites(game.id)">
-                <i class="fa-solid fa-heart-circle-plus"></i>
+            <ng-template #unfavorited>
+                <button class="btn btn--fill" (click)="gameService.addToFavorites(game.id)">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </ng-template>
+            <button
+                *ngIf="gameService.isInWishlist(game.id); else unwishlisted"
+                class="btn warning"
+                (click)="gameService.removeFromWishlist(game.id)"
+            >
+                <i class="fa-solid fa-bookmark"></i>
             </button>
+
+            <ng-template #unwishlisted>
+                <button class="btn" (click)="gameService.addToWishlist(game.id)">
+                    <i class="fa-solid fa-bookmark"></i>
+                </button>
+            </ng-template>
         </div>
     </div>
 </div>

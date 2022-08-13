@@ -16,9 +16,11 @@ export const GAME_SEARCH = BASE_URL + '/search';
 
 export const WISHLIST_ALL = BASE_URL + '/wishlist/all';
 export const WISHLIST_ADD = BASE_URL + '/wishlist/add';
+export const WISHLIST_REMOVE = BASE_URL + '/wishlist/remove';
 
 export const FAVORITES_ALL = BASE_URL + '/favorites/all';
 export const FAVORITES_ADD = BASE_URL + '/favorites/add';
+export const FAVORITES_REMOVE = BASE_URL + '/favorites/remove';
 
 export const POST_INIT = {
     method: 'post',

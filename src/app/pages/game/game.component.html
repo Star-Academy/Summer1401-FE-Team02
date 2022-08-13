@@ -11,12 +11,31 @@
                 <span class="rate__count">{{ data.ratingCount }}</span>
             </div>
             <div class="game__buttons">
-                <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
-                    <i class="fa-solid fa-heart"></i>افزودن به علاقه‌مندی‌ها
+                <button
+                    *ngIf="gameService.isInFavorites(data.id); else unfavorited"
+                    class="btn btn--fill warning"
+                    (click)="gameService.removeFromFavorites(data.id)"
+                >
+                    <i class="fa-solid fa-heart"></i>حذف از علاقه‌مندی‌ها
                 </button>
-                <button class="btn" (click)="gameService.addToWishlist(data.id)">
-                    <i class="fa-solid fa-bookmark"></i>افزودن به لیست آرزو‌ها
+                <ng-template #unfavorited>
+                    <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
+                        <i class="fa-solid fa-heart"></i>افزودن به علاقه‌مندی‌ها
+                    </button>
+                </ng-template>
+
+                <button
+                    *ngIf="gameService.isInWishlist(data.id); else unwishlisted"
+                    class="btn warning"
+                    (click)="gameService.removeFromWishlist(data.id)"
+                >
+                    <i class="fa-solid fa-bookmark"></i>حذف از لیست آرزو‌ها
                 </button>
+                <ng-template #unwishlisted>
+                    <button class="btn" (click)="gameService.addToWishlist(data.id)">
+                        <i class="fa-solid fa-bookmark"></i>افزودن به لیست آرزو‌ها
+                    </button>
+                </ng-template>
             </div>
         </div>
     </section>
