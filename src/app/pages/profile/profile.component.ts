@@ -8,7 +8,14 @@ import {ToastType} from '../../enums/ToastType.enum';
 import {ToastService} from '../../services/toast.service';
 import {TokenObject} from '../../interfaces/TokenObject.interface';
 import {USER_LOGIN} from '../../utils/api.utils';
+import getDocumentElement from '@popperjs/core/lib/dom-utils/getDocumentElement';
+import {AsyncSubject, Observable, ReplaySubject} from 'rxjs';
 
+export interface SelectedFiles {
+    name: string;
+    file: any;
+    base64?: string;
+}
 @Component({
     selector: 'app-profile',
     templateUrl: './profile.component.html',
@@ -77,4 +84,39 @@ export class ProfileComponent {
     @Input() public oldPassword?: string;
     @Input() public newPassword?: string;
     @Input() public repeatedPassword?: string;
+
+    public selectedFiles: SelectedFiles[] = [];
+    public hasImage: boolean = false;
+
+    public toFilesBase64(files: FileList, selectedFiles: SelectedFiles[]): Observable<SelectedFiles[]> {
+        const result = new AsyncSubject<SelectedFiles[]>();
+        if (files?.length) {
+            Object.keys(files)?.forEach(async (file, i) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(files[i]);
+                reader.onload = (e): void => {
+                    selectedFiles = selectedFiles?.filter((f) => f?.name != files[i]?.name);
+                    selectedFiles.push({name: files[i]?.name, file: files[i], base64: reader?.result as string});
+                    result.next(selectedFiles);
+                    if (files?.length === i + 1) {
+                        result.complete();
+                        this.hasImage = true;
+                    }
+                };
+            });
+            return result;
+        } else {
+            result.next([]);
+            result.complete();
+            return result;
+        }
+    }
+
+    public onFileSelected(files: FileList | null): void {
+        // this.selectedFiles = []; // clear
+        this.toFilesBase64(files!, this.selectedFiles).subscribe((res: SelectedFiles[]) => {
+            this.selectedFiles = res;
+        });
+        document.querySelector('.profile-default-image')?.setAttribute('hidden', 'true');
+    }
 }
