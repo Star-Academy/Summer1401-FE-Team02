@@ -8,4 +8,5 @@ export interface User {
     dateOfBirth?: string;
     gender?: boolean;
     token?: string;
+    avatar?: string;
 }

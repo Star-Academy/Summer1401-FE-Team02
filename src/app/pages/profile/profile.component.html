@@ -2,9 +2,14 @@
 <main class="profile">
     <div class="profile__banner">
         <div class="profile__banner--avatar">
-            <div class="profile-default-image">
-                <i class="fa-solid fa-user-large"></i>
-            </div>
+            <ng-container *ngIf="!hasImage">
+                <div class="profile-default-image">
+                    <i class="fa-solid fa-user-large"></i>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="hasImage && selectedFiles.length === 0">
+                <img [src]="initialUser.avatar" class="profile-image" alt="تصویر کاربر" />
+            </ng-container>
             <ng-container *ngFor="let item of selectedFiles">
                 <img [src]="item.base64" class="profile-image" alt="تصویر کاربر" />
             </ng-container>
