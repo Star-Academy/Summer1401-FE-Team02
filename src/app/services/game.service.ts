@@ -1,12 +1,22 @@
 import {Injectable} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import {NavigationEnd, Router, RouterStateSnapshot} from '@angular/router';
 import {ApiService} from './api.service';
-import {GAME_GENRES, GAME_MODES, GAME_ONE, GAME_PLATFORMS, GAME_PERSPECTIVES, GAME_SEARCH} from '../utils/api.utils';
+import {
+    GAME_GENRES,
+    GAME_MODES,
+    GAME_ONE,
+    GAME_PLATFORMS,
+    GAME_PERSPECTIVES,
+    GAME_SEARCH,
+    WISHLIST_ADD,
+    FAVORITES_ADD,
+} from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
 import {Game, GameJson} from '../interfaces/Game.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
 import {FilterData} from '../interfaces/FilterData.interface';
+import {AuthService} from './auth.service';
 
 @Injectable({
     providedIn: 'root',
@@ -27,7 +37,7 @@ export class GameService {
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService) {
+    public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeGameModes().then();
@@ -91,6 +101,36 @@ export class GameService {
             };
         }
         return null;
+    }
+
+    public async addToWishlist(id: number): Promise<void> {
+        if (await this.authService.isLoggedIn()) {
+            const response = await this.apiService.post(
+                WISHLIST_ADD,
+                {
+                    token: localStorage.getItem('token'),
+                    gameId: id,
+                },
+                {},
+                true
+            );
+            console.log(response);
+        }
+    }
+
+    public async addToFavorites(id: number): Promise<void> {
+        if (await this.authService.isLoggedIn()) {
+            const response = await this.apiService.post(
+                FAVORITES_ADD,
+                {
+                    token: localStorage.getItem('token'),
+                    gameId: id,
+                },
+                {},
+                true
+            );
+            console.log(response);
+        }
     }
 
     private generateFilters(): Filters {

@@ -9,7 +9,7 @@ import {GameService} from 'src/app/services/game.service';
     styleUrls: ['./game.component.scss'],
 })
 export class GameComponent implements OnInit {
-    public constructor(private route: ActivatedRoute, private gameService: GameService) {}
+    public constructor(private route: ActivatedRoute, public gameService: GameService) {}
 
     public data: Game = {
         id: 0,

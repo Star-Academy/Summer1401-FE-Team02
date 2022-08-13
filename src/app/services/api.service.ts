@@ -16,7 +16,7 @@ export class ApiService {
         toastOnError: boolean = false
     ): Promise<T | null> {
         let response = await fetch(url, init);
-        let data = await response.json();
+        let data = response && (await response.json());
 
         if (response.ok) {
             return data as T;

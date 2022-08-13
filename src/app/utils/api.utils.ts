@@ -14,6 +14,10 @@ export const GAME_PERSPECTIVES = BASE_URL + '/player-perspectives';
 export const GAME_UPCOMING = BASE_URL + '/upcoming';
 export const GAME_SEARCH = BASE_URL + '/search';
 
+export const WISHLIST_ADD = BASE_URL + '/wishlist/add';
+
+export const FAVORITES_ADD = BASE_URL + '/favorites/add';
+
 export const POST_INIT = {
     method: 'post',
     headers: {
