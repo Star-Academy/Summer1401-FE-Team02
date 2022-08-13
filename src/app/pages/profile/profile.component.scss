@@ -17,7 +17,7 @@
         justify-items: center;
         gap: 4rem;
 
-        block-size: 60vh;
+        block-size: 50rem;
 
         padding: 5rem;
 
@@ -79,6 +79,8 @@
         }
 
         &--liked {
+            color: var(--color-white-96);
+
             display: flex;
             gap: 3rem;
 

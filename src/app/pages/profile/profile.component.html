@@ -17,8 +17,8 @@
             </label>
         </div>
         <div class="profile__banner--basic-info">
-            <div class="larger">{{ user.firstName }} {{ user.lastName }}</div>
-            <div class="smaller ltr">@{{ user.username }}</div>
+            <div class="larger">{{ initialUser.firstName }} {{ initialUser.lastName }}</div>
+            <div class="smaller ltr">@{{ initialUser.username }}</div>
         </div>
         <div class="profile__banner--liked">
             <div class="liked-games">
@@ -37,43 +37,54 @@
             <div class="inputs-together">
                 <section>
                     <label>نام</label>
-                    <input name="firstname" type="text" [(ngModel)]="user.firstName" />
+                    <input name="firstname" type="text" [(ngModel)]="changingUser.firstName" />
                 </section>
 
                 <section>
                     <label>نام خانوادگی</label>
-                    <input name="lastname" type="text" [(ngModel)]="user.lastName" />
+                    <input name="lastname" type="text" [(ngModel)]="changingUser.lastName" />
                 </section>
             </div>
             <div class="inputs-together">
                 <section>
                     <label>جنسیت</label>
-                    <select name="gender" [(ngModel)]="user.gender">
-                        <option value="false">مرد</option>
-                        <option value="true">زن</option>
+                    <select name="gender" [(ngModel)]="changingUser.gender">
+                        <option value="0">مرد</option>
+                        <option value="1">زن</option>
                     </select>
                 </section>
 
-                <section>
-                    <label>تاریخ تولد</label>
-                    <ng-persian-datepicker [dateInitValue]="false" [uiTheme]="customTheme" uiInitViewMode="year">
-                        <input name="birthdate" type="text" [formControl]="dateValue" [(ngModel)]="user.birthDate" />
+                <section style="position: relative">
+                    <label style="display: block">تاریخ تولد</label>
+                    <ng-persian-datepicker
+                        style="position: absolute; inset-inline: 0"
+                        [dateInitValue]="false"
+                        [uiTheme]="customTheme"
+                        uiInitViewMode="year"
+                    >
+                        <input
+                            name="dateOfBirth"
+                            type="text"
+                            [formControl]="dateValue"
+                            [(ngModel)]="changingUser.dateOfBirth"
+                            [value]="changingUser.dateOfBirth"
+                        />
                     </ng-persian-datepicker>
                 </section>
             </div>
             <section>
                 <label>ایمیل</label>
-                <input name="email" type="email" [(ngModel)]="user.email" />
+                <input name="email" type="email" [(ngModel)]="changingUser.email" />
             </section>
 
             <section>
                 <label>نام کاربری</label>
-                <input name="username" type="text" [(ngModel)]="user.username" />
+                <input name="username" type="text" [(ngModel)]="changingUser.username" />
             </section>
 
             <section>
                 <label>شماره همراه</label>
-                <input name="phoneNumber" type="tel" [(ngModel)]="user.phoneNumber" />
+                <input name="phone" type="tel" [(ngModel)]="changingUser.phone" />
             </section>
 
             <h3 class="profile__body--title">تغییر رمز عبور</h3>

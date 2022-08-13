@@ -23,7 +23,6 @@ export class ApiService {
         }
 
         toastOnError && this.toastService.show((data as Error).message, ToastType.WARNING);
-
         return null;
     }
 
