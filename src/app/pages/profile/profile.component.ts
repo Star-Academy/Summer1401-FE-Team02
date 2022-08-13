@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {AfterContentChecked, Component, Input} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../interfaces/User.interface';
@@ -18,7 +18,7 @@ export interface SelectedFiles {
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.scss', '../../styles/form.scss'],
 })
-export class ProfileComponent implements AfterViewInit {
+export class ProfileComponent {
     public initialUser: Partial<User> = {
         username: this.authService.cachedUser?.username!,
         email: this.authService.cachedUser?.email!,
@@ -41,12 +41,9 @@ export class ProfileComponent implements AfterViewInit {
         avatar: this.authService.cachedUser?.avatar,
     };
 
-    public constructor(public authService: AuthService, public router: Router, public toastService: ToastService) {}
-
-    public ngAfterViewInit(): void {
+    public constructor(public authService: AuthService, public router: Router, public toastService: ToastService) {
         this.hasImage = !!(this.initialUser.avatar != '' && this.initialUser.avatar);
-        console.log(this.hasImage);
-        console.log(this.initialUser.avatar);
+        console.log(this.initialUser);
     }
 
     public async cancel(): Promise<void> {
