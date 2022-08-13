@@ -46,8 +46,8 @@ export class GameService {
         this.initializeGenres().then();
         this.initializeGameModes().then();
         this.initializeGamePrespectives().then();
-        this.getFavorites();
-        this.getWishlist();
+        this.getFavorites().then();
+        this.getWishlist().then();
         this.initializeObservers();
     }
 
@@ -119,15 +119,11 @@ export class GameService {
             {},
             true
         );
-        this.getWishlist();
+        await this.getWishlist();
     }
 
     public isInWishlist(id: number): boolean {
         return !!this.wishlist.find((game) => game.id === id);
-    }
-
-    public isInFavorites(id: number): boolean {
-        return !!this.favorites.find((game) => game.id === id);
     }
 
     public async addToFavorites(id: number): Promise<void> {
@@ -140,7 +136,11 @@ export class GameService {
             {},
             true
         );
-        this.getFavorites();
+        await this.getFavorites();
+    }
+
+    public isInFavorites(id: number): boolean {
+        return !!this.favorites.find((game) => game.id === id);
     }
 
     private generateFilters(): Filters {
