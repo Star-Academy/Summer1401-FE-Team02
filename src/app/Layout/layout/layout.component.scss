@@ -1,0 +1,10 @@
+:host {
+    min-width: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+}
+
+.wrapper {
+    flex-grow: 1;
+}

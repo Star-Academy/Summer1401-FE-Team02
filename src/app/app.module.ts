@@ -12,12 +12,15 @@ import {ArchiveModule} from './pages/archive/archive.module';
 import {GameModule} from './pages/game/game.module';
 import {BookmarkModule} from './pages/bookmark/bookmark.module';
 import {RouterModule} from '@angular/router';
+import {LayoutComponent} from './Layout/layout/layout.component';
+import {LayoutModule} from './Layout/layout/layout.module';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        LayoutModule,
         LandingPageModule,
         AuthModule,
         BrowserModule,
