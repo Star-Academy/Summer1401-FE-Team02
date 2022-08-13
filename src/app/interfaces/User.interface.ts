@@ -4,7 +4,8 @@ export interface User {
     password: string;
     firstName: string;
     lastName: string;
-    phoneNumber?: string;
-    birthDate?: string;
+    phone?: string;
+    dateOfBirth?: string;
     gender?: boolean;
+    token?: string;
 }

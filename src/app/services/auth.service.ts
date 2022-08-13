@@ -40,11 +40,11 @@ export class AuthService {
         return !!data;
     }
 
-    public async updateUser(user: User): Promise<boolean> {
-        const data = await this.apiService.post<TokenObject>(USER_UPDATE, user, {}, true);
+    public async updateUser(user: Partial<User>): Promise<boolean> {
+        const data = await this.apiService.post<User>(USER_UPDATE, user, {}, true);
 
-        if (data?.token) {
-            this.saveCache(data.token, true, data.id);
+        if (data) {
+            this.cachedUser = await this.fetchUserInfo();
         }
 
         return !!data;
