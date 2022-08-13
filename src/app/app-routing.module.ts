@@ -12,12 +12,12 @@ import {LayoutComponent} from './Layout/layout/layout.component';
 const routes: Routes = [
     {path: 'login', component: AuthComponent, canActivate: [AuthGuard]},
     {path: 'signup', component: AuthComponent, canActivate: [AuthGuard]},
+    {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {
         path: '',
         component: LayoutComponent,
         children: [
             {path: '', pathMatch: 'full', component: LandingPageComponent},
-            {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
             {path: 'games', component: ArchiveComponent},
             {path: 'game/:id', component: GameComponent},
             {path: 'favorites', component: BookmarkComponent, canActivate: [AuthGuard]},
