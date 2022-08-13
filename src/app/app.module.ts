@@ -10,8 +10,7 @@ import {AuthGuard} from './guards/auth.guard';
 import {FormsModule} from '@angular/forms';
 import {ArchiveModule} from './pages/archive/archive.module';
 import {GameModule} from './pages/game/game.module';
-import {FavoritesModule} from './pages/favorites/favorites.module';
-import {WishlistModule} from './pages/wishlist/wishlist.module';
+import {BookmarkModule} from './pages/bookmark/bookmark.module';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -25,8 +24,7 @@ import {WishlistModule} from './pages/wishlist/wishlist.module';
         FormsModule,
         ArchiveModule,
         GameModule,
-        FavoritesModule,
-        WishlistModule,
+        BookmarkModule,
     ],
     bootstrap: [AppComponent],
     providers: [AuthGuard],

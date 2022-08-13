@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let game of list">
+        <app-post-card [game]="game | transformGame"></app-post-card>
+    </li>
+</ul>

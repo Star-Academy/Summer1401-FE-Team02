@@ -46,6 +46,8 @@ export class GameService {
         this.initializeGenres().then();
         this.initializeGameModes().then();
         this.initializeGamePrespectives().then();
+        this.getFavorites();
+        this.getWishlist();
         this.initializeObservers();
     }
 

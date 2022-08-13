@@ -6,16 +6,15 @@ import {AuthGuard} from './guards/auth.guard';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {ArchiveComponent} from './pages/archive/archive.component';
 import {GameComponent} from './pages/game/game.component';
-import {FavoritesComponent} from './pages/favorites/favorites.component';
-import {WishlistComponent} from './pages/wishlist/wishlist.component';
+import {BookmarkComponent} from './pages/bookmark/bookmark.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: LandingPageComponent},
     {path: 'login', component: AuthComponent, canActivate: [AuthGuard]},
     {path: 'signup', component: AuthComponent, canActivate: [AuthGuard]},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-    {path: 'favorites', component: FavoritesComponent, canActivate: [AuthGuard]},
-    {path: 'wishlist', component: WishlistComponent, canActivate: [AuthGuard]},
+    {path: 'favorites', component: BookmarkComponent, canActivate: [AuthGuard]},
+    {path: 'wishlist', component: BookmarkComponent, canActivate: [AuthGuard]},
     {path: 'games', component: ArchiveComponent},
     {path: 'game/:id', component: GameComponent},
     {path: '**', redirectTo: ''},

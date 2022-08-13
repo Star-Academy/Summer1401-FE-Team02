@@ -12,7 +12,7 @@ import {SwitchComponent} from './components/switch/switch.component';
 import {NumberInputComponent} from './components/number-input/number-input.component';
 import {GamesComponent} from './components/games/games.component';
 import {PostCardModule} from 'src/app/components/post-card/post-card.module';
-import {TransformGamePipe} from './pipes/transform-game.pipe';
+import {TransformGamePipeModule} from 'src/app/pipes/transform-game-pipe.module';
 
 @NgModule({
     declarations: [
@@ -22,8 +22,16 @@ import {TransformGamePipe} from './pipes/transform-game.pipe';
         SwitchComponent,
         NumberInputComponent,
         GamesComponent,
-        TransformGamePipe,
     ],
-    imports: [CommonModule, FormsModule, SearchBoxModule, FilterPipeModule, HeaderModule, FooterModule, PostCardModule],
+    imports: [
+        CommonModule,
+        FormsModule,
+        SearchBoxModule,
+        FilterPipeModule,
+        HeaderModule,
+        FooterModule,
+        PostCardModule,
+        TransformGamePipeModule,
+    ],
 })
 export class ArchiveModule {}
