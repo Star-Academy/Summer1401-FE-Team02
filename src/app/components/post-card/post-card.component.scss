@@ -48,16 +48,14 @@
 
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: flex-end;
+            justify-content: flex-start;
 
             inline-size: 100%;
         }
     }
 
     &__title {
-        text-decoration: none;
-
         color: var(--main-theme);
 
         direction: ltr;
@@ -68,6 +66,8 @@
 
         font-size: 2rem;
         font-weight: 500;
+
+        text-decoration: none;
 
         text-overflow: ellipsis;
 
@@ -83,13 +83,13 @@
 
         overflow: hidden;
 
-        padding-block-start: 3rem;
-
-        font-size: 1.7rem;
-
         display: -webkit-box;
 
         min-block-size: 0;
+
+        padding-block-start: 3rem;
+
+        font-size: 1.7rem;
 
         text-overflow: ellipsis;
 

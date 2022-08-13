@@ -3,6 +3,7 @@
     flex-direction: row;
 
     min-height: 100vh;
+
     margin-block: 3rem;
 
     aside {
@@ -24,9 +25,10 @@
         }
 
         footer {
-            inline-size: 80%;
             display: flex;
             justify-content: space-between;
+
+            inline-size: 80%;
         }
     }
 

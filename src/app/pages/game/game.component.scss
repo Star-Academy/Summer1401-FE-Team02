@@ -7,37 +7,41 @@
         display: flex;
         justify-content: space-between;
         gap: 2rem;
+
         width: 100%;
     }
 
     &__cover {
         flex-shrink: 0;
+
         img {
-            border-radius: var(--border-radius-norm);
-            object-fit: cover;
             width: 100%;
+            object-fit: cover;
+
+            border-radius: var(--border-radius-norm);
         }
     }
 
     &__init {
         direction: ltr;
+
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: flex-start;
+        justify-content: space-between;
 
         h1 {
             font-size: 3rem;
         }
 
         p {
-            font-size: 1.5rem;
-
             overflow: hidden;
 
             display: -webkit-box;
 
             min-block-size: 0;
+
+            font-size: 1.5rem;
 
             text-overflow: ellipsis;
 
@@ -56,19 +60,23 @@
             }
 
             &__count {
-                font-size: 1rem;
                 color: var(--dark-gray);
+
                 padding-inline-start: 0.5rem;
+
+                font-size: 1rem;
             }
         }
     }
 
     &__buttons {
         direction: rtl;
-        width: 100%;
+
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 1rem;
+
+        width: 100%;
     }
 }
