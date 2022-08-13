@@ -1,13 +1,12 @@
 import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {GAME_GENRES, GAME_ONE, GAME_PLATFORMS, GAME_SEARCH} from '../utils/api.utils';
+import {GAME_GENRES, GAME_MODES, GAME_ONE, GAME_PLATFORMS, GAME_PERSPECTIVES, GAME_SEARCH} from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
 import {Game, GameJson} from '../interfaces/Game.interface';
-import {Platform} from '../interfaces/Platform.interface';
-import {Genre} from '../interfaces/Genre.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
+import {FilterData} from '../interfaces/FilterData.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -18,6 +17,8 @@ export class GameService {
     public games: Game[] = [];
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
+    public gameModes: ExpansionListItem[] = [];
+    public gamePrespectives: ExpansionListItem[] = [];
 
     public searchPhrase: string = '';
     public offset: number = 0;
@@ -29,9 +30,9 @@ export class GameService {
     public constructor(private router: Router, private apiService: ApiService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
+        this.initializeGameModes().then();
+        this.initializeGamePrespectives().then();
         this.initializeObservers();
-
-        console.log();
     }
 
     public async changeSort(sort: Sort): Promise<void> {
@@ -103,13 +104,23 @@ export class GameService {
     }
 
     private async initializePlatforms(): Promise<void> {
-        const platforms = (await this.apiService.get<Platform[]>(GAME_PLATFORMS)) || [];
+        const platforms = (await this.apiService.get<FilterData[]>(GAME_PLATFORMS)) || [];
         this.platforms = platforms.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
     private async initializeGenres(): Promise<void> {
-        const genres = (await this.apiService.get<Genre[]>(GAME_GENRES)) || [];
+        const genres = (await this.apiService.get<FilterData[]>(GAME_GENRES)) || [];
         this.genres = genres.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
+    }
+
+    private async initializeGameModes(): Promise<void> {
+        const gameModes = (await this.apiService.get<FilterData[]>(GAME_MODES)) || [];
+        this.gameModes = gameModes.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
+    }
+
+    private async initializeGamePrespectives(): Promise<void> {
+        const gamePrespectives = (await this.apiService.get<FilterData[]>(GAME_PERSPECTIVES)) || [];
+        this.gamePrespectives = gamePrespectives.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
     private initializeObservers(): void {

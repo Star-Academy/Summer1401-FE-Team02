@@ -1,4 +1,4 @@
-export interface Platform {
+export interface FilterData {
     id: number;
     name: string;
 }
