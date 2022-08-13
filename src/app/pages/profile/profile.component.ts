@@ -44,17 +44,10 @@ export class ProfileComponent implements AfterViewInit {
     public constructor(public authService: AuthService, public router: Router, public toastService: ToastService) {}
 
     public ngAfterViewInit(): void {
-        this.hasImage = !!this.initialUser.avatar;
-        // this.checkImage();
+        this.hasImage = !!(this.initialUser.avatar != '' && this.initialUser.avatar);
+        console.log(this.hasImage);
+        console.log(this.initialUser.avatar);
     }
-
-    // public checkImage(): void {
-    //     if (this.hasImage) {
-    //         document.querySelector('.profile-default-image')?.setAttribute('hidden', 'true');
-    //         document.querySelector('#initial-image')!.setAttribute('src', this.initialUser.avatar!);
-    //         console.log('has');
-    //     }
-    // }
 
     public async cancel(): Promise<void> {
         await this.router.navigateByUrl('/');
@@ -75,6 +68,7 @@ export class ProfileComponent implements AfterViewInit {
         }
         this.changingUser.password = this.newPassword;
         const response = await this.authService.updateUser(this.changingUser);
+
         response && this.toastService.show('ویرایش اطلاعات کاربر با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
     }
@@ -133,6 +127,11 @@ export class ProfileComponent implements AfterViewInit {
         this.toFilesBase64(files!, this.selectedFiles).subscribe((res: SelectedFiles[]) => {
             this.selectedFiles = res;
         });
-        // this.checkImage();
+    }
+
+    public removeImage(): void {
+        this.hasImage = false;
+        this.changingUser.avatar = '';
+        this.selectedFiles = [];
     }
 }

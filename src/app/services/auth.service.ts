@@ -72,7 +72,7 @@ export class AuthService {
         this.saveCache(null, false, null);
     }
 
-    private async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {
+    public async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {
         if (!!token) localStorage.setItem('token', token);
         else localStorage.removeItem('token');
 

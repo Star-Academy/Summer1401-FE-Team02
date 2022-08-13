@@ -55,14 +55,12 @@
                 line-height: 13vh;
             }
 
-            #add-image-button {
+            .image-button {
                 background-color: var(--dark-gray);
                 color: var(--color-white-64);
                 box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px, rgb(17 17 26 / 10%) 0 16px 56px;
 
                 position: absolute;
-                inset-block-end: 0.3rem;
-                inset-inline-start: 0.3rem;
 
                 display: flex;
                 align-items: center;
@@ -76,6 +74,16 @@
                 font-size: 3rem;
 
                 cursor: pointer;
+
+                &.add{
+                    inset-block-end: 0.3rem;
+                    inset-inline-start: 0.3rem;
+                }
+
+                &.remove{
+                    inset-block-end: 0.3rem;
+                    inset-inline-end: 0.3rem;
+                }
 
                 :hover {
                     background-color: var(--darker-gray);
