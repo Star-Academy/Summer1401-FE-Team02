@@ -2,17 +2,22 @@
 <main class="profile">
     <div class="profile__banner">
         <div class="profile__banner--avatar">
-            <div class="profile-default-image"><i class="fa-solid fa-user-large"></i></div>
-            <label id="add-image-button" for="add-image-input">
-                <i class="fa-solid fa-plus-large"></i>
+            <div class="profile-default-image">
+                <i class="fa-solid fa-user-large"></i>
+            </div>
+            <ng-container *ngFor="let item of selectedFiles">
+                <img [src]="item.base64" class="profile-image" alt="تصویر کاربر" />
+            </ng-container>
+            <label id="add-image-button" for="add-image-input" title="تغییر تصویر کاربر">
+                <i class="fa-solid fa-plus-large no-pointer-event"></i>
                 <input
-                    name="image"
-                    value=""
+                    #file
+                    id="add-image-input"
                     type="file"
                     alt="انتخاب تصویر جدید"
-                    id="add-image-input"
-                    title="تغییر تصویر کاربر"
+                    class="add-image-input"
                     accept="image/*"
+                    (change)="onFileSelected(file.files)"
                 />
             </label>
         </div>

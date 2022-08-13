@@ -40,33 +40,50 @@
 
             text-align: center;
 
+            .profile-image{
+                inline-size: 20vh;
+                aspect-ratio: 1;
+
+                border-radius: 50%;
+            }
+
             #add-image-button {
                 background-color: var(--dark-gray);
                 color: var(--color-white-64);
 
                 position: absolute;
-                inset-block-end: 1rem;
-                inset-inline-start: 1rem;
+                inset-block-end: 0.4rem;
+                inset-inline-start: 0.4rem;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                block-size: 4rem;
-                inline-size: 4rem;
+                block-size: 3.5rem;
+                inline-size: 3.5rem;
 
                 border-radius: 50%;
 
                 font-size: 3rem;
 
+                cursor: pointer;
+
                 :hover {
                     background-color: var(--darker-gray);
 
+                    inset-block-end: 0.2rem;
+                    inset-inline-start: 0.2rem;
+
                     border-radius: 50%;
+                }
+
+                :focus{
+                    block-size: 3.9rem;
+                    inline-size: 3.9rem;
                 }
             }
 
-            #add-image-input {
+            .add-image-input {
                 display: none;
             }
         }
@@ -172,4 +189,8 @@
 
 .ltr {
     direction: ltr;
+}
+
+.no-pointer-event{
+    pointer-events: none;
 }
