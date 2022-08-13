@@ -5,6 +5,7 @@ import {AuthComponent} from './pages/auth/auth.component';
 import {AuthGuard} from './guards/auth.guard';
 import {ProfileComponent} from './pages/profile/profile.component';
 import {ArchiveComponent} from './pages/archive/archive.component';
+import {GameComponent} from './pages/game/game.component';
 
 const routes: Routes = [
     {path: '', pathMatch: 'full', component: LandingPageComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
     {path: 'signup', component: AuthComponent, canActivate: [AuthGuard]},
     {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     {path: 'games', component: ArchiveComponent},
+    {path: 'game/:id', component: GameComponent},
     {path: '**', redirectTo: ''},
 ];
 

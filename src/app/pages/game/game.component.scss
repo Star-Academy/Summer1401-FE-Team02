@@ -1,0 +1,62 @@
+.game {
+    &__wrapper {
+        margin: 2rem;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+    }
+
+    &__cover {
+        flex-shrink: 0;
+        img {
+            border-radius: var(--border-radius-norm);
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    &__init {
+        direction: ltr;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__rating {
+        vertical-align: bottom;
+
+        .rate {
+            &__score {
+                font-size: 1.5rem;
+            }
+
+            &__count {
+                font-size: 1rem;
+                color: var(--dark-gray);
+                padding-inline-start: 0.5rem;
+            }
+        }
+    }
+
+    &__buttons {
+        direction: rtl;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+}

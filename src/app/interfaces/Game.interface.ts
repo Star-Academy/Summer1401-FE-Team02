@@ -18,6 +18,10 @@ export interface GameImage {
     height: number;
 }
 
+export interface GameJson {
+    game: Game;
+}
+
 export interface GameCard {
     id: number;
     name: string;

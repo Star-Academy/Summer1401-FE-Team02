@@ -9,6 +9,7 @@ import {ProfileModule} from './pages/profile/profile.module';
 import {AuthGuard} from './guards/auth.guard';
 import {FormsModule} from '@angular/forms';
 import {ArchiveModule} from './pages/archive/archive.module';
+import {GameModule} from './pages/game/game.module';
 
 @NgModule({
     declarations: [AppComponent, ToastComponent],
@@ -21,6 +22,7 @@ import {ArchiveModule} from './pages/archive/archive.module';
         ProfileModule,
         FormsModule,
         ArchiveModule,
+        GameModule,
     ],
     bootstrap: [AppComponent],
     providers: [AuthGuard],

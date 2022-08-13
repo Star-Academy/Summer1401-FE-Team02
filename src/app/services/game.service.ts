@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {GAME_GENRES, GAME_PLATFORMS, GAME_SEARCH} from '../utils/api.utils';
+import {GAME_GENRES, GAME_ONE, GAME_PLATFORMS, GAME_SEARCH} from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
-import {Game} from '../interfaces/Game.interface';
+import {Game, GameJson} from '../interfaces/Game.interface';
 import {Platform} from '../interfaces/Platform.interface';
 import {Genre} from '../interfaces/Genre.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
@@ -69,6 +69,27 @@ export class GameService {
         }
 
         await this.search();
+    }
+
+    public async getGame(id: number): Promise<Game | null> {
+        const game = await this.apiService.get<GameJson>(GAME_ONE + id, {}, true);
+        if (game) {
+            const data = game.game;
+            return {
+                id: data.id,
+                cover: data.cover,
+                releaseDate: data.releaseDate,
+                genres: data.genres,
+                name: data.name,
+                platforms: data.platforms,
+                rating: data.rating,
+                ratingCount: data.ratingCount,
+                screenshots: data.screenshots,
+                storyline: data.storyline,
+                summary: data.summary,
+            };
+        }
+        return null;
     }
 
     private generateFilters(): Filters {
