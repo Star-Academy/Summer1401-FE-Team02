@@ -8,6 +8,7 @@ import {ToastType} from '../../enums/ToastType.enum';
 import {ToastService} from '../../services/toast.service';
 import {AsyncSubject, Observable} from 'rxjs';
 import {GameService} from '../../services/game.service';
+import {GenderEnum} from '../../enums/gender.enum';
 
 export interface SelectedFiles {
     name: string;
@@ -55,6 +56,9 @@ export class ProfileComponent {
     public numberOfFavorites: number = 0;
     public numberOfWishlist: number = 0;
     public dateValue = new FormControl();
+
+    public male = GenderEnum.MALE;
+    public female = GenderEnum.FEMALE;
 
     public constructor(
         public authService: AuthService,
