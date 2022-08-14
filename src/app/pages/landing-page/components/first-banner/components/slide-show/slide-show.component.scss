@@ -32,7 +32,7 @@
             &::before {
                 content: "";
 
-                background-image: linear-gradient(to right, hsl(0deg 0 0 / 0%), hsl(0deg 0 96 / 95%));
+                background-image: linear-gradient(to left, hsl(0deg 0 0 / 0%), hsl(0deg 0 96 / 95%));
 
                 position: absolute;
                 inset: 0;
@@ -45,6 +45,7 @@
 
     .overlay {
         position: absolute;
+        direction: ltr;
         inset-block-end: 0;
         inset-inline-start: 0;
 
@@ -63,6 +64,7 @@
         .banner-description {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             gap: 4rem;
 
             inline-size: 40rem;
@@ -99,6 +101,7 @@
 
         .free-play {
             z-index: 999;
+            text-decoration: none;
         }
     }
 
@@ -107,17 +110,16 @@
 
         position: absolute;
 
-        inset-block-end: 0;
-        inset-inline-start: 0;
-        inset-inline-end: 0;
+        inset-inline: 0;
+
+        inset-block-start: 50%;
+        transform: translateY(-50%);
 
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 2rem;
-
-        block-size: 100%;
 
         inline-size: 100%;
 
@@ -146,9 +148,11 @@
     }
 
     .bullets {
+        inline-size: 100%;
         display: flex;
         align-content: center;
         justify-content: center;
+        flex-wrap: nowrap;
 
         gap: 2rem;
 
@@ -164,7 +168,7 @@
 
             block-size: 0.5rem;
 
-            inline-size: 20%;
+            inline-size: 100%;
 
             border-radius: var(--border-radius-norm);
 

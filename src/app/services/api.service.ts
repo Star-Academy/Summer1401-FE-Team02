@@ -42,4 +42,13 @@ export class ApiService {
     ): Promise<T | null> {
         return await this.fetchData(url, init, toastOnError);
     }
+
+    public async delete(
+        url: string,
+        body: any = '',
+        init: Partial<RequestInit> = {},
+        toastOnError: boolean = false
+    ): Promise<null> {
+        return await this.fetchData(url, {method: 'DELETE', body: JSON.stringify(body)}, toastOnError);
+    }
 }

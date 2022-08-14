@@ -14,6 +14,7 @@ import {
     FAVORITES_ALL,
     FAVORITES_REMOVE,
     WISHLIST_REMOVE,
+    GAME_UPCOMING,
 } from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
 import {Game, GameCard} from '../interfaces/Game.interface';
@@ -31,6 +32,7 @@ export class GameService {
     public games: Game[] = [];
     public wishlist: Game[] = [];
     public favorites: Game[] = [];
+
     public platforms: ExpansionListItem[] = [];
     public genres: ExpansionListItem[] = [];
     public gameModes: ExpansionListItem[] = [];
@@ -90,6 +92,11 @@ export class GameService {
         await this.search();
     }
 
+    public async getUpcoming(): Promise<Game[]> {
+        let response = await this.apiService.get<{games: Game[]}>(GAME_UPCOMING);
+        return response && Array.isArray(response?.games) ? response.games : [];
+    }
+
     public async getGame(id: number): Promise<Game | null> {
         const game = await this.apiService.get<{game: Game}>(GAME_ONE + id, {}, true);
         if (game) {
@@ -125,7 +132,7 @@ export class GameService {
     }
 
     public async removeFromWishlist(id: number): Promise<void> {
-        const response = await this.apiService.post(
+        const response = await this.apiService.delete(
             WISHLIST_REMOVE,
             {
                 token: localStorage.getItem('token'),
@@ -155,7 +162,7 @@ export class GameService {
     }
 
     public async removeFromFavorites(id: number): Promise<void> {
-        const response = await this.apiService.post(
+        const response = await this.apiService.delete(
             FAVORITES_REMOVE,
             {
                 token: localStorage.getItem('token'),

@@ -1,18 +1,29 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Ibanner} from 'src/app/interfaces/IBanner.interface';
 import {BANNERS} from 'src/app/data/Banners';
+import {GameService} from 'src/app/services/game.service';
+import {Game} from 'src/app/interfaces/Game.interface';
+import {getCoverSrc} from 'src/app/utils/game.utils';
 
 @Component({
     selector: 'app-slide-show',
     templateUrl: './slide-show.component.html',
     styleUrls: ['./slide-show.component.scss'],
 })
-export class SlideShowComponent implements AfterViewInit, OnDestroy {
+export class SlideShowComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly INTERVAL_DELAY: number = 6_000;
     public interval: number | null = null;
 
     public activeIndex: number = 0;
-    public banners: Ibanner[] = BANNERS;
+    public banners: Game[] = [];
+
+    public getSrc = getCoverSrc;
+
+    public constructor(public gameService: GameService) {}
+
+    public async ngOnInit(): Promise<void> {
+        this.banners = await this.gameService.getUpcoming();
+    }
 
     public ngAfterViewInit(): void {
         this.resetInterval();
