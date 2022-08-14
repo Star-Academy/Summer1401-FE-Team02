@@ -6,7 +6,7 @@
     <section>
         <h2 class="home__section--title">پرفروش‌ترین‌ها</h2>
         <div class="content-wrapper">
-            <app-post-card *ngFor="let game of games" [game]="game"></app-post-card>
+            <app-post-card *ngFor="let game of games" [game]="game | toPostcard"></app-post-card>
         </div>
     </section>
 </main>
