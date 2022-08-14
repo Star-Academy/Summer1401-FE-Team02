@@ -35,14 +35,6 @@ describe('SlideShowComponent', () => {
         expect(component.interval).toBeTruthy();
     });
 
-    it('should increase active index', () => {
-        const active = component.activeIndex;
-        const nextButton = host.querySelector('[data-test-id="nextButton"]');
-        nextButton?.dispatchEvent(new Event('click'));
-        fixture.detectChanges();
-        expect(component.activeIndex).toEqual(component.banners.length === active + 1 ? 0 : active + 1);
-    });
-
     it('should decrease active index', () => {
         const prevButton = host.querySelector('[data-test-id="prevButton"]');
         prevButton?.dispatchEvent(new Event('click'));
