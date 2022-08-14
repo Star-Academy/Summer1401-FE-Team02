@@ -15,6 +15,7 @@ export class GameService {
     public readonly PAGE_SIZE: number = 20;
 
     public games: Game[] = [];
+    public count: number = 0;
     public wishlist: Game[] = [];
     public favorites: Game[] = [];
 
@@ -55,7 +56,7 @@ export class GameService {
 
     public async search(): Promise<void> {
         this.games = [];
-        const response = await this.apiService.post<{games: Game[]}>(apiUtils.GAME_SEARCH, {
+        const response = await this.apiService.post<{games: Game[]; count: number}>(apiUtils.GAME_SEARCH, {
             searchPhrase: this.searchPhrase,
             pageSize: this.PAGE_SIZE,
             offset: this.offset,
@@ -64,6 +65,7 @@ export class GameService {
         });
 
         this.games = response && Array.isArray(response?.games) ? response.games : [];
+        this.count = response && response.count ? response.count : 0;
     }
 
     public async navigate(): Promise<void> {

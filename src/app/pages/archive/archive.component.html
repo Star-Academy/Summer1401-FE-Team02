@@ -32,7 +32,7 @@
             </div>
 
             <div class="archive__count">
-                {{ gameService.games.length }}
+                {{ gameService.count }}
                 کالا
             </div>
         </header>
@@ -44,7 +44,7 @@
             </button>
             <button
                 class="btn"
-                [disabled]="gameService.offset >= gameService.games.length / gameService.PAGE_SIZE"
+                [disabled]="gameService.offset >= gameService.count / gameService.PAGE_SIZE"
                 (click)="handleNextPageButtonClick()"
             >
                 صفحه بعد
