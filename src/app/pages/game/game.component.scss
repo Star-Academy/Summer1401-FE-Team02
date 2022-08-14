@@ -88,7 +88,7 @@
                 padding-block: 1rem;
 
                 & > * {
-                    box-shadow: rgb(99 99 99 / 20%) 0 2px 8px 0;
+                    box-shadow: var(--color-gray-20) x 8px 0;
 
                     object-fit: cover;
 
@@ -127,7 +127,7 @@
             padding: 1rem;
 
             > img {
-                box-shadow: rgb(99 99 99 / 20%) 0 2px 8px 0;
+                box-shadow: var(--color-gray-20) 0 2px 8px 0;
 
                 border-radius: 1rem;
             }
@@ -163,7 +163,7 @@
 
         .tag-label {
             background-color: var(--color-gray-20);
-            box-shadow: rgb(99 99 99 / 20%) 0 2px 8px 0;
+            box-shadow: var(--color-gray-20) 0 2px 8px 0;
 
             align-items: center;
 
