@@ -84,10 +84,6 @@ body {
 
 .btn {
     --button-color: var(--main-theme);
-
-    &.warning {
-        --button-color: var(--warning-red);
-    }
     background-color: var(--color-white-96);
     color: var(--button-color);
 
@@ -108,6 +104,10 @@ body {
     vertical-align: middle;
 
     cursor: pointer;
+
+    &.warning {
+        --button-color: var(--warning-red);
+    }
 
     &:disabled {
         cursor: not-allowed;

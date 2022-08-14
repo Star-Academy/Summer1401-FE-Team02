@@ -1,11 +1,13 @@
 :host {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+
+    min-height: 100vh;
 }
 
 .wrapper {
     flex-grow: 1;
+
     padding: 2rem 1rem;
 }

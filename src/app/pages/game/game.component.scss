@@ -105,17 +105,14 @@
                 }
             }
         }
-
-        .storyline-container {
-        }
-
-        .summary-container {
-        }
+        
 
         .desc-text{
             direction: ltr;
 
-            padding: 1rem;
+            padding-block-end: 3rem;
+
+            padding-inline:  3rem;
 
             font-size: 2rem;
 
@@ -148,14 +145,6 @@
             }
         }
 
-        .genres-container {
-
-        }
-
-        .platforms-container {
-
-        }
-
         .detail-title{
             font-size: 1.5rem;
             font-weight: normal;
@@ -170,8 +159,8 @@
             padding-block: 2rem;
 
             border-block-color: var(--dark-gray);
-            border-block-width: 0.5px;
             border-block-style: solid;
+            border-block-width: 0.5px;
         }
 
         .tag-label{
