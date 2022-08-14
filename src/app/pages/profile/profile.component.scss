@@ -193,6 +193,19 @@
             padding: 3rem;
 
             border-radius: 2rem;
+
+            #date-of-birth-input {
+                position: absolute;
+                inset-inline: 0;
+            }
+
+            .block-label {
+                display: block;
+            }
+
+            .relative {
+                position: relative;
+            }
         }
     }
 }
