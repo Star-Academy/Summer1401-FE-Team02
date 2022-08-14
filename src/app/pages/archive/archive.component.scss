@@ -54,9 +54,18 @@
 
                 transition: opacity 0.2s ease;
 
-                cursor: pointer;
+                button {
+                    cursor: pointer;
+                }
 
-                &.active,
+                &.active {
+                    opacity: 1;
+
+                    button {
+                        color: var(--main-theme-29);
+                    }
+                }
+
                 &:hover {
                     opacity: 1;
                 }
