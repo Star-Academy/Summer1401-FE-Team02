@@ -11,7 +11,7 @@
                         {{ banner.summary }}
                     </p>
                 </div>
-                <a routerLink="{{ '/game/' + banner.id }}" class="btn free-play">مشاهده اطلاعات بیشتر</a>
+                <a [routerLink]="'/game/' + banner.id" class="btn free-play">مشاهده اطلاعات بیشتر</a>
             </div>
         </li>
     </ol>
