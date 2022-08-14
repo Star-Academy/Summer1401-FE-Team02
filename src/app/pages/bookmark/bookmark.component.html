@@ -1,5 +1,5 @@
 <ul>
     <li *ngFor="let game of getList()">
-        <app-post-card [game]="game | transformGame"></app-post-card>
+        <app-post-card [game]="game | toPostcard"></app-post-card>
     </li>
 </ul>

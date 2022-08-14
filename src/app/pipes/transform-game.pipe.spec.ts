@@ -1,8 +1,8 @@
-import {TransformGamePipe} from './transform-game.pipe';
+import {ToPostcardPipe} from './to-postcard.pipe';
 
-describe('TransformGamePipe', () => {
+describe('ToPostcardPipe', () => {
     it('create an instance', () => {
-        const pipe = new TransformGamePipe();
+        const pipe = new ToPostcardPipe();
         expect(pipe).toBeTruthy();
     });
 });

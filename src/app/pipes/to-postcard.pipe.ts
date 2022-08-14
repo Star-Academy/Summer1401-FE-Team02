@@ -3,9 +3,9 @@ import {Game, GameCard} from 'src/app/interfaces/Game.interface';
 import {getCoverSrc} from '../utils/game.utils';
 
 @Pipe({
-    name: 'transformGame',
+    name: 'toPostcard',
 })
-export class TransformGamePipe implements PipeTransform {
+export class ToPostcardPipe implements PipeTransform {
     public transform(game: Game): GameCard {
         return {
             ...game,

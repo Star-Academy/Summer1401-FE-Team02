@@ -7,11 +7,11 @@ import {SlideShowComponent} from './components/first-banner/components/slide-sho
 import {HeaderModule} from '../../components/header/header.module';
 import {FooterModule} from '../../components/footer/footer.module';
 import {PostCardModule} from 'src/app/components/post-card/post-card.module';
-import {TransformGamePipeModule} from 'src/app/pipes/transform-game-pipe.module';
+import {ToPostcardPipeModule} from 'src/app/pipes/to-postcard-pipe.module';
 
 @NgModule({
     declarations: [LandingPageComponent, FirstBannerComponent, SlideShowComponent],
-    imports: [CommonModule, RouterModule, HeaderModule, FooterModule, PostCardModule, TransformGamePipeModule],
+    imports: [CommonModule, RouterModule, HeaderModule, FooterModule, PostCardModule, ToPostcardPipeModule],
     exports: [FirstBannerComponent],
 })
 export class LandingPageModule {}
