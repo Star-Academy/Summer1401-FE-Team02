@@ -8,10 +8,10 @@
                 </div>
             </ng-container>
             <ng-container *ngIf="hasImage && selectedFiles.length === 0">
-                <img alt="تصویر کاربر" [src]="initialUser.avatar" class="profile-image"  />
+                <img alt="تصویر کاربر" [src]="initialUser.avatar" class="profile-image" />
             </ng-container>
             <ng-container *ngFor="let item of selectedFiles">
-                <img alt="تصویر کاربر"  [src]="item.base64" class="profile-image" />
+                <img alt="تصویر کاربر" [src]="item.base64" class="profile-image" />
             </ng-container>
             <label class="image-button add" for="add-image-input" title="تغییر تصویر کاربر">
                 <i class="fa-solid fa-plus-large no-pointer-event"></i>
@@ -39,7 +39,7 @@
                 <i>بازی مورد علاقه</i>
             </div>
             <div class="liked-games">
-                <a routerLink="/wishlist">{{ numberOfWishlist  }}</a>
+                <a routerLink="/wishlist">{{ numberOfWishlist }}</a>
                 <i>بازی در لیست آرزو</i>
             </div>
         </div>
@@ -49,27 +49,28 @@
             <h3 class="profile__body--title">ویرایش حساب کاربری</h3>
             <div class="inputs-together">
                 <section>
-                    <label>نام</label>
-                    <input name="firstname" type="text" [(ngModel)]="changingUser.firstName" />
+                    <label for="firstnameInput">نام</label>
+                    <input id="firstnameInput" name="firstname" type="text" [(ngModel)]="changingUser.firstName" />
                 </section>
 
                 <section>
-                    <label>نام خانوادگی</label>
-                    <input name="lastname" type="text" [(ngModel)]="changingUser.lastName" />
+                    <label for="lastnameInput">نام خانوادگی</label>
+                    <input id="lastnameInput" name="lastname" type="text" [(ngModel)]="changingUser.lastName" />
                 </section>
             </div>
             <div class="inputs-together">
                 <section>
-                    <label>جنسیت</label>
-                    <select name="gender" [(ngModel)]="changingUser.gender">
+                    <label for="genderInput">جنسیت</label>
+                    <select id="genderInput" name="gender" [(ngModel)]="changingUser.gender">
                         <option value="0">مرد</option>
                         <option value="1">زن</option>
                     </select>
                 </section>
 
                 <section style="position: relative">
-                    <label style="display: block">تاریخ تولد</label>
+                    <label for="dateOfBirthInput" style="display: block">تاریخ تولد</label>
                     <ng-persian-datepicker
+                        id="dateOfBirthInput"
                         style="position: absolute; inset-inline: 0"
                         [dateInitValue]="false"
                         [uiTheme]="customTheme"
@@ -86,35 +87,40 @@
                 </section>
             </div>
             <section>
-                <label>ایمیل</label>
-                <input name="email" type="email" [(ngModel)]="changingUser.email" />
+                <label for="emailInput">ایمیل</label>
+                <input id="emailInput" name="email" type="email" [(ngModel)]="changingUser.email" />
             </section>
 
             <section>
-                <label>نام کاربری</label>
-                <input name="username" type="text" [(ngModel)]="changingUser.username" />
+                <label for="usernameInput">نام کاربری</label>
+                <input id="usernameInput" name="username" type="text" [(ngModel)]="changingUser.username" />
             </section>
 
             <section>
-                <label>شماره همراه</label>
-                <input name="phone" type="tel" [(ngModel)]="changingUser.phone" />
+                <label for="phoneInput">شماره همراه</label>
+                <input id="phoneInput" name="phone" type="tel" [(ngModel)]="changingUser.phone" />
             </section>
 
             <h3 class="profile__body--title">تغییر رمز عبور</h3>
 
             <section>
-                <label>رمز کنونی</label>
-                <input name="oldPassword" type="password" [(ngModel)]="oldPassword" />
+                <label for="oldPasswordInput">رمز کنونی</label>
+                <input id="oldPasswordInput" name="oldPassword" type="password" [(ngModel)]="oldPassword" />
             </section>
 
             <section>
-                <label>رمز جدید</label>
-                <input name="newPassword" type="password" [(ngModel)]="newPassword" />
+                <label for="newPasswordInput">رمز جدید</label>
+                <input id="newPasswordInput" name="newPassword" type="password" [(ngModel)]="newPassword" />
             </section>
 
             <section>
-                <label>تکرار رمز جدید</label>
-                <input name="repeatedNewPassword" type="password" [(ngModel)]="repeatedPassword" />
+                <label for="repeatedPasswordInput">تکرار رمز جدید</label>
+                <input
+                    id="repeatedPasswordInput"
+                    name="repeatedNewPassword"
+                    type="password"
+                    [(ngModel)]="repeatedPassword"
+                />
             </section>
 
             <div class="buttons">
