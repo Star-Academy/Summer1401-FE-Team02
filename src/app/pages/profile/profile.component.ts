@@ -48,7 +48,7 @@ export class ProfileComponent {
         public toastService: ToastService,
         public gameService: GameService
     ) {
-        this.hasImage = !!(this.initialUser.avatar != '' && this.initialUser.avatar);
+        this.hasImage = !!(this.initialUser.avatar !== '' && this.initialUser.avatar);
         this.setNumbers();
     }
 
@@ -65,7 +65,7 @@ export class ProfileComponent {
             this.toastService.show('رمز عبور کنونی اشتباه است.', ToastType.WARNING);
             return;
         }
-        if (this.newPassword != this.repeatedPassword) {
+        if (this.newPassword !== this.repeatedPassword) {
             this.toastService.show('رمز عبور و تکرار آن یکسان نمی‌باشند.', ToastType.WARNING);
             return;
         }
@@ -107,7 +107,7 @@ export class ProfileComponent {
                 const reader = new FileReader();
                 reader.readAsDataURL(files[i]);
                 reader.onload = (e): void => {
-                    selectedFiles = selectedFiles?.filter((f) => f?.name != files[i]?.name);
+                    selectedFiles = selectedFiles?.filter((f) => f?.name !== files[i]?.name);
                     selectedFiles.push({name: files[i]?.name, file: files[i], base64: reader?.result as string});
                     result.next(selectedFiles);
                     if (files?.length === i + 1) {
