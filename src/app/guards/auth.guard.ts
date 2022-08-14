@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivate {
     private async isAllowed(route: ActivatedRouteSnapshot): Promise<boolean> {
         const isLoggedIn = await this.authService.isLoggedIn();
         const wantsToNavigateToAuthPage = !!this.authRoutes.find((authRoute) =>
-            route.routeConfig?.path?.startsWith(authRoute)
+            route.routeConfig?.path?.toLowerCase().startsWith(authRoute)
         );
 
         if (isLoggedIn) return !wantsToNavigateToAuthPage;
