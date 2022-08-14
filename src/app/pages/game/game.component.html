@@ -63,10 +63,10 @@
             </span>
         </div>
         <div class="screenshot-container column">
-            <img class="large-screenshot" alt="تصویری از بازی" [src]="selectedImage && imageSource(selectedImage.id)"  />
+            <img class="large-screenshot" alt="تصویری از بازی" [src]="selectedImage && imageSource(selectedImage.id)" />
             <div class="thumbnail-container row">
                 <ng-container *ngFor="let screenshot of data.screenshots">
-                    <img alt="تصویری از بازی" [src]="imageSource(screenshot.id)"  (click)="setLargeImage(screenshot)" />
+                    <img alt="تصویری از بازی" [src]="imageSource(screenshot.id)" (click)="setLargeImage(screenshot)" />
                 </ng-container>
             </div>
         </div>
@@ -79,7 +79,7 @@
     </section>
     <section class="game__detail column">
         <div class="cover-container">
-            <img alt="پوستر بازی"  [src]="data.cover && imageSource(data.cover.id)" />
+            <img alt="پوستر بازی" [src]="data.cover && imageSource(data.cover.id)" />
         </div>
         <div class="buttons-container column">
             <button

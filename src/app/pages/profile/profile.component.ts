@@ -144,7 +144,4 @@ export class ProfileComponent {
         this.numberOfFavorites = await this.gameService.getNumberOfFavorites();
         this.numberOfWishlist = await this.gameService.getNumberOfWishlist();
     }
-    public onSelect(event: IActiveDate): void {
-        console.log(event);
-    }
 }
