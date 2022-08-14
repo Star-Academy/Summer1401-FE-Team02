@@ -41,6 +41,20 @@ export class ProfileComponent {
         gender: this.authService.cachedUser?.gender,
         avatar: this.authService.cachedUser?.avatar,
     };
+    public customTheme: Partial<IDatepickerTheme> = {
+        background: 'var(--color-white-transparent)',
+        hoverBackground: 'var(--main-theme-transparent)',
+        disabledBackground: 'var(--color-gray-20)',
+        selectedBackground: 'var(--main-theme)',
+    };
+
+    @Input() public oldPassword?: string;
+    @Input() public newPassword?: string;
+    @Input() public repeatedPassword?: string;
+
+    public numberOfFavorites: number = 0;
+    public numberOfWishlist: number = 0;
+    public dateValue = new FormControl();
 
     public constructor(
         public authService: AuthService,
@@ -80,22 +94,10 @@ export class ProfileComponent {
         await this.authService.logout();
         await this.router.navigateByUrl('/');
     }
-    public dateValue = new FormControl();
-
-    public customTheme: Partial<IDatepickerTheme> = {
-        background: 'var(--color-white-transparent)',
-        hoverBackground: 'var(--main-theme-transparent)',
-        disabledBackground: 'var(--color-gray-20)',
-        selectedBackground: 'var(--main-theme)',
-    };
 
     public getDateOfBirth(): string {
         return this.changingUser.dateOfBirth!;
     }
-
-    @Input() public oldPassword?: string;
-    @Input() public newPassword?: string;
-    @Input() public repeatedPassword?: string;
 
     public selectedFiles: SelectedFiles[] = [];
     public hasImage: boolean = false;
@@ -137,8 +139,6 @@ export class ProfileComponent {
         this.changingUser.avatar = '';
         this.selectedFiles = [];
     }
-    public numberOfFavorites: number = 0;
-    public numberOfWishlist: number = 0;
 
     public async setNumbers(): Promise<void> {
         this.numberOfFavorites = await this.gameService.getNumberOfFavorites();
