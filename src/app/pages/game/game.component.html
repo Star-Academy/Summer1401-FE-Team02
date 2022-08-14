@@ -63,17 +63,21 @@
             </span>
         </div>
         <div class="screenshot-container column">
-            <img class="large-screenshot" src="favicon.ico" alt="تصویری از بازی" />
+            <img class="large-screenshot" [src]="selectedImage?.id | imageSource" alt="تصویری از بازی" />
             <div class="thumbnail-container row">
                 <ng-container *ngFor="let screenshot of data.screenshots">
-                    <img [src]="screenshot?.id | imageSource" alt="تصویری از بازی" />
+                    <img
+                        [src]="screenshot?.id | imageSource"
+                        alt="تصویری از بازی"
+                        (click)="setLargeImage(screenshot)"
+                    />
                 </ng-container>
             </div>
         </div>
-        <div class="storyline-container">
+        <div class="storyline-container desc-text">
             <p>{{ data.storyline }}</p>
         </div>
-        <div class="summary-container">
+        <div class="summary-container desc-text">
             <p>{{ data.summary }}</p>
         </div>
     </section>
@@ -81,7 +85,7 @@
         <div class="cover-container">
             <img [src]="data.cover?.id | imageSource" alt="پوستر بازی" />
         </div>
-        <div class="buttons-container row">
+        <div class="buttons-container column">
             <button
                 *ngIf="gameService.isInFavorites(data.id); else unfavorited"
                 class="btn btn--fill warning"
@@ -108,16 +112,16 @@
                 </button>
             </ng-template>
         </div>
-        <div class="genres-container row">
+        <div class="genres-container row detail-container">
             <h3>ژانرها</h3>
             <ng-container *ngFor="let genre of genres">
-                <i>{{ genre }}, </i>
+                <i class="tag-label">{{ genre }}</i>
             </ng-container>
         </div>
-        <div class="platforms-container row">
+        <div class="platforms-container row detail-container">
             <h3>پلتفرم‌ها</h3>
             <ng-container *ngFor="let platform of platforms">
-                <i>{{ platform }}, </i>
+                <i class="tag-label">{{ platform }}</i>
             </ng-container>
         </div>
     </section>

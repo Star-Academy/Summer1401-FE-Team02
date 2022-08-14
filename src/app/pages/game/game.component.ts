@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Game} from 'src/app/interfaces/Game.interface';
+import {Game, GameImage} from 'src/app/interfaces/Game.interface';
 import {GameService} from 'src/app/services/game.service';
 
 @Component({
@@ -33,8 +33,6 @@ export class GameComponent implements OnInit {
         const id = this.route.snapshot.params.id;
         const game = await this.gameService.getGame(id);
         if (game) {
-            // console.log(JSON.parse(game.genres[0]));
-            console.log();
             this.data = game;
             if (game.rating) this.gameRate = game.rating / 20;
             if (game.genres) {
@@ -47,6 +45,14 @@ export class GameComponent implements OnInit {
                     this.platforms.push(JSON.parse(JSON.stringify(game.platforms[i])).name);
                 }
             }
+            if (game.screenshots) {
+                this.selectedImage = game.screenshots[0];
+            }
         }
+    }
+    // @ts-ignore
+    public selectedImage: GameImage | null = this.data.screenshots[0];
+    public setLargeImage(screenshot: GameImage): void {
+        this.selectedImage = screenshot;
     }
 }
