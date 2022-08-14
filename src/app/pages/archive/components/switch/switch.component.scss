@@ -60,8 +60,6 @@ label {
             &::after {
                 background-color: var(--main-theme);
 
-                margin-inline-start: 0;
-
                 transform: translateX(0);
             }
         }
