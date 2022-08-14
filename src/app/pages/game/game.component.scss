@@ -68,13 +68,13 @@
             margin-inline: auto;
 
             .large-screenshot {
-                box-shadow: var(--shadow-gray) 0 2px 8px 0;
+                box-shadow: var(--shadow-gray) 0 0.2rem 0.8rem 0;
 
                 block-size: 65vh;
                 inline-size: 100%;
                 object-fit: cover;
 
-                border: 1px var(--color-gray-20);
+                border: 0.1rem var(--color-gray-20);
                 border-radius: 1rem;
             }
 
@@ -88,7 +88,7 @@
                 padding-block: 1rem;
 
                 & > * {
-                    box-shadow: var(--color-gray-20) x 8px 0;
+                    box-shadow: var(--color-gray-20) x 0.8rem 0;
 
                     object-fit: cover;
 
@@ -127,7 +127,7 @@
             padding: 1rem;
 
             > img {
-                box-shadow: var(--color-gray-20) 0 2px 8px 0;
+                box-shadow: var(--color-gray-20) 0 0.2rem 0.8rem 0;
 
                 border-radius: 1rem;
             }
@@ -158,12 +158,12 @@
 
             border-block-color: var(--dark-gray);
             border-block-style: solid;
-            border-block-width: 0.5px;
+            border-block-width: 0.05rem;
         }
 
         .tag-label {
             background-color: var(--color-gray-20);
-            box-shadow: var(--color-gray-20) 0 2px 8px 0;
+            box-shadow: var(--color-gray-20) 0 0.2rem 0.8rem 0;
 
             align-items: center;
 
