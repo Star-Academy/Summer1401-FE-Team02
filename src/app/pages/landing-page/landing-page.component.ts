@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {GameCard} from 'src/app/interfaces/Game.interface';
+import {Game, GameCard} from 'src/app/interfaces/Game.interface';
 import {GameService} from 'src/app/services/game.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {GameService} from 'src/app/services/game.service';
     styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
-    public games: GameCard[] = [];
+    public games: Game[] = [];
 
     public constructor(private gameService: GameService) {}
 
