@@ -78,6 +78,20 @@
         }
     }
 
+    &__rating {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        font-size: 1.5rem;
+
+        i {
+            color: var(--star-yellow);
+
+            text-shadow: 0 0 1rem 0 var(--shadow-slight);
+        }
+    }
+
     &__desc {
         color: var(--solid-black);
 
