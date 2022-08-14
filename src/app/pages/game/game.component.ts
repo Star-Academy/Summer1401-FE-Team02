@@ -38,19 +38,10 @@ export class GameComponent implements OnInit {
         if (game) {
             this.data = game;
             if (game.rating) this.gameRate = game.rating / 20;
-            if (game.genres) {
-                for (let i = 0; i < game.genres.length; i++) {
-                    this.genres.push(JSON.parse(JSON.stringify(game.genres[i])).name);
-                }
-            }
-            if (game.platforms) {
-                for (let i = 0; i < game.platforms.length; i++) {
-                    this.platforms.push(JSON.parse(JSON.stringify(game.platforms[i])).name);
-                }
-            }
-            if (game.screenshots) {
-                this.selectedImage = game.screenshots[0];
-            }
+            if (game.genres) this.genres = game.genres.map((genre) => JSON.parse(JSON.stringify(genre)).name);
+            if (game.platforms)
+                this.platforms = game.platforms.map((platform) => JSON.parse(JSON.stringify(platform)).name);
+            if (game.screenshots) this.selectedImage = game.screenshots[0];
         }
     }
     // @ts-ignore
