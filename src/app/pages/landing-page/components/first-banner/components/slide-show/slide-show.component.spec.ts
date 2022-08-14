@@ -1,7 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {GAMES} from 'src/app/data/Games';
-import {Game} from 'src/app/interfaces/Game.interface';
 import {SlideShowComponent} from './slide-show.component';
 
 describe('SlideShowComponent', () => {

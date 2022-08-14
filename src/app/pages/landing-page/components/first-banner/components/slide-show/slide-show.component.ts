@@ -1,6 +1,4 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import {Ibanner} from 'src/app/interfaces/IBanner.interface';
-import {BANNERS} from 'src/app/data/Banners';
 import {GameService} from 'src/app/services/game.service';
 import {Game} from 'src/app/interfaces/Game.interface';
 import {getCoverSrc} from 'src/app/utils/game.utils';
