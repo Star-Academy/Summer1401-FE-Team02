@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {NavigationEnd, Router, RouterStateSnapshot} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
 import {
     GAME_GENRES,
@@ -17,11 +17,10 @@ import {
     GAME_UPCOMING,
 } from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
-import {Game, GameCard} from '../interfaces/Game.interface';
+import {Game} from '../interfaces/Game.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
 import {FilterData} from '../interfaces/FilterData.interface';
-import {AuthService} from './auth.service';
 
 @Injectable({
     providedIn: 'root',
@@ -45,7 +44,7 @@ export class GameService {
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
+    public constructor(private router: Router, private apiService: ApiService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeGameModes().then();
@@ -90,6 +89,18 @@ export class GameService {
         }
 
         await this.search();
+    }
+
+    public async getTopSellers(): Promise<Game[]> {
+        const response = await this.apiService.post<{games: Game[]}>(GAME_SEARCH, {
+            searchPhrase: '',
+            pageSize: 10,
+            offset: 0,
+            sort: Sort.TOP_SELLER,
+            filters: {},
+        });
+
+        return response && Array.isArray(response?.games) ? response.games : [];
     }
 
     public async getUpcoming(): Promise<Game[]> {
@@ -183,6 +194,8 @@ export class GameService {
             status: this.onlyPublishedGames,
             platforms: this.platforms.filter((x) => x.isEnabled).map((x) => x.id),
             genres: this.genres.filter((x) => x.isEnabled).map((x) => x.id),
+            'game-modes': this.gameModes.filter((x) => x.isEnabled).map((x) => x.id),
+            'player-perspectives': this.gamePrespectives.filter((x) => x.isEnabled).map((x) => x.id),
             minimumRating: this.minimumRating || undefined,
             maximumRating: this.maximumRating || undefined,
         };
