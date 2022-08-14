@@ -41,8 +41,8 @@
             text-align: center;
 
             .profile-image {
-                box-shadow: hsla(240, 21%, 8%, 0.1) 0 4px 16px, hsla(240, 21%, 8%, 0.1) 0 8px 24px,
-                    hsla(240, 21%, 8%, 0.1) 0 16px 56px;
+                box-shadow: hsl(240deg 21% 8% / 10%) 0 4px 16px, hsl(240deg 21% 8% / 10%) 0 8px 24px,
+                    hsl(240deg 21% 8% / 10%) 0 16px 56px;
 
                 block-size: 30vh;
                 inline-size: 30vh;
@@ -59,8 +59,8 @@
             .image-button {
                 background-color: var(--dark-gray);
                 color: var(--color-white-64);
-                box-shadow: hsla(240, 21%, 8%, 0.1) 0 4px 16px, hsla(240, 21%, 8%, 0.1) 0 8px 24px,
-                    hsla(240, 21%, 8%, 0.1) 0 16px 56px;
+                box-shadow: hsl(240deg 21% 8% / 10%) 0 4px 16px, hsl(240deg 21% 8% / 10%) 0 8px 24px,
+                    hsl(240deg 21% 8% / 10%) 0 16px 56px;
 
                 position: absolute;
 
