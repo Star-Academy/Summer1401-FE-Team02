@@ -1,21 +1,7 @@
 import {Injectable} from '@angular/core';
 import {NavigationEnd, Router} from '@angular/router';
 import {ApiService} from './api.service';
-import {
-    GAME_GENRES,
-    GAME_MODES,
-    GAME_ONE,
-    GAME_PLATFORMS,
-    GAME_PERSPECTIVES,
-    GAME_SEARCH,
-    WISHLIST_ADD,
-    FAVORITES_ADD,
-    WISHLIST_ALL,
-    FAVORITES_ALL,
-    FAVORITES_REMOVE,
-    WISHLIST_REMOVE,
-    GAME_UPCOMING,
-} from '../utils/api.utils';
+import * as apiUtils from '../utils/api.utils';
 import {Sort} from '../enums/sort.enum';
 import {Game} from '../interfaces/Game.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
@@ -69,7 +55,7 @@ export class GameService {
 
     public async search(): Promise<void> {
         this.games = [];
-        const response = await this.apiService.post<{games: Game[]}>(GAME_SEARCH, {
+        const response = await this.apiService.post<{games: Game[]}>(apiUtils.GAME_SEARCH, {
             searchPhrase: this.searchPhrase,
             pageSize: this.PAGE_SIZE,
             offset: this.offset,
@@ -92,7 +78,7 @@ export class GameService {
     }
 
     public async getTopSellers(): Promise<Game[]> {
-        const response = await this.apiService.post<{games: Game[]}>(GAME_SEARCH, {
+        const response = await this.apiService.post<{games: Game[]}>(apiUtils.GAME_SEARCH, {
             searchPhrase: '',
             pageSize: 10,
             offset: 0,
@@ -104,12 +90,12 @@ export class GameService {
     }
 
     public async getUpcoming(): Promise<Game[]> {
-        let response = await this.apiService.get<{games: Game[]}>(GAME_UPCOMING);
+        let response = await this.apiService.get<{games: Game[]}>(apiUtils.GAME_UPCOMING);
         return response && Array.isArray(response?.games) ? response.games : [];
     }
 
     public async getGame(id: number): Promise<Game | null> {
-        const game = await this.apiService.get<{game: Game}>(GAME_ONE + id, {}, true);
+        const game = await this.apiService.get<{game: Game}>(apiUtils.GAME_ONE + id, {}, true);
         if (game) {
             const data = game.game;
             return {
@@ -131,7 +117,7 @@ export class GameService {
 
     public async addToWishlist(id: number): Promise<void> {
         const response = await this.apiService.post(
-            WISHLIST_ADD,
+            apiUtils.WISHLIST_ADD,
             {
                 token: localStorage.getItem('token'),
                 gameId: id,
@@ -144,7 +130,7 @@ export class GameService {
 
     public async removeFromWishlist(id: number): Promise<void> {
         const response = await this.apiService.delete(
-            WISHLIST_REMOVE,
+            apiUtils.WISHLIST_REMOVE,
             {
                 token: localStorage.getItem('token'),
                 gameId: id,
@@ -161,7 +147,7 @@ export class GameService {
 
     public async addToFavorites(id: number): Promise<void> {
         const response = await this.apiService.post(
-            FAVORITES_ADD,
+            apiUtils.FAVORITES_ADD,
             {
                 token: localStorage.getItem('token'),
                 gameId: id,
@@ -174,7 +160,7 @@ export class GameService {
 
     public async removeFromFavorites(id: number): Promise<void> {
         const response = await this.apiService.delete(
-            FAVORITES_REMOVE,
+            apiUtils.FAVORITES_REMOVE,
             {
                 token: localStorage.getItem('token'),
                 gameId: id,
@@ -202,22 +188,22 @@ export class GameService {
     }
 
     private async initializePlatforms(): Promise<void> {
-        const platforms = (await this.apiService.get<FilterData[]>(GAME_PLATFORMS)) || [];
+        const platforms = (await this.apiService.get<FilterData[]>(apiUtils.GAME_PLATFORMS)) || [];
         this.platforms = platforms.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
     private async initializeGenres(): Promise<void> {
-        const genres = (await this.apiService.get<FilterData[]>(GAME_GENRES)) || [];
+        const genres = (await this.apiService.get<FilterData[]>(apiUtils.GAME_GENRES)) || [];
         this.genres = genres.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
     private async initializeGameModes(): Promise<void> {
-        const gameModes = (await this.apiService.get<FilterData[]>(GAME_MODES)) || [];
+        const gameModes = (await this.apiService.get<FilterData[]>(apiUtils.GAME_MODES)) || [];
         this.gameModes = gameModes.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
     private async initializeGamePrespectives(): Promise<void> {
-        const gamePrespectives = (await this.apiService.get<FilterData[]>(GAME_PERSPECTIVES)) || [];
+        const gamePrespectives = (await this.apiService.get<FilterData[]>(apiUtils.GAME_PERSPECTIVES)) || [];
         this.gamePrespectives = gamePrespectives.map((x) => ({id: x.id, title: x.name, isEnabled: false}));
     }
 
@@ -231,7 +217,7 @@ export class GameService {
 
     private async getWishlist(): Promise<void> {
         const response = await this.apiService.post<{games: Game[]}>(
-            WISHLIST_ALL,
+            apiUtils.WISHLIST_ALL,
             {
                 token: localStorage.getItem('token'),
             },
@@ -249,7 +235,7 @@ export class GameService {
 
     private async getFavorites(): Promise<void> {
         const response = await this.apiService.post<{games: Game[]}>(
-            FAVORITES_ALL,
+            apiUtils.FAVORITES_ALL,
             {
                 token: localStorage.getItem('token'),
             },
