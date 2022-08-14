@@ -7,6 +7,7 @@ import {IDatepickerTheme} from 'ng-persian-datepicker';
 import {ToastType} from '../../enums/ToastType.enum';
 import {ToastService} from '../../services/toast.service';
 import {AsyncSubject, Observable} from 'rxjs';
+import {GameService} from '../../services/game.service';
 
 export interface SelectedFiles {
     name: string;
@@ -41,9 +42,14 @@ export class ProfileComponent {
         avatar: this.authService.cachedUser?.avatar,
     };
 
-    public constructor(public authService: AuthService, public router: Router, public toastService: ToastService) {
+    public constructor(
+        public authService: AuthService,
+        public router: Router,
+        public toastService: ToastService,
+        public gameService: GameService
+    ) {
         this.hasImage = !!(this.initialUser.avatar != '' && this.initialUser.avatar);
-        console.log(this.initialUser);
+        this.setNumbers();
     }
 
     public async cancel(): Promise<void> {
@@ -130,5 +136,12 @@ export class ProfileComponent {
         this.hasImage = false;
         this.changingUser.avatar = '';
         this.selectedFiles = [];
+    }
+    public numberOfFavorites: number = 0;
+    public numberOfWishlist: number = 0;
+
+    public async setNumbers(): Promise<void> {
+        this.numberOfFavorites = await this.gameService.getNumberOfFavorites();
+        this.numberOfWishlist = await this.gameService.getNumberOfWishlist();
     }
 }

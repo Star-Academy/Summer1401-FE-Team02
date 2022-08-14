@@ -128,13 +128,18 @@
 
                 text-align: center;
 
+
                 > * {
                     display: block;
                     align-items: center;
+
+                    font-style: normal;
                 }
 
                 > a {
                     font-size: xxx-large;
+
+                    text-decoration: none;
                 }
             }
         }

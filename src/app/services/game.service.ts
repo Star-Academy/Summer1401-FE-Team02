@@ -222,6 +222,11 @@ export class GameService {
         this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
     }
 
+    public async getNumberOfWishlist(): Promise<number> {
+        await this.getWishlist();
+        return this.wishlist.length;
+    }
+
     private async getFavorites(): Promise<void> {
         const response = await this.apiService.post<{games: Game[]}>(
             FAVORITES_ALL,
@@ -233,5 +238,10 @@ export class GameService {
         );
 
         this.favorites = response && Array.isArray(response?.games) ? response.games : [];
+    }
+
+    public async getNumberOfFavorites(): Promise<number> {
+        await this.getFavorites();
+        return this.favorites.length;
     }
 }

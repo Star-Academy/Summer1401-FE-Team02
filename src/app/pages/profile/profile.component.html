@@ -25,7 +25,9 @@
                     (change)="onFileSelected(file.files)"
                 />
             </label>
-            <button title="حذف تصویر کاربر" class="image-button remove" (click)="removeImage()"><i class="fa-solid fa-multiply no-pointer-event"></i></button>
+            <button title="حذف تصویر کاربر" class="image-button remove" (click)="removeImage()">
+                <i class="fa-solid fa-multiply no-pointer-event"></i>
+            </button>
         </div>
         <div class="profile__banner--basic-info">
             <div class="larger">{{ initialUser.firstName }} {{ initialUser.lastName }}</div>
@@ -33,11 +35,11 @@
         </div>
         <div class="profile__banner--liked">
             <div class="liked-games">
-                <a routerLink="/favorites">6</a>
+                <a routerLink="/favorites">{{ numberOfFavorites }}</a>
                 <i>بازی مورد علاقه</i>
             </div>
             <div class="liked-games">
-                <a routerLink="/wishlist">3</a>
+                <a routerLink="/wishlist">{{ numberOfWishlist }}</a>
                 <i>بازی در لیست آرزو</i>
             </div>
         </div>
