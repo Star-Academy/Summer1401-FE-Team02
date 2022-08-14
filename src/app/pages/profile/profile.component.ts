@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../interfaces/User.interface';
 import {FormControl} from '@angular/forms';
-import {IDatepickerTheme} from 'ng-persian-datepicker';
+import {IActiveDate, IDatepickerTheme} from 'ng-persian-datepicker';
 import {ToastType} from '../../enums/ToastType.enum';
 import {ToastService} from '../../services/toast.service';
 import {AsyncSubject, Observable} from 'rxjs';
@@ -143,5 +143,8 @@ export class ProfileComponent {
     public async setNumbers(): Promise<void> {
         this.numberOfFavorites = await this.gameService.getNumberOfFavorites();
         this.numberOfWishlist = await this.gameService.getNumberOfWishlist();
+    }
+    public onSelect(event: IActiveDate): void {
+        console.log(event);
     }
 }

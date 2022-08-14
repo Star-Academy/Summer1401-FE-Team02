@@ -15,7 +15,6 @@
         </div>
         <div class="header__nav header__nav--left">
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
-                <!-- <a routerLink="#" title="سبد خرید"><i class="fa-solid fa-bookmark"></i></a> -->
                 <app-profile-popper></app-profile-popper>
             </ng-container>
             <ng-template #notLoggedInTemplate>

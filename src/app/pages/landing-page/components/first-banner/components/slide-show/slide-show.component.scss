@@ -44,8 +44,9 @@
     }
 
     .overlay {
-        position: absolute;
         direction: ltr;
+
+        position: absolute;
         inset-block-end: 0;
         inset-inline-start: 0;
 
@@ -72,6 +73,8 @@
             padding-inline: 4rem;
 
             font-size: 2rem;
+
+            text-align: left;
 
             text-justify: inter-word;
             line-height: 160%;
@@ -101,6 +104,7 @@
 
         .free-play {
             z-index: 999;
+
             text-decoration: none;
         }
     }
@@ -110,10 +114,9 @@
 
         position: absolute;
 
-        inset-inline: 0;
-
         inset-block-start: 50%;
-        transform: translateY(-50%);
+
+        inset-inline: 0;
 
         display: flex;
         flex-direction: row;
@@ -124,6 +127,8 @@
         inline-size: 100%;
 
         padding: 2rem;
+
+        transform: translateY(-50%);
 
         transition: opacity 0.1s ease-in-out;
 
@@ -148,15 +153,15 @@
     }
 
     .bullets {
-        inline-size: 100%;
         display: flex;
+        flex-wrap: nowrap;
         align-content: center;
         justify-content: center;
-        flex-wrap: nowrap;
 
         gap: 2rem;
 
         min-block-size: 1rem;
+        inline-size: 100%;
 
         padding: 0.5rem;
 

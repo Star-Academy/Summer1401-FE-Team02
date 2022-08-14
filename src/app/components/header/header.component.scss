@@ -81,6 +81,16 @@
             }
         }
 
+        &--right {
+            flex-grow: 1;
+
+            form {
+                flex-grow: 1;
+
+                max-inline-size: 50%;
+            }
+        }
+
         &--left {
             a {
                 color: var(--color-white-100);

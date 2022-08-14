@@ -1,13 +1,12 @@
 .card {
     --info-offset: 82%;
-    direction: ltr;
 
     box-shadow: var(--shadow-slight);
 
     position: relative;
     overflow: hidden;
 
-    block-size: 35rem;
+    block-size: 30rem;
 
     inline-size: 25rem;
 
@@ -45,18 +44,21 @@
         transition: transform 0.3s ease-out;
 
         &--container {
+            direction: ltr;
+
             overflow: hidden;
 
             display: flex;
             flex-direction: column;
 
             inline-size: 100%;
+
+            text-align: left;
         }
     }
 
     &__title {
         color: var(--main-theme);
-        // text-align: left;
 
         overflow: hidden;
 
@@ -78,8 +80,6 @@
 
     &__desc {
         color: var(--solid-black);
-        // direction: ltr;
-        // text-align: left;
 
         overflow: hidden;
 

@@ -74,12 +74,13 @@
                         [dateInitValue]="false"
                         [uiTheme]="customTheme"
                         uiInitViewMode="year"
+                        (dateOnSelect)="changingUser.dateOfBirth = $event.shamsi"
                     >
                         <input
                             name="dateOfBirth"
                             type="text"
+                            [ngModel]="changingUser.dateOfBirth"
                             [formControl]="dateValue"
-                            [(ngModel)]="changingUser.dateOfBirth"
                         />
                     </ng-persian-datepicker>
                 </section>
