@@ -41,7 +41,8 @@
             text-align: center;
 
             .profile-image {
-                box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px, rgb(17 17 26 / 10%) 0 16px 56px;
+                box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px,
+                    rgb(17 17 26 / 10%) 0 16px 56px;
 
                 block-size: 30vh;
                 inline-size: 30vh;
@@ -58,7 +59,8 @@
             .image-button {
                 background-color: var(--dark-gray);
                 color: var(--color-white-64);
-                box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px, rgb(17 17 26 / 10%) 0 16px 56px;
+                box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 10%) 0 8px 24px,
+                    rgb(17 17 26 / 10%) 0 16px 56px;
 
                 position: absolute;
 
@@ -75,12 +77,12 @@
 
                 cursor: pointer;
 
-                &.add{
+                &.add {
                     inset-block-end: 0.3rem;
                     inset-inline-start: 0.3rem;
                 }
 
-                &.remove{
+                &.remove {
                     inset-block-end: 0.3rem;
                     inset-inline-end: 0.3rem;
                 }
@@ -127,7 +129,6 @@
                 font-size: x-large;
 
                 text-align: center;
-
 
                 > * {
                     display: block;
