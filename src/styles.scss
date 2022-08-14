@@ -107,6 +107,8 @@ body {
     line-height: 1.5;
     vertical-align: middle;
 
+    transition: transform 0.3s ease;
+
     cursor: pointer;
 
     &.warning {
@@ -117,18 +119,12 @@ body {
         cursor: not-allowed;
     }
 
-    &:hover {
-        background-color: var(--button-color);
-        color: var(--color-white-96);
+    &:hover:not(:disabled) {
+        transform: translateY(-0.2rem);
     }
 
     &--fill {
         background-color: var(--button-color);
         color: var(--color-white-96);
-
-        &:hover {
-            background-color: var(--color-white-96);
-            color: var(--button-color);
-        }
     }
 }
