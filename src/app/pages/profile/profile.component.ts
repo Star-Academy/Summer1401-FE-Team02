@@ -66,7 +66,7 @@ export class ProfileComponent {
             return;
         }
         if (this.newPassword != this.repeatedPassword) {
-            this.toastService.show('رمز عبور تکرار شده صحیح نمی‌باشد.', ToastType.WARNING);
+            this.toastService.show('رمز عبور و تکرار آن یکسان نمی‌باشند.', ToastType.WARNING);
             return;
         }
         this.changingUser.password = this.newPassword;
