@@ -1,7 +1,7 @@
 <div class="slideshow" [style.--active-index]="activeIndex">
     <ol>
         <li *ngFor="let banner of banners; index as index" [class.active]="index === activeIndex">
-            <img [src]="banner.cover && getSrc(banner.cover.id)" />
+            <img [src]="banner.cover && getSrc('720p', banner.cover.id)" />
             <div class="overlay">
                 <div class="banner-description">
                     <h2 class="banner-description__title">

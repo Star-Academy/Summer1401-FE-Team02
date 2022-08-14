@@ -9,7 +9,7 @@ export class ToPostcardPipe implements PipeTransform {
     public transform(game: Game): GameCard {
         return {
             ...game,
-            src: game.cover && getCoverSrc(game.cover.id),
+            src: game.cover && getCoverSrc('cover_big', game.cover.id),
         };
     }
 }
