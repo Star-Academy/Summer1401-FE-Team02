@@ -66,14 +66,14 @@
             <img
                 class="large-screenshot"
                 alt="تصویری از بازی"
-                [src]="selectedImage && imageSource('screenshot_big', selectedImage.id)"
+                [src]="selectedImage && (selectedImage.id | imageSrc: 'screenshot_big')"
                 loading="lazy"
             />
             <div class="thumbnail-container row">
                 <ng-container *ngFor="let screenshot of data.screenshots">
                     <img
                         alt="تصویری از بازی"
-                        [src]="imageSource('cover_small', screenshot.id)"
+                        [src]="screenshot.id | imageSrc: 'cover_small'"
                         (click)="setLargeImage(screenshot)"
                         loading="lazy"
                     />
@@ -89,7 +89,7 @@
     </section>
     <section class="game__detail column">
         <div class="cover-container">
-            <img alt="پوستر بازی" [src]="data.cover && imageSource('cover_big', data.cover.id)" loading="lazy" />
+            <img alt="پوستر بازی" [src]="data.cover && (data.cover.id | imageSrc: 'cover_big')" loading="lazy" />
         </div>
         <div class="buttons-container column">
             <button

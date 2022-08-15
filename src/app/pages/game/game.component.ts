@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Game, GameImage} from 'src/app/interfaces/Game.interface';
 import {GameService} from 'src/app/services/game.service';
-import {getCoverSrc} from 'src/app/utils/game.utils';
 
 @Component({
     selector: 'app-game',
@@ -11,8 +10,6 @@ import {getCoverSrc} from 'src/app/utils/game.utils';
 })
 export class GameComponent implements OnInit {
     public constructor(private route: ActivatedRoute, public gameService: GameService) {}
-
-    public imageSource = getCoverSrc;
 
     public data: Game = {
         id: 0,
