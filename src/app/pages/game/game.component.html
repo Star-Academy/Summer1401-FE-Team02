@@ -37,7 +37,7 @@
                     <img
                         alt="تصویری از بازی"
                         [src]="screenshot.id | imageSrc: 'cover_small'"
-                        (click)="setLargeImage(screenshot)"
+                        (click)="this.selectedImage = screenshot"
                         loading="lazy"
                     />
                 </ng-container>
