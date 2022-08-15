@@ -60,8 +60,8 @@ export class ProfileComponent implements AfterContentChecked {
     @Input() public newPassword?: string;
     @Input() public dateOfBirthInput?: string;
 
-    public numberOfFavorites: number | string = '?';
-    public numberOfWishlist: number | string = '?';
+    public numberOfFavorites: number = 0;
+    public numberOfWishlist: number = 0;
     public dateValue = new FormControl();
 
     public male = GenderEnum.MALE;
@@ -73,11 +73,11 @@ export class ProfileComponent implements AfterContentChecked {
         public toastService: ToastService,
         public gameService: GameService
     ) {
+        this.hasImage = !!(this.initialUser.avatar !== '' && this.initialUser.avatar);
         this.formatDateToReceive();
     }
 
     public ngAfterContentChecked(): void {
-        this.hasImage = !!(this.initialUser.avatar !== '' && this.initialUser.avatar);
         this.setNumbers();
     }
 
@@ -107,7 +107,8 @@ export class ProfileComponent implements AfterContentChecked {
     public toFilesBase64(files: FileList, selectedFiles: SelectedFiles[]): Observable<SelectedFiles[]> {
         const result = new AsyncSubject<SelectedFiles[]>();
         if (files?.length) {
-            Object.keys(files)?.forEach(async (file, i) => {
+            for (const file of Object.keys(files)) {
+                const i = Object.keys(files).indexOf(file);
                 const reader = new FileReader();
                 reader.readAsDataURL(files[i]);
                 reader.onload = (e): void => {
@@ -120,7 +121,7 @@ export class ProfileComponent implements AfterContentChecked {
                         this.changingUser.avatar = selectedFiles[0].base64;
                     }
                 };
-            });
+            }
             return result;
         } else {
             result.next([]);
