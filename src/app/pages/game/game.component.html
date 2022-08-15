@@ -5,54 +5,17 @@
         </div>
         <div class="rating-container row">
             <span class="rating-star-container row">
-                <ng-container *ngIf="gameRate < 0.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 0.5 && gameRate < 1">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 1">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
+                <ng-container *ngFor="let _ of oneToFive; index as i">
+                    <div class="half-container">
+                        <i *ngIf="gameRate < 5 - i" class="fas fa-star-sharp gray-star"></i>
 
-                <ng-container *ngIf="gameRate < 1.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 1.5 && gameRate < 2">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 2">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
+                        <i
+                            *ngIf="gameRate >= 4.5 - i && gameRate < 5 - i"
+                            class="fas fa-star-sharp-half gold-star half-star"
+                        ></i>
 
-                <ng-container *ngIf="gameRate < 2.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 2.5 && gameRate < 3">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 3">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
-
-                <ng-container *ngIf="gameRate < 3.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 3.5 && gameRate < 4">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 4">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
-
-                <ng-container *ngIf="gameRate < 4.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 4.5 && gameRate < 5">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 5">
-                    <i class="fas fa-star-sharp gold-star"></i>
+                        <i *ngIf="gameRate >= 5 - i" class="fas fa-star-sharp gold-star"></i>
+                    </div>
                 </ng-container>
             </span>
             <span class="rating-score-container">

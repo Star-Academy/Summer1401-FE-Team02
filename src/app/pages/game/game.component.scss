@@ -52,6 +52,19 @@
                     color: var(--star-yellow);
                 }
 
+                .half-star {
+                    position: absolute;
+                    inset-inline-start: 0;
+
+                    padding-block-start: 0.57rem;
+                }
+
+                .half-container {
+                    position: relative;
+
+                    block-size: 4rem;
+                }
+
                 & > * {
                     &:hover {
                         opacity: 0.6;
