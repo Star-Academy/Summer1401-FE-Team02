@@ -154,7 +154,7 @@ export class GameService {
                 gameId: id,
             },
             {},
-            true
+            false
         );
         await this.getFavorites();
     }
@@ -223,7 +223,7 @@ export class GameService {
                 token: localStorage.getItem('token'),
             },
             {},
-            true
+            false
         );
 
         this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
