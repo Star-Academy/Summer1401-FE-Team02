@@ -69,9 +69,19 @@
                 opacity: 1;
             }
 
-            &.warn {
-                background-color: var(--warning-red);
-                color: var(--color-white-100);
+            //&.warn {
+            //    background-color: var(--warning-red);
+            //    color: var(--color-white-100);
+            //}
+
+            &.logout-popper{
+                background-color: var(--warning-red-lighter);
+                color: var(--solid-black);
+
+                &:hover{
+                    background-color: var(--warning-red-less-saturate);
+                    color: var(--color-white-100);
+                }
             }
 
             &:not(:last-child) {

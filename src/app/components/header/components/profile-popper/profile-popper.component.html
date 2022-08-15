@@ -5,9 +5,11 @@
 
 <popper-content #popperContent>
     <div class="popper__list">
-        <a routerLink="/profile">پروفایل کاربری</a>
+        <a routerLink="/profile"><i class="fa-solid fa-user"></i>پروفایل کاربری</a>
         <a routerLink="/wishlist"><i class="fa-solid fa-bookmark"></i>لیست آرزو‌ها</a>
         <a routerLink="/favorites"><i class="fa-solid fa-heart"></i>علاقه‌مندی‌ها</a>
-        <button (click)="logout()" class="warn">خروج از حساب کاربری</button>
+        <button (click)="logout()" class="logout-popper">
+            <i class="fa-solid fa-right-from-bracket"></i>خروج از حساب کاربری
+        </button>
     </div>
 </popper-content>
