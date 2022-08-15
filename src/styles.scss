@@ -58,7 +58,7 @@ button {
 }
 
 body {
-    background-color: var(--color-white-96);
+    background-color: var(--color-white-100);
     color: var(--solid-black);
 
     popper-content {
@@ -92,7 +92,7 @@ body {
 
 .btn {
     --button-color: var(--main-theme);
-    background-color: var(--color-white-96);
+    background-color: var(--color-white-100);
     color: var(--button-color);
 
     display: flex;
@@ -129,6 +129,6 @@ body {
 
     &--fill {
         background-color: var(--button-color);
-        color: var(--color-white-96);
+        color: var(--color-white-100);
     }
 }
