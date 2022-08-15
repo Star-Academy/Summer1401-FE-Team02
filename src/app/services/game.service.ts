@@ -181,8 +181,8 @@ export class GameService {
             status: this.onlyPublishedGames,
             platforms: this.platforms.filter((x) => x.isEnabled).map((x) => x.id),
             genres: this.genres.filter((x) => x.isEnabled).map((x) => x.id),
-            'game-modes': this.gameModes.filter((x) => x.isEnabled).map((x) => x.id),
-            'player-perspectives': this.gamePrespectives.filter((x) => x.isEnabled).map((x) => x.id),
+            gameModes: this.gameModes.filter((x) => x.isEnabled).map((x) => x.id),
+            playerPerspectives: this.gamePrespectives.filter((x) => x.isEnabled).map((x) => x.id),
             minimumRating: this.minimumRating || undefined,
             maximumRating: this.maximumRating || undefined,
         };

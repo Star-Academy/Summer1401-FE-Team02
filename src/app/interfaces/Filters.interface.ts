@@ -2,8 +2,8 @@ export interface Filters {
     status?: boolean;
     platforms?: number[];
     genres?: number[];
-    'game-modes'?: number[];
-    'player-perspectives'?: number[];
+    gameModes?: number[];
+    playerPerspectives?: number[];
     minimumRating?: number;
     maximumRating?: number;
 }
