@@ -16,4 +16,9 @@ export class HeaderComponent implements OnInit {
     public async ngOnInit(): Promise<void> {
         this.isLoggedIn = await this.authService.isLoggedIn();
     }
+
+    public async handleSearch(event: Event): Promise<void> {
+        event.preventDefault();
+        await this.gameService.navigate();
+    }
 }

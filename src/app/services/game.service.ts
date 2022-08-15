@@ -71,10 +71,8 @@ export class GameService {
 
     public async navigate(): Promise<void> {
         this.offset = 0;
-
         if (!this.router.routerState.snapshot.url.startsWith('/games')) {
             await this.router.navigateByUrl('/games');
-            return;
         }
 
         await this.search();
@@ -226,6 +224,7 @@ export class GameService {
         this.router.events.subscribe(async (value) => {
             if (value instanceof NavigationEnd) {
                 if (value.url.startsWith('/games')) await this.search();
+                else if (this.searchPhrase) this.searchPhrase = '';
             }
         });
     }

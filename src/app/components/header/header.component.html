@@ -9,7 +9,7 @@
                 </li>
                 <li class="header__nav--link-hover"><a routerLink="/games">همه بازی‌ها</a></li>
             </ul>
-            <form (submit)="gameService.navigate()">
+            <form (submit)="handleSearch($event)">
                 <app-search-box [(value)]="gameService.searchPhrase"></app-search-box>
             </form>
         </div>
