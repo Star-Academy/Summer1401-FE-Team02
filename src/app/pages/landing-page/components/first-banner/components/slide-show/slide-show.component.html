@@ -2,7 +2,7 @@
     <ol>
         <li *ngFor="let banner of banners; index as index" [class.active]="index === activeIndex">
             <img [src]="banner.screenshots![0] && banner.screenshots![0].id | imageSrc: '720p'" />
-            <div class="overlay">
+            <div class="overlay" dir="ltr">
                 <div class="banner-description">
                     <h2 class="banner-description__title">
                         {{ banner.name }}

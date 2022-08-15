@@ -1,6 +1,6 @@
 <main class="game">
     <section class="game__overview column">
-        <div [title]="data.name" class="title-container">
+        <div [title]="data.name" class="title-container" dir="ltr">
             <h2>{{ data.name }}</h2>
         </div>
         <div class="rating-container row">
@@ -43,7 +43,7 @@
                 </ng-container>
             </div>
         </div>
-        <div class="storyline-container desc-text">
+        <div class="storyline-container desc-text" dir="ltr">
             <p>{{ data.storyline }}</p>
         </div>
         <div class="summary-container desc-text">
@@ -60,11 +60,13 @@
                 class="btn btn--fill warning"
                 (click)="gameService.removeFromFavorites(data.id)"
             >
-                <i class="fa-solid fa-heart"></i>حذف از علاقه‌مندی‌ها
+                <i class="fa-solid fa-heart"></i>
+                حذف از علاقه‌مندی‌ها
             </button>
             <ng-template #unfavorited>
                 <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
-                    <i class="fa-solid fa-heart"></i>افزودن به علاقه‌مندی‌ها
+                    <i class="fa-solid fa-heart"></i>
+                    افزودن به علاقه‌مندی‌ها
                 </button>
             </ng-template>
 
@@ -73,11 +75,13 @@
                 class="btn warning"
                 (click)="gameService.removeFromWishlist(data.id)"
             >
-                <i class="fa-solid fa-bookmark"></i>حذف از لیست آرزو‌ها
+                <i class="fa-solid fa-bookmark"></i>
+                حذف از لیست آرزو‌ها
             </button>
             <ng-template #unwishlisted>
                 <button class="btn" (click)="gameService.addToWishlist(data.id)">
-                    <i class="fa-solid fa-bookmark"></i>افزودن به لیست آرزو‌ها
+                    <i class="fa-solid fa-bookmark"></i>
+                    افزودن به لیست آرزو‌ها
                 </button>
             </ng-template>
         </div>

@@ -44,8 +44,6 @@
         transition: transform 0.3s ease-out;
 
         &--container {
-            direction: ltr;
-
             overflow: hidden;
 
             display: flex;
@@ -118,7 +116,7 @@
         align-items: center;
         gap: 1em;
 
-        & > * {
+        > * {
             inline-size: 18%;
         }
     }

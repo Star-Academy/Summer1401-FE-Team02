@@ -20,8 +20,6 @@
         inline-size: 70vw;
 
         .title-container {
-            direction: ltr;
-
             overflow: hidden;
 
             block-size: 7rem;
@@ -65,7 +63,7 @@
                     block-size: 4rem;
                 }
 
-                & > * {
+                > * {
                     &:hover {
                         opacity: 0.6;
                     }
@@ -104,7 +102,7 @@
 
                 padding-block: 1rem;
 
-                & > * {
+                > * {
                     box-shadow: var(--color-gray-20) x 0.8rem 0;
 
                     object-fit: cover;
@@ -123,8 +121,6 @@
         }
 
         .desc-text {
-            direction: ltr;
-
             padding-block-end: 3rem;
 
             padding-inline: 3rem;
@@ -157,7 +153,7 @@
 
             block-size: 15rem;
 
-            & > * {
+            > * {
                 inline-size: 100%;
             }
         }
