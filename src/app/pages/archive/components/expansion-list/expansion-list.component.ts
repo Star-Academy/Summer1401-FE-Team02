@@ -16,6 +16,13 @@ export class ExpansionListComponent {
     public searchPhrase: string = '';
 
     public emitItems(item: ExpansionListItem, event: boolean): void {
-        this.itemsChange.emit(this.items.map((i) => (i.id === item.id ? {...i, isEnabled: event} : i)));
+        const updatedItems = this.items.map((i) => {
+            if (i.id === item.id) {
+                return {...i, isEnabled: event};
+            }
+            return i;
+        });
+
+        this.itemsChange.emit(updatedItems);
     }
 }
