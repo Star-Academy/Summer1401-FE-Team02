@@ -116,6 +116,14 @@ export class GameService {
         return null;
     }
 
+    public async getWishlist(): Promise<void> {
+        const response = await this.apiService.post<{games: Game[]}>(apiUtils.WISHLIST_ALL, {
+            token: localStorage.getItem('token'),
+        });
+
+        this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
+    }
+
     public async addToWishlist(id: number): Promise<void> {
         const response = await this.apiService.post<boolean>(
             apiUtils.WISHLIST_ADD,
@@ -153,6 +161,19 @@ export class GameService {
 
     public isInWishlist(id: number): boolean {
         return !!this.wishlist.find((game) => game.id === id);
+    }
+
+    public async getFavorites(): Promise<void> {
+        const response = await this.apiService.post<{games: Game[]}>(
+            apiUtils.FAVORITES_ALL,
+            {
+                token: localStorage.getItem('token'),
+            },
+            {},
+            true
+        );
+
+        this.favorites = response && Array.isArray(response?.games) ? response.games : [];
     }
 
     public async addToFavorites(id: number): Promise<void> {
@@ -227,26 +248,5 @@ export class GameService {
                 else if (this.searchPhrase) this.searchPhrase = '';
             }
         });
-    }
-
-    public async getWishlist(): Promise<void> {
-        const response = await this.apiService.post<{games: Game[]}>(apiUtils.WISHLIST_ALL, {
-            token: localStorage.getItem('token'),
-        });
-
-        this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
-    }
-
-    public async getFavorites(): Promise<void> {
-        const response = await this.apiService.post<{games: Game[]}>(
-            apiUtils.FAVORITES_ALL,
-            {
-                token: localStorage.getItem('token'),
-            },
-            {},
-            true
-        );
-
-        this.favorites = response && Array.isArray(response?.games) ? response.games : [];
     }
 }
