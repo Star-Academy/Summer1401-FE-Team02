@@ -5,6 +5,7 @@ export const USER_LOGIN = BASE_URL + '/user/login';
 export const USER_SIGNUP = BASE_URL + '/user/register';
 export const USER_AUTHENTICATE = BASE_URL + '/user/auth';
 export const USER_UPDATE = BASE_URL + '/user/alter';
+export const USER_PASSWORD_UPDATE = BASE_URL + '/user/change-password';
 
 export const GAME_ONE = BASE_URL + '/one/';
 export const GAME_GENRES = BASE_URL + '/genres';

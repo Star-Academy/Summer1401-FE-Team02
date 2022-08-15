@@ -9,6 +9,7 @@ import {ToastService} from '../../services/toast.service';
 import {AsyncSubject, Observable} from 'rxjs';
 import {GameService} from '../../services/game.service';
 import {GenderEnum} from '../../enums/gender.enum';
+import {ChangePasswordData} from '../../interfaces/ChangePasswordData';
 
 export interface SelectedFiles {
     name: string;
@@ -42,6 +43,11 @@ export class ProfileComponent {
         gender: this.authService.cachedUser?.gender,
         avatar: this.authService.cachedUser?.avatar,
     };
+    public userPasswordData: ChangePasswordData = {
+        token: this.authService.token,
+        currentPassword: '',
+        newPassword: '',
+    };
     public customTheme: Partial<IDatepickerTheme> = {
         background: 'var(--color-white-transparent)',
         hoverBackground: 'var(--main-theme-transparent)',
@@ -51,7 +57,6 @@ export class ProfileComponent {
 
     @Input() public oldPassword?: string;
     @Input() public newPassword?: string;
-    @Input() public repeatedPassword?: string;
 
     public numberOfFavorites: number = 0;
     public numberOfWishlist: number = 0;
@@ -74,23 +79,18 @@ export class ProfileComponent {
         await this.router.navigateByUrl('/');
     }
 
-    public async submitChanges(): Promise<void> {
+    public async submitEditProfile(): Promise<void> {
         if (this.changingUser.gender === null) delete this.changingUser.gender;
-        if (
-            this.oldPassword &&
-            !(await this.authService.login({username: this.initialUser.username!, password: this.oldPassword!}))
-        ) {
-            this.toastService.show('رمز عبور کنونی اشتباه است.', ToastType.WARNING);
-            return;
-        }
-        if (this.newPassword !== this.repeatedPassword) {
-            this.toastService.show('رمز عبور و تکرار آن یکسان نمی‌باشند.', ToastType.WARNING);
-            return;
-        }
-        this.changingUser.password = this.newPassword;
         const response = await this.authService.updateUser(this.changingUser);
-
         response && this.toastService.show('ویرایش اطلاعات کاربر با موفقیت انجام شد.', ToastType.INFO);
+        response && (await this.router.navigateByUrl('/'));
+    }
+
+    public async submitEditPassword(): Promise<void> {
+        this.userPasswordData.currentPassword = this.oldPassword!;
+        this.userPasswordData.newPassword = this.newPassword!;
+        const response = await this.authService.updatePassword(this.userPasswordData);
+        response && this.toastService.show('ویرایش رمز عبور با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
     }
 

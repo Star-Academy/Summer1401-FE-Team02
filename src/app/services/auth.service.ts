@@ -1,10 +1,18 @@
 import {Injectable} from '@angular/core';
 import {User} from '../interfaces/User.interface';
 import {ApiService} from './api.service';
-import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP, USER_UPDATE} from '../utils/api.utils';
+import {
+    USER_AUTHENTICATE,
+    USER_LOGIN,
+    USER_ONE,
+    USER_PASSWORD_UPDATE,
+    USER_SIGNUP,
+    USER_UPDATE,
+} from '../utils/api.utils';
 import {TokenObject} from '../interfaces/TokenObject.interface';
 import {IdObject} from '../interfaces/IdObject';
 import {LoginUserData} from '../interfaces/LoginUserData.interface';
+import {ChangePasswordData} from '../interfaces/ChangePasswordData';
 import {GameService} from './game.service';
 
 @Injectable({
@@ -48,6 +56,11 @@ export class AuthService {
             this.cachedUser = await this.fetchUserInfo();
         }
 
+        return !!data;
+    }
+
+    public async updatePassword(changePasswordData: ChangePasswordData): Promise<boolean> {
+        const data = await this.apiService.post<User>(USER_PASSWORD_UPDATE, changePasswordData, {}, true);
         return !!data;
     }
 

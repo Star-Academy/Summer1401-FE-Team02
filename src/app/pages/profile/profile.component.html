@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="profile__body">
-        <form class="profile__body--form" (submit)="submitChanges()">
+        <form class="profile__body--form" (submit)="submitEditProfile()">
             <h3 class="profile__body--title">ویرایش حساب کاربری</h3>
             <div class="inputs-together">
                 <section>
@@ -99,7 +99,14 @@
                 <label for="phone-input">شماره همراه</label>
                 <input id="phone-input" name="phone" type="tel" [(ngModel)]="changingUser.phone" />
             </section>
-
+            <div class="buttons">
+                <div class="buttons-together">
+                    <button class="btn btn--fill" type="submit">ذخیره تغییرات</button>
+                    <button class="btn" (click)="cancel()">لغو</button>
+                </div>
+            </div>
+        </form>
+        <form class="profile__body--form" (submit)="submitEditPassword()">
             <h3 class="profile__body--title">تغییر رمز عبور</h3>
 
             <section>
@@ -112,23 +119,10 @@
                 <input id="new-password-input" name="newPassword" type="password" [(ngModel)]="newPassword" />
             </section>
 
-            <section>
-                <label for="repeated-password-input">تکرار رمز جدید</label>
-                <input
-                    id="repeated-password-input"
-                    name="repeatedNewPassword"
-                    type="password"
-                    [(ngModel)]="repeatedPassword"
-                />
-            </section>
-
             <div class="buttons">
-                <button class="btn btn--fill" type="submit">ذخیره تغییرات</button>
                 <div class="buttons-together">
+                    <button class="btn btn--fill" type="submit">به‌روزرسانی رمز عبور</button>
                     <button class="btn" (click)="cancel()">لغو</button>
-                    <button class="btn" title="خروج از حساب" (click)="logout()">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </button>
                 </div>
             </div>
         </form>
