@@ -5,6 +5,7 @@ import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP, USER_UPDATE} from 
 import {TokenObject} from '../interfaces/TokenObject.interface';
 import {IdObject} from '../interfaces/IdObject';
 import {LoginUserData} from '../interfaces/LoginUserData.interface';
+import {GameService} from './game.service';
 
 @Injectable({
     providedIn: 'root',

@@ -7,6 +7,7 @@ import {Game} from '../interfaces/Game.interface';
 import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
 import {FilterData} from '../interfaces/FilterData.interface';
+import {AuthService} from './auth.service';
 
 @Injectable({
     providedIn: 'root',
@@ -31,13 +32,11 @@ export class GameService {
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService) {
+    public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeGameModes().then();
         this.initializeGamePrespectives().then();
-        this.getFavorites().then();
-        this.getWishlist().then();
         this.initializeObservers();
     }
 
@@ -217,7 +216,10 @@ export class GameService {
         });
     }
 
-    private async getWishlist(): Promise<void> {
+    public async getWishlist(): Promise<void> {
+        if (!(await this.authService.isLoggedIn())) {
+            return;
+        }
         const response = await this.apiService.post<{games: Game[]}>(
             apiUtils.WISHLIST_ALL,
             {
@@ -230,12 +232,10 @@ export class GameService {
         this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
     }
 
-    public async getNumberOfWishlist(): Promise<number> {
-        await this.getWishlist();
-        return this.wishlist.length;
-    }
-
-    private async getFavorites(): Promise<void> {
+    public async getFavorites(): Promise<void> {
+        if (!(await this.authService.isLoggedIn())) {
+            return;
+        }
         const response = await this.apiService.post<{games: Game[]}>(
             apiUtils.FAVORITES_ALL,
             {
@@ -246,10 +246,5 @@ export class GameService {
         );
 
         this.favorites = response && Array.isArray(response?.games) ? response.games : [];
-    }
-
-    public async getNumberOfFavorites(): Promise<number> {
-        await this.getFavorites();
-        return this.favorites.length;
     }
 }

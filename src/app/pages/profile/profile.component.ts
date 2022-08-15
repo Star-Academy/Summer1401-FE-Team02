@@ -144,8 +144,8 @@ export class ProfileComponent {
         this.selectedFiles = [];
     }
 
-    public async setNumbers(): Promise<void> {
-        this.numberOfFavorites = await this.gameService.getNumberOfFavorites();
-        this.numberOfWishlist = await this.gameService.getNumberOfWishlist();
+    public setNumbers(): void {
+        this.numberOfFavorites = this.gameService.favorites.length;
+        this.numberOfWishlist = this.gameService.wishlist.length;
     }
 }
