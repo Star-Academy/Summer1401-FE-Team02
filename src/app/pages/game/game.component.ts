@@ -32,14 +32,14 @@ export class GameComponent implements OnInit {
     public async ngOnInit(): Promise<void> {
         const id = this.route.snapshot.params.id;
         const game = await this.gameService.getGame(id);
-        if (game) {
-            this.data = game;
-            if (game.rating) this.gameRate = game.rating / 20;
-            if (game.genres) this.genres = game.genres.map((genre) => JSON.parse(JSON.stringify(genre)).name);
-            if (game.platforms)
-                this.platforms = game.platforms.map((platform) => JSON.parse(JSON.stringify(platform)).name);
-            if (game.screenshots) this.selectedImage = game.screenshots[0];
+        if (!game) {
+            return;
         }
+        this.data = game;
+        this.gameRate = game.rating ? game.rating / 20 : 0;
+        this.genres = game.genres.map((genre) => JSON.parse(JSON.stringify(genre)).name);
+        this.platforms = game.platforms.map((platform) => JSON.parse(JSON.stringify(platform)).name);
+        this.selectedImage = game.screenshots ? game.screenshots[0] : null;
     }
     // @ts-ignore
     public selectedImage: GameImage | null = this.data.screenshots[0];
