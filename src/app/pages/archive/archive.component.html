@@ -11,22 +11,10 @@
                 <div class="sorting__title">مرتب‌سازی:</div>
 
                 <ul>
-                    <li [class.active]="gameService.sort === Sort.TOP_SELLER">
-                        <button class="sorting__option" (click)="handleSortClick(Sort.TOP_SELLER)">پرفروش‌ترین</button>
-                    </li>
-                    <li [class.active]="gameService.sort === Sort.MOST_POPULAR">
-                        <button class="sorting__option" (click)="handleSortClick(Sort.MOST_POPULAR)">محبوب‌ترین</button>
-                    </li>
-                    <li [class.active]="gameService.sort === Sort.MOST_RELEVANT">
-                        <button class="sorting__option" (click)="handleSortClick(Sort.MOST_RELEVANT)">
-                            مرتبط‌ترین
+                    <li *ngFor="let sortType of sort" [class.active]="gameService.sort === sortType.sort">
+                        <button class="sortin__option" (click)="gameService.changeSort(sortType.sort)">
+                            {{ sortType.title }}
                         </button>
-                    </li>
-                    <li [class.active]="gameService.sort === Sort.NEWEST">
-                        <button class="sorting__option" (click)="handleSortClick(Sort.NEWEST)">جدیدترین</button>
-                    </li>
-                    <li [class.active]="gameService.sort === Sort.OLDEST">
-                        <button class="sorting__option" (click)="handleSortClick(Sort.OLDEST)">قدیمی‌ترین</button>
                     </li>
                 </ul>
             </div>
@@ -39,13 +27,13 @@
 
         <app-games></app-games>
         <footer>
-            <button class="btn" [disabled]="gameService.offset === 0" (click)="handlePreviousPageButtonClick()">
+            <button class="btn" [disabled]="gameService.offset === 0" (click)="gameService.changePage(-1)">
                 صفحه قبل
             </button>
             <button
                 class="btn"
                 [disabled]="gameService.offset >= gameService.count / gameService.PAGE_SIZE"
-                (click)="handleNextPageButtonClick()"
+                (click)="gameService.changePage(1)"
             >
                 صفحه بعد
             </button>

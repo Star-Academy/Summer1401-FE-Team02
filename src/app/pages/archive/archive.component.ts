@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {GameService} from 'src/app/services/game.service';
 import {Sort} from 'src/app/enums/sort.enum';
+import {SORT} from 'src/app/data/Sort.data';
+import {SortInfo} from 'src/app/interfaces/SortInfo.interface';
 
 @Component({
     selector: 'app-archive',
@@ -8,7 +10,7 @@ import {Sort} from 'src/app/enums/sort.enum';
     styleUrls: ['./archive.component.scss'],
 })
 export class ArchiveComponent implements OnInit {
-    public Sort = Sort;
+    public sort: SortInfo[] = SORT;
 
     public constructor(public gameService: GameService) {}
 
@@ -16,15 +18,7 @@ export class ArchiveComponent implements OnInit {
         this.gameService.search();
     }
 
-    public handleSortClick(sortType: Sort): void {
-        this.gameService.changeSort(sortType);
-    }
-
-    public handlePreviousPageButtonClick(): void {
-        this.gameService.changePage(-1);
-    }
-
-    public handleNextPageButtonClick(): void {
-        this.gameService.changePage(1);
-    }
+    // public handleSortClick(sortType: Sort): void {
+    //     this.gameService.changeSort(sortType);
+    // }
 }
