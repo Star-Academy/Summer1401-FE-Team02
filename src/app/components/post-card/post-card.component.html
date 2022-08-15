@@ -1,5 +1,5 @@
 <div class="card">
-    <img class="card__img" [src]="game.src" [alt]="game.name" />
+    <img class="card__img" [src]="game.src" [alt]="game.name" loading="lazy" />
     <div class="card__info">
         <div class="card__info--container">
             <a [routerLink]="'/game/' + game.id" class="card__title">{{ game.name }}</a>
@@ -9,26 +9,28 @@
         <div class="card__control">
             <button
                 *ngIf="gameService.isInFavorites(game.id); else unfavorited"
-                class="btn btn--fill warning"
+                class="btn warning"
+                title="حذف از علاقه‌مندی‌ها"
                 (click)="gameService.removeFromFavorites(game.id)"
             >
                 <i class="fa-solid fa-heart"></i>
             </button>
             <ng-template #unfavorited>
-                <button class="btn btn--fill" (click)="gameService.addToFavorites(game.id)">
+                <button class="btn" title="افزودن به علاقه‌مندی‌ها" (click)="gameService.addToFavorites(game.id)">
                     <i class="fa-solid fa-heart"></i>
                 </button>
             </ng-template>
             <button
                 *ngIf="gameService.isInWishlist(game.id); else unwishlisted"
                 class="btn warning"
+                title="حذف از لیست آرزوها"
                 (click)="gameService.removeFromWishlist(game.id)"
             >
                 <i class="fa-solid fa-bookmark"></i>
             </button>
 
             <ng-template #unwishlisted>
-                <button class="btn" (click)="gameService.addToWishlist(game.id)">
+                <button class="btn" title="افزودن به لیست آرزوها" (click)="gameService.addToWishlist(game.id)">
                     <i class="fa-solid fa-bookmark"></i>
                 </button>
             </ng-template>
