@@ -20,7 +20,10 @@ export class SlideShowComponent implements OnInit, AfterViewInit, OnDestroy {
     public constructor(public gameService: GameService) {}
 
     public async ngOnInit(): Promise<void> {
-        this.banners = await this.gameService.getUpcoming();
+        const upcoming = await this.gameService.getUpcoming();
+        const shuffled = [...upcoming].sort(() => 0.5 - Math.random());
+
+        this.banners = shuffled.slice(0, 6);
     }
 
     public ngAfterViewInit(): void {

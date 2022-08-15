@@ -1,6 +1,11 @@
 .slideshow {
     position: relative;
 
+    min-block-size: 60rem;
+    max-inline-size: 170rem;
+
+    margin-inline: auto;
+
     ol {
         overflow: hidden;
 
@@ -110,7 +115,7 @@
     }
 
     .control-buttons {
-        opacity: 0.8;
+        opacity: 0.9;
 
         position: absolute;
 
@@ -134,20 +139,24 @@
 
         button {
             background-color: hsl(0deg 0 72/40%);
+            box-shadow: hsl(0deg 0% 0% / 24%) 0 0.3rem 0.8rem;
 
             justify-content: center;
 
-            block-size: 5rem;
+            block-size: 8rem;
 
-            inline-size: 2rem;
+            inline-size: 4rem;
 
             border: 1rem;
             border-color: var(--dark-ground);
 
             border-radius: 999rem;
 
+            cursor: pointer;
+
             &:hover {
                 background-color: hsl(0deg 0 72/60%);
+                opacity: 1;
             }
         }
     }
