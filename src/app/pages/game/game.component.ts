@@ -28,6 +28,7 @@ export class GameComponent implements OnInit {
     public gameRate: number = 0;
     public genres: string[] = [];
     public platforms: string[] = [];
+    public selectedImage: GameImage | null = this.data.screenshots?.[0] || null;
 
     public async ngOnInit(): Promise<void> {
         const id = this.route.snapshot.params.id;
@@ -41,8 +42,7 @@ export class GameComponent implements OnInit {
         this.platforms = game.platforms.map((platform) => JSON.parse(JSON.stringify(platform)).name);
         this.selectedImage = game.screenshots ? game.screenshots[0] : null;
     }
-    // @ts-ignore
-    public selectedImage: GameImage | null = this.data.screenshots[0];
+
     public setLargeImage(screenshot: GameImage): void {
         this.selectedImage = screenshot;
     }
