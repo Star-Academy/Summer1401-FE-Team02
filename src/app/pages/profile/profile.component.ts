@@ -148,13 +148,15 @@ export class ProfileComponent implements AfterContentChecked {
     }
 
     public formatDateToReceive(): void {
-        this.dateOfBirthInput = moment(this.initialUser.dateOfBirth?.split('T')[0], 'YYYY-M-D')
-            .locale('fa')
-            .add(1, 'day')
-            .format('YYYY/M/D');
+        if (this.initialUser.dateOfBirth && this.initialUser.dateOfBirth !== '') {
+            this.dateOfBirthInput = moment(this.initialUser.dateOfBirth?.split('T')[0], 'YYYY-MM-DD')
+                .locale('fa')
+                .add(1, 'day')
+                .format('YYYY/MM/DD');
+        }
     }
 
     public formatDateToSend(): void {
-        this.changingUser.dateOfBirth = moment.from(this.dateOfBirthInput!, 'fa', 'YYYY/M/D').format('YYYY-M-D');
+        this.changingUser.dateOfBirth = moment.from(this.dateOfBirthInput!, 'fa', 'YYYY/MM/DD').format('YYYY-MM-DD');
     }
 }
