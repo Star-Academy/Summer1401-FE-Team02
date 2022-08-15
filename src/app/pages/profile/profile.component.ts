@@ -157,6 +157,10 @@ export class ProfileComponent implements AfterContentChecked {
     }
 
     public formatDateToSend(): void {
-        this.changingUser.dateOfBirth = moment.from(this.dateOfBirthInput!, 'fa', 'YYYY/MM/DD').format('YYYY-MM-DD');
+        if (this.dateOfBirthInput && this.dateOfBirthInput !== '') {
+            this.changingUser.dateOfBirth = moment
+                .from(this.dateOfBirthInput!, 'fa', 'YYYY/MM/DD')
+                .format('YYYY-MM-DD');
+        } else delete this.changingUser.dateOfBirth;
     }
 }

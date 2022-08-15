@@ -22,11 +22,15 @@
         .title-container {
             direction: ltr;
 
-            block-size: 9rem;
+            overflow: hidden;
 
-            font-size: 4rem;
+            block-size: 7rem;
 
+            font-size: 3rem;
             font-weight: lighter;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .rating-container {
@@ -50,7 +54,7 @@
 
                 & > * {
                     &:hover {
-                        opacity: 0.8;
+                        opacity: 0.6;
                     }
                 }
             }
@@ -122,6 +126,8 @@
         inline-size: 30vw;
 
         .cover-container {
+            min-block-size: 35rem;
+
             margin: 0 auto;
 
             padding: 1rem;
