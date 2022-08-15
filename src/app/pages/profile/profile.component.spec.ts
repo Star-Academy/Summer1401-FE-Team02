@@ -1,6 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ExpansionListItem} from 'src/app/interfaces/ExpansionListItem.interface';
 import {FetchMock, VALID_USER_LOGIN_DATA} from 'src/app/mocks/fetch.mock';
 import {LocalStorageMock} from 'src/app/mocks/local-storage.mock';
 import {ToastServiceMock} from 'src/app/mocks/toast.mock';
@@ -44,10 +43,6 @@ describe('ProfileComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-
-    // it('should get birthday date', () => {
-    //     expect(component.getDateOfBirth()).toEqual(component.changingUser.dateOfBirth!);
-    // });
 
     it('should show success', async () => {
         await component.submitEditProfile();
