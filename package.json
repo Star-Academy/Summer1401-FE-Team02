@@ -29,6 +29,7 @@
         "@angular/router": "~12.2.0",
         "@floating-ui/dom": "^1.0.0",
         "@popperjs/core": "^2.11.5",
+        "jalali-moment": "^3.3.11",
         "jalali-ts": "^2.0.4",
         "ng-persian-datepicker": "^6.1.1",
         "ngx-popperjs": "^12.2.1",

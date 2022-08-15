@@ -10,6 +10,7 @@ import {AsyncSubject, Observable} from 'rxjs';
 import {GameService} from '../../services/game.service';
 import {GenderEnum} from '../../enums/gender.enum';
 import {ChangePasswordData} from '../../interfaces/ChangePasswordData';
+import * as moment from 'jalali-moment';
 
 export interface SelectedFiles {
     name: string;
@@ -71,7 +72,9 @@ export class ProfileComponent implements AfterContentChecked {
         public router: Router,
         public toastService: ToastService,
         public gameService: GameService
-    ) {}
+    ) {
+        this.formatDateToReceive();
+    }
 
     public ngAfterContentChecked(): void {
         this.hasImage = !!(this.initialUser.avatar !== '' && this.initialUser.avatar);
@@ -84,6 +87,7 @@ export class ProfileComponent implements AfterContentChecked {
 
     public async submitEditProfile(): Promise<void> {
         if (this.changingUser.gender === null) delete this.changingUser.gender;
+        this.formatDateToSend();
         const response = await this.authService.updateUser(this.changingUser);
         response && this.toastService.show('ویرایش اطلاعات کاربر با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
@@ -95,10 +99,6 @@ export class ProfileComponent implements AfterContentChecked {
         const response = await this.authService.updatePassword(this.userPasswordData);
         response && this.toastService.show('ویرایش رمز عبور با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
-    }
-
-    public getDateOfBirth(): string {
-        return this.changingUser.dateOfBirth!;
     }
 
     public selectedFiles: SelectedFiles[] = [];
@@ -145,5 +145,16 @@ export class ProfileComponent implements AfterContentChecked {
     public setNumbers(): void {
         this.numberOfFavorites = this.gameService.favorites.length;
         this.numberOfWishlist = this.gameService.wishlist.length;
+    }
+
+    public formatDateToReceive(): void {
+        this.dateOfBirthInput = moment(this.initialUser.dateOfBirth?.split('T')[0], 'YYYY-M-D')
+            .locale('fa')
+            .add(1, 'day')
+            .format('YYYY/M/D');
+    }
+
+    public formatDateToSend(): void {
+        this.changingUser.dateOfBirth = moment.from(this.dateOfBirthInput!, 'fa', 'YYYY/M/D').format('YYYY-M-D');
     }
 }
