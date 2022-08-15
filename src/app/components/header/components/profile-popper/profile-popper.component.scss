@@ -70,11 +70,8 @@
             }
 
             &.logout-popper {
-                background-color: var(--warning-red-lighter);
-                color: var(--solid-black);
-
                 &:hover {
-                    background-color: var(--warning-red-less-saturate);
+                    background-color: var(--warning-red);
                     color: var(--color-white-100);
                 }
             }

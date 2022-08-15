@@ -15,7 +15,7 @@ import {ToastType} from '../enums/ToastType.enum';
     providedIn: 'root',
 })
 export class GameService {
-    public readonly PAGE_SIZE: number = 20;
+    public readonly PAGE_SIZE: number = 15;
 
     public games: Game[] = [];
     public count: number = 0;
