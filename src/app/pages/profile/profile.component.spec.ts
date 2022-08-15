@@ -45,9 +45,9 @@ describe('ProfileComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should get birthday date', () => {
-        expect(component.getDateOfBirth()).toEqual(component.changingUser.dateOfBirth!);
-    });
+    // it('should get birthday date', () => {
+    //     expect(component.getDateOfBirth()).toEqual(component.changingUser.dateOfBirth!);
+    // });
 
     it('should show success', async () => {
         await component.submitEditProfile();
