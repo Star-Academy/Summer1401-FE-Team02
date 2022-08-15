@@ -1,10 +1,10 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {RouterTestingModule} from '@angular/router/testing';
+import {ExpansionListItem} from 'src/app/interfaces/ExpansionListItem.interface';
 import {FetchMock, VALID_USER_LOGIN_DATA} from 'src/app/mocks/fetch.mock';
 import {LocalStorageMock} from 'src/app/mocks/local-storage.mock';
 import {ToastServiceMock} from 'src/app/mocks/toast.mock';
 import {ToastService} from 'src/app/services/toast.service';
-import {POST_INIT, USER_LOGIN} from 'src/app/utils/api.utils';
 
 import {ProfileComponent} from './profile.component';
 
@@ -45,12 +45,28 @@ describe('ProfileComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should logout', () => {
-        component.logout();
-        expect(localStorage.getItem('token')).toBeFalsy();
-    });
-
     it('should get birthday date', () => {
         expect(component.getDateOfBirth()).toEqual(component.changingUser.dateOfBirth!);
+    });
+
+    it('should show success', async () => {
+        await component.submitEditProfile();
+        fixture.detectChanges();
+        expect(toastMock.message).toEqual('ویرایش اطلاعات کاربر با موفقیت انجام شد.');
+    });
+
+    it('should call event handler', () => {
+        spyOn(component, 'toFilesBase64');
+        const input = host.querySelector('input[type="file"]') as HTMLInputElement;
+        input.dispatchEvent(new Event('change'));
+        fixture.detectChanges();
+        expect(component.toFilesBase64).toHaveBeenCalled();
+    });
+
+    it('should remove image', () => {
+        component.removeImage();
+        fixture.detectChanges();
+        expect(component.changingUser.avatar).toBeFalsy();
+        expect(component.hasImage).toBeFalse();
     });
 });
