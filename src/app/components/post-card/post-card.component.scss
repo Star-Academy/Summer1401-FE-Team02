@@ -117,5 +117,9 @@
         flex-direction: row;
         align-items: center;
         gap: 1em;
+
+        &>*{
+            inline-size: 18%;
+        }
     }
 }

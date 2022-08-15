@@ -37,7 +37,7 @@
             &::before {
                 content: "";
 
-                background-image: linear-gradient(to left, hsl(0deg 0 0 / 0%), hsl(0deg 0 96 / 95%));
+                background-image: linear-gradient(to left, hsl(0deg 0 0 / 0%) 0%,hsl(0deg 0 0 / 0%) 40%, hsl(0deg 0 96 / 95%));
 
                 position: absolute;
                 inset: 0;
@@ -138,7 +138,7 @@
         transition: opacity 0.1s ease-in-out;
 
         button {
-            background-color: hsl(0deg 0 72/40%);
+            background-color: hsl(0deg 0 72/60%);
             box-shadow: hsl(0deg 0% 0% / 24%) 0 0.3rem 0.8rem;
 
             justify-content: center;
@@ -155,8 +155,7 @@
             cursor: pointer;
 
             &:hover {
-                background-color: hsl(0deg 0 72/60%);
-                opacity: 1;
+                background-color: hsl(0deg 0 72/80%);
             }
         }
     }

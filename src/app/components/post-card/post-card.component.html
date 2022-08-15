@@ -9,13 +9,13 @@
         <div class="card__control">
             <button
                 *ngIf="gameService.isInFavorites(game.id); else unfavorited"
-                class="btn btn--fill warning"
+                class="btn warning"
                 (click)="gameService.removeFromFavorites(game.id)"
             >
                 <i class="fa-solid fa-heart"></i>
             </button>
             <ng-template #unfavorited>
-                <button class="btn btn--fill" (click)="gameService.addToFavorites(game.id)">
+                <button class="btn" (click)="gameService.addToFavorites(game.id)">
                     <i class="fa-solid fa-heart"></i>
                 </button>
             </ng-template>
