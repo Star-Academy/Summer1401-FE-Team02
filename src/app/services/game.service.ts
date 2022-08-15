@@ -8,6 +8,8 @@ import {ExpansionListItem} from '../interfaces/ExpansionListItem.interface';
 import {Filters} from '../interfaces/Filters.interface';
 import {FilterData} from '../interfaces/FilterData.interface';
 import {AuthService} from './auth.service';
+import {ToastService} from './toast.service';
+import {ToastType} from '../enums/ToastType.enum';
 
 @Injectable({
     providedIn: 'root',
@@ -32,7 +34,7 @@ export class GameService {
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService) {
+    public constructor(private router: Router, private apiService: ApiService, private toastService: ToastService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeGameModes().then();
@@ -126,7 +128,12 @@ export class GameService {
             {},
             true
         );
+
         await this.getWishlist();
+
+        if (response) {
+            this.toastService.show('بازی به لیست آرزو‌ها اضافه شد', ToastType.INFO);
+        }
     }
 
     public async removeFromWishlist(id: number): Promise<void> {
@@ -140,6 +147,10 @@ export class GameService {
             true
         );
         await this.getWishlist();
+
+        if (response) {
+            this.toastService.show('بازی از لیست آرزو‌ها حذف شد', ToastType.INFO);
+        }
     }
 
     public isInWishlist(id: number): boolean {
@@ -157,6 +168,10 @@ export class GameService {
             false
         );
         await this.getFavorites();
+
+        if (response) {
+            this.toastService.show('بازی به علاقه‌مندی‌ها اضافه شد', ToastType.INFO);
+        }
     }
 
     public async removeFromFavorites(id: number): Promise<void> {
@@ -170,6 +185,10 @@ export class GameService {
             true
         );
         await this.getFavorites();
+
+        if (response) {
+            this.toastService.show('بازی از لیست آرزو‌ها حذف شد', ToastType.INFO);
+        }
     }
 
     public isInFavorites(id: number): boolean {
