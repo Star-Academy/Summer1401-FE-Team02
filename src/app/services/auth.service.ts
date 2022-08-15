@@ -15,7 +15,7 @@ export class AuthService {
     public cachedUserId: number | null = null;
     public cachedUser: User | null = null;
 
-    public constructor(private apiService: ApiService) {}
+    public constructor(private apiService: ApiService, private gameService: GameService) {}
 
     public get token(): string {
         return localStorage.getItem('token') || '';
@@ -79,6 +79,11 @@ export class AuthService {
 
         this.cachedIsLoggedIn = isLoggedIn;
         this.cachedUserId = userId;
+
+        if (isLoggedIn) {
+            this.gameService.getFavorites();
+            this.gameService.getWishlist();
+        }
 
         if (this.cachedUserId) this.cachedUser = await this.fetchUserInfo();
     }

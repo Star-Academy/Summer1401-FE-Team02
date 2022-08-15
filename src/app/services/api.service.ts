@@ -16,8 +16,15 @@ export class ApiService {
         toastOnError: boolean = false
     ): Promise<T | null> {
         let response = await fetch(url, init);
-        console.log(response);
-        let data = response && (await response.json());
+        let data = null;
+
+        try {
+            data = await response.json();
+        } catch (error) {
+            if (response.ok) {
+                data = true;
+            }
+        }
 
         if (response.ok) {
             return data as T;
@@ -44,12 +51,12 @@ export class ApiService {
         return await this.fetchData(url, init, toastOnError);
     }
 
-    public async delete(
+    public async delete<T>(
         url: string,
         body: any = '',
         init: Partial<RequestInit> = {},
         toastOnError: boolean = false
-    ): Promise<null> {
+    ): Promise<T | null> {
         return await this.fetchData(url, {method: 'DELETE', body: JSON.stringify(body)}, toastOnError);
     }
 }

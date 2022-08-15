@@ -32,7 +32,7 @@ export class GameService {
     public minimumRating: number | null = null;
     public maximumRating: number | null = null;
 
-    public constructor(private router: Router, private apiService: ApiService, private authService: AuthService) {
+    public constructor(private router: Router, private apiService: ApiService) {
         this.initializePlatforms().then();
         this.initializeGenres().then();
         this.initializeGameModes().then();
@@ -117,7 +117,7 @@ export class GameService {
     }
 
     public async addToWishlist(id: number): Promise<void> {
-        const response = await this.apiService.post(
+        const response = await this.apiService.post<boolean>(
             apiUtils.WISHLIST_ADD,
             {
                 token: localStorage.getItem('token'),
@@ -130,7 +130,7 @@ export class GameService {
     }
 
     public async removeFromWishlist(id: number): Promise<void> {
-        const response = await this.apiService.delete(
+        const response = await this.apiService.delete<boolean>(
             apiUtils.WISHLIST_REMOVE,
             {
                 token: localStorage.getItem('token'),
@@ -147,7 +147,7 @@ export class GameService {
     }
 
     public async addToFavorites(id: number): Promise<void> {
-        const response = await this.apiService.post(
+        const response = await this.apiService.post<boolean>(
             apiUtils.FAVORITES_ADD,
             {
                 token: localStorage.getItem('token'),
@@ -160,7 +160,7 @@ export class GameService {
     }
 
     public async removeFromFavorites(id: number): Promise<void> {
-        const response = await this.apiService.delete(
+        const response = await this.apiService.delete<boolean>(
             apiUtils.FAVORITES_REMOVE,
             {
                 token: localStorage.getItem('token'),
@@ -217,9 +217,6 @@ export class GameService {
     }
 
     public async getWishlist(): Promise<void> {
-        if (!(await this.authService.isLoggedIn())) {
-            return;
-        }
         const response = await this.apiService.post<{games: Game[]}>(
             apiUtils.WISHLIST_ALL,
             {
@@ -233,9 +230,6 @@ export class GameService {
     }
 
     public async getFavorites(): Promise<void> {
-        if (!(await this.authService.isLoggedIn())) {
-            return;
-        }
         const response = await this.apiService.post<{games: Game[]}>(
             apiUtils.FAVORITES_ALL,
             {
