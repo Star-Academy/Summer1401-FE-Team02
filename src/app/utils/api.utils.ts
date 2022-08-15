@@ -29,3 +29,10 @@ export const POST_INIT = {
         'Content-type': 'application/json',
     },
 };
+
+export const DELETE_INIT = {
+    method: 'delete',
+    headers: {
+        'Content-type': 'application/json',
+    },
+};

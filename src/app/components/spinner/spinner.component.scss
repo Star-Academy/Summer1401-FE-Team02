@@ -1,0 +1,65 @@
+@use "sass:math";
+
+.wrapper {
+    background-color: var(--color-gray-20);
+    color: var(--shadow-gray);
+
+    position: fixed;
+    inset: 0;
+
+    display: grid;
+    place-items: center;
+
+    .spinner {
+        --particle-size: 1rem;
+
+        i {
+            background-color: currentcolor;
+
+            position: absolute;
+
+            display: block;
+
+            block-size: var(--particle-size);
+            inline-size: var(--particle-size);
+
+            border-radius: 999rem;
+
+            animation: spinner-animation 1s var(--delay) ease-in-out infinite;
+
+            &:nth-of-type(2n) {
+                --offset: 5rem;
+            }
+
+            &:nth-of-type(2n + 1) {
+                --offset: 4rem;
+            }
+
+            $particles-count: 24;
+            $base-angle: math.div(360, $particles-count);
+            $base-delay: -0.9;
+
+            @for $i from 1 through $particles-count {
+                &:nth-of-type(#{ $i }) {
+                    --angle: #{($i - 1) * $base-angle + "deg"};
+                    --delay: #{($i - 1) * $base-delay + "s"};
+                }
+            }
+        }
+    }
+}
+
+@keyframes spinner-animation {
+    0%,
+    100% {
+        transform: rotate(var(--angle)) translateX(0);
+    }
+
+    25% {
+        transform: rotate(var(--angle)) translateX(var(--offset));
+    }
+
+    75% {
+        transform: rotate(var(--angle)) translateX(calc(-1 * var(--offset)));
+    }
+}

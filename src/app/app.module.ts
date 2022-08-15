@@ -14,9 +14,10 @@ import {BookmarkModule} from './pages/bookmark/bookmark.module';
 import {RouterModule} from '@angular/router';
 import {LayoutComponent} from './Layout/layout/layout.component';
 import {LayoutModule} from './Layout/layout/layout.module';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
-    declarations: [AppComponent, ToastComponent],
+    declarations: [AppComponent, ToastComponent, SpinnerComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
