@@ -1,4 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 import {LocalStorageMock} from 'src/app/mocks/local-storage.mock';
 
 import {ProfilePopperComponent} from './profile-popper.component';
@@ -11,6 +12,7 @@ describe('ProfilePopperComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [ProfilePopperComponent],
+            imports: [RouterTestingModule],
             providers: [{provide: window, useValue: {location: {reload: jasmine.createSpy('reload')}}}],
         }).compileComponents();
     });

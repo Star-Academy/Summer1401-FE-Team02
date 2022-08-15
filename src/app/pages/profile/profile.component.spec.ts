@@ -50,12 +50,6 @@ describe('ProfileComponent', () => {
         expect(localStorage.getItem('token')).toBeFalsy();
     });
 
-    it('shoud deny wrong old password', async () => {
-        component.oldPassword = '234';
-        await component.submitChanges();
-        expect(toastMock.message).toEqual('رمز عبور کنونی اشتباه است.');
-    });
-
     it('should get birthday date', () => {
         expect(component.getDateOfBirth()).toEqual(component.changingUser.dateOfBirth!);
     });

@@ -13,11 +13,15 @@ describe('AuthGuard', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [AuthGuard, {provide: Router, useValue: routerMock}],
+            providers: [
+                AuthGuard,
+                {provide: AuthService, useValue: authService},
+                {provide: Router, useValue: routerMock},
+            ],
             imports: [HttpClientTestingModule],
         });
-        guard = TestBed.inject(AuthGuard);
 
+        guard = TestBed.inject(AuthGuard);
         authService = TestBed.inject(AuthService);
     });
 
