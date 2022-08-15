@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {NgxPopperjsPlacements} from 'ngx-popperjs';
 import {AuthService} from 'src/app/services/auth.service';
+import {ToastService} from '../../../../services/toast.service';
+import {ToastType} from '../../../../enums/ToastType.enum';
 
 @Component({
     selector: 'app-profile-popper',
@@ -10,10 +12,11 @@ import {AuthService} from 'src/app/services/auth.service';
 export class ProfilePopperComponent {
     public NgxPopperjsPlacements = NgxPopperjsPlacements;
 
-    public constructor(private authService: AuthService) {}
+    public constructor(private authService: AuthService, private toastService: ToastService) {}
 
     public logout(): void {
         this.authService.logout();
+        this.toastService.show('خدانگهدار!', ToastType.WARNING);
         window.location.reload();
     }
 }

@@ -21,7 +21,7 @@ export class LoginFormComponent {
     public async submitForm(): Promise<void> {
         const response = await this.authService.login(this.user);
         if (response) {
-            this.toastService.show('خوش آمدید.', ToastType.INFO);
+            this.toastService.show('خوش آمدید!', ToastType.INFO);
         }
         response && (await this.router.navigateByUrl('/'));
     }
