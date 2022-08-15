@@ -47,8 +47,4 @@ export class GameComponent implements OnInit {
         this.platforms = game.platforms.map((platform) => JSON.parse(JSON.stringify(platform)).name);
         this.selectedImage = game.screenshots ? game.screenshots[0] : null;
     }
-
-    public setLargeImage(screenshot: GameImage): void {
-        this.selectedImage = screenshot;
-    }
 }
