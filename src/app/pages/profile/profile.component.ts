@@ -107,21 +107,18 @@ export class ProfileComponent implements AfterContentChecked {
     public toFilesBase64(files: FileList, selectedFiles: SelectedFiles[]): Observable<SelectedFiles[]> {
         const result = new AsyncSubject<SelectedFiles[]>();
         if (files?.length) {
-            for (const file of Object.keys(files)) {
-                const i = Object.keys(files).indexOf(file);
-                const reader = new FileReader();
-                reader.readAsDataURL(files[i]);
-                reader.onload = (e): void => {
-                    selectedFiles = selectedFiles?.filter((f) => f?.name !== files[i]?.name);
-                    selectedFiles.push({name: files[i]?.name, file: files[i], base64: reader?.result as string});
-                    result.next(selectedFiles);
-                    if (files?.length === i + 1) {
-                        result.complete();
-                        this.hasImage = true;
-                        this.changingUser.avatar = selectedFiles[0].base64;
-                    }
-                };
-            }
+            const reader = new FileReader();
+            reader.readAsDataURL(files[0]);
+            reader.onload = (e): void => {
+                selectedFiles = selectedFiles?.filter((f) => f?.name !== files[0]?.name);
+                selectedFiles.push({name: files[0]?.name, file: files[0], base64: reader?.result as string});
+                result.next(selectedFiles);
+                if (files?.length === 1) {
+                    result.complete();
+                    this.hasImage = true;
+                    this.changingUser.avatar = selectedFiles[0].base64;
+                }
+            };
             return result;
         } else {
             result.next([]);
