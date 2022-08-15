@@ -69,16 +69,11 @@
                 opacity: 1;
             }
 
-            //&.warn {
-            //    background-color: var(--warning-red);
-            //    color: var(--color-white-100);
-            //}
-
-            &.logout-popper{
+            &.logout-popper {
                 background-color: var(--warning-red-lighter);
                 color: var(--solid-black);
 
-                &:hover{
+                &:hover {
                     background-color: var(--warning-red-less-saturate);
                     color: var(--color-white-100);
                 }

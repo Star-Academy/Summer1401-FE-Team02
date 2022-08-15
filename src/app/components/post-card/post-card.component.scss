@@ -41,7 +41,7 @@
 
         padding: 0.3em 1em 1em;
 
-        transition: transform 0.3s ease-out;
+        transition: transform 0.7s ease-out;
 
         &--container {
             direction: ltr;
@@ -118,7 +118,7 @@
         align-items: center;
         gap: 1em;
 
-        &>*{
+        & > * {
             inline-size: 18%;
         }
     }
