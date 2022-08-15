@@ -9,15 +9,14 @@ describe('AuthGuard', () => {
     let authService: AuthService;
     let routeMock: any = {routeConfig: {path: ''}};
     let routeStateMock: any = {snapshot: {}, url: ''};
-    let routerMock = {navigateByUrl: jasmine.createSpy('navigateByUrl')};
+    let routerMock = {
+        navigateByUrl: jasmine.createSpy('navigateByUrl'),
+        events: {subscribe: jasmine.createSpy('subscribe')},
+    };
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [
-                AuthGuard,
-                {provide: AuthService, useValue: authService},
-                {provide: Router, useValue: routerMock},
-            ],
+            providers: [AuthGuard, {provide: Router, useValue: routerMock}],
             imports: [HttpClientTestingModule],
         });
 
