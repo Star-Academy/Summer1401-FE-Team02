@@ -1,4 +1,4 @@
-import {AfterContentChecked, Component, Input} from '@angular/core';
+import {AfterContentChecked, AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../interfaces/User.interface';
@@ -21,7 +21,7 @@ export interface SelectedFiles {
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.scss', '../../styles/form.scss'],
 })
-export class ProfileComponent {
+export class ProfileComponent implements AfterContentChecked {
     public initialUser: Partial<User> = {
         username: this.authService.cachedUser?.username!,
         email: this.authService.cachedUser?.email!,
@@ -57,9 +57,10 @@ export class ProfileComponent {
 
     @Input() public oldPassword?: string;
     @Input() public newPassword?: string;
+    @Input() public dateOfBirthInput?: string;
 
-    public numberOfFavorites: number = 0;
-    public numberOfWishlist: number = 0;
+    public numberOfFavorites: number | string = '?';
+    public numberOfWishlist: number | string = '?';
     public dateValue = new FormControl();
 
     public male = GenderEnum.MALE;
@@ -70,7 +71,9 @@ export class ProfileComponent {
         public router: Router,
         public toastService: ToastService,
         public gameService: GameService
-    ) {
+    ) {}
+
+    public ngAfterContentChecked(): void {
         this.hasImage = !!(this.initialUser.avatar !== '' && this.initialUser.avatar);
         this.setNumbers();
     }
@@ -92,11 +95,6 @@ export class ProfileComponent {
         const response = await this.authService.updatePassword(this.userPasswordData);
         response && this.toastService.show('ویرایش رمز عبور با موفقیت انجام شد.', ToastType.INFO);
         response && (await this.router.navigateByUrl('/'));
-    }
-
-    public async logout(): Promise<void> {
-        await this.authService.logout();
-        await this.router.navigateByUrl('/');
     }
 
     public getDateOfBirth(): string {
