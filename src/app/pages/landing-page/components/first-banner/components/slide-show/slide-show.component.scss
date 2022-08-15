@@ -37,7 +37,12 @@
             &::before {
                 content: "";
 
-                background-image: linear-gradient(to left, hsl(0deg 0 0 / 0%) 0%,hsl(0deg 0 0 / 0%) 40%, hsl(0deg 0 96 / 95%));
+                background-image: linear-gradient(
+                    to left,
+                    hsl(0deg 0 0 / 0%) 0%,
+                    hsl(0deg 0 0 / 0%) 40%,
+                    hsl(0deg 0 96 / 95%)
+                );
 
                 position: absolute;
                 inset: 0;
