@@ -158,15 +158,10 @@ export class GameService {
     }
 
     public async addToFavorites(id: number): Promise<void> {
-        const response = await this.apiService.post<boolean>(
-            apiUtils.FAVORITES_ADD,
-            {
-                token: localStorage.getItem('token'),
-                gameId: id,
-            },
-            {},
-            false
-        );
+        const response = await this.apiService.post<boolean>(apiUtils.FAVORITES_ADD, {
+            token: localStorage.getItem('token'),
+            gameId: id,
+        });
         await this.getFavorites();
 
         if (response) {
@@ -236,14 +231,9 @@ export class GameService {
     }
 
     public async getWishlist(): Promise<void> {
-        const response = await this.apiService.post<{games: Game[]}>(
-            apiUtils.WISHLIST_ALL,
-            {
-                token: localStorage.getItem('token'),
-            },
-            {},
-            false
-        );
+        const response = await this.apiService.post<{games: Game[]}>(apiUtils.WISHLIST_ALL, {
+            token: localStorage.getItem('token'),
+        });
 
         this.wishlist = response && Array.isArray(response?.games) ? response.games : [];
     }

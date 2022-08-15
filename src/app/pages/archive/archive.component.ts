@@ -17,8 +17,4 @@ export class ArchiveComponent implements OnInit {
     public ngOnInit(): void {
         this.gameService.search();
     }
-
-    // public handleSortClick(sortType: Sort): void {
-    //     this.gameService.changeSort(sortType);
-    // }
 }

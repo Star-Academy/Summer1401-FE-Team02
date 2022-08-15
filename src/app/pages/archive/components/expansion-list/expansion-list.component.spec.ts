@@ -1,4 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {FilterPipe} from 'src/app/pipes/filter.pipe';
 
 import {ExpansionListComponent} from './expansion-list.component';
 
@@ -32,7 +33,7 @@ describe('ExpansionListComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ExpansionListComponent],
+            declarations: [ExpansionListComponent, FilterPipe],
         }).compileComponents();
     });
 
@@ -56,7 +57,7 @@ describe('ExpansionListComponent', () => {
     //     const checkbox = host.querySelector(
     //         `input[id="${expansionData[0].id + expansionData[0].title}"]`
     //     ) as HTMLInputElement;
-    //     checkbox.dispatchEvent(new Event('change'));
+    //     checkbox.dispatchEvent(new Event('changeS'));
     //     fixture.detectChanges();
     //     expect(component.itemsChange.emit).toHaveBeenCalledWith([
     //         {...expansionData[0], isEnabled: true},

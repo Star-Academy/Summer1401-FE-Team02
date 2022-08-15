@@ -2,6 +2,7 @@ import {ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
 import {ActivatedRoute} from '@angular/router';
 import {RouterTestingModule} from '@angular/router/testing';
 import {GAMES} from 'src/app/data/Game.data';
+import {ImageSrcPipe} from 'src/app/pipes/image-src.pipe';
 
 import {GameComponent} from './game.component';
 
@@ -14,7 +15,7 @@ describe('GameComponent', () => {
     beforeEach(async () => {
         routeMock = {snapshot: {params: {id: GAMES.games[0].id}}};
         await TestBed.configureTestingModule({
-            declarations: [GameComponent],
+            declarations: [GameComponent, ImageSrcPipe],
             imports: [RouterTestingModule],
             providers: [{provide: ActivatedRoute, useValue: routeMock}],
         }).compileComponents();
@@ -30,8 +31,4 @@ describe('GameComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
-
-    // it('should show', () => {
-    //     expect(component.data.name).toEqual(GAMES.games[0].name);
-    // });
 });
