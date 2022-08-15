@@ -9,7 +9,12 @@ import {GameService} from 'src/app/services/game.service';
     styleUrls: ['./game.component.scss'],
 })
 export class GameComponent implements OnInit {
-    public constructor(private route: ActivatedRoute, public gameService: GameService) {}
+    public oneToFive: number[];
+    public constructor(private route: ActivatedRoute, public gameService: GameService) {
+        this.oneToFive = Array(5)
+            .fill(0)
+            .map((x, i) => i);
+    }
 
     public data: Game = {
         id: 0,

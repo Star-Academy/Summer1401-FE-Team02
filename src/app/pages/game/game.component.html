@@ -1,58 +1,21 @@
 <main class="game">
     <section class="game__overview column">
-        <div [title]="data.name" class="title-container">
+        <div [title]="data.name" class="title-container" dir="ltr">
             <h2>{{ data.name }}</h2>
         </div>
         <div class="rating-container row">
             <span class="rating-star-container row">
-                <ng-container *ngIf="gameRate < 0.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 0.5 && gameRate < 1">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 1">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
+                <ng-container *ngFor="let _ of oneToFive; index as i">
+                    <div class="half-container">
+                        <i *ngIf="gameRate < 5 - i" class="fas fa-star-sharp gray-star"></i>
 
-                <ng-container *ngIf="gameRate < 1.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 1.5 && gameRate < 2">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 2">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
+                        <i
+                            *ngIf="gameRate >= 4.5 - i && gameRate < 5 - i"
+                            class="fas fa-star-sharp-half gold-star half-star"
+                        ></i>
 
-                <ng-container *ngIf="gameRate < 2.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 2.5 && gameRate < 3">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 3">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
-
-                <ng-container *ngIf="gameRate < 3.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 3.5 && gameRate < 4">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 4">
-                    <i class="fas fa-star-sharp gold-star"></i>
-                </ng-container>
-
-                <ng-container *ngIf="gameRate < 4.5">
-                    <i class="fas fa-star-sharp gray-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 4.5 && gameRate < 5">
-                    <i class="fas fa-star-sharp-half gold-star"></i>
-                </ng-container>
-                <ng-container *ngIf="gameRate >= 5">
-                    <i class="fas fa-star-sharp gold-star"></i>
+                        <i *ngIf="gameRate >= 5 - i" class="fas fa-star-sharp gold-star"></i>
+                    </div>
                 </ng-container>
             </span>
             <span class="rating-score-container">
@@ -80,7 +43,7 @@
                 </ng-container>
             </div>
         </div>
-        <div class="storyline-container desc-text">
+        <div class="storyline-container desc-text" dir="ltr">
             <p>{{ data.storyline }}</p>
         </div>
         <div class="summary-container desc-text">
@@ -97,11 +60,13 @@
                 class="btn btn--fill warning"
                 (click)="gameService.removeFromFavorites(data.id)"
             >
-                <i class="fa-solid fa-heart"></i>حذف از علاقه‌مندی‌ها
+                <i class="fa-solid fa-heart"></i>
+                حذف از علاقه‌مندی‌ها
             </button>
             <ng-template #unfavorited>
                 <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
-                    <i class="fa-solid fa-heart"></i>افزودن به علاقه‌مندی‌ها
+                    <i class="fa-solid fa-heart"></i>
+                    افزودن به علاقه‌مندی‌ها
                 </button>
             </ng-template>
 
@@ -110,11 +75,13 @@
                 class="btn warning"
                 (click)="gameService.removeFromWishlist(data.id)"
             >
-                <i class="fa-solid fa-bookmark"></i>حذف از لیست آرزو‌ها
+                <i class="fa-solid fa-bookmark"></i>
+                حذف از لیست آرزو‌ها
             </button>
             <ng-template #unwishlisted>
                 <button class="btn" (click)="gameService.addToWishlist(data.id)">
-                    <i class="fa-solid fa-bookmark"></i>افزودن به لیست آرزو‌ها
+                    <i class="fa-solid fa-bookmark"></i>
+                    افزودن به لیست آرزو‌ها
                 </button>
             </ng-template>
         </div>
