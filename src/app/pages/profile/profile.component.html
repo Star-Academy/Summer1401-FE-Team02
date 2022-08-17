@@ -8,10 +8,10 @@
                 </div>
             </ng-container>
             <ng-container *ngIf="hasImage && selectedFiles.length === 0">
-                <img alt="تصویر کاربر" [src]="initialUser.avatar" class="profile-image" />
+                <img alt="تصویر کاربر" [src]="initialUser.avatar" />
             </ng-container>
             <ng-container *ngFor="let item of selectedFiles">
-                <img alt="تصویر کاربر" [src]="item.base64" class="profile-image" />
+                <img alt="تصویر کاربر" [src]="item.base64" />
             </ng-container>
             <label class="image-button add" for="add-image-input" title="تغییر تصویر کاربر">
                 <i class="fa-solid fa-plus-large no-pointer-event"></i>
