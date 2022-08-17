@@ -1,0 +1,10 @@
+<div class="searchbox">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input
+        class="searchbox__input"
+        type="search"
+        placeholder="جست‌وجو"
+        [ngModel]="value"
+        (ngModelChange)="valueChange.emit($event)"
+    />
+</div>

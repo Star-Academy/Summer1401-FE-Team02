@@ -1,14 +1,39 @@
 <div class="card">
-    <img class="card__img" [src]="game.poster" [alt]="game.title" />
+    <img class="card__img" [src]="game.src" [alt]="game.name" loading="lazy" />
     <div class="card__info">
-        <div class="card__info--container">
-            <p class="card__title">{{ game.title }}</p>
-            <p class="card__price">{{ game.price.toLocaleString() }} تومان</p>
-            <p class="card__desc">{{ game.description }}</p>
+        <div class="card__info--container" dir="ltr">
+            <a [routerLink]="'/game/' + game.id" class="card__title">{{ game.name }}</a>
+            <p class="card__rating"><i class="fa-solid fa-star"></i>{{ game.rating }}</p>
+            <p class="card__desc">{{ game.summary }}</p>
         </div>
         <div class="card__control">
-            <button class="btn btn--fill"><i class="fa-solid fa-basket-shopping"></i></button>
-            <button class="btn"><i class="fa-solid fa-heart-circle-plus"></i></button>
+            <button
+                *ngIf="gameService.isInFavorites(game.id); else unfavorited"
+                class="btn warning"
+                title="حذف از علاقه‌مندی‌ها"
+                (click)="gameService.removeFromFavorites(game.id)"
+            >
+                <i class="fa-solid fa-heart"></i>
+            </button>
+            <ng-template #unfavorited>
+                <button class="btn" title="افزودن به علاقه‌مندی‌ها" (click)="gameService.addToFavorites(game.id)">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+            </ng-template>
+            <button
+                *ngIf="gameService.isInWishlist(game.id); else unwishlisted"
+                class="btn warning"
+                title="حذف از لیست آرزوها"
+                (click)="gameService.removeFromWishlist(game.id)"
+            >
+                <i class="fa-solid fa-bookmark"></i>
+            </button>
+
+            <ng-template #unwishlisted>
+                <button class="btn" title="افزودن به لیست آرزوها" (click)="gameService.addToWishlist(game.id)">
+                    <i class="fa-solid fa-bookmark"></i>
+                </button>
+            </ng-template>
         </div>
     </div>
 </div>

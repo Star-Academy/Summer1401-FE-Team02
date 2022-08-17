@@ -1,11 +1,15 @@
 .header {
     background-color: var(--dark-ground);
 
+    z-index: 999;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    padding: 1rem 2rem;
+    inline-size: 100%;
+
+    padding: 1.5rem 2rem;
 
     font-size: 1.7rem;
 
@@ -74,6 +78,16 @@
             .logo-container {
                 display: flex;
                 align-items: center;
+            }
+        }
+
+        &--right {
+            flex-grow: 1;
+
+            form {
+                flex-grow: 1;
+
+                max-inline-size: 50%;
             }
         }
 

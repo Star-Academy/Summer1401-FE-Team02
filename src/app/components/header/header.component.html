@@ -7,18 +7,15 @@
                         <img class="header__logo" alt="Game-Up" src="assets/logos/logo-dark-removebg.svg" />
                     </a>
                 </li>
-                <li class="header__nav--link-hover"><a routerLink="#">آرشیو</a></li>
+                <li class="header__nav--link-hover"><a routerLink="/games">همه بازی‌ها</a></li>
             </ul>
-            <app-search-box></app-search-box>
+            <form (submit)="handleSearch($event)">
+                <app-search-box [(value)]="gameService.searchPhrase"></app-search-box>
+            </form>
         </div>
         <div class="header__nav header__nav--left">
             <ng-container *ngIf="isLoggedIn; else notLoggedInTemplate">
-                <a routerLink="#" title="سبد خرید" data-test-id="cart-link"
-                    ><i class="fa-solid fa-basket-shopping"></i
-                ></a>
-                <a routerLink="/profile" title="حساب کاربری" data-test-id="profile-link"
-                    ><i class="fa-solid fa-user"></i
-                ></a>
+                <app-profile-popper></app-profile-popper>
             </ng-container>
             <ng-template #notLoggedInTemplate>
                 <ul class="header__nav--list">

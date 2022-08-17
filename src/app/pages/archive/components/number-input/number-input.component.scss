@@ -1,0 +1,17 @@
+label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    padding-block: 2rem;
+
+    font-size: 1.3rem;
+
+    input {
+        background-color: var(--color-white-94);
+
+        border: 0.2rem solid var(--main-theme);
+        border-radius: var(--border-radius-minimum);
+    }
+}

@@ -2,6 +2,7 @@ import {ComponentFixture, fakeAsync, TestBed, waitForAsync} from '@angular/core/
 
 import {HeaderComponent} from './header.component';
 import {AuthService} from '../../services/auth.service';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
     let component: HeaderComponent;
@@ -12,6 +13,7 @@ describe('HeaderComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [HeaderComponent],
+            imports: [RouterTestingModule],
         }).compileComponents();
     });
 

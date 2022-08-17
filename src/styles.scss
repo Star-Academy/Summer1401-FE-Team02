@@ -5,21 +5,31 @@
 
     --color-white-transparent: hsl(192deg 12% 92% / 91.8%);
 
-    --main-theme: hsl(178deg 49% 29%);
-    --main-theme-transparent: hsl(178deg 49% 29% / 60%);
+    --main-theme: hsl(186deg 70% 37%);
+    --main-theme-transparent: hsl(168deg 70% 29% / 60%);
+    --main-theme-15: hsl(168deg 70% 15%);
+    --main-theme-29: hsl(168deg 70% 29%);
+    --main-theme-80: hsl(168deg 70% 80%);
 
     --dark-ground: hsl(190deg 9% 14%);
 
     --warning-red: hsl(0deg 63% 46%);
+    --warning-red-lighter: hsl(0deg 63% 80%);
+    --warning-red-less-saturate: hsl(0deg 50% 50%);
     --info-green: hsl(113deg 74% 39%);
+    --star-yellow: hsl(47deg 97% 60%);
 
-    --shadow-gray: hsl(0deg 0% 20% / 45%);
+    --shadow-gray: hsl(0deg 0% 23% / 32.9%);
+    --color-gray-20: hsl(0deg 0% 20% / 20%);
     --solid-black: hsl(0deg 0% 0%);
+
+    --dark-gray: hsl(0deg 0% 49%);
+    --darker-gray: hsl(0deg 0% 16%);
 
     --shadow-slight: var(--shadow-gray) 0 0 0.5rem 0.1rem;
 
     --border-radius-minimum: 0.3rem;
-    --border-radius-norm: 1rem;
+    --border-radius-norm: 0.5rem;
 }
 
 html {
@@ -29,6 +39,10 @@ html {
 
 input,
 button {
+    background: transparent;
+
+    border: none;
+
     outline: none;
 
     font-family: Vazirmatn, monospace, sans-serif;
@@ -44,21 +58,51 @@ button {
 }
 
 body {
-    background-color: var(--color-white-96);
+    background-color: var(--color-white-100);
     color: var(--solid-black);
+
+    popper-content {
+        /* stylelint-disable selector-class-pattern */
+        .ngxp__container {
+            background-color: var(--color-white-100);
+            color: var(--solid-black);
+            box-shadow: var(--shadow-slight);
+
+            z-index: 1;
+
+            padding: 0;
+
+            border: 0;
+
+            > .ngxp__arrow {
+                &::before {
+                    background-color: var(--color-body-background);
+                }
+            }
+        }
+
+        &.no-arrow {
+            .ngxp__container > .ngxp__arrow {
+                display: none;
+            }
+        }
+        /* stylelint-enable selector-class-pattern */
+    }
 }
 
 .btn {
-    background-color: var(--color-white-96);
-    color: var(--main-theme);
+    --button-color: var(--main-theme);
+    background-color: var(--color-white-100);
+    color: var(--button-color);
 
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
 
     padding: 0.8rem 1rem;
 
-    border: 0.2rem solid var(--main-theme);
+    border: 0.2rem solid var(--button-color);
     border-radius: var(--border-radius-norm);
 
     font-size: 2rem;
@@ -67,24 +111,24 @@ body {
     line-height: 1.5;
     vertical-align: middle;
 
+    transition: transform 0.3s ease;
+
     cursor: pointer;
+
+    &.warning {
+        --button-color: var(--warning-red);
+    }
 
     &:disabled {
         cursor: not-allowed;
     }
 
-    &:hover {
-        background-color: var(--main-theme);
-        color: var(--color-white-96);
+    &:hover:not(:disabled) {
+        transform: translateY(-0.2rem);
     }
 
     &--fill {
-        background-color: var(--main-theme);
-        color: var(--color-white-96);
-
-        &:hover {
-            background-color: var(--color-white-96);
-            color: var(--main-theme);
-        }
+        background-color: var(--button-color);
+        color: var(--color-white-100);
     }
 }

@@ -1,8 +1,8 @@
 .toast {
     &__container {
-        color: var(--color-white-96);
+        color: var(--color-white-100);
 
-        position: absolute;
+        position: fixed;
 
         inset-block-start: 3rem;
         inset-inline-start: 3rem;

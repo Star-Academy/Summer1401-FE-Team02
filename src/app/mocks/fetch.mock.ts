@@ -1,5 +1,6 @@
-import {USER_AUTHENTICATE, USER_LOGIN} from '../utils/api.utils';
+import {GAME_SEARCH, USER_AUTHENTICATE, USER_LOGIN, USER_UPDATE} from '../utils/api.utils';
 import {LoginUserData} from '../interfaces/LoginUserData.interface';
+import {GAMES} from '../data/Game.data';
 
 export const VALID_TOKEN: string =
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjMsImlhdCI6MTY1ODg4Mjc3Mn0._eFaFDUrI4JL5NS-d6f0J0dTgTyu51oc6AyoS7qHn0U';
@@ -51,6 +52,14 @@ export class FetchMock {
 
             if (url === USER_LOGIN && FetchMock.isEqual(body, VALID_USER_LOGIN_DATA))
                 return FetchMock.tokenObjectResponse;
+
+            if (url === USER_UPDATE) {
+                return new Response(JSON.stringify({}), {status: 200});
+            }
+
+            if (url === GAME_SEARCH && body) {
+                return new Response(JSON.stringify(GAMES), {status: 200});
+            }
         }
 
         return FetchMock.errorResponse;

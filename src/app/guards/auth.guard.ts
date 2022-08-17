@@ -9,6 +9,8 @@ import {AuthService} from '../services/auth.service';
 export class AuthGuard implements CanActivate {
     public constructor(private router: Router, private authService: AuthService) {}
 
+    private authRoutes = ['login', 'signup'];
+
     public async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
         if (await this.isAllowed(route)) return true;
 
@@ -18,11 +20,11 @@ export class AuthGuard implements CanActivate {
 
     private async isAllowed(route: ActivatedRouteSnapshot): Promise<boolean> {
         const isLoggedIn = await this.authService.isLoggedIn();
-        const wantsToNavigateToAuthPage =
-            !!route.routeConfig?.path?.startsWith('login') || !!route.routeConfig?.path?.startsWith('signup');
-        const wantsToNavigateToProfilePage = !!route.routeConfig?.path?.startsWith('profile');
+        const wantsToNavigateToAuthPage = !!this.authRoutes.find((authRoute) =>
+            route.routeConfig?.path?.toLowerCase().startsWith(authRoute)
+        );
 
-        if (isLoggedIn) return wantsToNavigateToProfilePage;
+        if (isLoggedIn) return !wantsToNavigateToAuthPage;
         return wantsToNavigateToAuthPage;
     }
 }

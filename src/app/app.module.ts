@@ -3,24 +3,34 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LandingPageModule} from './pages/landing-page/landing-page.module';
-import {NgxPopperjsModule} from 'ngx-popperjs';
 import {AuthModule} from './pages/auth/auth.module';
 import {ToastComponent} from './components/toast/toast.component';
-import {ProfileModule} from './pages/profile/profile/profile.module';
+import {ProfileModule} from './pages/profile/profile.module';
 import {AuthGuard} from './guards/auth.guard';
 import {FormsModule} from '@angular/forms';
+import {ArchiveModule} from './pages/archive/archive.module';
+import {GameModule} from './pages/game/game.module';
+import {BookmarkModule} from './pages/bookmark/bookmark.module';
+import {RouterModule} from '@angular/router';
+import {LayoutModule} from './Layout/layout/layout.module';
+import {SpinnerComponent} from './components/spinner/spinner.component';
 
 @NgModule({
-    declarations: [AppComponent, ToastComponent],
+    declarations: [AppComponent, ToastComponent, SpinnerComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
+        LayoutModule,
         LandingPageModule,
         AuthModule,
-        NgxPopperjsModule,
         BrowserModule,
         ProfileModule,
         FormsModule,
+        ArchiveModule,
+        GameModule,
+        BookmarkModule,
+        RouterModule,
+        RouterModule.forRoot([]),
     ],
     bootstrap: [AppComponent],
     providers: [AuthGuard],

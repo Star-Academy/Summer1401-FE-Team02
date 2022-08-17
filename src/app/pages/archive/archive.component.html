@@ -1,0 +1,42 @@
+<div class="archive">
+    <aside>
+        <app-filters></app-filters>
+    </aside>
+
+    <main>
+        <header>
+            <div class="archive__sorting">
+                <i class="far fa-arrow-down-wide-short"></i>
+
+                <div class="sorting__title">مرتب‌سازی:</div>
+
+                <ul>
+                    <li *ngFor="let sortType of sort" [class.active]="gameService.sort === sortType.sort">
+                        <button class="sortin__option" (click)="gameService.changeSort(sortType.sort)">
+                            {{ sortType.title }}
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="archive__count">
+                {{ gameService.count }}
+                کالا
+            </div>
+        </header>
+
+        <app-games></app-games>
+        <footer>
+            <button class="btn" [disabled]="gameService.offset === 0" (click)="gameService.changePage(-1)">
+                صفحه قبل
+            </button>
+            <button
+                class="btn"
+                [disabled]="gameService.offset >= gameService.count / gameService.PAGE_SIZE"
+                (click)="gameService.changePage(1)"
+            >
+                صفحه بعد
+            </button>
+        </footer>
+    </main>
+</div>

@@ -1,4 +1,5 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 import {SlideShowComponent} from './slide-show.component';
 
 describe('SlideShowComponent', () => {
@@ -9,6 +10,7 @@ describe('SlideShowComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [SlideShowComponent],
+            imports: [RouterTestingModule],
         }).compileComponents();
     });
 
@@ -29,13 +31,6 @@ describe('SlideShowComponent', () => {
 
     it('should start timeout', () => {
         expect(component.interval).toBeTruthy();
-    });
-
-    it('should increase active index', () => {
-        const nextButton = host.querySelector('[data-test-id="nextButton"]');
-        nextButton?.dispatchEvent(new Event('click'));
-        fixture.detectChanges();
-        expect(component.activeIndex).toEqual(1);
     });
 
     it('should decrease active index', () => {

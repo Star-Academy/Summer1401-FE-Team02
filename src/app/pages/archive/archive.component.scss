@@ -1,0 +1,75 @@
+.archive {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    min-block-size: 100vh;
+
+    margin-block: 3rem;
+
+    aside {
+        min-inline-size: 30rem;
+        inline-size: 30rem;
+    }
+
+    main {
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+
+        padding-inline-start: 1rem;
+
+        header {
+            align-self: flex-start;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+
+            inline-size: 80%;
+        }
+    }
+
+    &__sorting {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+        font-size: 1.5rem;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+
+            li {
+                opacity: 0.6;
+
+                list-style-type: none;
+
+                transition: opacity 0.2s ease;
+
+                button {
+                    cursor: pointer;
+                }
+
+                &.active {
+                    opacity: 1;
+
+                    button {
+                        color: var(--main-theme-29);
+                    }
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,11 @@
 .slideshow {
     position: relative;
 
+    min-block-size: 60rem;
+    max-inline-size: 170rem;
+
+    margin-inline: auto;
+
     ol {
         overflow: hidden;
 
@@ -32,7 +37,12 @@
             &::before {
                 content: "";
 
-                background-image: linear-gradient(to right, hsl(0deg 0 0 / 0%), hsl(0deg 0 96 / 95%));
+                background-image: linear-gradient(
+                    to left,
+                    hsl(0deg 0 0 / 0%) 0%,
+                    hsl(0deg 0 0 / 0%) 40%,
+                    hsl(0deg 0 96 / 95%)
+                );
 
                 position: absolute;
                 inset: 0;
@@ -63,6 +73,7 @@
         .banner-description {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             gap: 4rem;
 
             inline-size: 40rem;
@@ -70,6 +81,8 @@
             padding-inline: 4rem;
 
             font-size: 2rem;
+
+            text-align: left;
 
             text-justify: inter-word;
             line-height: 160%;
@@ -99,17 +112,19 @@
 
         .free-play {
             z-index: 999;
+
+            text-decoration: none;
         }
     }
 
     .control-buttons {
-        opacity: 0.8;
+        opacity: 0.9;
 
         position: absolute;
 
-        inset-block-end: 0;
-        inset-inline-start: 0;
-        inset-inline-end: 0;
+        inset-block-start: 50%;
+
+        inset-inline: 0;
 
         display: flex;
         flex-direction: row;
@@ -117,42 +132,47 @@
         justify-content: space-between;
         gap: 2rem;
 
-        block-size: 100%;
-
         inline-size: 100%;
 
         padding: 2rem;
 
+        transform: translateY(-50%);
+
         transition: opacity 0.1s ease-in-out;
 
         button {
-            background-color: hsl(0deg 0 72/40%);
+            background-color: hsl(0deg 0 72/60%);
+            box-shadow: hsl(0deg 0% 0% / 24%) 0 0.3rem 0.8rem;
 
             justify-content: center;
 
-            block-size: 5rem;
+            block-size: 8rem;
 
-            inline-size: 2rem;
+            inline-size: 4rem;
 
             border: 1rem;
             border-color: var(--dark-ground);
 
             border-radius: 999rem;
 
+            cursor: pointer;
+
             &:hover {
-                background-color: hsl(0deg 0 72/60%);
+                background-color: hsl(0deg 0 72/80%);
             }
         }
     }
 
     .bullets {
         display: flex;
+        flex-wrap: nowrap;
         align-content: center;
         justify-content: center;
 
         gap: 2rem;
 
         min-block-size: 1rem;
+        inline-size: 100%;
 
         padding: 0.5rem;
 
@@ -164,7 +184,7 @@
 
             block-size: 0.5rem;
 
-            inline-size: 20%;
+            inline-size: 100%;
 
             border-radius: var(--border-radius-norm);
 

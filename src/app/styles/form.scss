@@ -18,7 +18,7 @@ form {
 
     inline-size: 100%;
 
-    & > * {
+    > * {
         display: flex;
         flex-direction: column;
         align-items: stretch;
@@ -33,7 +33,8 @@ form {
         font-size: 1.5rem;
     }
 
-    input {
+    input,
+    select {
         background: transparent;
 
         inline-size: 100%;
@@ -47,11 +48,22 @@ form {
         font-size: 1.5rem;
 
         &:invalid {
-            border-block-color: var(--warning-red);
+            border-color: var(--warning-red);
         }
 
         &:focus {
             border-color: var(--main-theme);
+        }
+    }
+
+    > *.inputs-together {
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        > * {
+            inline-size: 50%;
         }
     }
 
@@ -60,9 +72,21 @@ form {
         flex-direction: column;
         gap: 1rem;
 
-        inline-size: inherit;
+        inline-size: 100%;
 
         padding-block-start: 2rem;
+
+        > *.buttons-together {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+
+            > * {
+                block-size: 4.5rem;
+            }
+        }
     }
 
     button {

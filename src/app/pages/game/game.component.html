@@ -1,0 +1,101 @@
+<main class="game">
+    <section class="game__overview column">
+        <div [title]="data.name" class="title-container" dir="ltr">
+            <h2>{{ data.name }}</h2>
+        </div>
+        <div class="rating-container row">
+            <span class="rating-star-container row">
+                <ng-container *ngFor="let _ of oneToFive; index as i">
+                    <div class="half-container">
+                        <i *ngIf="gameRate < 5 - i" class="fas fa-star-sharp gray-star"></i>
+
+                        <i
+                            *ngIf="gameRate >= 4.5 - i && gameRate < 5 - i"
+                            class="fas fa-star-sharp-half gold-star half-star"
+                        ></i>
+
+                        <i *ngIf="gameRate >= 5 - i" class="fas fa-star-sharp gold-star"></i>
+                    </div>
+                </ng-container>
+            </span>
+            <span class="rating-score-container">
+                {{ gameRate }}
+                از
+                {{ data.ratingCount }}
+                نظر
+            </span>
+        </div>
+        <div class="screenshot-container column">
+            <img
+                class="large-screenshot"
+                alt="تصویری از بازی"
+                [src]="selectedImage && (selectedImage.id | imageSrc: 'screenshot_big')"
+                loading="lazy"
+            />
+            <div class="thumbnail-container row">
+                <ng-container *ngFor="let screenshot of data.screenshots">
+                    <img
+                        alt="تصویری از بازی"
+                        [src]="screenshot.id | imageSrc: 'cover_small'"
+                        (click)="this.selectedImage = screenshot"
+                        loading="lazy"
+                    />
+                </ng-container>
+            </div>
+        </div>
+        <div class="storyline-container desc-text" dir="ltr">
+            <p>{{ data.storyline }}</p>
+        </div>
+        <div class="summary-container desc-text">
+            <p>{{ data.summary }}</p>
+        </div>
+    </section>
+    <section class="game__detail column">
+        <div class="cover-container">
+            <img alt="پوستر بازی" [src]="data.cover && (data.cover.id | imageSrc: 'cover_big')" loading="lazy" />
+        </div>
+        <div class="buttons-container column">
+            <button
+                *ngIf="gameService.isInFavorites(data.id); else unfavorited"
+                class="btn btn--fill warning"
+                (click)="gameService.removeFromFavorites(data.id)"
+            >
+                <i class="fa-solid fa-heart"></i>
+                حذف از علاقه‌مندی‌ها
+            </button>
+            <ng-template #unfavorited>
+                <button class="btn btn--fill" (click)="gameService.addToFavorites(data.id)">
+                    <i class="fa-solid fa-heart"></i>
+                    افزودن به علاقه‌مندی‌ها
+                </button>
+            </ng-template>
+
+            <button
+                *ngIf="gameService.isInWishlist(data.id); else unwishlisted"
+                class="btn warning"
+                (click)="gameService.removeFromWishlist(data.id)"
+            >
+                <i class="fa-solid fa-bookmark"></i>
+                حذف از لیست آرزو‌ها
+            </button>
+            <ng-template #unwishlisted>
+                <button class="btn" (click)="gameService.addToWishlist(data.id)">
+                    <i class="fa-solid fa-bookmark"></i>
+                    افزودن به لیست آرزو‌ها
+                </button>
+            </ng-template>
+        </div>
+        <div class="genres-container row detail-container">
+            <h3 class="detail-title">ژانرها</h3>
+            <ng-container *ngFor="let genre of genres">
+                <i class="tag-label">{{ genre }}</i>
+            </ng-container>
+        </div>
+        <div class="platforms-container row detail-container">
+            <h3 class="detail-title">پلتفرم‌ها</h3>
+            <ng-container *ngFor="let platform of platforms">
+                <i class="tag-label">{{ platform }}</i>
+            </ng-container>
+        </div>
+    </section>
+</main>

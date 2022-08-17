@@ -1,0 +1,199 @@
+.game {
+    display: flex;
+    gap: 4rem;
+
+    padding-inline: 2rem;
+
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    &__overview {
+        gap: 3rem;
+
+        inline-size: 70vw;
+
+        .title-container {
+            overflow: hidden;
+
+            block-size: 7rem;
+
+            font-size: 3rem;
+            font-weight: lighter;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .rating-container {
+            flex-direction: row-reverse;
+            align-items: end;
+            justify-content: end;
+            gap: 2rem;
+
+            .rating-star-container {
+                gap: 0.1rem;
+
+                font-size: 4rem;
+
+                .gray-star {
+                    color: var(--shadow-gray);
+                }
+
+                .gold-star {
+                    color: var(--star-yellow);
+                }
+
+                .half-star {
+                    position: absolute;
+                    inset-inline-start: 0;
+
+                    padding-block-start: 0.57rem;
+                }
+
+                .half-container {
+                    position: relative;
+
+                    block-size: 4rem;
+                }
+
+                > * {
+                    &:hover {
+                        opacity: 0.6;
+                    }
+                }
+            }
+
+            .rating-score-container {
+                font-size: 2rem;
+            }
+        }
+
+        .screenshot-container {
+            gap: 2rem;
+
+            inline-size: 90%;
+
+            margin-inline: auto;
+
+            .large-screenshot {
+                box-shadow: var(--shadow-gray) 0 0.2rem 0.8rem 0;
+
+                block-size: 65vh;
+                inline-size: 100%;
+                object-fit: cover;
+
+                border: 0.1rem var(--color-gray-20);
+                border-radius: 1rem;
+            }
+
+            .thumbnail-container {
+                overflow-x: auto;
+
+                gap: 1rem;
+
+                max-inline-size: 100%;
+
+                padding-block: 1rem;
+
+                > * {
+                    box-shadow: var(--color-gray-20) x 0.8rem 0;
+
+                    object-fit: cover;
+
+                    border-radius: 1rem;
+
+                    cursor: pointer;
+
+                    &:hover {
+                        z-index: 999;
+
+                        transform: translateY(-2%);
+                    }
+                }
+            }
+        }
+
+        .desc-text {
+            padding-block-end: 3rem;
+
+            padding-inline: 3rem;
+
+            font-size: 2rem;
+
+            text-align: justify;
+        }
+    }
+
+    &__detail {
+        inline-size: 30vw;
+
+        .cover-container {
+            min-block-size: 35rem;
+
+            margin: 0 auto;
+
+            padding: 1rem;
+
+            > img {
+                box-shadow: var(--color-gray-20) 0 0.2rem 0.8rem 0;
+
+                border-radius: 1rem;
+            }
+        }
+
+        .buttons-container {
+            gap: 1rem;
+
+            block-size: 15rem;
+
+            > * {
+                inline-size: 100%;
+            }
+        }
+
+        .detail-title {
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+
+        .detail-container {
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            min-block-size: 7rem;
+
+            padding-block: 2rem;
+
+            border-block-color: var(--dark-gray);
+            border-block-style: solid;
+            border-block-width: 0.05rem;
+        }
+
+        .tag-label {
+            background-color: var(--color-gray-20);
+            box-shadow: var(--color-gray-20) 0 0.2rem 0.8rem 0;
+
+            align-items: center;
+
+            block-size: 3rem;
+            max-inline-size: max-content;
+
+            padding-block: 0.5rem;
+            padding-inline: 1rem;
+
+            border-radius: 3rem;
+
+            font-size: 1.6rem;
+            font-style: normal;
+
+            text-align: center;
+        }
+    }
+}

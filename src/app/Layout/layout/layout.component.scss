@@ -1,0 +1,13 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    min-block-size: 100vh;
+}
+
+.wrapper {
+    flex-grow: 1;
+
+    padding: 2rem 10rem;
+}

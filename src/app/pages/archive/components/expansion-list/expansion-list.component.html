@@ -1,0 +1,25 @@
+<div class="expand__wrapper">
+    <header (click)="isExpanded = !isExpanded">
+        {{ title }}
+
+        <i class="far fa-chevron-left" [class.expanded]="isExpanded"></i>
+    </header>
+
+    <div class="expand__container" *ngIf="isExpanded">
+        <app-search-box [(value)]="searchPhrase"></app-search-box>
+
+        <ul>
+            <li *ngFor="let item of items | filter: searchPhrase">
+                <label [for]="item.id + item.title">
+                    <input
+                        [id]="item.id + item.title"
+                        type="checkbox"
+                        [ngModel]="item.isEnabled"
+                        (ngModelChange)="emitItems(item, $event)"
+                    />
+                    {{ item.title }}
+                </label>
+            </li>
+        </ul>
+    </div>
+</div>

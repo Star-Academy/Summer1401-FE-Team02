@@ -1,30 +1,38 @@
 import {Injectable} from '@angular/core';
 import {Error} from '../interfaces/Error.interface';
-import {POST_INIT} from '../utils/api.utils';
+import {DELETE_INIT, POST_INIT} from '../utils/api.utils';
 import {ToastService} from './toast.service';
-import {ToastType} from './ToastType.enum';
+import {ToastType} from '../enums/ToastType.enum';
+import {SpinnerService} from './spinner.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ApiService {
-    public constructor(private toastService: ToastService) {}
+    public constructor(private toastService: ToastService, private spinnerService: SpinnerService) {}
 
     private async fetchData<T>(
         url: string,
         init: Partial<RequestInit> = {},
         toastOnError: boolean = false
     ): Promise<T | null> {
-        let response = await fetch(url, init);
-        let data = await response.json();
+        return this.spinnerService.wrapAsync(async () => {
+            const response = await fetch(url, init);
+            let data = null;
 
-        if (response.ok) {
-            return data as T;
-        }
+            try {
+                data = await response.json();
+            } catch (error) {
+                if (response.ok) {
+                    data = true;
+                }
+            }
 
-        toastOnError && this.toastService.show((data as Error).message, ToastType.WARNING);
+            if (response.ok) return data as T;
 
-        return null;
+            toastOnError && this.toastService.show((data as Error).message, ToastType.WARNING);
+            return null;
+        });
     }
 
     public async post<T>(
@@ -42,5 +50,14 @@ export class ApiService {
         toastOnError: boolean = false
     ): Promise<T | null> {
         return await this.fetchData(url, init, toastOnError);
+    }
+
+    public async delete<T>(
+        url: string,
+        body: any = '',
+        init: Partial<RequestInit> = {},
+        toastOnError: boolean = false
+    ): Promise<T | null> {
+        return await this.fetchData(url, {...DELETE_INIT, body: JSON.stringify(body), ...init}, toastOnError);
     }
 }

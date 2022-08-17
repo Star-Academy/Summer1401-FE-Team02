@@ -1,10 +1,19 @@
 import {Injectable} from '@angular/core';
 import {User} from '../interfaces/User.interface';
 import {ApiService} from './api.service';
-import {USER_AUTHENTICATE, USER_LOGIN, USER_ONE, USER_SIGNUP} from '../utils/api.utils';
+import {
+    USER_AUTHENTICATE,
+    USER_LOGIN,
+    USER_ONE,
+    USER_PASSWORD_UPDATE,
+    USER_SIGNUP,
+    USER_UPDATE,
+} from '../utils/api.utils';
 import {TokenObject} from '../interfaces/TokenObject.interface';
 import {IdObject} from '../interfaces/IdObject';
 import {LoginUserData} from '../interfaces/LoginUserData.interface';
+import {ChangePasswordData} from '../interfaces/ChangePasswordData';
+import {GameService} from './game.service';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +23,7 @@ export class AuthService {
     public cachedUserId: number | null = null;
     public cachedUser: User | null = null;
 
-    public constructor(private apiService: ApiService) {}
+    public constructor(private apiService: ApiService, private gameService: GameService) {}
 
     public get token(): string {
         return localStorage.getItem('token') || '';
@@ -40,6 +49,21 @@ export class AuthService {
         return !!data;
     }
 
+    public async updateUser(user: Partial<User>): Promise<boolean> {
+        const data = await this.apiService.post<User>(USER_UPDATE, user, {}, true);
+
+        if (data) {
+            this.cachedUser = await this.fetchUserInfo();
+        }
+
+        return !!data;
+    }
+
+    public async updatePassword(changePasswordData: ChangePasswordData): Promise<boolean> {
+        const data = await this.apiService.post<User>(USER_PASSWORD_UPDATE, changePasswordData, {}, true);
+        return !!data;
+    }
+
     public async auth(): Promise<boolean> {
         const token = localStorage.getItem('token') || '';
 
@@ -62,12 +86,17 @@ export class AuthService {
         this.saveCache(null, false, null);
     }
 
-    private async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {
+    public async saveCache(token: string | null, isLoggedIn: boolean, userId: number | null): Promise<void> {
         if (!!token) localStorage.setItem('token', token);
         else localStorage.removeItem('token');
 
         this.cachedIsLoggedIn = isLoggedIn;
         this.cachedUserId = userId;
+
+        if (isLoggedIn) {
+            this.gameService.getFavorites();
+            this.gameService.getWishlist();
+        }
 
         if (this.cachedUserId) this.cachedUser = await this.fetchUserInfo();
     }

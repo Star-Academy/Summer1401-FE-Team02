@@ -1,12 +1,12 @@
 .card {
-    --info-offset: 82%;
+    --info-offset: 80%;
 
     box-shadow: var(--shadow-slight);
 
     position: relative;
     overflow: hidden;
 
-    block-size: 35rem;
+    block-size: 30rem;
 
     inline-size: 25rem;
 
@@ -34,7 +34,6 @@
 
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         justify-content: space-between;
 
         block-size: 100%;
@@ -49,19 +48,15 @@
 
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-start;
 
             inline-size: 100%;
+
+            text-align: left;
         }
     }
 
     &__title {
-        align-self: flex-end;
-
         color: var(--main-theme);
-
-        direction: ltr;
 
         overflow: hidden;
 
@@ -70,15 +65,29 @@
         font-size: 2rem;
         font-weight: 500;
 
+        text-decoration: none;
+
         text-overflow: ellipsis;
 
         white-space: nowrap;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 
-    &__price {
-        color: var(--solid-black);
+    &__rating {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
 
-        font-size: 1.7rem;
+        font-size: 1.5rem;
+
+        i {
+            color: var(--star-yellow);
+
+            text-shadow: 0 0 1rem 0 var(--shadow-slight);
+        }
     }
 
     &__desc {
@@ -106,5 +115,9 @@
         flex-direction: row;
         align-items: center;
         gap: 1em;
+
+        > * {
+            inline-size: 18%;
+        }
     }
 }

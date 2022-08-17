@@ -1,28 +1,28 @@
 <div class="slideshow" [style.--active-index]="activeIndex">
     <ol>
         <li *ngFor="let banner of banners; index as index" [class.active]="index === activeIndex">
-            <img [src]="banner.imageAddress" />
-            <div class="overlay">
+            <img [src]="banner.screenshots![0] && banner.screenshots![0].id | imageSrc: '720p'" loading="lazy" />
+            <div class="overlay" dir="ltr">
                 <div class="banner-description">
                     <h2 class="banner-description__title">
-                        {{ banner.title }}
+                        {{ banner.name }}
                     </h2>
                     <p class="banner-description__text">
-                        {{ banner.description }}
+                        {{ banner.summary }}
                     </p>
                 </div>
-                <div class="control-buttons">
-                    <button data-test-id="prevButton" (click)="changeActiveIndex(activeIndex - 1)">
-                        <i class="far fa-angle-right"></i>
-                    </button>
-                    <button data-test-id="nextButton" (click)="changeActiveIndex(activeIndex + 1)">
-                        <i class="far fa-angle-left"></i>
-                    </button>
-                </div>
-                <button class="btn free-play">امروز رایگان بازی کنید!</button>
+                <a [routerLink]="'/game/' + banner.id" class="btn free-play">مشاهده اطلاعات بیشتر</a>
             </div>
         </li>
     </ol>
+    <div class="control-buttons">
+        <button data-test-id="prevButton" (click)="changeActiveIndex(activeIndex - 1)">
+            <i class="far fa-angle-right"></i>
+        </button>
+        <button data-test-id="nextButton" (click)="changeActiveIndex(activeIndex + 1)">
+            <i class="far fa-angle-left"></i>
+        </button>
+    </div>
     <div class="bullets">
         <i *ngFor="let _ of banners; index as index" [class.active]="index === activeIndex"></i>
     </div>

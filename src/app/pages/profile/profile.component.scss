@@ -1,0 +1,230 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__banner {
+        background: var(--main-theme-15);
+        background: linear-gradient(
+            45deg,
+            var(--main-theme-15) 0%,
+            var(--main-theme-29) 35%,
+            var(--main-theme-80) 100%
+        );
+
+        display: flex;
+        align-items: end;
+        justify-items: center;
+        gap: 4rem;
+
+        block-size: 50rem;
+
+        padding: 5rem;
+
+        &--avatar {
+            background-color: var(--color-gray-20);
+            color: var(--dark-ground);
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            block-size: 30vh;
+            inline-size: 30vh;
+
+            border-radius: 50%;
+
+            font-size: 10rem;
+
+            text-align: center;
+
+            img {
+                box-shadow: hsl(240deg 21% 8% / 10%) 0 0.4rem 1.6rem, hsl(240deg 21% 8% / 10%) 0 0.8rem 2.4rem,
+                    hsl(240deg 21% 8% / 10%) 0 1.6rem 5.6rem;
+
+                block-size: 30vh;
+                inline-size: 30vh;
+
+                object-fit: cover;
+
+                border-radius: 50%;
+
+                font-size: 3rem;
+
+                line-height: 13vh;
+            }
+
+            .image-button {
+                background-color: var(--dark-gray);
+                color: var(--color-white-64);
+                box-shadow: hsl(240deg 21% 8% / 10%) 0 0.4rem 1.6rem, hsl(240deg 21% 8% / 10%) 0 0.8rem 2.4rem,
+                    hsl(240deg 21% 8% / 10%) 0 1.6rem 5.6rem;
+
+                position: absolute;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                block-size: 5rem;
+                inline-size: 5rem;
+
+                border-radius: 50%;
+
+                font-size: 3rem;
+
+                cursor: pointer;
+
+                &.add {
+                    inset-block-end: 0.3rem;
+                    inset-inline-start: 0.3rem;
+                }
+
+                &.remove {
+                    inset-block-end: 0.3rem;
+                    inset-inline-end: 0.3rem;
+                }
+
+                :hover {
+                    background-color: var(--darker-gray);
+
+                    inset-block-end: 0.2rem;
+                    inset-inline-start: 0.2rem;
+
+                    border-radius: 50%;
+                }
+
+                :focus {
+                    block-size: 3.9rem;
+                    inline-size: 3.9rem;
+                }
+            }
+
+            .add-image-input {
+                display: none;
+            }
+        }
+
+        &--basic-info {
+            display: flex;
+            flex-direction: column;
+
+            text-align: right;
+        }
+
+        &--liked {
+            color: var(--color-white-100);
+
+            display: flex;
+            gap: 3rem;
+
+            margin-inline-start: auto;
+
+            .liked-games {
+                display: flex;
+                flex-direction: column;
+
+                font-size: x-large;
+
+                text-align: center;
+
+                > * {
+                    display: block;
+                    align-items: center;
+
+                    font-style: normal;
+                }
+
+                > a {
+                    color: var(--color-white-100);
+
+                    font-size: xxx-large;
+
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        &--title {
+            position: relative;
+
+            margin-block-end: 3rem;
+
+            font-size: 2.5rem;
+
+            &::after {
+                content: "";
+
+                background-color: var(--main-theme);
+
+                position: absolute;
+                inset-block-start: 100%;
+                inset-inline-start: 0;
+
+                block-size: 0.7rem;
+
+                inline-size: 60%;
+
+                border-radius: var(--border-radius-norm);
+            }
+        }
+
+        &--form {
+            box-shadow: var(--shadow-slight);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            min-inline-size: 40rem;
+            inline-size: 50%;
+            max-inline-size: 100%;
+
+            margin-block-end: 2rem;
+
+            padding: 3rem;
+
+            border-radius: 2rem;
+
+            #date-of-birth-input {
+                position: absolute;
+                inset-inline: 0;
+            }
+
+            .block-label {
+                display: block;
+            }
+
+            .relative {
+                position: relative;
+            }
+        }
+    }
+}
+
+.larger {
+    color: var(--dark-ground);
+
+    font-size: 3.6rem;
+    font-weight: bold;
+}
+
+.smaller {
+    color: var(--shadow-gray);
+
+    font-size: 2.2rem;
+}
+
+.no-pointer-event {
+    pointer-events: none;
+}
